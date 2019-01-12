@@ -1,4 +1,4 @@
-package com.github.svyaz;
+package com.github.svyaz.javalearning.range;
 
 public class Range {
     private static final double EPSILON = 1e-10;

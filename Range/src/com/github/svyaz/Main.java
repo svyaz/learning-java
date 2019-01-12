@@ -1,5 +1,6 @@
 package com.github.svyaz;
 
+import com.github.svyaz.javalearning.range.Range;
 import java.util.Arrays;
 
 public class Main {
