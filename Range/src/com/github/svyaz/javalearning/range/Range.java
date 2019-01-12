@@ -48,7 +48,7 @@ public class Range {
     }
 
     public Range getCrossing(Range range) {
-        if (this.to < range.from || range.to < this.from) {
+        if (this.to <= range.from || range.to <= this.from) {
             // they not crossing
             return null;
         } else {
@@ -74,7 +74,7 @@ public class Range {
     }
 
     public Range[] getSubtraction(Range range) {
-        if (this.to < range.from || range.to < this.from) {
+        if (this.to <= range.from || range.to <= this.from) {
             // they not crossing
             return new Range[]{new Range(this.getFrom(), this.getTo())};
         } else {
