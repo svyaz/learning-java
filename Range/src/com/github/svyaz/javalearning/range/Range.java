@@ -5,7 +5,6 @@ public class Range {
     private static final String EXCEPTION_MESSAGE = "'from' cannot be greater than 'to'.";
     private double from;
     private double to;
-    private double length;
 
     public Range(double from, double to) throws IllegalArgumentException {
         if (from > to) {
@@ -13,7 +12,6 @@ public class Range {
         }
         this.from = from;
         this.to = to;
-        setLength();
     }
 
     public double getFrom() {
@@ -25,7 +23,6 @@ public class Range {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE);
         }
         this.from = from;
-        setLength();
     }
 
     public double getTo() {
@@ -37,15 +34,10 @@ public class Range {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE);
         }
         this.to = to;
-        setLength();
     }
 
     public double getLength() {
-        return length;
-    }
-
-    private void setLength() {
-        length = to - from;
+        return to - from;
     }
 
     public String toString() {
