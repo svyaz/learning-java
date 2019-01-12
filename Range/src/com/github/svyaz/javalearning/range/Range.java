@@ -62,7 +62,9 @@ public class Range {
     public Range[] getUnion(Range range) {
         if (this.to < range.from || range.to < this.from) {
             // they not crossing
-            return new Range[]{this, range};
+            Range newRange1 = new Range(this.getFrom(), this.getTo());
+            Range newRange2 = new Range(range.getFrom(), range.getTo());
+            return new Range[]{newRange1, newRange2};
         } else {
             // they crossing
             double newFrom = Math.min(this.from, range.from);
@@ -74,7 +76,7 @@ public class Range {
     public Range[] getSubtraction(Range range) {
         if (this.to < range.from || range.to < this.from) {
             // they not crossing
-            return new Range[]{this};
+            return new Range[]{new Range(this.getFrom(), this.getTo())};
         } else {
             // they crossing
             double newFrom = Math.min(this.from, range.from);

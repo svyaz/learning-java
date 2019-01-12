@@ -104,10 +104,12 @@ public class RangeTest {
         Range range1 = new Range(1, 2);
         Range range2 = new Range(4, 5);
         Range[] ranges = range1.getUnion(range2);
-        // Проверяем что в массиве 2 элемента - range1 и range2
+        // Проверяем что в массиве 2 элемента - новые объекты с такими же свойствами как у range1 и range2.
         Assert.assertTrue(ranges.length == 2 &&
-                ranges[0] == range1 &&
-                ranges[1] == range2);
+                ranges[0] != range1 &&
+                ranges[1] != range2 &&
+                ranges[0].getFrom() == range1.getFrom() && ranges[0].getTo() == range1.getTo() &&
+                ranges[1].getFrom() == range2.getFrom() && ranges[1].getTo() == range2.getTo());
     }
 
     @Test
@@ -126,8 +128,9 @@ public class RangeTest {
         Range range1 = new Range(1, 2);
         Range range2 = new Range(4, 5);
         Range[] ranges = range1.getSubtraction(range2);
-        // Проверяем что в массиве один элемент - range1
+        // Проверяем что в массиве один элемент - новый объект range1 с такими же свойствами как у range1
         Assert.assertTrue(ranges.length == 1 &&
-            ranges[0] == range1);
+                ranges[0] != range1 &&
+                ranges[0].getFrom() == range1.getFrom() && ranges[0].getTo() == range1.getTo());
     }
 }
