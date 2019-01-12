@@ -1,0 +1,133 @@
+import com.github.svyaz.javalearning.range.Range;
+import org.junit.Assert;
+import org.junit.Test;
+
+public class RangeTest {
+    private static final double EPSILON = 1e-10;
+
+    @Test
+    public void constructorTest() {
+        Range range = new Range(4, 5);
+        Assert.assertEquals(1.0, range.getLength(), EPSILON);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void constructorExceptionTest() {
+        new Range(5, 4);
+    }
+
+    @Test
+    public void getFromTest() {
+        Range range = new Range(4, 5);
+        Assert.assertEquals(4.0, range.getFrom(), EPSILON);
+    }
+
+    @Test
+    public void getToTest() {
+        Range range = new Range(4, 5);
+        Assert.assertEquals(5.0, range.getTo(), EPSILON);
+    }
+
+    @Test
+    public void setFromTest() {
+        Range range = new Range(4, 5);
+        range.setFrom(3);
+        Assert.assertEquals(2.0, range.getLength(), EPSILON);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setFromExceptionTest() {
+        Range range = new Range(4, 5);
+        range.setFrom(6);
+    }
+
+    @Test
+    public void setToTest() {
+        Range range = new Range(4, 5);
+        range.setTo(6);
+        Assert.assertEquals(2.0, range.getLength(), EPSILON);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setToExceptionTest() {
+        Range range = new Range(4, 5);
+        range.setTo(3);
+    }
+
+    @Test
+    public void toStringTest() {
+        Range range = new Range(4, 5);
+        Assert.assertEquals(range.toString(), "[4.0, 5.0]");
+    }
+
+    @Test
+    public void isInsideTrueTest() {
+        Range range = new Range(4, 5);
+        Assert.assertTrue(range.isInside(4.5));
+    }
+
+    @Test
+    public void isInsideFalseTest() {
+        Range range = new Range(4, 5);
+        Assert.assertFalse(range.isInside(3.5));
+    }
+
+    @Test
+    public void getCrossingTest() {
+        Range range1 = new Range(1, 4);
+        Range range2 = new Range(2, 5);
+        Range crossRange = range1.getCrossing(range2);
+        Assert.assertTrue(crossRange.getFrom() == 2.0 &&
+                crossRange.getTo() == 4.0);
+    }
+
+    @Test
+    public void getCrossingNullTest() {
+        Range range1 = new Range(1, 2);
+        Range range2 = new Range(4, 5);
+        Assert.assertNull(range1.getCrossing(range2));
+    }
+
+    @Test
+    public void getUnionCrossTest() {
+        Range range1 = new Range(1, 4);
+        Range range2 = new Range(2, 5);
+        Range[] ranges = range1.getUnion(range2);
+        // Проверяем что в массиве один элемент - [1.0, 5.0]
+        Assert.assertTrue(ranges.length == 1 &&
+                ranges[0].getFrom() == 1.0 &&
+                ranges[0].getTo() == 5.0);
+    }
+
+    @Test
+    public void getUnionNotCrossTest() {
+        Range range1 = new Range(1, 2);
+        Range range2 = new Range(4, 5);
+        Range[] ranges = range1.getUnion(range2);
+        // Проверяем что в массиве 2 элемента - range1 и range2
+        Assert.assertTrue(ranges.length == 2 &&
+                ranges[0] == range1 &&
+                ranges[1] == range2);
+    }
+
+    @Test
+    public void getSubtractionCrossTest() {
+        Range range1 = new Range(1, 4);
+        Range range2 = new Range(2, 5);
+        Range[] ranges = range1.getSubtraction(range2);
+        // Проверяем что в массиве один элемент - [1.0, 2.0]
+        Assert.assertTrue(ranges.length == 1 &&
+                ranges[0].getFrom() == 1.0 &&
+                ranges[0].getTo() == 2.0);
+    }
+
+    @Test
+    public void getSubtractionNotCrossTest() {
+        Range range1 = new Range(1, 2);
+        Range range2 = new Range(4, 5);
+        Range[] ranges = range1.getSubtraction(range2);
+        // Проверяем что в массиве один элемент - range1
+        Assert.assertTrue(ranges.length == 1 &&
+            ranges[0] == range1);
+    }
+}
