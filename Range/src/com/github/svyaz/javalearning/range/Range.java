@@ -1,7 +1,6 @@
 package com.github.svyaz.javalearning.range;
 
 public class Range {
-    private static final double EPSILON = 1e-10;
     private static final String EXCEPTION_MESSAGE = "'from' cannot be greater than 'to'.";
     private double from;
     private double to;
@@ -45,7 +44,7 @@ public class Range {
     }
 
     public boolean isInside(double number) {
-        return number - from > Range.EPSILON && to - number > Range.EPSILON;
+        return from <= number && number <= to;
     }
 
     public Range getCrossing(Range range) {
