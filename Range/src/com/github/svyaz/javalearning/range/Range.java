@@ -79,9 +79,20 @@ public class Range {
             return new Range[]{new Range(this.getFrom(), this.getTo())};
         } else {
             // they crossing
-            double newFrom = Math.min(this.from, range.from);
-            double newTo = Math.max(this.from, range.from);
-            return new Range[]{new Range(newFrom, newTo)};
+            if (this.getFrom() != range.getFrom()) {
+                // left borders not equal
+                double newFrom = Math.min(this.from, range.from);
+                double newTo = Math.max(this.from, range.from);
+                return new Range[]{new Range(newFrom, newTo)};
+            } else if (this.getFrom() == range.getFrom() && this.getTo() == range.getTo()) {
+                // ranges completely equal
+                return null;
+            } else {
+                // left borders equal, right borders not equal
+                double newFrom = Math.min(this.to, range.to);
+                double newTo = Math.max(this.to, range.to);
+                return new Range[]{new Range(newFrom, newTo)};
+            }
         }
     }
 }

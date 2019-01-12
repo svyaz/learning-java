@@ -113,7 +113,20 @@ public class RangeTest {
     }
 
     @Test
-    public void getSubtractionCrossTest() {
+    public void getSubtractionNotCrossTest() {
+        // когда отрезки полностью не пересекаются
+        Range range1 = new Range(1, 2);
+        Range range2 = new Range(4, 5);
+        Range[] ranges = range1.getSubtraction(range2);
+        // Проверяем что в массиве один элемент - новый объект с такими же свойствами как у range1
+        Assert.assertTrue(ranges.length == 1 &&
+                ranges[0] != range1 &&
+                ranges[0].getFrom() == range1.getFrom() && ranges[0].getTo() == range1.getTo());
+    }
+
+    @Test
+    public void getSubtractionCross1Test() {
+        // отрезки пересекаются и левая граница не совпадает
         Range range1 = new Range(1, 4);
         Range range2 = new Range(2, 5);
         Range[] ranges = range1.getSubtraction(range2);
@@ -124,13 +137,22 @@ public class RangeTest {
     }
 
     @Test
-    public void getSubtractionNotCrossTest() {
-        Range range1 = new Range(1, 2);
-        Range range2 = new Range(4, 5);
+    public void getSubtractionCross2Test() {
+        // отрезки пересекаются и левая граница совпадает
+        Range range1 = new Range(1, 4);
+        Range range2 = new Range(1, 5);
         Range[] ranges = range1.getSubtraction(range2);
-        // Проверяем что в массиве один элемент - новый объект range1 с такими же свойствами как у range1
+        // Проверяем что в массиве один элемент - [4.0, 5.0]
         Assert.assertTrue(ranges.length == 1 &&
-                ranges[0] != range1 &&
-                ranges[0].getFrom() == range1.getFrom() && ranges[0].getTo() == range1.getTo());
+                ranges[0].getFrom() == 4.0 &&
+                ranges[0].getTo() == 5.0);
+    }
+
+    @Test
+    public void getSubtractionCross3Test() {
+        // отрезки пересекаются и границы полностью совпадают, должен вернуться null.
+        Range range1 = new Range(1, 4);
+        Range range2 = new Range(1, 4);
+        Assert.assertNull(range1.getSubtraction(range2));
     }
 }
