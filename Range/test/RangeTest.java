@@ -126,9 +126,9 @@ public class RangeTest {
 
     @Test
     public void getSubtractionCross1Test() {
-        // отрезки пересекаются и левая граница не совпадает
+        // отрезки пересекаются: range1.from < range2.from && range1.to <= range2.to
         Range range1 = new Range(1, 4);
-        Range range2 = new Range(2, 5);
+        Range range2 = new Range(2, 4);
         Range[] ranges = range1.getSubtraction(range2);
         // Проверяем что в массиве один элемент - [1.0, 2.0]
         Assert.assertTrue(ranges.length == 1 &&
@@ -138,21 +138,35 @@ public class RangeTest {
 
     @Test
     public void getSubtractionCross2Test() {
-        // отрезки пересекаются и левая граница совпадает
-        Range range1 = new Range(1, 4);
-        Range range2 = new Range(1, 5);
+        // отрезки пересекаются: range1.from < range2.from && range1.to > range2.to
+        Range range1 = new Range(1, 5);
+        Range range2 = new Range(2, 4);
         Range[] ranges = range1.getSubtraction(range2);
-        // Проверяем что в массиве один элемент - [4.0, 5.0]
-        Assert.assertTrue(ranges.length == 1 &&
-                ranges[0].getFrom() == 4.0 &&
-                ranges[0].getTo() == 5.0);
+        // Проверяем что в массиве 2 элемента - [1.0, 2.0], [4.0, 5.0]
+        Assert.assertTrue(ranges.length == 2 &&
+                ranges[0].getFrom() == 1.0 && ranges[0].getTo() == 2.0 &&
+                ranges[1].getFrom() == 4.0 && ranges[1].getTo() == 5.0);
     }
 
     @Test
     public void getSubtractionCross3Test() {
-        // отрезки пересекаются и границы полностью совпадают, должен вернуться Range[] длины 0.
+        // отрезки пересекаются: range1.from >= range2.from && range1.to > range2.to
         Range range1 = new Range(1, 4);
-        Range range2 = new Range(1, 4);
-        Assert.assertEquals(range1.getSubtraction(range2).length, 0);
+        Range range2 = new Range(1, 2);
+        Range[] ranges = range1.getSubtraction(range2);
+        // Проверяем что в массиве один элемент - [2.0, 4.0]
+        Assert.assertTrue(ranges.length == 1 &&
+                ranges[0].getFrom() == 2.0 &&
+                ranges[0].getTo() == 4.0);
+    }
+
+    @Test
+    public void getSubtractionCross4Test() {
+        // отрезки пересекаются: range1.from >= range2.from && range1.to <= range2.to
+        Range range1 = new Range(1, 4);
+        Range range2 = new Range(0, 6);
+        Range[] ranges = range1.getSubtraction(range2);
+        // Проверяем что возвращается пустой массив Ranges[]
+        Assert.assertEquals(ranges.length, 0);
     }
 }

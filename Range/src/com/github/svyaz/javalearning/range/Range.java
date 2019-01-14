@@ -72,24 +72,23 @@ public class Range {
     }
 
     public Range[] getSubtraction(Range range) {
+        // Not crossing
         if (this.to <= range.from || range.to <= this.from) {
-            // they not crossing
             return new Range[]{new Range(this.from, this.to)};
         }
-        // they crossing
-        if (this.from != range.from) {
-            // left borders not equal
-            double newFrom = Math.min(this.from, range.from);
-            double newTo = Math.max(this.from, range.from);
-            return new Range[]{new Range(newFrom, newTo)};
+        // Crossing cases (left)
+        if (this.from < range.from) {
+            Range leftRange = new Range(this.from, range.from);
+            if (this.to > range.to) {
+                Range rightRange = new Range(range.to, this.to);
+                return new Range[]{leftRange, rightRange};
+            }
+            return new Range[]{leftRange};
         }
-        if (this.from == range.from && this.to == range.to) {
-            // ranges completely equal
-            return new Range[]{};
+        // Crossing cases (right)
+        if (this.to > range.to) {
+            return new Range[]{new Range(range.to, this.to)};
         }
-        // left borders equal, right borders not equal
-        double newFrom = Math.min(this.to, range.to);
-        double newTo = Math.max(this.to, range.to);
-        return new Range[]{new Range(newFrom, newTo)};
+        return new Range[]{};
     }
 }
