@@ -5,7 +5,6 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-
         try {
             Range range = new Range(3.4, 24.1904);
             System.out.println("My range: " + range.toString());
