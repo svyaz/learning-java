@@ -150,9 +150,9 @@ public class RangeTest {
 
     @Test
     public void getSubtractionCross3Test() {
-        // отрезки пересекаются и границы полностью совпадают, должен вернуться null.
+        // отрезки пересекаются и границы полностью совпадают, должен вернуться Range[] длины 0.
         Range range1 = new Range(1, 4);
         Range range2 = new Range(1, 4);
-        Assert.assertNull(range1.getSubtraction(range2));
+        Assert.assertEquals(range1.getSubtraction(range2).length, 0);
     }
 }

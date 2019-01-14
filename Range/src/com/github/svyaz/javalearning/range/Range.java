@@ -85,7 +85,7 @@ public class Range {
         }
         if (this.from == range.from && this.to == range.to) {
             // ranges completely equal
-            return null;
+            return new Range[]{};
         }
         // left borders equal, right borders not equal
         double newFrom = Math.min(this.to, range.to);
