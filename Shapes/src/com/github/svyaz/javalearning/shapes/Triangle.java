@@ -1,5 +1,7 @@
 package com.github.svyaz.javalearning.shapes;
 
+import java.util.Locale;
+
 public class Triangle implements Shape {
     private static final double EPSILON = 1e-10;
     private static final String EXCEPTION_MESSAGE = "Points cannot lay on one line.";
@@ -138,5 +140,13 @@ public class Triangle implements Shape {
     public double getPerimeter() {
         double[] sides = calculateSides(x1, y1, x2, y2, x3, y3);
         return sides[0] + sides[1] + sides[2];
+    }
+
+    @Override
+    public String toString() {
+        double[] sides = calculateSides(x1, y1, x2, y2, x3, y3);
+        return String.format(Locale.ROOT,
+                "Triangle, sides: [%.2f, %.2f, %.2f], area: %.2f, perimeter: %.2f",
+                sides[0], sides[1], sides[2], getArea(), getPerimeter());
     }
 }

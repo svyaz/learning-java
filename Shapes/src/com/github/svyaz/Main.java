@@ -3,6 +3,7 @@ package com.github.svyaz;
 import com.github.svyaz.javalearning.shapes.*;
 
 import java.util.Arrays;
+import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,7 +24,7 @@ public class Main {
         Shape maxAreaShape = getShapeWithMaxArea(shapes);
         System.out.println("--- Sorted by area ---");
         for (Shape shape : shapes) {
-            System.out.printf("%.2f", shape.getArea());
+            System.out.printf(Locale.ROOT, "%.2f", shape.getArea());
             System.out.println();
         }
         System.out.println("Shape with max area: " + maxAreaShape.toString());
@@ -33,10 +34,15 @@ public class Main {
         sortShapes(shapes, ShapeCompareType.PERIMETER);
         System.out.println("--- Sorted by perimeter ---");
         for (Shape shape : shapes) {
-            System.out.printf("%.2f", shape.getPerimeter());
+            System.out.printf(Locale.ROOT, "%.2f", shape.getPerimeter());
             System.out.println();
         }
         System.out.println("Shape with 2-nd perimeter: " + shapes[1].toString());
+
+        // TODO:
+        Circle circle = new Circle(3);
+        System.out.println(circle.getPerimeter());
+
     }
 
     private static void sortShapes(Shape[] shapes, ShapeCompareType compareType) {
@@ -48,10 +54,9 @@ public class Main {
         sortShapes(shapes, ShapeCompareType.AREA);
         return shapes[shapes.length - 1];
     }
-
 }
 
 // TODO: Сделать тесты на ShapeComparator.
 // TODO: Погуглить как делать тесты на Enum и надо ли их делать, если в них нет методов.
 // TODO: в main - использование hashCode() и equals().
-// TODO: Сделать тесты на toString во всех классах.
+// TODO: Сделать тесты на hashCode() и equals() во всех классах.

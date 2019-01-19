@@ -65,4 +65,11 @@ public class RectangleTest {
         Rectangle rectangle = new Rectangle(2, 3);
         Assert.assertEquals(rectangle.getPerimeter(), 10, EPSILON);
     }
+
+    @Test
+    public void toStringTest() {
+        Rectangle rectangle = new Rectangle(2, 3);
+        Assert.assertEquals(rectangle.toString(),
+                "Rectangle, width: 2.00, height: 3.00, area: 6.00, perimeter: 10.00");
+    }
 }

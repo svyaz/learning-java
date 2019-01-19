@@ -58,4 +58,11 @@ public class SquareTest {
         Square square = new Square(2);
         Assert.assertEquals(square.getPerimeter(), 8, EPSILON);
     }
+
+    @Test
+    public void toStringTest() {
+        Square square = new Square(2);
+        Assert.assertEquals(square.toString(),
+                "Square, side: 2.00, area: 4.00, perimeter: 8.00");
+    }
 }

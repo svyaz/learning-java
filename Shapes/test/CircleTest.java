@@ -58,4 +58,11 @@ public class CircleTest {
         Circle circle = new Circle(3);
         Assert.assertEquals(circle.getPerimeter(), 18.84955592153876, EPSILON);
     }
+
+    @Test
+    public void toStringTest() {
+        Circle circle = new Circle(3);
+        Assert.assertEquals(circle.toString(),
+                "Circle, radius: 3.00, area: 28.27, perimeter: 18.85");
+    }
 }

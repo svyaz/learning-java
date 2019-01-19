@@ -135,14 +135,12 @@ public class TriangleTest {
     @Test
     public void getWidthTest() {
         Triangle triangle = new Triangle(0, 0, 0, 3, 4, 0);
-        // max(x1, x2, x3) - min(x1, x2, x3) = 4 - 0 = 4
         Assert.assertEquals(triangle.getWidth(), 4, EPSILON);
     }
 
     @Test
     public void getHeightTest() {
         Triangle triangle = new Triangle(0, 0, 0, 3, 4, 0);
-        // max(y1, y2, y3) - min(y1, y2, y3) = 3 - 0 = 3
         Assert.assertEquals(triangle.getHeight(), 3, EPSILON);
     }
 
@@ -156,5 +154,12 @@ public class TriangleTest {
     public void getPerimeterTest() {
         Triangle triangle = new Triangle(0, 0, 0, 3, 4, 0);
         Assert.assertEquals(triangle.getPerimeter(), 12, EPSILON);
+    }
+
+    @Test
+    public void toStringTest() {
+        Triangle triangle = new Triangle(0, 0, 0, 3, 4, 0);
+        Assert.assertEquals(triangle.toString(),
+                "Triangle, sides: [3.00, 5.00, 4.00], area: 6.00, perimeter: 12.00");
     }
 }

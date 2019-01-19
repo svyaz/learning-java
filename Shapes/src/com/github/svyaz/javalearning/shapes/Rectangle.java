@@ -1,5 +1,7 @@
 package com.github.svyaz.javalearning.shapes;
 
+import java.util.Locale;
+
 public class Rectangle implements Shape {
     private static final String EXCEPTION_MESSAGE_BOTH = "'width' and 'height' must be greater than 0.";
     private static final String EXCEPTION_MESSAGE_WIDTH = "'width' must be greater than 0.";
@@ -47,5 +49,12 @@ public class Rectangle implements Shape {
     @Override
     public double getPerimeter() {
         return (width + height) * 2;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(Locale.ROOT,
+                "Rectangle, width: %.2f, height: %.2f, area: %.2f, perimeter: %.2f",
+                width, height, getArea(), getPerimeter());
     }
 }
