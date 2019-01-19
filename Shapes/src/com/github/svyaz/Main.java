@@ -2,11 +2,56 @@ package com.github.svyaz;
 
 import com.github.svyaz.javalearning.shapes.*;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        //System.out.println(Math.PI * 3.0 * 2.0);
+        // Define shapes
+        Circle circle1 = new Circle(2.5);
+        Circle circle2 = new Circle(3.16);
+        Rectangle rectangle1 = new Rectangle(1.3, 3.85);
+        Rectangle rectangle2 = new Rectangle(3.1, 4.0);
+        Square square1 = new Square(2.57);
+        Square square2 = new Square(2.92);
+        Triangle triangle1 = new Triangle(0, 0, 0, 3, 4, 0);
+        Triangle triangle2 = new Triangle(2, 1, 4, 5, -1, 2);
 
-        Triangle t = new Triangle(0,0, 0,3,4,0);
-        //System.out.println(Arrays.toString(t.sides));
+        // Array of shapes
+        Shape[] shapes = {circle1, circle2, rectangle1, rectangle2, square1, square2, triangle1, triangle2};
+
+        // Sort by area,
+        Shape maxAreaShape = getShapeWithMaxArea(shapes);
+        System.out.println("--- Sorted by area ---");
+        for (Shape shape : shapes) {
+            System.out.printf("%.2f", shape.getArea());
+            System.out.println();
+        }
+        System.out.println("Shape with max area: " + maxAreaShape.toString());
+        System.out.println();
+
+        // Sort by perimeter
+        sortShapes(shapes, ShapeCompareType.PERIMETER);
+        System.out.println("--- Sorted by perimeter ---");
+        for (Shape shape : shapes) {
+            System.out.printf("%.2f", shape.getPerimeter());
+            System.out.println();
+        }
+        System.out.println("Shape with 2-nd perimeter: " + shapes[1].toString());
     }
+
+    private static void sortShapes(Shape[] shapes, ShapeCompareType compareType) {
+        ShapeComparator shapeComparator = new ShapeComparator(compareType);
+        Arrays.sort(shapes, shapeComparator);
+    }
+
+    private static Shape getShapeWithMaxArea(Shape[] shapes) {
+        sortShapes(shapes, ShapeCompareType.AREA);
+        return shapes[shapes.length - 1];
+    }
+
 }
+
+// TODO: Сделать тесты на ShapeComparator.
+// TODO: Погуглить как делать тесты на Enum и надо ли их делать, если в них нет методов.
+// TODO: в main - использование hashCode() и equals().
+// TODO: Сделать тесты на toString во всех классах.
