@@ -8,7 +8,6 @@ public class Triangle implements Shape {
     private double y2;
     private double x3;
     private double y3;
-    private double[] sides;
 
     public Triangle(double x1, double y1, double x2, double y2, double x3, double y3)
             throws IllegalArgumentException {
@@ -22,7 +21,6 @@ public class Triangle implements Shape {
         this.y2 = y2;
         this.x3 = x3;
         this.y3 = y3;
-        this.sides = tmpSides;
     }
 
     // Getters & setters
@@ -33,7 +31,6 @@ public class Triangle implements Shape {
     public void setX1(double x1) {
         double[] tmpSides = calculateSides(x1, this.y1, this.x2, this.y2, this.x3, this.y3);
         if (isSidesCorrect(tmpSides)) {
-            this.sides = tmpSides;
             this.x1 = x1;
             return;
         }
@@ -47,7 +44,6 @@ public class Triangle implements Shape {
     public void setY1(double y1) {
         double[] tmpSides = calculateSides(this.x1, y1, this.x2, this.y2, this.x3, this.y3);
         if (isSidesCorrect(tmpSides)) {
-            this.sides = tmpSides;
             this.y1 = y1;
             return;
         }
@@ -61,7 +57,6 @@ public class Triangle implements Shape {
     public void setX2(double x2) {
         double[] tmpSides = calculateSides(this.x1, this.y1, x2, this.y2, this.x3, this.y3);
         if (isSidesCorrect(tmpSides)) {
-            this.sides = tmpSides;
             this.x2 = x2;
             return;
         }
@@ -75,7 +70,6 @@ public class Triangle implements Shape {
     public void setY2(double y2) {
         double[] tmpSides = calculateSides(this.x1, this.y1, this.x2, y2, this.x3, this.y3);
         if (isSidesCorrect(tmpSides)) {
-            this.sides = tmpSides;
             this.y2 = y2;
             return;
         }
@@ -89,7 +83,6 @@ public class Triangle implements Shape {
     public void setX3(double x3) {
         double[] tmpSides = calculateSides(this.x1, this.y1, this.x2, this.y2, x3, this.y3);
         if (isSidesCorrect(tmpSides)) {
-            this.sides = tmpSides;
             this.x3 = x3;
             return;
         }
@@ -103,7 +96,6 @@ public class Triangle implements Shape {
     public void setY3(double y3) {
         double[] tmpSides = calculateSides(this.x1, this.y1, this.x2, this.y2, this.x3, y3);
         if (isSidesCorrect(tmpSides)) {
-            this.sides = tmpSides;
             this.y3 = y3;
             return;
         }
@@ -143,6 +135,7 @@ public class Triangle implements Shape {
 
     @Override
     public double getPerimeter() {
+        double[] sides = calculateSides(x1, y1, x2, y2, x3, y3);
         return sides[0] + sides[1] + sides[2];
     }
 }

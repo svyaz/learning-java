@@ -2,8 +2,6 @@ package com.github.svyaz;
 
 import com.github.svyaz.javalearning.shapes.*;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
         //System.out.println(Math.PI * 3.0 * 2.0);
