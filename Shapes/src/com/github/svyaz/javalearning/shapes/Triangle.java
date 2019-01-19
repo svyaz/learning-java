@@ -1,6 +1,7 @@
 package com.github.svyaz.javalearning.shapes;
 
 public class Triangle implements Shape {
+    private static final double EPSILON = 1e-10;
     private static final String EXCEPTION_MESSAGE = "Points cannot lay on one line.";
     private double x1;
     private double y1;
@@ -113,9 +114,9 @@ public class Triangle implements Shape {
     // Check sides correctness
     private boolean isSidesCorrect(double[] sides) {
         // проверка что точки не лежат на одной прямой
-        return (sides[0] + sides[1] != sides[2] &&
-                sides[0] + sides[2] != sides[1] &&
-                sides[1] + sides[2] != sides[0]);
+        return (Math.abs(sides[0] + sides[1] - sides[2]) > EPSILON &&
+                Math.abs(sides[0] + sides[2] - sides[1]) > EPSILON &&
+                Math.abs(sides[1] + sides[2] - sides[0]) > EPSILON);
     }
 
     @Override
