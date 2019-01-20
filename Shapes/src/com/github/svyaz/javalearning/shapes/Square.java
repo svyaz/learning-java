@@ -1,7 +1,6 @@
 package com.github.svyaz.javalearning.shapes;
 
 import java.util.Locale;
-import java.util.Objects;
 
 public class Square implements Shape {
     private static final String EXCEPTION_MESSAGE = "'side' must be greater than 0.";
@@ -65,6 +64,6 @@ public class Square implements Shape {
 
     @Override
     public int hashCode() {
-        return Objects.hash(side);
+        return Double.hashCode(side);
     }
 }

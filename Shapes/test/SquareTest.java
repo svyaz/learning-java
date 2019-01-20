@@ -95,7 +95,7 @@ public class SquareTest {
     @Test
     public void hashCodeOkTest() {
         Square square = new Square(3);
-        Assert.assertEquals(square.hashCode(), 1074266143);
+        Assert.assertEquals(square.hashCode(), 1074266112);
     }
 
     @Test

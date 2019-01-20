@@ -95,7 +95,7 @@ public class CircleTest {
     @Test
     public void hashCodeOkTest() {
         Circle circle = new Circle(3);
-        Assert.assertEquals(circle.hashCode(), 1074266143);
+        Assert.assertEquals(circle.hashCode(), 1074266112);
     }
 
     @Test
