@@ -1,6 +1,7 @@
 package com.github.svyaz.javalearning.shapes;
 
 import java.util.Locale;
+import java.util.Objects;
 
 public class Triangle implements Shape {
     private static final double EPSILON = 1e-10;
@@ -148,5 +149,27 @@ public class Triangle implements Shape {
         return String.format(Locale.ROOT,
                 "Triangle, sides: [%.2f, %.2f, %.2f], area: %.2f, perimeter: %.2f",
                 sides[0], sides[1], sides[2], getArea(), getPerimeter());
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        Triangle triangle = (Triangle) object;
+        return Double.compare(triangle.x1, x1) == 0 &&
+                Double.compare(triangle.y1, y1) == 0 &&
+                Double.compare(triangle.x2, x2) == 0 &&
+                Double.compare(triangle.y2, y2) == 0 &&
+                Double.compare(triangle.x3, x3) == 0 &&
+                Double.compare(triangle.y3, y3) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x1, y1, x2, y2, x3, y3);
     }
 }

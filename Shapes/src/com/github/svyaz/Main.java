@@ -39,10 +39,26 @@ public class Main {
         }
         System.out.println("Shape with 2-nd perimeter: " + shapes[1].toString());
 
-        // TODO:
-        Circle circle = new Circle(3);
-        System.out.println(circle.getPerimeter());
+        // HashCodes and equals, identical objects
+        rectangle1 = new Rectangle(2,3);
+        rectangle2 = new Rectangle(2,3);
+        System.out.println("rectangle1.hashCode(): " + rectangle1.hashCode());
+        System.out.println("rectangle2.hashCode(): " + rectangle2.hashCode());
+        System.out.println("rectangle1.equals(rectangle1): " + rectangle1.equals(rectangle1));
+        System.out.println("rectangle1.equals(rectangle2): " + rectangle1.equals(rectangle2));
+        System.out.println("rectangle2.equals(rectangle1): " + rectangle2.equals(rectangle1));
+        System.out.println("rectangle1.equals(null): " + rectangle1.equals(null));
+        System.out.println();
 
+        // HashCodes and equals, not identical objects
+        circle1 = new Circle(23.1);
+        circle2 = new Circle(23.2);
+        System.out.println("circle1.hashCode(): " + circle1.hashCode());
+        System.out.println("circle2.hashCode(): " + circle2.hashCode());
+        System.out.println("circle1.equals(circle1): " + circle1.equals(circle1));
+        System.out.println("circle1.equals(circle2): " + circle1.equals(circle2));
+        System.out.println("circle2.equals(circle1): " + circle2.equals(circle1));
+        System.out.println("circle1.equals(null): " + circle1.equals(null));
     }
 
     private static void sortShapes(Shape[] shapes, ShapeCompareType compareType) {

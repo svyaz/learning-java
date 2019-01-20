@@ -1,6 +1,7 @@
 package com.github.svyaz.javalearning.shapes;
 
 import java.util.Locale;
+import java.util.Objects;
 
 public class Circle implements Shape {
     private static final String EXCEPTION_MESSAGE = "'radius' must be greater than 0.";
@@ -48,5 +49,22 @@ public class Circle implements Shape {
     public String toString() {
         return String.format(Locale.ROOT, "Circle, radius: %.2f, area: %.2f, perimeter: %.2f",
                 radius, getArea(), getPerimeter());
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        Circle circle = (Circle) object;
+        return Double.compare(circle.radius, radius) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(radius);
     }
 }

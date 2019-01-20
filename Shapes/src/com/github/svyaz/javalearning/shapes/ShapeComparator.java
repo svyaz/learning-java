@@ -11,18 +11,18 @@ public class ShapeComparator implements Comparator<Shape> {
     }
 
     @Override
-    public int compare(Shape o1, Shape o2) {
+    public int compare(Shape object1, Shape object2) {
         double compareParameter1 = 0.0;
         double compareParameter2 = 0.0;
 
         switch (compareType) {
             case AREA:
-                compareParameter1 = o1.getArea();
-                compareParameter2 = o2.getArea();
+                compareParameter1 = object1.getArea();
+                compareParameter2 = object2.getArea();
                 break;
             case PERIMETER:
-                compareParameter1 = o1.getPerimeter();
-                compareParameter2 = o2.getPerimeter();
+                compareParameter1 = object1.getPerimeter();
+                compareParameter2 = object2.getPerimeter();
                 break;
         }
 
