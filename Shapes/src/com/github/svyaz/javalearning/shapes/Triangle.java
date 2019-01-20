@@ -108,10 +108,15 @@ public class Triangle implements Shape {
 
     // Calculate sides
     private double[] calculateSides(double x1, double y1, double x2, double y2, double x3, double y3) {
-        double side0 = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-        double side1 = Math.sqrt(Math.pow(x2 - x3, 2) + Math.pow(y2 - y3, 2));
-        double side2 = Math.sqrt(Math.pow(x3 - x1, 2) + Math.pow(y3 - y1, 2));
-        return new double[]{side0, side1, side2};
+        return new double[]{
+                getSide(x1, y1, x2, y2),
+                getSide(x2, y2, x3, y3),
+                getSide(x1, y1, x3, y3)
+        };
+    }
+
+    private double getSide(double x1, double y1, double x2, double y2) {
+        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     }
 
     // Check sides correctness
