@@ -74,5 +74,4 @@ public class Main {
 
 // TODO: Сделать тесты на ShapeComparator.
 // TODO: Погуглить как делать тесты на Enum и надо ли их делать, если в них нет методов.
-// TODO: в main - использование hashCode() и equals().
-// TODO: Сделать тесты на hashCode() и equals() во всех классах.
+// TODO: Сделать тесты на hashCode() во всех классах.

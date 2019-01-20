@@ -47,7 +47,7 @@ public class Square implements Shape {
 
     @Override
     public String toString() {
-        return String.format(Locale.ROOT,"Square, side: %.2f, area: %.2f, perimeter: %.2f",
+        return String.format(Locale.ROOT, "Square, side: %.2f, area: %.2f, perimeter: %.2f",
                 side, getArea(), getPerimeter());
     }
 

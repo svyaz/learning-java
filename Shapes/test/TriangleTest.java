@@ -1,4 +1,4 @@
-import com.github.svyaz.javalearning.shapes.Triangle;
+import com.github.svyaz.javalearning.shapes.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -161,5 +161,31 @@ public class TriangleTest {
         Triangle triangle = new Triangle(0, 0, 0, 3, 4, 0);
         Assert.assertEquals(triangle.toString(),
                 "Triangle, sides: [3.00, 5.00, 4.00], area: 6.00, perimeter: 12.00");
+    }
+
+    @Test
+    public void equalsSameObjectTest() {
+        Triangle triangle = new Triangle(0, 0, 0, 3, 4, 0);
+        Assert.assertTrue(triangle.equals(triangle));
+    }
+
+    @Test
+    public void equalsNullObjectTest() {
+        Triangle triangle = new Triangle(0, 0, 0, 3, 4, 0);
+        Assert.assertFalse(triangle.equals(null));
+    }
+
+    @Test
+    public void equalsDifferentClassesTest() {
+        Triangle triangle = new Triangle(0, 0, 0, 3, 4, 0);
+        Circle circle = new Circle(3);
+        Assert.assertFalse(triangle.equals(circle));
+    }
+
+    @Test
+    public void equalsEqualObjectsTest() {
+        Triangle triangle1 = new Triangle(0, 0, 0, 3, 4, 0);
+        Triangle triangle2 = new Triangle(0, 0, 0, 3, 4, 0);
+        Assert.assertTrue(triangle1.equals(triangle2));
     }
 }

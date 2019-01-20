@@ -1,4 +1,4 @@
-import com.github.svyaz.javalearning.shapes.Circle;
+import com.github.svyaz.javalearning.shapes.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -64,5 +64,31 @@ public class CircleTest {
         Circle circle = new Circle(3);
         Assert.assertEquals(circle.toString(),
                 "Circle, radius: 3.00, area: 28.27, perimeter: 18.85");
+    }
+
+    @Test
+    public void equalsSameObjectTest() {
+        Circle circle = new Circle(3);
+        Assert.assertTrue(circle.equals(circle));
+    }
+
+    @Test
+    public void equalsNullObjectTest() {
+        Circle circle = new Circle(3);
+        Assert.assertFalse(circle.equals(null));
+    }
+
+    @Test
+    public void equalsDifferentClassesTest() {
+        Circle circle = new Circle(3);
+        Rectangle rectangle = new Rectangle(2,3);
+        Assert.assertFalse(circle.equals(rectangle));
+    }
+
+    @Test
+    public void equalsEqualObjectsTest() {
+        Circle circle1 = new Circle(3);
+        Circle circle2 = new Circle(3);
+        Assert.assertTrue(circle1.equals(circle2));
     }
 }

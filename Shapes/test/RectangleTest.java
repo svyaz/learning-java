@@ -1,4 +1,4 @@
-import com.github.svyaz.javalearning.shapes.Rectangle;
+import com.github.svyaz.javalearning.shapes.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -71,5 +71,31 @@ public class RectangleTest {
         Rectangle rectangle = new Rectangle(2, 3);
         Assert.assertEquals(rectangle.toString(),
                 "Rectangle, width: 2.00, height: 3.00, area: 6.00, perimeter: 10.00");
+    }
+
+    @Test
+    public void equalsSameObjectTest() {
+        Rectangle rectangle = new Rectangle(2,3);
+        Assert.assertTrue(rectangle.equals(rectangle));
+    }
+
+    @Test
+    public void equalsNullObjectTest() {
+        Rectangle rectangle = new Rectangle(2,3);
+        Assert.assertFalse(rectangle.equals(null));
+    }
+
+    @Test
+    public void equalsDifferentClassesTest() {
+        Rectangle rectangle = new Rectangle(2,3);
+        Circle circle = new Circle(3);
+        Assert.assertFalse(rectangle.equals(circle));
+    }
+
+    @Test
+    public void equalsEqualObjectsTest() {
+        Rectangle rectangle1 = new Rectangle(2,3);
+        Rectangle rectangle2 = new Rectangle(2,3);
+        Assert.assertTrue(rectangle1.equals(rectangle2));
     }
 }

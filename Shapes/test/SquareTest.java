@@ -1,4 +1,4 @@
-import com.github.svyaz.javalearning.shapes.Square;
+import com.github.svyaz.javalearning.shapes.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -64,5 +64,31 @@ public class SquareTest {
         Square square = new Square(2);
         Assert.assertEquals(square.toString(),
                 "Square, side: 2.00, area: 4.00, perimeter: 8.00");
+    }
+
+    @Test
+    public void equalsSameObjectTest() {
+        Square square = new Square(3);
+        Assert.assertTrue(square.equals(square));
+    }
+
+    @Test
+    public void equalsNullObjectTest() {
+        Square square = new Square(3);
+        Assert.assertFalse(square.equals(null));
+    }
+
+    @Test
+    public void equalsDifferentClassesTest() {
+        Square square = new Square(3);
+        Circle circle = new Circle(3);
+        Assert.assertFalse(square.equals(circle));
+    }
+
+    @Test
+    public void equalsEqualObjectsTest() {
+        Square square1 = new Square(3);
+        Square square2 = new Square(3);
+        Assert.assertTrue(square1.equals(square2));
     }
 }
