@@ -71,6 +71,3 @@ public class Main {
         return shapes[shapes.length - 1];
     }
 }
-
-// TODO: Сделать тесты на ShapeComparator.
-// TODO: Погуглить как делать тесты на Enum и надо ли их делать, если в них нет методов.
