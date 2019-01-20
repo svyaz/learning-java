@@ -81,7 +81,7 @@ public class CircleTest {
     @Test
     public void equalsDifferentClassesTest() {
         Circle circle = new Circle(3);
-        Rectangle rectangle = new Rectangle(2,3);
+        Rectangle rectangle = new Rectangle(2, 3);
         Assert.assertFalse(circle.equals(rectangle));
     }
 
@@ -90,5 +90,18 @@ public class CircleTest {
         Circle circle1 = new Circle(3);
         Circle circle2 = new Circle(3);
         Assert.assertTrue(circle1.equals(circle2));
+    }
+
+    @Test
+    public void hashCodeOkTest() {
+        Circle circle = new Circle(3);
+        Assert.assertEquals(circle.hashCode(), 1074266143);
+    }
+
+    @Test
+    public void hashCodeEqualObjectsTest() {
+        Circle circle1 = new Circle(3);
+        Circle circle2 = new Circle(3);
+        Assert.assertEquals(circle1.hashCode(), circle2.hashCode());
     }
 }

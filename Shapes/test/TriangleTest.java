@@ -188,4 +188,17 @@ public class TriangleTest {
         Triangle triangle2 = new Triangle(0, 0, 0, 3, 4, 0);
         Assert.assertTrue(triangle1.equals(triangle2));
     }
+
+    @Test
+    public void hashCodeOkTest() {
+        Triangle triangle = new Triangle(0, 0, 0, 3, 4, 0);
+        Assert.assertEquals(triangle.hashCode(), 1423850305);
+    }
+
+    @Test
+    public void hashCodeEqualObjectsTest() {
+        Triangle triangle1 = new Triangle(0, 0, 0, 3, 4, 0);
+        Triangle triangle2 = new Triangle(0, 0, 0, 3, 4, 0);
+        Assert.assertEquals(triangle1.hashCode(), triangle2.hashCode());
+    }
 }

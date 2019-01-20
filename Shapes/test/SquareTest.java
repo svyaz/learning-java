@@ -30,7 +30,7 @@ public class SquareTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void setSideExceptionTest(){
+    public void setSideExceptionTest() {
         Square square = new Square(2);
         square.setSide(0);
     }
@@ -90,5 +90,18 @@ public class SquareTest {
         Square square1 = new Square(3);
         Square square2 = new Square(3);
         Assert.assertTrue(square1.equals(square2));
+    }
+
+    @Test
+    public void hashCodeOkTest() {
+        Square square = new Square(3);
+        Assert.assertEquals(square.hashCode(), 1074266143);
+    }
+
+    @Test
+    public void hashCodeEqualObjectsTest() {
+        Square square1 = new Square(3);
+        Square square2 = new Square(3);
+        Assert.assertEquals(square1.hashCode(), square2.hashCode());
     }
 }

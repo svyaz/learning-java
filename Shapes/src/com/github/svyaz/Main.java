@@ -40,8 +40,8 @@ public class Main {
         System.out.println("Shape with 2-nd perimeter: " + shapes[1].toString());
 
         // HashCodes and equals, identical objects
-        rectangle1 = new Rectangle(2,3);
-        rectangle2 = new Rectangle(2,3);
+        rectangle1 = new Rectangle(2, 3);
+        rectangle2 = new Rectangle(2, 3);
         System.out.println("rectangle1.hashCode(): " + rectangle1.hashCode());
         System.out.println("rectangle2.hashCode(): " + rectangle2.hashCode());
         System.out.println("rectangle1.equals(rectangle1): " + rectangle1.equals(rectangle1));
@@ -74,4 +74,3 @@ public class Main {
 
 // TODO: Сделать тесты на ShapeComparator.
 // TODO: Погуглить как делать тесты на Enum и надо ли их делать, если в них нет методов.
-// TODO: Сделать тесты на hashCode() во всех классах.

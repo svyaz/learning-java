@@ -75,27 +75,40 @@ public class RectangleTest {
 
     @Test
     public void equalsSameObjectTest() {
-        Rectangle rectangle = new Rectangle(2,3);
+        Rectangle rectangle = new Rectangle(2, 3);
         Assert.assertTrue(rectangle.equals(rectangle));
     }
 
     @Test
     public void equalsNullObjectTest() {
-        Rectangle rectangle = new Rectangle(2,3);
+        Rectangle rectangle = new Rectangle(2, 3);
         Assert.assertFalse(rectangle.equals(null));
     }
 
     @Test
     public void equalsDifferentClassesTest() {
-        Rectangle rectangle = new Rectangle(2,3);
+        Rectangle rectangle = new Rectangle(2, 3);
         Circle circle = new Circle(3);
         Assert.assertFalse(rectangle.equals(circle));
     }
 
     @Test
     public void equalsEqualObjectsTest() {
-        Rectangle rectangle1 = new Rectangle(2,3);
-        Rectangle rectangle2 = new Rectangle(2,3);
+        Rectangle rectangle1 = new Rectangle(2, 3);
+        Rectangle rectangle2 = new Rectangle(2, 3);
         Assert.assertTrue(rectangle1.equals(rectangle2));
+    }
+
+    @Test
+    public void hashCodeOkTest() {
+        Rectangle rectangle = new Rectangle(2, 3);
+        Assert.assertEquals(rectangle.hashCode(), 525249);
+    }
+
+    @Test
+    public void hashCodeEqualObjectsTest() {
+        Rectangle rectangle1 = new Rectangle(2, 3);
+        Rectangle rectangle2 = new Rectangle(2, 3);
+        Assert.assertEquals(rectangle1.hashCode(), rectangle2.hashCode());
     }
 }
