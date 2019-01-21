@@ -31,7 +31,7 @@ public class Main {
         System.out.println();
 
         // Sort by perimeter
-        sortShapes(shapes, ShapeCompareType.PERIMETER);
+        sortShapesByPerimeter(shapes);
         System.out.println("--- Sorted by perimeter ---");
         for (Shape shape : shapes) {
             System.out.printf(Locale.ROOT, "%.2f", shape.getPerimeter());
@@ -61,13 +61,18 @@ public class Main {
         System.out.println("circle1.equals(null): " + circle1.equals(null));
     }
 
-    private static void sortShapes(Shape[] shapes, ShapeCompareType compareType) {
-        ShapeComparator shapeComparator = new ShapeComparator(compareType);
-        Arrays.sort(shapes, shapeComparator);
+    private static void sortShapesByArea(Shape[] shapes) {
+        ShapeAreaComparator shapeAreaComparator = new ShapeAreaComparator();
+        Arrays.sort(shapes, shapeAreaComparator);
+    }
+
+    private static void sortShapesByPerimeter(Shape[] shapes) {
+        ShapePerimeterComparator shapePerimeterComparator = new ShapePerimeterComparator();
+        Arrays.sort(shapes, shapePerimeterComparator);
     }
 
     private static Shape getShapeWithMaxArea(Shape[] shapes) {
-        sortShapes(shapes, ShapeCompareType.AREA);
+        sortShapesByArea(shapes);
         return shapes[shapes.length - 1];
     }
 }
