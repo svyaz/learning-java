@@ -1,5 +1,6 @@
-package com.github.svyaz.javalearning.shapes;
+package com.github.svyaz;
 
+import com.github.svyaz.javalearning.shapes.Shape;
 import java.util.Comparator;
 
 public class ShapeComparator implements Comparator<Shape> {

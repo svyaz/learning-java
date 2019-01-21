@@ -1,3 +1,5 @@
+import com.github.svyaz.ShapeComparator;
+import com.github.svyaz.ShapeCompareType;
 import com.github.svyaz.javalearning.shapes.*;
 import org.junit.Assert;
 import org.junit.Test;

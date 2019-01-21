@@ -1,4 +1,4 @@
-package com.github.svyaz.javalearning.shapes;
+package com.github.svyaz;
 
 public enum ShapeCompareType {
     AREA, PERIMETER
