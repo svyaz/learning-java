@@ -6,7 +6,7 @@ public class Square implements Shape {
     private static final String EXCEPTION_MESSAGE = "'side' must be greater than 0.";
     private double side;
 
-    public Square(double side) throws IllegalArgumentException {
+    public Square(double side) {
         if (side <= 0) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE);
         }
@@ -17,7 +17,7 @@ public class Square implements Shape {
         return side;
     }
 
-    public void setSide(double side) throws IllegalArgumentException {
+    public void setSide(double side) {
         if (side <= 0) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE);
         }

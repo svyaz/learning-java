@@ -10,7 +10,7 @@ public class Rectangle implements Shape {
     private double width;
     private double height;
 
-    public Rectangle(double width, double height) throws IllegalArgumentException {
+    public Rectangle(double width, double height) {
         if (width <= 0 || height <= 0) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_BOTH);
         }
@@ -23,7 +23,7 @@ public class Rectangle implements Shape {
         return width;
     }
 
-    public void setWidth(double width) throws IllegalArgumentException {
+    public void setWidth(double width) {
         if (width <= 0) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_WIDTH);
         }
@@ -35,7 +35,7 @@ public class Rectangle implements Shape {
         return height;
     }
 
-    public void setHeight(double height) throws IllegalArgumentException {
+    public void setHeight(double height) {
         if (height <= 0) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_HEIGHT);
         }

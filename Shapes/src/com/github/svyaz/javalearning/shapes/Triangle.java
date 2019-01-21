@@ -13,8 +13,7 @@ public class Triangle implements Shape {
     private double x3;
     private double y3;
 
-    public Triangle(double x1, double y1, double x2, double y2, double x3, double y3)
-            throws IllegalArgumentException {
+    public Triangle(double x1, double y1, double x2, double y2, double x3, double y3) {
         double[] tmpSides = calculateSides(x1, y1, x2, y2, x3, y3);
         if (!isSidesCorrect(tmpSides)) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE);

@@ -6,7 +6,7 @@ public class Circle implements Shape {
     private static final String EXCEPTION_MESSAGE = "'radius' must be greater than 0.";
     private double radius;
 
-    public Circle(double radius) throws IllegalArgumentException {
+    public Circle(double radius) {
         if (radius <= 0) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE);
         }
