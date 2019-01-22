@@ -106,7 +106,7 @@ public class Triangle implements Shape {
     }
 
     // Calculate sides
-    private double[] calculateSides(double x1, double y1, double x2, double y2, double x3, double y3) {
+    private static double[] calculateSides(double x1, double y1, double x2, double y2, double x3, double y3) {
         return new double[]{
                 getSide(x1, y1, x2, y2),
                 getSide(x2, y2, x3, y3),
@@ -114,16 +114,17 @@ public class Triangle implements Shape {
         };
     }
 
-    private double getSide(double x1, double y1, double x2, double y2) {
+    private static double getSide(double x1, double y1, double x2, double y2) {
         return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     }
 
     // Check sides correctness
-    private boolean isSidesCorrect(double[] sides) {
+    private static boolean isSidesCorrect(double[] sides) {
         // проверка что точки не лежат на одной прямой
         return (Math.abs(sides[0] + sides[1] - sides[2]) > EPSILON &&
                 Math.abs(sides[0] + sides[2] - sides[1]) > EPSILON &&
-                Math.abs(sides[1] + sides[2] - sides[0]) > EPSILON);
+                Math.abs(sides[1] + sides[2] - sides[0]) > EPSILON
+        );
     }
 
     @Override
