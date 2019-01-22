@@ -37,7 +37,7 @@ public class Main {
             System.out.printf(Locale.ROOT, "%.2f", shape.getPerimeter());
             System.out.println();
         }
-        System.out.println("Shape with 2-nd perimeter: " + shapes[1].toString());
+        System.out.println("Shape with 2-nd perimeter: " + shapes[shapes.length - 2].toString());
 
         // HashCodes and equals, identical objects
         rectangle1 = new Rectangle(2, 3);
