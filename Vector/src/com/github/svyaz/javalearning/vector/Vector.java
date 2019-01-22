@@ -1,5 +1,6 @@
 package com.github.svyaz.javalearning.vector;
 
+
 public class Vector {
     private double[] components;
 
@@ -40,5 +41,16 @@ public class Vector {
 
     public int getSize() {
         return components.length;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder();
+        str.append("Vector {");
+        for (int i = 0; i < components.length; i++) {
+            str.append(components[i]);
+            str.append(i == components.length - 1 ? "}" : ", ");
+        }
+        return str.toString();
     }
 }

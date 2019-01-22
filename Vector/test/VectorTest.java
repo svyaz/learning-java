@@ -121,4 +121,11 @@ public class VectorTest {
         Vector vector = new Vector(new double[]{1, 2, 3, 4, 5});
         Assert.assertEquals(vector.getSize(), 5);
     }
+
+    @Test
+    public void toStringTest() {
+        Vector vector = new Vector(new double[]{1, 2});
+        Assert.assertEquals(vector.toString(),
+                "Vector {1.0, 2.0}");
+    }
 }
