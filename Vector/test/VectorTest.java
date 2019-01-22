@@ -115,4 +115,10 @@ public class VectorTest {
         Vector vector = new Vector(new double[]{1, 2});
         vector.setComponents(new double[]{3, 4, 5});
     }
+
+    @Test
+    public void getSizeTest() {
+        Vector vector = new Vector(new double[]{1, 2, 3, 4, 5});
+        Assert.assertEquals(vector.getSize(), 5);
+    }
 }

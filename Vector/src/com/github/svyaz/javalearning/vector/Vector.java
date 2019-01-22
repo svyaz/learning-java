@@ -37,4 +37,8 @@ public class Vector {
         System.arraycopy(components, 0, this.components, 0,
                 this.components.length);
     }
+
+    public int getSize() {
+        return components.length;
+    }
 }
