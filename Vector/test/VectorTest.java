@@ -208,4 +208,13 @@ public class VectorTest {
         Vector vector2 = new Vector(new double[]{4, 1, 2});
         vector1.subtract(vector2);
     }
+
+    @Test
+    public void multiplicationTest() {
+        Vector vector = new Vector(new double[]{1, 3, -1});
+        vector.multiplication(2);
+        Assert.assertTrue(vector.getComponents()[0] == 2.0 &&
+                vector.getComponents()[1] == 6.0 &&
+                vector.getComponents()[2] == -2.0);
+    }
 }

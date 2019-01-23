@@ -59,6 +59,12 @@ public class Vector {
         }
     }
 
+    public void multiplication(double number) {
+        for (int i = 0; i < components.length; i++) {
+            components[i] *= number;
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
