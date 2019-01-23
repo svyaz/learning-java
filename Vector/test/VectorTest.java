@@ -161,4 +161,18 @@ public class VectorTest {
         Vector vector2 = new Vector(new double[]{1, 2, 3});
         Assert.assertTrue(vector1.equals(vector2));
     }
+
+    @Test
+    public void hashCode1Test() {
+        Vector vector = new Vector(new double[]{1, 2, 3});
+        Assert.assertEquals(vector.hashCode(), 1786299869);
+    }
+
+    @Test
+    public void hashCode2Test() {
+        Vector vector1 = new Vector(new double[]{1, 2, 3, 4, 5});
+        Vector vector2 = new Vector(new double[]{1, 2, 3, 4, 5});
+        Assert.assertEquals(vector1.hashCode(), vector2.hashCode());
+    }
+
 }
