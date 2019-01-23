@@ -42,6 +42,15 @@ public class Vector {
         return components.length;
     }
 
+    public void add(Vector anotherVector) {
+        if (components.length != anotherVector.components.length) {
+            throw new IllegalArgumentException();
+        }
+        for (int i = 0; i < components.length; i++) {
+            components[i] += anotherVector.components[i];
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();

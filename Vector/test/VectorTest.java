@@ -175,4 +175,20 @@ public class VectorTest {
         Assert.assertEquals(vector1.hashCode(), vector2.hashCode());
     }
 
+    @Test
+    public void addTest() {
+        Vector vector1 = new Vector(new double[]{1, 3, -1});
+        Vector vector2 = new Vector(new double[]{4, 1, -5});
+        vector1.add(vector2);
+        Assert.assertTrue(vector1.getComponents()[0] == 5.0 &&
+                vector1.getComponents()[1] == 4.0 &&
+                vector1.getComponents()[2] == -6.0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void addExceptionTest() {
+        Vector vector1 = new Vector(new double[]{1, 3});
+        Vector vector2 = new Vector(new double[]{4, 1, 2});
+        vector1.add(vector2);
+    }
 }
