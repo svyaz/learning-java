@@ -132,34 +132,34 @@ public class VectorTest {
     @Test
     public void equalsSameObjectTest() {
         Vector vector = new Vector(new double[]{1, 2});
-        Assert.assertTrue(vector.equals(vector));
+        Assert.assertEquals(vector, vector);
     }
 
     @Test
     public void equalsNullObjectTest() {
         Vector vector = new Vector(new double[]{1, 2});
-        Assert.assertFalse(vector.equals(null));
+        Assert.assertNotEquals(vector, null);
     }
 
     @Test
     public void equalsDifferentClassesTest() {
         Vector vector = new Vector(new double[]{1, 2});
         String string = "test";
-        Assert.assertFalse(vector.equals(string));
+        Assert.assertNotEquals(vector, string);
     }
 
     @Test
     public void equalsDifferentDimensionsTest() {
         Vector vector1 = new Vector(new double[]{1, 2, 3, 4});
         Vector vector2 = new Vector(new double[]{1, 2, 3});
-        Assert.assertFalse(vector1.equals(vector2));
+        Assert.assertNotEquals(vector1, vector2);
     }
 
     @Test
     public void equalsEqualObjectsTest() {
         Vector vector1 = new Vector(new double[]{1, 2, 3});
         Vector vector2 = new Vector(new double[]{1, 2, 3});
-        Assert.assertTrue(vector1.equals(vector2));
+        Assert.assertEquals(vector1, vector2);
     }
 
     @Test
