@@ -217,4 +217,13 @@ public class VectorTest {
                 vector.getComponents()[1] == 6.0 &&
                 vector.getComponents()[2] == -2.0);
     }
+
+    @Test
+    public void reverseTest() {
+        Vector vector = new Vector(new double[]{1, 3, -1});
+        vector.reverse();
+        Assert.assertTrue(vector.getComponents()[0] == -1.0 &&
+                vector.getComponents()[1] == -3.0 &&
+                vector.getComponents()[2] == 1.0);
+    }
 }

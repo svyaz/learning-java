@@ -65,6 +65,10 @@ public class Vector {
         }
     }
 
+    public void reverse() {
+        multiplication(-1);
+    }
+
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
