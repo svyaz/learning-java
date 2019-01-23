@@ -1,6 +1,5 @@
 package com.github.svyaz.javalearning.vector;
 
-
 public class Vector {
     private double[] components;
 
@@ -52,5 +51,25 @@ public class Vector {
             str.append(i == components.length - 1 ? "}" : ", ");
         }
         return str.toString();
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        Vector vector = (Vector) object;
+        if (vector.components.length != components.length) {
+            return false;
+        }
+        for (int i = 0; i < components.length; i++) {
+            if (Double.compare(vector.components[i], components[i]) != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
