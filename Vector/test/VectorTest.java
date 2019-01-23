@@ -117,6 +117,24 @@ public class VectorTest {
     }
 
     @Test
+    public void getComponentTest() {
+        Vector vector = new Vector(new double[]{1, 2, 3});
+        Assert.assertEquals(vector.getComponent(1), 2.0, 0.0);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getComponentException1Test() {
+        Vector vector = new Vector(new double[]{1, 2, 3});
+        vector.getComponent(-1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getComponentException2Test() {
+        Vector vector = new Vector(new double[]{1, 2, 3});
+        vector.getComponent(3);
+    }
+
+    @Test
     public void getSizeTest() {
         Vector vector = new Vector(new double[]{1, 2, 3, 4, 5});
         Assert.assertEquals(vector.getSize(), 5);

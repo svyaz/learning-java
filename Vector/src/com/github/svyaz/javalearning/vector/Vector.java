@@ -38,6 +38,13 @@ public class Vector {
                 this.components.length);
     }
 
+    public double getComponent(int index) {
+        if (index < 0 || index > components.length - 1) {
+            throw new IndexOutOfBoundsException();
+        }
+        return components[index];
+    }
+
     public int getSize() {
         return components.length;
     }
