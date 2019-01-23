@@ -191,4 +191,21 @@ public class VectorTest {
         Vector vector2 = new Vector(new double[]{4, 1, 2});
         vector1.add(vector2);
     }
+
+    @Test
+    public void subtractTest() {
+        Vector vector1 = new Vector(new double[]{1, 3, -1});
+        Vector vector2 = new Vector(new double[]{4, 1, -5});
+        vector1.subtract(vector2);
+        Assert.assertTrue(vector1.getComponents()[0] == -3.0 &&
+                vector1.getComponents()[1] == 2.0 &&
+                vector1.getComponents()[2] == 4.0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void subtractExceptionTest() {
+        Vector vector1 = new Vector(new double[]{1, 3});
+        Vector vector2 = new Vector(new double[]{4, 1, 2});
+        vector1.subtract(vector2);
+    }
 }

@@ -43,11 +43,19 @@ public class Vector {
     }
 
     public void add(Vector anotherVector) {
+        changeVector(anotherVector, 1);
+    }
+
+    public void subtract(Vector anotherVector) {
+        changeVector(anotherVector, -1);
+    }
+
+    private void changeVector(Vector anotherVector, int factor) {
         if (components.length != anotherVector.components.length) {
             throw new IllegalArgumentException();
         }
         for (int i = 0; i < components.length; i++) {
-            components[i] += anotherVector.components[i];
+            components[i] += factor * anotherVector.components[i];
         }
     }
 
