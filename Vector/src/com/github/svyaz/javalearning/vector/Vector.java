@@ -45,6 +45,13 @@ public class Vector {
         return components[index];
     }
 
+    public void setComponent(int index, double value) {
+        if (index < 0 || index > components.length - 1) {
+            throw new IndexOutOfBoundsException();
+        }
+        components[index] = value;
+    }
+
     public int getSize() {
         return components.length;
     }
