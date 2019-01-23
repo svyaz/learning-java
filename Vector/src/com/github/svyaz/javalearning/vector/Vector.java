@@ -42,6 +42,14 @@ public class Vector {
         return components.length;
     }
 
+    public double getLength() {
+        double tmp = 0;
+        for (double component : components) {
+            tmp += Math.pow(component, 2);
+        }
+        return Math.sqrt(tmp);
+    }
+
     public void add(Vector anotherVector) {
         changeVector(anotherVector, 1);
     }

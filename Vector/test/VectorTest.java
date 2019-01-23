@@ -123,6 +123,12 @@ public class VectorTest {
     }
 
     @Test
+    public void getLengthTest() {
+        Vector vector = new Vector(new double[]{1, 2, 2});
+        Assert.assertEquals(vector.getLength(), 3.0, 0.0);
+    }
+
+    @Test
     public void toStringTest() {
         Vector vector = new Vector(new double[]{1, 2});
         Assert.assertEquals(vector.toString(),
