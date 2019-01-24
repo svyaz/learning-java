@@ -1,11 +1,13 @@
 package com.github.svyaz.javalearning.vector;
 
 public class Vector {
+    private static final String EXCEPTION_CONSTRUCTOR_MESSAGE = "Dimension of Vector must be greater than 0.";
+    private static final String EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE = "Index out of bounds of Vector dimension.";
     private double[] components;
 
     public Vector(int dimension) {
         if (dimension <= 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(EXCEPTION_CONSTRUCTOR_MESSAGE);
         }
         components = new double[dimension];
     }
@@ -56,14 +58,14 @@ public class Vector {
 
     public double getComponent(int index) {
         if (index < 0 || index > components.length - 1) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException(EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE);
         }
         return components[index];
     }
 
     public void setComponent(int index, double value) {
         if (index < 0 || index > components.length - 1) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException(EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE);
         }
         components[index] = value;
     }
