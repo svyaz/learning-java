@@ -54,18 +54,6 @@ public class Vector {
         return result;
     }
 
-    public double[] getComponents() {
-        return components;
-    }
-
-    public void setComponents(double[] components) {
-        if (components.length != this.components.length) {
-            throw new IllegalArgumentException();
-        }
-        System.arraycopy(components, 0, this.components, 0,
-                this.components.length);
-    }
-
     public double getComponent(int index) {
         if (index < 0 || index > components.length - 1) {
             throw new IndexOutOfBoundsException();

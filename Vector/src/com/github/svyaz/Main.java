@@ -22,13 +22,10 @@ public class Main {
         System.out.println();
 
         System.out.println("--- Getters and setters ---");
-        System.out.println("Get all components: " + Arrays.toString(vector1.getComponents()));
-        vector1.setComponents(new double[]{-2.0, -3.0});
-        System.out.println("After set all components: " + Arrays.toString(vector1.getComponents()));
-        System.out.println("Get separate components: " + vector1.getComponent(0) + ", " + vector1.getComponent(1));
-        vector1.setComponent(0, 1.0);
-        vector1.setComponent(1, 2.0);
-        System.out.println("After set separate components: " + vector1.getComponent(0) + ", " + vector1.getComponent(1));
+        System.out.println("Get components: " + vector1.getComponent(0) + ", " + vector1.getComponent(1));
+        vector1.setComponent(0, 2.0);
+        vector1.setComponent(1, 3.0);
+        System.out.println("After set components: " + vector1.getComponent(0) + ", " + vector1.getComponent(1));
         System.out.println("vector1 dimension: " + vector1.getSize());
         System.out.println("vector2 dimension: " + vector2.getSize());
         System.out.println("vector1 length: " + String.format("%.2f", vector1.getLength()));
