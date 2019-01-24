@@ -288,4 +288,37 @@ public class VectorTest {
                 vector3.getComponent(0) == 2.0 && vector3.getComponent(1) == 4.0 &&
                 vector3.getComponent(2) == 3.0 && vector3.getComponent(3) == 4.0);
     }
+
+    @Test
+    public void staticSubtractTest() {
+        Vector vector1 = new Vector(new double[]{2, 3});
+        Vector vector2 = new Vector(new double[]{1, 2});
+        Vector vector3 = Vector.subtract(vector1, vector2);
+        Assert.assertTrue(!vector3.equals(vector1) && !vector3.equals(vector2) &&
+                vector3.getComponent(0) == 1.0 && vector3.getComponent(1) == 1.0);
+    }
+
+    @Test
+    public void staticSubtractDifferentLengthTest() {
+        Vector vector1 = new Vector(new double[]{1, 2});
+        Vector vector2 = new Vector(new double[]{1, 2, 3, 4});
+        Vector vector3 = Vector.subtract(vector1, vector2);
+        Assert.assertTrue(!vector3.equals(vector1) && !vector3.equals(vector2) &&
+                vector3.getComponent(0) == 0.0 && vector3.getComponent(1) == 0.0 &&
+                vector3.getComponent(2) == -3.0 && vector3.getComponent(3) == -4.0);
+    }
+
+    @Test
+    public void staticScalarMultiplicationTest() {
+        Vector vector1 = new Vector(new double[]{2, 3});
+        Vector vector2 = new Vector(new double[]{1, 2});
+        Assert.assertEquals(Vector.scalarMultiplication(vector1, vector2), 8.0, 0.0);
+    }
+
+    @Test
+    public void staticScalarMultiplicationDifferentLengthTest() {
+        Vector vector1 = new Vector(new double[]{1, 2});
+        Vector vector2 = new Vector(new double[]{1, 2, 3, 4});
+        Assert.assertEquals(Vector.scalarMultiplication(vector1, vector2), 5.0, 0.0);
+    }
 }
