@@ -3,6 +3,16 @@ package com.github.svyaz.javalearning.vector;
 public class Vector {
     private double[] components;
 
+    public static Vector add(Vector vector1, Vector vector2) {
+        final int dimension = Math.max(vector1.components.length, vector2.components.length);
+        Vector result = new Vector(dimension);
+        for (int i = 0; i < dimension; i++) {
+            result.components[i] = (i < vector1.components.length ? vector1.components[i] : 0.0) +
+                    (i < vector2.components.length ? vector2.components[i] : 0.0);
+        }
+        return result;
+    }
+
     public Vector(int dimension) {
         if (dimension <= 0) {
             throw new IllegalArgumentException();

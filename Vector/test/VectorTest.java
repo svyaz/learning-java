@@ -269,4 +269,23 @@ public class VectorTest {
                 vector.getComponents()[1] == -3.0 &&
                 vector.getComponents()[2] == 1.0);
     }
+
+    @Test
+    public void staticAddTest() {
+        Vector vector1 = new Vector(new double[]{1, 2});
+        Vector vector2 = new Vector(new double[]{1, 2});
+        Vector vector3 = Vector.add(vector1, vector2);
+        Assert.assertTrue(!vector3.equals(vector1) && !vector3.equals(vector2) &&
+                vector3.getComponent(0) == 2.0 && vector3.getComponent(1) == 4.0);
+    }
+
+    @Test
+    public void staticAddDifferentLengthTest() {
+        Vector vector1 = new Vector(new double[]{1, 2});
+        Vector vector2 = new Vector(new double[]{1, 2, 3, 4});
+        Vector vector3 = Vector.add(vector1, vector2);
+        Assert.assertTrue(!vector3.equals(vector1) && !vector3.equals(vector2) &&
+                vector3.getComponent(0) == 2.0 && vector3.getComponent(1) == 4.0 &&
+                vector3.getComponent(2) == 3.0 && vector3.getComponent(3) == 4.0);
+    }
 }
