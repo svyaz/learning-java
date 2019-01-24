@@ -3,6 +3,29 @@ package com.github.svyaz.javalearning.vector;
 public class Vector {
     private double[] components;
 
+    public Vector(int dimension) {
+        if (dimension <= 0) {
+            throw new IllegalArgumentException();
+        }
+        components = new double[dimension];
+    }
+
+    public Vector(int dimension, double[] components) {
+        this(dimension);
+        System.arraycopy(components, 0, this.components, 0,
+                Math.min(dimension, components.length));
+    }
+
+    public Vector(double[] components) {
+        this(components.length, components);
+    }
+
+    public Vector(Vector vector) {
+        components = new double[vector.components.length];
+        System.arraycopy(vector.components, 0, components, 0,
+                vector.components.length);
+    }
+
     public static Vector add(Vector vector1, Vector vector2) {
         return createVectorFromTwo(vector1, vector2, 1);
     }
@@ -29,29 +52,6 @@ public class Vector {
                     (i < vector2.components.length ? vector2.components[i] : 0.0);
         }
         return result;
-    }
-
-    public Vector(int dimension) {
-        if (dimension <= 0) {
-            throw new IllegalArgumentException();
-        }
-        components = new double[dimension];
-    }
-
-    public Vector(int dimension, double[] components) {
-        this(dimension);
-        System.arraycopy(components, 0, this.components, 0,
-                Math.min(dimension, components.length));
-    }
-
-    public Vector(double[] components) {
-        this(components.length, components);
-    }
-
-    public Vector(Vector vector) {
-        components = new double[vector.components.length];
-        System.arraycopy(vector.components, 0, components, 0,
-                vector.components.length);
     }
 
     public double[] getComponents() {
