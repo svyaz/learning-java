@@ -1,5 +1,7 @@
 package com.github.svyaz.javalearning.vector;
 
+import java.util.Arrays;
+
 public class Vector {
     private static final String EXCEPTION_CONSTRUCTOR_MESSAGE = "Dimension of Vector must be greater than 0.";
     private static final String EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE = "Index out of bounds of Vector dimension.";
@@ -14,8 +16,7 @@ public class Vector {
 
     public Vector(int dimension, double[] components) {
         this(dimension);
-        System.arraycopy(components, 0, this.components, 0,
-                Math.min(dimension, components.length));
+        this.components = Arrays.copyOf(components, dimension);
     }
 
     public Vector(double[] components) {
@@ -23,9 +24,7 @@ public class Vector {
     }
 
     public Vector(Vector vector) {
-        components = new double[vector.components.length];
-        System.arraycopy(vector.components, 0, components, 0,
-                vector.components.length);
+        components = Arrays.copyOf(vector.components, vector.getSize());
     }
 
     public static Vector add(Vector vector1, Vector vector2) {
