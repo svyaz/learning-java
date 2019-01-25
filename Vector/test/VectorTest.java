@@ -174,7 +174,7 @@ public class VectorTest {
     @Test
     public void hashCode1Test() {
         Vector vector = new Vector(new double[]{1, 2, 3});
-        Assert.assertEquals(vector.hashCode(), 1786299869);
+        Assert.assertEquals(vector.hashCode(), 66614367);
     }
 
     @Test

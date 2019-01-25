@@ -140,11 +140,6 @@ public class Vector {
 
     @Override
     public int hashCode() {
-        final int prime = 37;
-        int hash = 1;
-        for (double component : components) {
-            hash = prime * hash + Double.hashCode(component);
-        }
-        return hash;
+        return Arrays.hashCode(components);
     }
 }
