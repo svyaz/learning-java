@@ -46,11 +46,10 @@ public class Vector {
     }
 
     public static double scalarMultiplication(Vector vector1, Vector vector2) {
-        final int dimension = Math.max(vector1.components.length, vector2.components.length);
+        final int minDimension = Math.min(vector1.getSize(), vector2.getSize());
         double result = 0.0;
-        for (int i = 0; i < dimension; i++) {
-            result += (i < vector1.components.length ? vector1.components[i] : 0.0) *
-                    (i < vector2.components.length ? vector2.components[i] : 0.0);
+        for (int i = 0; i < minDimension; i++) {
+            result += vector1.getComponent(i) * vector2.getComponent(i);
         }
         return result;
     }
