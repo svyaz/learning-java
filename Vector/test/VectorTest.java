@@ -194,11 +194,26 @@ public class VectorTest {
                 vector1.getComponent(2) == -6.0);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void addExceptionTest() {
+    @Test
+    public void addDifferentLength1Test() {
         Vector vector1 = new Vector(new double[]{1, 3});
         Vector vector2 = new Vector(new double[]{4, 1, 2});
         vector1.add(vector2);
+        Assert.assertTrue(vector1.getSize() == 3 &&
+                vector1.getComponent(0) == 5.0 &&
+                vector1.getComponent(1) == 4.0 &&
+                vector1.getComponent(2) == 2.0);
+    }
+
+    @Test
+    public void addDifferentLength2Test() {
+        Vector vector1 = new Vector(new double[]{1, 0, 3});
+        Vector vector2 = new Vector(new double[]{-2, 1});
+        vector1.add(vector2);
+        Assert.assertTrue(vector1.getSize() == 3 &&
+                vector1.getComponent(0) == -1.0 &&
+                vector1.getComponent(1) == 1.0 &&
+                vector1.getComponent(2) == 3.0);
     }
 
     @Test
@@ -211,11 +226,26 @@ public class VectorTest {
                 vector1.getComponent(2) == 4.0);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void subtractExceptionTest() {
+    @Test
+    public void subtractDifferentLength1Test() {
         Vector vector1 = new Vector(new double[]{1, 3});
         Vector vector2 = new Vector(new double[]{4, 1, 2});
         vector1.subtract(vector2);
+        Assert.assertTrue(vector1.getSize() == 3 &&
+                vector1.getComponent(0) == -3.0 &&
+                vector1.getComponent(1) == 2.0 &&
+                vector1.getComponent(2) == -2.0);
+    }
+
+    @Test
+    public void subtractDifferentLength2Test() {
+        Vector vector1 = new Vector(new double[]{1, 3, 1});
+        Vector vector2 = new Vector(new double[]{3, -1});
+        vector1.subtract(vector2);
+        Assert.assertTrue(vector1.getSize() == 3 &&
+                vector1.getComponent(0) == -2.0 &&
+                vector1.getComponent(1) == 4.0 &&
+                vector1.getComponent(2) == 1.0);
     }
 
     @Test

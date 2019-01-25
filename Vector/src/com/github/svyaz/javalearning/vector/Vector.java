@@ -81,20 +81,21 @@ public class Vector {
     }
 
     public void add(Vector anotherVector) {
-        changeVector(anotherVector, 1);
+        final int tmpDimension = Math.max(getSize(), anotherVector.getSize());
+        double[] tmpComponents = Arrays.copyOf(components, tmpDimension);
+        for (int i = 0; i < anotherVector.getSize(); i++) {
+            tmpComponents[i] += anotherVector.components[i];
+        }
+        components = tmpComponents;
     }
 
     public void subtract(Vector anotherVector) {
-        changeVector(anotherVector, -1);
-    }
-
-    private void changeVector(Vector anotherVector, int factor) {
-        if (components.length != anotherVector.components.length) {
-            throw new IllegalArgumentException();
+        final int tmpDimension = Math.max(getSize(), anotherVector.getSize());
+        double[] tmpComponents = Arrays.copyOf(components, tmpDimension);
+        for (int i = 0; i < anotherVector.getSize(); i++) {
+            tmpComponents[i] -= anotherVector.components[i];
         }
-        for (int i = 0; i < components.length; i++) {
-            components[i] += factor * anotherVector.components[i];
-        }
+        components = tmpComponents;
     }
 
     public void multiplication(double number) {

@@ -2,8 +2,6 @@ package com.github.svyaz;
 
 import com.github.svyaz.javalearning.vector.Vector;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
         Vector vector1 = new Vector(new double[]{1, 2});
