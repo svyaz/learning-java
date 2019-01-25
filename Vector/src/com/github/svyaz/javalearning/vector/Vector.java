@@ -28,19 +28,19 @@ public class Vector {
     }
 
     public static Vector add(Vector vector1, Vector vector2) {
-        return createVectorFromTwo(vector1, vector2, 1);
+        final int tmpDimension = Math.max(vector1.getSize(), vector2.getSize());
+        Vector result = new Vector(tmpDimension, vector1.components);
+        for (int i = 0; i < vector2.getSize(); i++) {
+            result.components[i] += vector2.components[i];
+        }
+        return result;
     }
 
     public static Vector subtract(Vector vector1, Vector vector2) {
-        return createVectorFromTwo(vector1, vector2, -1);
-    }
-
-    private static Vector createVectorFromTwo(Vector vector1, Vector vector2, int factor) {
-        final int dimension = Math.max(vector1.components.length, vector2.components.length);
-        Vector result = new Vector(dimension);
-        for (int i = 0; i < dimension; i++) {
-            result.components[i] = (i < vector1.components.length ? vector1.components[i] : 0.0) +
-                    factor * (i < vector2.components.length ? vector2.components[i] : 0.0);
+        final int tmpDimension = Math.max(vector1.getSize(), vector2.getSize());
+        Vector result = new Vector(tmpDimension, vector1.components);
+        for (int i = 0; i < vector2.getSize(); i++) {
+            result.components[i] -= vector2.components[i];
         }
         return result;
     }
