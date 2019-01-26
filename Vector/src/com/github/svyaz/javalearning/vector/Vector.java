@@ -26,32 +26,32 @@ public class Vector {
     }
 
     public Vector(Vector vector) {
-        components = Arrays.copyOf(vector.components, vector.getSize());
+        components = Arrays.copyOf(vector.components, vector.components.length);
     }
 
     public static Vector add(Vector vector1, Vector vector2) {
-        final int tmpDimension = Math.max(vector1.getSize(), vector2.getSize());
+        final int tmpDimension = Math.max(vector1.components.length, vector2.components.length);
         Vector result = new Vector(tmpDimension, vector1.components);
-        for (int i = 0; i < vector2.getSize(); i++) {
+        for (int i = 0; i < vector2.components.length; i++) {
             result.components[i] += vector2.components[i];
         }
         return result;
     }
 
     public static Vector subtract(Vector vector1, Vector vector2) {
-        final int tmpDimension = Math.max(vector1.getSize(), vector2.getSize());
+        final int tmpDimension = Math.max(vector1.components.length, vector2.components.length);
         Vector result = new Vector(tmpDimension, vector1.components);
-        for (int i = 0; i < vector2.getSize(); i++) {
+        for (int i = 0; i < vector2.components.length; i++) {
             result.components[i] -= vector2.components[i];
         }
         return result;
     }
 
     public static double scalarMultiplication(Vector vector1, Vector vector2) {
-        final int minDimension = Math.min(vector1.getSize(), vector2.getSize());
+        final int minDimension = Math.min(vector1.components.length, vector2.components.length);
         double result = 0.0;
         for (int i = 0; i < minDimension; i++) {
-            result += vector1.getComponent(i) * vector2.getComponent(i);
+            result += vector1.components[i] * vector2.components[i];
         }
         return result;
     }
@@ -83,18 +83,18 @@ public class Vector {
     }
 
     public void add(Vector anotherVector) {
-        final int tmpDimension = Math.max(getSize(), anotherVector.getSize());
+        final int tmpDimension = Math.max(components.length, anotherVector.components.length);
         double[] tmpComponents = Arrays.copyOf(components, tmpDimension);
-        for (int i = 0; i < anotherVector.getSize(); i++) {
+        for (int i = 0; i < anotherVector.components.length; i++) {
             tmpComponents[i] += anotherVector.components[i];
         }
         components = tmpComponents;
     }
 
     public void subtract(Vector anotherVector) {
-        final int tmpDimension = Math.max(getSize(), anotherVector.getSize());
+        final int tmpDimension = Math.max(components.length, anotherVector.components.length);
         double[] tmpComponents = Arrays.copyOf(components, tmpDimension);
-        for (int i = 0; i < anotherVector.getSize(); i++) {
+        for (int i = 0; i < anotherVector.components.length; i++) {
             tmpComponents[i] -= anotherVector.components[i];
         }
         components = tmpComponents;
@@ -150,8 +150,6 @@ public class Vector {
 /* TODO:
         2. п.9 остался.
         Там надо сделать копию, чтобы оригинальный объект не изменился.
-
-        4. В целом вместо геттеров в классе можно обращаться к полям, например, в скалярном произведении
 
         5. Нестатические сумма и разность.
         Надо сделать так, чтобы новый массив создавался только если это необходимо
