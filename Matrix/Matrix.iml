@@ -8,6 +8,7 @@
     </content>
     <orderEntry type="jdk" jdkName="9" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="Vector" />
     <orderEntry type="library" scope="TEST" name="junit:junit:4.12" level="project" />
   </component>
 </module>
