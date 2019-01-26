@@ -20,6 +20,20 @@ public class Matrix {
         return new int[]{rows.length, rows[0].getSize()};
     }
 
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder();
+        str.append("Matrix { ");
+        for (int i = 0; i < rows.length; i++) {
+            str.append("{ ");
+            for (int j = 0; j < rows[i].getSize(); j++) {
+                str.append(rows[i].getComponent(j));
+                str.append(j == rows[i].getSize() - 1 ? " }" : ", ");
+            }
+            str.append(i == rows.length - 1 ? " }" : ", ");
+        }
+        return str.toString();
+    }
 }
 
 /*
@@ -31,19 +45,19 @@ TODO:
 Реализовать:
 
 Конструкторы:
-  Matrix(n, m) – матрица нулей размера nxm
+  + Matrix(n, m) – матрица нулей размера nxm
   Matrix(Matrix) – конструктор копирования
   Matrix(double[][]) – из двумерного массива (в C# double[,])
   Matrix(Vector[]) – из массива векторов-строк
 
 Методы:
-  Получение размеров матрицы
+  + Получение размеров матрицы
   Получение и задание вектора-строки по индексу
   Получение вектора-столбца по индексу
   Транспонирование матрицы
   Умножение на скаляр
   Вычисление определителя матрицы
-  toString определить так, чтобы результат получался в таком виде: { { 1, 2 }, { 2, 3 } }
+  + toString определить так, чтобы результат получался в таком виде: { { 1, 2 }, { 2, 3 } }
   умножение матрицы на вектор
   Сложение матриц
   Вычитание матриц

@@ -18,4 +18,10 @@ public class MatrixTest {
     public void constructor1Exception2Test() {
         new Matrix(2, 0);
     }
+
+    @Test
+    public void toString1Test() {
+        Matrix matrix = new Matrix(2, 2);
+        Assert.assertEquals("Matrix { { 0.0, 0.0 }, { 0.0, 0.0 } }", matrix.toString());
+    }
 }

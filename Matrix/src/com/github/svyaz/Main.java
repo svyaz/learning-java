@@ -5,7 +5,6 @@ import com.github.svyaz.javalearning.matrix.Matrix;
 public class Main {
     public static void main(String[] args) {
         Matrix matrix = new Matrix(2, 2);
-        /*System.out.println(matrix.rows[0]);
-        System.out.println(matrix.rows[1]);*/
+        System.out.println(matrix.toString());
     }
 }
