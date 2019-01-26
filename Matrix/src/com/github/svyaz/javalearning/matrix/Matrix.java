@@ -4,7 +4,7 @@ import com.github.svyaz.javalearning.vector.Vector;
 
 public class Matrix {
     private static final String EXCEPTION_CONSTRUCTOR_MESSAGE = "Matrix rows and columns sizes must be greater than 0.";
-    //private static final String EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE = "Index out of bounds of rows number.";
+    private static final String EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE = "Index out of bounds of rows number.";
     private Vector[] rows;
 
     public Matrix(int rows, int columns) {
@@ -57,12 +57,12 @@ public class Matrix {
         }
     }
 
-    /*public Vector getRow(int index) {
+    public Vector getRow(int index) {
         if (index < 0 || index >= rows.length) {
             throw new IndexOutOfBoundsException(EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE);
         }
         return rows[index];
-    }*/
+    }
 
     public int[] getSizes() {
         return new int[]{rows.length, rows[0].getSize()};

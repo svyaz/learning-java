@@ -93,6 +93,26 @@ public class MatrixTest {
     }
 
     @Test
+    public void getRowTest() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Vector vector = matrix.getRow(0);
+        Assert.assertTrue(vector.getSize() == 2 &&
+                vector.getComponent(0) == 1.0 && vector.getComponent(1) == 2.0);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getRowException1Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.getRow(-1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getRowException2Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.getRow(2);
+    }
+
+    @Test
     public void toString1Test() {
         Matrix matrix = new Matrix(2, 2);
         Assert.assertEquals("Matrix { { 0.0, 0.0 }, { 0.0, 0.0 } }", matrix.toString());
