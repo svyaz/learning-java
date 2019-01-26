@@ -16,6 +16,23 @@ public class Matrix {
         }
     }
 
+    public Matrix(Vector[] rows) {
+        if (rows.length == 0) {
+            throw new IllegalArgumentException(EXCEPTION_CONSTRUCTOR_MESSAGE);
+        }
+        int maxColumns = rows[0].getSize();
+        for (int i = 1; i < rows.length; i++) {
+            if (rows[1].getSize() > maxColumns) {
+                maxColumns = rows[1].getSize();
+            }
+        }
+        this.rows = new Vector[rows.length];
+        for (int i = 0; i < rows.length; i++) {
+            this.rows[i] = new Vector(maxColumns);
+            this.rows[i].add(rows[i]);
+        }
+    }
+
     public int[] getSizes() {
         return new int[]{rows.length, rows[0].getSize()};
     }
@@ -48,7 +65,7 @@ TODO:
   + Matrix(n, m) – матрица нулей размера nxm
   Matrix(Matrix) – конструктор копирования
   Matrix(double[][]) – из двумерного массива (в C# double[,])
-  Matrix(Vector[]) – из массива векторов-строк
+  + Matrix(Vector[]) – из массива векторов-строк
 
 Методы:
   + Получение размеров матрицы
