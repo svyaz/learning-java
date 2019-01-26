@@ -83,21 +83,21 @@ public class Vector {
     }
 
     public void add(Vector anotherVector) {
-        final int tmpDimension = Math.max(components.length, anotherVector.components.length);
-        double[] tmpComponents = Arrays.copyOf(components, tmpDimension);
-        for (int i = 0; i < anotherVector.components.length; i++) {
-            tmpComponents[i] += anotherVector.components[i];
+        if (components.length < anotherVector.components.length) {
+            components = Arrays.copyOf(components, anotherVector.components.length);
         }
-        components = tmpComponents;
+        for (int i = 0; i < anotherVector.components.length; i++) {
+            components[i] += anotherVector.components[i];
+        }
     }
 
     public void subtract(Vector anotherVector) {
-        final int tmpDimension = Math.max(components.length, anotherVector.components.length);
-        double[] tmpComponents = Arrays.copyOf(components, tmpDimension);
-        for (int i = 0; i < anotherVector.components.length; i++) {
-            tmpComponents[i] -= anotherVector.components[i];
+        if (components.length < anotherVector.components.length) {
+            components = Arrays.copyOf(components, anotherVector.components.length);
         }
-        components = tmpComponents;
+        for (int i = 0; i < anotherVector.components.length; i++) {
+            components[i] -= anotherVector.components[i];
+        }
     }
 
     public void multiplication(double number) {
@@ -150,7 +150,4 @@ public class Vector {
 /* TODO:
         2. п.9 остался.
         Там надо сделать копию, чтобы оригинальный объект не изменился.
-
-        5. Нестатические сумма и разность.
-        Надо сделать так, чтобы новый массив создавался только если это необходимо
 */
