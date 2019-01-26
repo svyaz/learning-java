@@ -4,6 +4,7 @@ import com.github.svyaz.javalearning.vector.Vector;
 
 public class Matrix {
     private static final String EXCEPTION_CONSTRUCTOR_MESSAGE = "Matrix rows and columns sizes must be greater than 0.";
+    //private static final String EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE = "Index out of bounds of rows number.";
     private Vector[] rows;
 
     public Matrix(int rows, int columns) {
@@ -49,6 +50,20 @@ public class Matrix {
         }
     }
 
+    public Matrix(Matrix matrix) {
+        this.rows = new Vector[matrix.rows.length];
+        for (int i = 0; i < matrix.rows.length; i++) {
+            this.rows[i] = new Vector(matrix.rows[i]);
+        }
+    }
+
+    /*public Vector getRow(int index) {
+        if (index < 0 || index >= rows.length) {
+            throw new IndexOutOfBoundsException(EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE);
+        }
+        return rows[index];
+    }*/
+
     public int[] getSizes() {
         return new int[]{rows.length, rows[0].getSize()};
     }
@@ -79,7 +94,7 @@ TODO:
 
 Конструкторы:
   + Matrix(n, m) – матрица нулей размера nxm
-  Matrix(Matrix) – конструктор копирования
+  + Matrix(Matrix) – конструктор копирования
   + Matrix(double[][]) – из двумерного массива (в C# double[,])
   + Matrix(Vector[]) – из массива векторов-строк
 

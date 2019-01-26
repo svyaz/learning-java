@@ -18,6 +18,9 @@ public class Main {
 
         Matrix matrix = new Matrix(new double[][]{d1, d2, d3});
         System.out.println(matrix.toString());
+        System.out.println(matrix.hashCode());
+        //System.out.println(matrix.getRow(2).toString());
+
 
     }
 }
