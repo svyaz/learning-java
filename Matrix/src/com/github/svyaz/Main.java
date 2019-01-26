@@ -5,11 +5,19 @@ import com.github.svyaz.javalearning.vector.Vector;
 
 public class Main {
     public static void main(String[] args) {
-        Vector v1 = new Vector(new double[]{1, 2});
+        /*Vector v1 = new Vector(new double[]{1, 2});
         Vector v2 = new Vector(new double[]{3, 4, 5, 6});
         Vector v3 = new Vector(new double[]{7});
 
         Matrix matrix = new Matrix(new Vector[]{v1, v2, v3});
+        System.out.println(matrix.toString());*/
+
+        double[] d1 = {1, 2};
+        double[] d2 = {3, 4, 5, 6};
+        double[] d3 = {7, 8, 9, 0, 10};
+
+        Matrix matrix = new Matrix(new double[][]{d1, d2, d3});
         System.out.println(matrix.toString());
+
     }
 }

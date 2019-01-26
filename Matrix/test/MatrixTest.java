@@ -57,6 +57,35 @@ public class MatrixTest {
     }
 
     @Test
+    public void constructor3Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Assert.assertTrue(matrix.getSizes()[0] == 2 && matrix.getSizes()[1] == 2);
+    }
+
+    @Test
+    public void constructor3OneRowTest() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}});
+        Assert.assertTrue(matrix.getSizes()[0] == 1 && matrix.getSizes()[1] == 2);
+    }
+
+    @Test
+    public void constructor3DifferentLength1Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3}, {4, 5, 6}});
+        Assert.assertTrue(matrix.getSizes()[0] == 3 && matrix.getSizes()[1] == 3);
+    }
+
+    @Test
+    public void constructor3DifferentLength2Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2, 3}, {4}});
+        Assert.assertTrue(matrix.getSizes()[0] == 2 && matrix.getSizes()[1] == 3);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void constructor3ExceptionTest() {
+        new Matrix(new double[][]{});
+    }
+
+    @Test
     public void toString1Test() {
         Matrix matrix = new Matrix(2, 2);
         Assert.assertEquals("Matrix { { 0.0, 0.0 }, { 0.0, 0.0 } }", matrix.toString());
