@@ -30,20 +30,14 @@ public class Vector {
     }
 
     public static Vector add(Vector vector1, Vector vector2) {
-        final int tmpDimension = Math.max(vector1.components.length, vector2.components.length);
-        Vector result = new Vector(tmpDimension, vector1.components);
-        for (int i = 0; i < vector2.components.length; i++) {
-            result.components[i] += vector2.components[i];
-        }
+        Vector result = new Vector(vector1);
+        result.add(vector2);
         return result;
     }
 
     public static Vector subtract(Vector vector1, Vector vector2) {
-        final int tmpDimension = Math.max(vector1.components.length, vector2.components.length);
-        Vector result = new Vector(tmpDimension, vector1.components);
-        for (int i = 0; i < vector2.components.length; i++) {
-            result.components[i] -= vector2.components[i];
-        }
+        Vector result = new Vector(vector1);
+        result.subtract(vector2);
         return result;
     }
 
@@ -146,8 +140,3 @@ public class Vector {
         return Arrays.hashCode(components);
     }
 }
-
-/* TODO:
-        2. п.9 остался.
-        Там надо сделать копию, чтобы оригинальный объект не изменился.
-*/
