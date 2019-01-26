@@ -57,14 +57,14 @@ public class Vector {
     }
 
     public double getComponent(int index) {
-        if (index < 0 || index > components.length - 1) {
+        if (index < 0 || index >= components.length) {
             throw new IndexOutOfBoundsException(EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE);
         }
         return components[index];
     }
 
     public void setComponent(int index, double value) {
-        if (index < 0 || index > components.length - 1) {
+        if (index < 0 || index >= components.length) {
             throw new IndexOutOfBoundsException(EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE);
         }
         components[index] = value;
@@ -146,3 +146,13 @@ public class Vector {
         return Arrays.hashCode(components);
     }
 }
+
+/* TODO:
+        2. п.9 остался.
+        Там надо сделать копию, чтобы оригинальный объект не изменился.
+
+        4. В целом вместо геттеров в классе можно обращаться к полям, например, в скалярном произведении
+
+        5. Нестатические сумма и разность.
+        Надо сделать так, чтобы новый массив создавался только если это необходимо
+*/
