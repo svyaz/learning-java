@@ -15,7 +15,9 @@ public class Vector {
     }
 
     public Vector(int dimension, double[] components) {
-        this(dimension);
+        if (dimension <= 0) {
+            throw new IllegalArgumentException(EXCEPTION_CONSTRUCTOR_MESSAGE);
+        }
         this.components = Arrays.copyOf(components, dimension);
     }
 
