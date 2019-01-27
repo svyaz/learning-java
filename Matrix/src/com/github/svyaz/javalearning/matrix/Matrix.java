@@ -7,6 +7,7 @@ public class Matrix {
     private static final String EXCEPTION_ROW_INDEX_OUT_OF_BOUNDS_MESSAGE = "Index out of bounds of rows number.";
     private static final String EXCEPTION_COLUMN_INDEX_OUT_OF_BOUNDS_MESSAGE = "Index out of bounds of columns number.";
     private static final String EXCEPTION_WRONG_ROW_SIZE_MESSAGE = "Size of new row not equal to matrix row size.";
+    private static final String EXCEPTION_WRONG_COLUMN_SIZE_MESSAGE = "Size of new column not equal to matrix column size.";
     private Vector[] rows;
 
     public Matrix(int rows, int columns) {
@@ -87,6 +88,18 @@ public class Matrix {
         return new Vector(column);
     }
 
+    public void setColumn(int index, Vector column) {
+        if (index < 0 || index >= rows[0].getSize()) {
+            throw new IndexOutOfBoundsException(EXCEPTION_COLUMN_INDEX_OUT_OF_BOUNDS_MESSAGE);
+        }
+        if (column.getSize() != rows.length) {
+            throw new IllegalArgumentException(EXCEPTION_WRONG_COLUMN_SIZE_MESSAGE);
+        }
+        for (int i = 0; i < rows.length; i++) {
+            rows[i].setComponent(index, column.getComponent(i));
+        }
+    }
+
     public int[] getSizes() {
         return new int[]{rows.length, rows[0].getSize()};
     }
@@ -124,7 +137,7 @@ TODO:
 Методы:
   + Получение размеров матрицы
   + Получение и задание вектора-строки по индексу
-  Получение вектора-столбца по индексу
+  + Получение вектора-столбца по индексу
   Транспонирование матрицы
   Умножение на скаляр
   Вычисление определителя матрицы

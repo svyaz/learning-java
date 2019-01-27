@@ -23,7 +23,9 @@ public class Main {
         //matrix.setRow(2, new Vector(new double[]{30, 40, 50}));
         //System.out.println(matrix.getRow(2).toString());
         //System.out.println(matrix.toString());
-        System.out.println(matrix.getColumn(0).toString());
+        //System.out.println(matrix.getColumn(0).toString());
+        matrix.setColumn(2, new Vector(new double[]{30, 40, 50}));
+        System.out.println(matrix.toString());
 
 
     }

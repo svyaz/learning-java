@@ -166,6 +166,39 @@ public class MatrixTest {
     }
 
     @Test
+    public void setColumnTest() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.setColumn(1, new Vector(new double[]{5, 6}));
+        Vector row = matrix.getColumn(1);
+        Assert.assertTrue(row.getSize() == 2 &&
+                row.getComponent(0) == 5.0 && row.getComponent(1) == 6.0);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void setColumnException1Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.setColumn(-1, new Vector(new double[]{5, 6}));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void setColumnException2Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.setColumn(2, new Vector(new double[]{5, 6}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setColumnException3Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.setColumn(1, new Vector(new double[]{5}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setColumnException4Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.setColumn(1, new Vector(new double[]{5, 6, 7}));
+    }
+
+    @Test
     public void toString1Test() {
         Matrix matrix = new Matrix(2, 2);
         Assert.assertEquals("Matrix { { 0.0, 0.0 }, { 0.0, 0.0 } }", matrix.toString());
