@@ -5,6 +5,7 @@ import com.github.svyaz.javalearning.vector.Vector;
 public class Matrix {
     private static final String EXCEPTION_CONSTRUCTOR_MESSAGE = "Matrix rows and columns sizes must be greater than 0.";
     private static final String EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE = "Index out of bounds of rows number.";
+    private static final String EXCEPTION_WRONG_ROW_SIZE_MESSAGE = "Size of new row not equal to matrix row size.";
     private Vector[] rows;
 
     public Matrix(int rows, int columns) {
@@ -64,6 +65,16 @@ public class Matrix {
         return rows[index];
     }
 
+    public void setRow(int index, Vector row) {
+        if (index < 0 || index >= rows.length) {
+            throw new IndexOutOfBoundsException(EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE);
+        }
+        if (rows[0].getSize() != row.getSize()) {
+            throw new IllegalArgumentException(EXCEPTION_WRONG_ROW_SIZE_MESSAGE);
+        }
+        rows[index] = new Vector(row);
+    }
+
     public int[] getSizes() {
         return new int[]{rows.length, rows[0].getSize()};
     }
@@ -100,7 +111,7 @@ TODO:
 
 Методы:
   + Получение размеров матрицы
-  Получение и задание вектора-строки по индексу
+  + Получение и задание вектора-строки по индексу
   Получение вектора-столбца по индексу
   Транспонирование матрицы
   Умножение на скаляр

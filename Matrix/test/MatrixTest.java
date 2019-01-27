@@ -95,9 +95,9 @@ public class MatrixTest {
     @Test
     public void getRowTest() {
         Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
-        Vector vector = matrix.getRow(0);
-        Assert.assertTrue(vector.getSize() == 2 &&
-                vector.getComponent(0) == 1.0 && vector.getComponent(1) == 2.0);
+        Vector row = matrix.getRow(0);
+        Assert.assertTrue(row.getSize() == 2 &&
+                row.getComponent(0) == 1.0 && row.getComponent(1) == 2.0);
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
@@ -110,6 +110,39 @@ public class MatrixTest {
     public void getRowException2Test() {
         Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
         matrix.getRow(2);
+    }
+
+    @Test
+    public void setRowTest() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.setRow(1, new Vector(new double[]{5, 6}));
+        Vector row = matrix.getRow(1);
+        Assert.assertTrue(row.getSize() == 2 &&
+                row.getComponent(0) == 5.0 && row.getComponent(1) == 6.0);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void setRowException1Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.setRow(-1, new Vector(new double[]{5, 6}));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void setRowException2Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.setRow(2, new Vector(new double[]{5, 6}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setRowException3Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.setRow(1, new Vector(new double[]{5}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setRowException4Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.setRow(1, new Vector(new double[]{5, 6, 7}));
     }
 
     @Test
