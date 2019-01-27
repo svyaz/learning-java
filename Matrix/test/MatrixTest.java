@@ -240,6 +240,24 @@ public class MatrixTest {
     }
 
     @Test
+    public void multiplicationByColumnTest() {
+        Matrix matrix = new Matrix(new double[][]{{2, 4, 0}, {-2, 1, 3}, {-1, 0, 1}});
+        Vector column = new Vector(new double[]{1, 2, -1});
+        Vector result = matrix.multiplicationByColumn(column);
+        Assert.assertTrue(result.getSize() == 3 &&
+                result.getComponent(0) == 10.0 &&
+                result.getComponent(1) == -3.0 &&
+                result.getComponent(2) == -2.0);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void multiplicationByColumnExceptionTest() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        Vector vector = new Vector(new double[]{7, 8});
+        matrix.multiplicationByColumn(vector);
+    }
+
+    @Test
     public void toString1Test() {
         Matrix matrix = new Matrix(2, 2);
         Assert.assertEquals("Matrix { { 0.0, 0.0 }, { 0.0, 0.0 } }", matrix.toString());

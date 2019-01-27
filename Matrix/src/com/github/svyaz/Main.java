@@ -12,18 +12,20 @@ public class Main {
         Matrix matrix = new Matrix(new Vector[]{v1, v2, v3});
         System.out.println(matrix.toString());*/
 
-        /*double[] d1 = {1, 2};
-        double[] d2 = {3, 4};
-        double[] d3 = {5, 6};*/
+        double[] d1 = {2, 4, 0};
+        double[] d2 = {-2, 1, 3};
+        double[] d3 = {-1, 0, 1};
 
-        double[][] matrix3x3 = {
+        Vector column = new Vector(new double[]{1, 2, -1});
+
+        /*double[][] matrix3x3 = {
                 {3.0, 5.0, 2.0},
                 {8.0, 4.0, 3.0},
                 {3.0, 7.0, 2.0},
-        };
+        };*/
 
-        //Matrix matrix = new Matrix(new double[][]{d1, d2});
-        Matrix matrix = new Matrix(matrix3x3);
+        Matrix matrix = new Matrix(new double[][]{d1, d2, d3});
+        //Matrix matrix = new Matrix(matrix3x3);
         System.out.println(matrix.toString());
         //System.out.println(matrix.hashCode());
         //System.out.println(matrix.getRow(2).toString());
@@ -35,8 +37,8 @@ public class Main {
         //matrix.transpose();
         //matrix.multiplication(2);
         //System.out.println(matrix.toString());
-        System.out.println(matrix.getDeterminant());
-
+        //System.out.println(matrix.getDeterminant());
+        System.out.println(matrix.multiplicationByColumn(column).toString());
 
     }
 }

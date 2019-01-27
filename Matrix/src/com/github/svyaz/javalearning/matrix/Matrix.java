@@ -11,6 +11,7 @@ public class Matrix {
     private static final String EXCEPTION_WRONG_ROW_SIZE_MESSAGE = "Size of new row not equal to matrix row size.";
     private static final String EXCEPTION_WRONG_COLUMN_SIZE_MESSAGE = "Size of new column not equal to matrix column size.";
     private static final String EXCEPTION_MATRIX_NOT_SQUARE_MESSAGE = "Matrix not square.";
+    private static final String EXCEPTION_COLUMN_SIZE_NOT_MATCH_MESSAGE = "Column-vector size not match matrix row size.";
     private Vector[] rows;
 
     public Matrix(int rows, int columns) {
@@ -119,6 +120,25 @@ public class Matrix {
         for (Vector row : rows) {
             row.multiplication(number);
         }
+    }
+
+    /**
+     * Multiplication by vector-column
+     */
+    public Vector multiplicationByColumn(Vector column) {
+        if (rows[0].getSize() != column.getSize()) {
+            throw new ArithmeticException(EXCEPTION_COLUMN_SIZE_NOT_MATCH_MESSAGE);
+        }
+
+        Vector columnResult = new Vector(rows.length);
+        for (int i = 0; i < rows.length; i++) {
+            double tmp = 0.0;
+            for (int j = 0; j < column.getSize(); j++) {
+                tmp += rows[i].getComponent(j) * column.getComponent(j);
+            }
+            columnResult.setComponent(i, tmp);
+        }
+        return columnResult;
     }
 
     public double getDeterminant() {
