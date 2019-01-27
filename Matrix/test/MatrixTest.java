@@ -199,6 +199,19 @@ public class MatrixTest {
     }
 
     @Test
+    public void transposeTest() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}, {5, 6}});
+        matrix.transpose();
+        Assert.assertTrue(matrix.getSizes()[0] == 2 && matrix.getSizes()[1] == 3 &&
+                matrix.getRow(0).getComponent(0) == 1.0 &&
+                matrix.getRow(0).getComponent(1) == 3.0 &&
+                matrix.getRow(0).getComponent(2) == 5.0 &&
+                matrix.getRow(1).getComponent(0) == 2.0 &&
+                matrix.getRow(1).getComponent(1) == 4.0 &&
+                matrix.getRow(1).getComponent(2) == 6.0);
+    }
+
+    @Test
     public void toString1Test() {
         Matrix matrix = new Matrix(2, 2);
         Assert.assertEquals("Matrix { { 0.0, 0.0 }, { 0.0, 0.0 } }", matrix.toString());

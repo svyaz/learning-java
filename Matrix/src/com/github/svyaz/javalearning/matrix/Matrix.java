@@ -106,6 +106,14 @@ public class Matrix {
         return new int[]{rows.length, rows[0].getSize()};
     }
 
+    public void transpose() {
+        Vector[] newRows = new Vector[rows[0].getSize()];
+        for (int i = 0; i < rows[0].getSize(); i++) {
+            newRows[i] = getColumn(i);
+        }
+        rows = newRows;
+    }
+
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
@@ -157,7 +165,7 @@ TODO:
   + Получение размеров матрицы
   + Получение и задание вектора-строки по индексу
   + Получение вектора-столбца по индексу
-  Транспонирование матрицы
+  + Транспонирование матрицы
   Умножение на скаляр
   Вычисление определителя матрицы
   + toString определить так, чтобы результат получался в таком виде: { { 1, 2 }, { 2, 3 } }
