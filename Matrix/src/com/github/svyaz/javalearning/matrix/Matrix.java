@@ -12,6 +12,7 @@ public class Matrix {
     private static final String EXCEPTION_WRONG_COLUMN_SIZE_MESSAGE = "Size of new column not equal to matrix column size.";
     private static final String EXCEPTION_MATRIX_NOT_SQUARE_MESSAGE = "Matrix not square.";
     private static final String EXCEPTION_COLUMN_SIZE_NOT_MATCH_MESSAGE = "Column-vector size not match matrix row size.";
+    private static final String EXCEPTION_ROW_OR_MATRIX_SIZE_NOT_MATCH_MESSAGE = "Row-vector or matrix size not match row-multiplication conditions.";
     private Vector[] rows;
 
     public Matrix(int rows, int columns) {
@@ -141,6 +142,25 @@ public class Matrix {
         return columnResult;
     }
 
+    /**
+     * Multiplication by vector-row
+     */
+    public Matrix multiplicationByRow(Vector row) {
+        if (rows.length != row.getSize() || rows[0].getSize() > 1) {
+            throw new ArithmeticException(EXCEPTION_ROW_OR_MATRIX_SIZE_NOT_MATCH_MESSAGE);
+        }
+
+        Vector[] resultVectors = new Vector[rows.length];
+        for (int i = 0; i < rows.length; i++) {
+            Vector tmpVector = new Vector(rows.length);
+            for (int j = 0; j < rows.length; j++) {
+                tmpVector.setComponent(j, rows[i].getComponent(0) * row.getComponent(j));
+            }
+            resultVectors[i] = tmpVector;
+        }
+        return new Matrix(resultVectors);
+    }
+
     public double getDeterminant() {
         if (rows.length != rows[0].getSize()) {
             throw new ArithmeticException(EXCEPTION_MATRIX_NOT_SQUARE_MESSAGE);
@@ -236,7 +256,7 @@ TODO:
   + Умножение на скаляр
   + Вычисление определителя матрицы
   + toString определить так, чтобы результат получался в таком виде: { { 1, 2 }, { 2, 3 } }
-  умножение матрицы на вектор
+  + умножение матрицы на вектор
   Сложение матриц
   Вычитание матриц
 

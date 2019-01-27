@@ -258,6 +258,25 @@ public class MatrixTest {
     }
 
     @Test
+    public void multiplicationByRowTest() {
+        Matrix matrix = new Matrix(new double[][]{{1}, {2}});
+        Vector row = new Vector(new double[]{3, 4});
+        Matrix result = matrix.multiplicationByRow(row);
+        Assert.assertTrue(result.getSizes()[0] == 2 && result.getSizes()[1] == 2 &&
+                result.getRow(0).getComponent(0) == 3.0 &&
+                result.getRow(0).getComponent(1) == 4.0 &&
+                result.getRow(1).getComponent(0) == 6.0 &&
+                result.getRow(1).getComponent(1) == 8.0);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void multiplicationByRowExceptionTest() {
+        Matrix matrix = new Matrix(new double[][]{{1}, {2}});
+        Vector row = new Vector(new double[]{3, 4, 5});
+        matrix.multiplicationByRow(row);
+    }
+
+    @Test
     public void toString1Test() {
         Matrix matrix = new Matrix(2, 2);
         Assert.assertEquals("Matrix { { 0.0, 0.0 }, { 0.0, 0.0 } }", matrix.toString());
