@@ -212,6 +212,16 @@ public class MatrixTest {
     }
 
     @Test
+    public void multiplicationTest() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.multiplication(2);
+        Assert.assertTrue(matrix.getRow(0).getComponent(0) == 2.0 &&
+                matrix.getRow(0).getComponent(1) == 4.0 &&
+                matrix.getRow(1).getComponent(0) == 6.0 &&
+                matrix.getRow(1).getComponent(1) == 8.0);
+    }
+
+    @Test
     public void toString1Test() {
         Matrix matrix = new Matrix(2, 2);
         Assert.assertEquals("Matrix { { 0.0, 0.0 }, { 0.0, 0.0 } }", matrix.toString());

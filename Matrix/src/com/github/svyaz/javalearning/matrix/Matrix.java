@@ -114,6 +114,12 @@ public class Matrix {
         rows = newRows;
     }
 
+    public void multiplication(double number) {
+        for (Vector row : rows) {
+            row.multiplication(number);
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
@@ -166,7 +172,7 @@ TODO:
   + Получение и задание вектора-строки по индексу
   + Получение вектора-столбца по индексу
   + Транспонирование матрицы
-  Умножение на скаляр
+  + Умножение на скаляр
   Вычисление определителя матрицы
   + toString определить так, чтобы результат получался в таком виде: { { 1, 2 }, { 2, 3 } }
   умножение матрицы на вектор

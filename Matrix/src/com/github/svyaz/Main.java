@@ -25,7 +25,8 @@ public class Main {
         //System.out.println(matrix.toString());
         //System.out.println(matrix.getColumn(0).toString());
         //matrix.setColumn(2, new Vector(new double[]{30, 40, 50}));
-        matrix.transpose();
+        //matrix.transpose();
+        matrix.multiplication(2);
         System.out.println(matrix.toString());
 
 
