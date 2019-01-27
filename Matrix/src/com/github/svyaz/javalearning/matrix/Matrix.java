@@ -4,7 +4,8 @@ import com.github.svyaz.javalearning.vector.Vector;
 
 public class Matrix {
     private static final String EXCEPTION_CONSTRUCTOR_MESSAGE = "Matrix rows and columns sizes must be greater than 0.";
-    private static final String EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE = "Index out of bounds of rows number.";
+    private static final String EXCEPTION_ROW_INDEX_OUT_OF_BOUNDS_MESSAGE = "Index out of bounds of rows number.";
+    private static final String EXCEPTION_COLUMN_INDEX_OUT_OF_BOUNDS_MESSAGE = "Index out of bounds of columns number.";
     private static final String EXCEPTION_WRONG_ROW_SIZE_MESSAGE = "Size of new row not equal to matrix row size.";
     private Vector[] rows;
 
@@ -60,19 +61,30 @@ public class Matrix {
 
     public Vector getRow(int index) {
         if (index < 0 || index >= rows.length) {
-            throw new IndexOutOfBoundsException(EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE);
+            throw new IndexOutOfBoundsException(EXCEPTION_ROW_INDEX_OUT_OF_BOUNDS_MESSAGE);
         }
         return rows[index];
     }
 
     public void setRow(int index, Vector row) {
         if (index < 0 || index >= rows.length) {
-            throw new IndexOutOfBoundsException(EXCEPTION_INDEX_OUT_OF_BOUNDS_MESSAGE);
+            throw new IndexOutOfBoundsException(EXCEPTION_ROW_INDEX_OUT_OF_BOUNDS_MESSAGE);
         }
         if (rows[0].getSize() != row.getSize()) {
             throw new IllegalArgumentException(EXCEPTION_WRONG_ROW_SIZE_MESSAGE);
         }
         rows[index] = new Vector(row);
+    }
+
+    public Vector getColumn(int index) {
+        if (index < 0 || index >= rows[0].getSize()) {
+            throw new IndexOutOfBoundsException(EXCEPTION_COLUMN_INDEX_OUT_OF_BOUNDS_MESSAGE);
+        }
+        double[] column = new double[rows.length];
+        for (int i = 0; i < rows.length; i++) {
+            column[i] = rows[i].getComponent(index);
+        }
+        return new Vector(column);
     }
 
     public int[] getSizes() {
@@ -120,6 +132,9 @@ TODO:
   умножение матрицы на вектор
   Сложение матриц
   Вычитание матриц
+
+  hashCode()
+  equals()
 
 Статические методы:
   Сложение матриц

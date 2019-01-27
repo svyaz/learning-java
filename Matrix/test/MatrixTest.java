@@ -146,6 +146,26 @@ public class MatrixTest {
     }
 
     @Test
+    public void getColumnTest() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        Vector column = matrix.getColumn(1);
+        Assert.assertTrue(column.getSize() == 2 &&
+                column.getComponent(0) == 2.0 && column.getComponent(1) == 5.0);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getColumnException1Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.getColumn(-1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getColumnException2Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        matrix.getColumn(2);
+    }
+
+    @Test
     public void toString1Test() {
         Matrix matrix = new Matrix(2, 2);
         Assert.assertEquals("Matrix { { 0.0, 0.0 }, { 0.0, 0.0 } }", matrix.toString());
