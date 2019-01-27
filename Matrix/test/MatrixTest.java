@@ -211,4 +211,57 @@ public class MatrixTest {
         Matrix matrix = new Matrix(new Vector[]{vector1, vector2});
         Assert.assertEquals("Matrix { { 1.0, 2.0 }, { 3.0, 4.0 } }", matrix.toString());
     }
+
+    @Test
+    public void equalsSameObjectTest() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Assert.assertEquals(matrix, matrix);
+    }
+
+    @Test
+    public void equalsNullObjectTest() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Assert.assertNotEquals(matrix, null);
+    }
+
+    @Test
+    public void equalsDifferentClassesTest() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Vector vector = new Vector(new double[]{1, 2});
+        Assert.assertNotEquals(matrix, vector);
+    }
+
+    @Test
+    public void equalsDifferentObjectsTest() {
+        Matrix matrix1 = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Matrix matrix2 = new Matrix(new double[][]{{1, 2}, {3, 5}});
+        Assert.assertNotEquals(matrix1, matrix2);
+    }
+
+    @Test
+    public void equalsEqualObjectsTest() {
+        Matrix matrix1 = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Matrix matrix2 = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Assert.assertEquals(matrix1, matrix2);
+    }
+
+    @Test
+    public void hashCode1Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Assert.assertEquals(matrix.hashCode(), -990348319);
+    }
+
+    @Test
+    public void hashCode2Test() {
+        Matrix matrix1 = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Matrix matrix2 = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Assert.assertEquals(matrix1.hashCode(), matrix2.hashCode());
+    }
+
+    @Test
+    public void hashCode3Test() {
+        Matrix matrix1 = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Matrix matrix2 = new Matrix(new double[][]{{1, 2}, {3, 5}});
+        Assert.assertNotEquals(matrix1.hashCode(), matrix2.hashCode());
+    }
 }

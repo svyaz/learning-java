@@ -2,6 +2,8 @@ package com.github.svyaz.javalearning.matrix;
 
 import com.github.svyaz.javalearning.vector.Vector;
 
+import java.util.Arrays;
+
 public class Matrix {
     private static final String EXCEPTION_CONSTRUCTOR_MESSAGE = "Matrix rows and columns sizes must be greater than 0.";
     private static final String EXCEPTION_ROW_INDEX_OUT_OF_BOUNDS_MESSAGE = "Index out of bounds of rows number.";
@@ -118,6 +120,23 @@ public class Matrix {
         }
         return str.toString();
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        Matrix matrix = (Matrix) object;
+        return Arrays.equals(rows, matrix.rows);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(rows);
+    }
 }
 
 /*
@@ -146,8 +165,8 @@ TODO:
   Сложение матриц
   Вычитание матриц
 
-  hashCode()
-  equals()
+  + hashCode()
+  + equals()
 
 Статические методы:
   Сложение матриц
