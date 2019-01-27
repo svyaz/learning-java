@@ -222,6 +222,24 @@ public class MatrixTest {
     }
 
     @Test
+    public void getDeterminant1Test() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Assert.assertEquals(matrix.getDeterminant(), -2.0, 0.0);
+    }
+
+    @Test
+    public void getDeterminant2Test() {
+        Matrix matrix = new Matrix(new double[][]{{3.0, 5.0, 2.0}, {8.0, 4.0, 3.0}, {3.0, 7.0, 2.0}});
+        Assert.assertEquals(matrix.getDeterminant(), 14.0, 0.0);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void getDeterminantExceptionTest() {
+        Matrix matrix = new Matrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        matrix.getDeterminant();
+    }
+
+    @Test
     public void toString1Test() {
         Matrix matrix = new Matrix(2, 2);
         Assert.assertEquals("Matrix { { 0.0, 0.0 }, { 0.0, 0.0 } }", matrix.toString());

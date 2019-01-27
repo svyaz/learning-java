@@ -10,6 +10,7 @@ public class Matrix {
     private static final String EXCEPTION_COLUMN_INDEX_OUT_OF_BOUNDS_MESSAGE = "Index out of bounds of columns number.";
     private static final String EXCEPTION_WRONG_ROW_SIZE_MESSAGE = "Size of new row not equal to matrix row size.";
     private static final String EXCEPTION_WRONG_COLUMN_SIZE_MESSAGE = "Size of new column not equal to matrix column size.";
+    private static final String EXCEPTION_MATRIX_NOT_SQUARE_MESSAGE = "Matrix not square.";
     private Vector[] rows;
 
     public Matrix(int rows, int columns) {
@@ -120,6 +121,46 @@ public class Matrix {
         }
     }
 
+    public double getDeterminant() {
+        if (rows.length != rows[0].getSize()) {
+            throw new ArithmeticException(EXCEPTION_MATRIX_NOT_SQUARE_MESSAGE);
+        }
+
+        int dimension = rows.length;
+        double[][] tmpMatrix = new double[dimension][dimension];
+        for (int i = 0; i < dimension; i++) {
+            double[] tmpRow = new double[dimension];
+            for (int j = 0; j < dimension; j++) {
+                tmpRow[j] = rows[i].getComponent(j);
+            }
+            tmpMatrix[i] = tmpRow;
+        }
+        return countDeterminant(tmpMatrix);
+    }
+
+    /**
+     * Код из дополнительного задания про определитель в курсе "Основы программирования".
+     */
+    private static double countDeterminant(double[][] matrix) {
+        int n = matrix.length;
+
+        if (n == 1) {
+            return matrix[0][0];
+        }
+
+        double d = 0;
+        for (int i = 0; i < n; i++) {
+            double[][] minor = new double[n - 1][n - 1];
+            for (int j = 0; j < n - 1; j++) {
+                for (int k = 0; k < n - 1; k++) {
+                    minor[j][k] = matrix[j + 1][k >= i ? k + 1 : k];
+                }
+            }
+            d += matrix[0][i] * Math.pow(-1, i) * countDeterminant(minor);
+        }
+        return d;
+    }
+
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
@@ -173,7 +214,7 @@ TODO:
   + Получение вектора-столбца по индексу
   + Транспонирование матрицы
   + Умножение на скаляр
-  Вычисление определителя матрицы
+  + Вычисление определителя матрицы
   + toString определить так, чтобы результат получался в таком виде: { { 1, 2 }, { 2, 3 } }
   умножение матрицы на вектор
   Сложение матриц
