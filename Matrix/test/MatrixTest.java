@@ -295,6 +295,24 @@ public class MatrixTest {
     }
 
     @Test
+    public void subtractTest() {
+        Matrix matrix1 = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Matrix matrix2 = new Matrix(new double[][]{{5, 6}, {7, 8}});
+        matrix1.subtract(matrix2);
+        Assert.assertTrue(matrix1.getRow(0).getComponent(0) == -4.0 &&
+                matrix1.getRow(0).getComponent(1) == -4.0 &&
+                matrix1.getRow(1).getComponent(0) == -4.0 &&
+                matrix1.getRow(1).getComponent(1) == -4.0);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void subtractExceptionTest() {
+        Matrix matrix1 = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Matrix matrix2 = new Matrix(new double[][]{{5, 6, 7}, {8, 9, 10}});
+        matrix1.subtract(matrix2);
+    }
+
+    @Test
     public void toString1Test() {
         Matrix matrix = new Matrix(2, 2);
         Assert.assertEquals("Matrix { { 0.0, 0.0 }, { 0.0, 0.0 } }", matrix.toString());

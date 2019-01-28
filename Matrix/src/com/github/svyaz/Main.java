@@ -42,7 +42,8 @@ public class Main {
         //System.out.println(matrix.toString());
         //System.out.println(matrix.getDeterminant());
         //matrix.multiplicationByColumn(row);
-        matrix1.add(matrix2);
+        //matrix1.add(matrix2);
+        matrix1.subtract(matrix2);
         System.out.println(matrix1.toString());
 
     }

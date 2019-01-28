@@ -66,6 +66,29 @@ public class Matrix {
         }
     }
 
+    /**
+     * Код из дополнительного задания про определитель в курсе "Основы программирования".
+     */
+    private static double countDeterminant(double[][] matrix) {
+        int n = matrix.length;
+
+        if (n == 1) {
+            return matrix[0][0];
+        }
+
+        double d = 0;
+        for (int i = 0; i < n; i++) {
+            double[][] minor = new double[n - 1][n - 1];
+            for (int j = 0; j < n - 1; j++) {
+                for (int k = 0; k < n - 1; k++) {
+                    minor[j][k] = matrix[j + 1][k >= i ? k + 1 : k];
+                }
+            }
+            d += matrix[0][i] * Math.pow(-1, i) * countDeterminant(minor);
+        }
+        return d;
+    }
+
     public Vector getRow(int index) {
         if (index < 0 || index >= rows.length) {
             throw new IndexOutOfBoundsException(EXCEPTION_ROW_INDEX_OUT_OF_BOUNDS_MESSAGE);
@@ -168,6 +191,16 @@ public class Matrix {
         }
     }
 
+    public void subtract(Matrix matrix) {
+        if (rows.length != matrix.rows.length || rows[0].getSize() != matrix.rows[0].getSize()) {
+            throw new ArithmeticException(EXCEPTION_MATRICES_SIZES_NOT_EQUAL_MESSAGE);
+        }
+
+        for (int i = 0; i < rows.length; i++) {
+            rows[i].subtract(matrix.rows[i]);
+        }
+    }
+
     public double getDeterminant() {
         if (rows.length != rows[0].getSize()) {
             throw new ArithmeticException(EXCEPTION_MATRIX_NOT_SQUARE_MESSAGE);
@@ -183,29 +216,6 @@ public class Matrix {
             tmpMatrix[i] = tmpRow;
         }
         return countDeterminant(tmpMatrix);
-    }
-
-    /**
-     * Код из дополнительного задания про определитель в курсе "Основы программирования".
-     */
-    private static double countDeterminant(double[][] matrix) {
-        int n = matrix.length;
-
-        if (n == 1) {
-            return matrix[0][0];
-        }
-
-        double d = 0;
-        for (int i = 0; i < n; i++) {
-            double[][] minor = new double[n - 1][n - 1];
-            for (int j = 0; j < n - 1; j++) {
-                for (int k = 0; k < n - 1; k++) {
-                    minor[j][k] = matrix[j + 1][k >= i ? k + 1 : k];
-                }
-            }
-            d += matrix[0][i] * Math.pow(-1, i) * countDeterminant(minor);
-        }
-        return d;
     }
 
     @Override
