@@ -243,11 +243,11 @@ public class MatrixTest {
     public void multiplicationByColumnTest() {
         Matrix matrix = new Matrix(new double[][]{{2, 4, 0}, {-2, 1, 3}, {-1, 0, 1}});
         Vector column = new Vector(new double[]{1, 2, -1});
-        Vector result = matrix.multiplicationByColumn(column);
-        Assert.assertTrue(result.getSize() == 3 &&
-                result.getComponent(0) == 10.0 &&
-                result.getComponent(1) == -3.0 &&
-                result.getComponent(2) == -2.0);
+        matrix.multiplicationByColumn(column);
+        Assert.assertTrue(matrix.getSizes()[0] == 3 && matrix.getSizes()[1] == 1 &&
+                matrix.getRow(0).getComponent(0) == 10.0 &&
+                matrix.getRow(1).getComponent(0) == -3.0 &&
+                matrix.getRow(2).getComponent(0) == -2.0);
     }
 
     @Test(expected = ArithmeticException.class)
@@ -261,12 +261,12 @@ public class MatrixTest {
     public void multiplicationByRowTest() {
         Matrix matrix = new Matrix(new double[][]{{1}, {2}});
         Vector row = new Vector(new double[]{3, 4});
-        Matrix result = matrix.multiplicationByRow(row);
-        Assert.assertTrue(result.getSizes()[0] == 2 && result.getSizes()[1] == 2 &&
-                result.getRow(0).getComponent(0) == 3.0 &&
-                result.getRow(0).getComponent(1) == 4.0 &&
-                result.getRow(1).getComponent(0) == 6.0 &&
-                result.getRow(1).getComponent(1) == 8.0);
+        matrix.multiplicationByRow(row);
+        Assert.assertTrue(matrix.getSizes()[0] == 2 && matrix.getSizes()[1] == 2 &&
+                matrix.getRow(0).getComponent(0) == 3.0 &&
+                matrix.getRow(0).getComponent(1) == 4.0 &&
+                matrix.getRow(1).getComponent(0) == 6.0 &&
+                matrix.getRow(1).getComponent(1) == 8.0);
     }
 
     @Test(expected = ArithmeticException.class)

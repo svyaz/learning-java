@@ -40,7 +40,8 @@ public class Main {
         //matrix.multiplication(2);
         //System.out.println(matrix.toString());
         //System.out.println(matrix.getDeterminant());
-        System.out.println(matrix.multiplicationByRow(row).toString());
+        matrix.multiplicationByColumn(row);
+        System.out.println(matrix.toString());
 
     }
 }
