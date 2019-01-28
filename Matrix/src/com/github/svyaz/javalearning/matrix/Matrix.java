@@ -66,6 +66,12 @@ public class Matrix {
         }
     }
 
+    public static Matrix add(Matrix matrix1, Matrix matrix2) {
+        Matrix result = new Matrix(matrix1);
+        result.add(matrix2);
+        return result;
+    }
+
     /**
      * Код из дополнительного задания про определитель в курсе "Основы программирования".
      */
@@ -274,8 +280,8 @@ TODO:
   + Вычисление определителя матрицы
   + toString определить так, чтобы результат получался в таком виде: { { 1, 2 }, { 2, 3 } }
   + умножение матрицы на вектор
-  Сложение матриц
-  Вычитание матриц
+  + Сложение матриц
+  + Вычитание матриц
 
   + hashCode()
   + equals()
