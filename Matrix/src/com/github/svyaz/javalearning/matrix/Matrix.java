@@ -13,6 +13,7 @@ public class Matrix {
     private static final String EXCEPTION_MATRIX_NOT_SQUARE_MESSAGE = "Matrix not square.";
     private static final String EXCEPTION_COLUMN_SIZE_NOT_MATCH_MESSAGE = "Column-vector size not match matrix row size.";
     private static final String EXCEPTION_ROW_OR_MATRIX_SIZE_NOT_MATCH_MESSAGE = "Row-vector or matrix size not match row-multiplication conditions.";
+    private static final String EXCEPTION_MATRICES_SIZES_NOT_EQUAL_MESSAGE = "Matrices sizes not equal.";
     private Vector[] rows;
 
     public Matrix(int rows, int columns) {
@@ -154,6 +155,16 @@ public class Matrix {
                 tmpVector.setComponent(j, rows[i].getComponent(0) * row.getComponent(j));
             }
             rows[i] = tmpVector;
+        }
+    }
+
+    public void add(Matrix matrix) {
+        if (rows.length != matrix.rows.length || rows[0].getSize() != matrix.rows[0].getSize()) {
+            throw new ArithmeticException(EXCEPTION_MATRICES_SIZES_NOT_EQUAL_MESSAGE);
+        }
+
+        for (int i = 0; i < rows.length; i++) {
+            rows[i].add(matrix.rows[i]);
         }
     }
 
