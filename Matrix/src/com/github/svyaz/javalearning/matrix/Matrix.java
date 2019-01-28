@@ -72,6 +72,12 @@ public class Matrix {
         return result;
     }
 
+    public static Matrix subtract(Matrix matrix1, Matrix matrix2) {
+        Matrix result = new Matrix(matrix1);
+        result.subtract(matrix2);
+        return result;
+    }
+
     /**
      * Код из дополнительного задания про определитель в курсе "Основы программирования".
      */

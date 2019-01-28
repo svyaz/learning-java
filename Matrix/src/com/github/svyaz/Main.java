@@ -43,8 +43,8 @@ public class Main {
         //System.out.println(matrix.getDeterminant());
         //matrix.multiplicationByColumn(row);
         //matrix1.add(matrix2);
-        matrix1.subtract(matrix2);
-        System.out.println(matrix1.toString());
+        Matrix matrix3 = Matrix.subtract(matrix1, matrix2);
+        System.out.println(matrix3.toString());
 
     }
 }
