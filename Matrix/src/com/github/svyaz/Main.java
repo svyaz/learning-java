@@ -5,46 +5,22 @@ import com.github.svyaz.javalearning.vector.Vector;
 
 public class Main {
     public static void main(String[] args) {
-        /*Vector v1 = new Vector(new double[]{1, 2});
-        Vector v2 = new Vector(new double[]{3, 4, 5, 6});
-        Vector v3 = new Vector(new double[]{7});
-
-        Matrix matrix = new Matrix(new Vector[]{v1, v2, v3});
-        System.out.println(matrix.toString());*/
-
-        /*double[] d1 = {1, 1};
-        double[] d2 = {1, 1};
-        double[] d3 = {2, 2};
-        double[] d4 = {2, 2};*/
-
-        //Vector column = new Vector(new double[]{1, 2, -1});
-        //Vector row = new Vector(new double[]{3, 4});
-
-        /*double[][] matrix3x3 = {
-                {3.0, 5.0, 2.0},
-                {8.0, 4.0, 3.0},
-                {3.0, 7.0, 2.0},
-        };*/
-
         Matrix matrix1 = new Matrix(new double[][]{{1, 2, 1}, {0, 1, 2}});
         Matrix matrix2 = new Matrix(new double[][]{{1, 0}, {0, 1}, {1, 1}});
-        //Matrix matrix = new Matrix(matrix3x3);
-        //System.out.println(matrix1.toString());
-        //System.out.println(matrix.hashCode());
-        //System.out.println(matrix.getRow(2).toString());
-        //matrix.setRow(2, new Vector(new double[]{30, 40, 50}));
-        //System.out.println(matrix.getRow(2).toString());
-        //System.out.println(matrix.toString());
-        //System.out.println(matrix.getColumn(0).toString());
-        //matrix.setColumn(2, new Vector(new double[]{30, 40, 50}));
-        //matrix.transpose();
-        //matrix.multiplication(2);
-        //System.out.println(matrix.toString());
-        //System.out.println(matrix.getDeterminant());
-        //matrix.multiplicationByColumn(row);
-        //matrix1.add(matrix2);
-        Matrix matrix3 = Matrix.multiplication(matrix2, matrix1);
-        System.out.println(matrix3.toString());
 
+        System.out.println("--- Matrices ---");
+        System.out.println("matrix1: " + matrix1.toString());
+        System.out.println("matrix2: " + matrix2.toString());
+        System.out.println();
+        System.out.println("matrix1 * matrix2: " + Matrix.multiplication(matrix1, matrix2).toString());
+        System.out.println("matrix2 * matrix1: " + Matrix.multiplication(matrix2, matrix1).toString());
+        System.out.println();
+        matrix1.setRow(0, new Vector(3));
+        System.out.println("After matrix1.setRow():      " + matrix1.toString());
+        matrix2.transpose();
+        System.out.println("After matrix2.transpose():   " + matrix2.toString());
+        System.out.println();
+        Matrix matrix3 = Matrix.add(matrix1, matrix2);
+        System.out.println("matrix3 = matrix1 + matrix2: " + matrix3.toString());
     }
 }
