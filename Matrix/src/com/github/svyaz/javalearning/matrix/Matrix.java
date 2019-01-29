@@ -14,6 +14,7 @@ public class Matrix {
     private static final String EXCEPTION_COLUMN_SIZE_NOT_MATCH_MESSAGE = "Column-vector size not match matrix row size.";
     private static final String EXCEPTION_ROW_OR_MATRIX_SIZE_NOT_MATCH_MESSAGE = "Row-vector or matrix size not match row-multiplication conditions.";
     private static final String EXCEPTION_MATRICES_SIZES_NOT_EQUAL_MESSAGE = "Matrices sizes not equal.";
+    private static final String EXCEPTION_MATRICES_NOT_CONSISTENT_MESSAGE = "Matrices not consistent.";
     private Vector[] rows;
 
     public Matrix(int rows, int columns) {
@@ -75,6 +76,24 @@ public class Matrix {
     public static Matrix subtract(Matrix matrix1, Matrix matrix2) {
         Matrix result = new Matrix(matrix1);
         result.subtract(matrix2);
+        return result;
+    }
+
+    public static Matrix multiplication(Matrix matrix1, Matrix matrix2) {
+        if (matrix1.rows[0].getSize() != matrix2.rows.length) {
+            throw new ArithmeticException(EXCEPTION_MATRICES_NOT_CONSISTENT_MESSAGE);
+        }
+
+        int dimension = matrix1.rows.length;
+        Matrix result = new Matrix(dimension, dimension);
+        for (int i = 0; i < dimension; i++) {
+            Vector tmpVector = new Vector(dimension);
+            for (int j = 0; j < dimension; j++) {
+                double element = Vector.scalarMultiplication(matrix1.getRow(i), matrix2.getColumn(j));
+                tmpVector.setComponent(j, element);
+            }
+            result.setRow(i, tmpVector);
+        }
         return result;
     }
 
@@ -293,7 +312,7 @@ TODO:
   + equals()
 
 Статические методы:
-  Сложение матриц
-  Вычитание матриц
-  Умножение матриц
+  + Сложение матриц
+  + Вычитание матриц
+  + Умножение матриц
 */

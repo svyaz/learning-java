@@ -351,6 +351,42 @@ public class MatrixTest {
     }
 
     @Test
+    public void staticMultiplication1Test() {
+        Matrix matrix1 = new Matrix(new double[][]{{1, 2, 1}, {0, 1, 2}});
+        Matrix matrix2 = new Matrix(new double[][]{{1, 0}, {0, 1}, {1, 1}});
+        Matrix result = Matrix.multiplication(matrix1, matrix2);
+        Assert.assertTrue(result.getSizes()[0] == 2 && result.getSizes()[1] == 2 &&
+                result.getRow(0).getComponent(0) == 2.0 &&
+                result.getRow(0).getComponent(1) == 3.0 &&
+                result.getRow(1).getComponent(0) == 2.0 &&
+                result.getRow(1).getComponent(1) == 3.0);
+    }
+
+    @Test
+    public void staticMultiplication2Test() {
+        Matrix matrix1 = new Matrix(new double[][]{{1, 2, 1}, {0, 1, 2}});
+        Matrix matrix2 = new Matrix(new double[][]{{1, 0}, {0, 1}, {1, 1}});
+        Matrix result = Matrix.multiplication(matrix2, matrix1);
+        Assert.assertTrue(result.getSizes()[0] == 3 && result.getSizes()[1] == 3 &&
+                result.getRow(0).getComponent(0) == 1.0 &&
+                result.getRow(0).getComponent(1) == 2.0 &&
+                result.getRow(0).getComponent(2) == 1.0 &&
+                result.getRow(1).getComponent(0) == 0.0 &&
+                result.getRow(1).getComponent(1) == 1.0 &&
+                result.getRow(1).getComponent(2) == 2.0 &&
+                result.getRow(2).getComponent(0) == 1.0 &&
+                result.getRow(2).getComponent(1) == 3.0 &&
+                result.getRow(2).getComponent(2) == 3.0);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void staticMultiplicationExceptionTest() {
+        Matrix matrix1 = new Matrix(new double[][]{{1, 2, 1}, {0, 1, 2}, {3, 0, 2}});
+        Matrix matrix2 = new Matrix(new double[][]{{1, 0}, {0, 1}});
+        Matrix.multiplication(matrix1, matrix2);
+    }
+
+    @Test
     public void toString1Test() {
         Matrix matrix = new Matrix(2, 2);
         Assert.assertEquals("Matrix { { 0.0, 0.0 }, { 0.0, 0.0 } }", matrix.toString());
