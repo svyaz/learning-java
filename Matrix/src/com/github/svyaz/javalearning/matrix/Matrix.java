@@ -134,7 +134,7 @@ public class Matrix {
         if (index < 0 || index >= rows.length) {
             throw new IndexOutOfBoundsException(EXCEPTION_ROW_INDEX_OUT_OF_BOUNDS_MESSAGE);
         }
-        return rows[index];
+        return new Vector(rows[index]);
     }
 
     public void setRow(int index, Vector row) {
