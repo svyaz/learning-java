@@ -71,7 +71,7 @@ public class Matrix {
     }
 
     public static Matrix add(Matrix matrix1, Matrix matrix2) {
-        if (matrix1.rows.length != matrix2.rows.length || matrix1.rows[0].getSize() != matrix2.rows[0].getSize()) {
+        if (matrix1.rows.length != matrix2.rows.length || matrix1.getColumnsCount() != matrix2.getColumnsCount()) {
             throw new ArithmeticException(EXCEPTION_MATRICES_SIZES_NOT_EQUAL_MESSAGE);
         }
         Matrix result = new Matrix(matrix1);
@@ -80,7 +80,7 @@ public class Matrix {
     }
 
     public static Matrix subtract(Matrix matrix1, Matrix matrix2) {
-        if (matrix1.rows.length != matrix2.rows.length || matrix1.rows[0].getSize() != matrix2.rows[0].getSize()) {
+        if (matrix1.rows.length != matrix2.rows.length || matrix1.getColumnsCount() != matrix2.getColumnsCount()) {
             throw new ArithmeticException(EXCEPTION_MATRICES_SIZES_NOT_EQUAL_MESSAGE);
         }
         Matrix result = new Matrix(matrix1);
@@ -89,7 +89,7 @@ public class Matrix {
     }
 
     public static Matrix multiplication(Matrix matrix1, Matrix matrix2) {
-        if (matrix1.rows[0].getSize() != matrix2.rows.length) {
+        if (matrix1.getColumnsCount() != matrix2.rows.length) {
             throw new ArithmeticException(EXCEPTION_MATRICES_NOT_CONSISTENT_MESSAGE);
         }
 
@@ -140,14 +140,14 @@ public class Matrix {
         if (index < 0 || index >= rows.length) {
             throw new IndexOutOfBoundsException(EXCEPTION_ROW_INDEX_OUT_OF_BOUNDS_MESSAGE);
         }
-        if (rows[0].getSize() != row.getSize()) {
+        if (getColumnsCount() != row.getSize()) {
             throw new IllegalArgumentException(EXCEPTION_WRONG_ROW_SIZE_MESSAGE);
         }
         rows[index] = new Vector(row);
     }
 
     public Vector getColumn(int index) {
-        if (index < 0 || index >= rows[0].getSize()) {
+        if (index < 0 || index >= getColumnsCount()) {
             throw new IndexOutOfBoundsException(EXCEPTION_COLUMN_INDEX_OUT_OF_BOUNDS_MESSAGE);
         }
         double[] column = new double[rows.length];
@@ -158,7 +158,7 @@ public class Matrix {
     }
 
     public void setColumn(int index, Vector column) {
-        if (index < 0 || index >= rows[0].getSize()) {
+        if (index < 0 || index >= getColumnsCount()) {
             throw new IndexOutOfBoundsException(EXCEPTION_COLUMN_INDEX_OUT_OF_BOUNDS_MESSAGE);
         }
         if (column.getSize() != rows.length) {
@@ -178,8 +178,8 @@ public class Matrix {
     }
 
     public void transpose() {
-        Vector[] newRows = new Vector[rows[0].getSize()];
-        for (int i = 0; i < rows[0].getSize(); i++) {
+        Vector[] newRows = new Vector[getColumnsCount()];
+        for (int i = 0; i < getColumnsCount(); i++) {
             newRows[i] = getColumn(i);
         }
         rows = newRows;
@@ -195,7 +195,7 @@ public class Matrix {
      * Multiplication by vector-column
      */
     public void multiplicationByColumn(Vector column) {
-        if (rows[0].getSize() != column.getSize()) {
+        if (getColumnsCount() != column.getSize()) {
             throw new ArithmeticException(EXCEPTION_COLUMN_SIZE_NOT_MATCH_MESSAGE);
         }
 
@@ -212,7 +212,7 @@ public class Matrix {
      * Multiplication by vector-row
      */
     public void multiplicationByRow(Vector row) {
-        if (rows.length != row.getSize() || rows[0].getSize() > 1) {
+        if (rows.length != row.getSize() || getColumnsCount() > 1) {
             throw new ArithmeticException(EXCEPTION_ROW_OR_MATRIX_SIZE_NOT_MATCH_MESSAGE);
         }
 
@@ -226,7 +226,7 @@ public class Matrix {
     }
 
     public void add(Matrix matrix) {
-        if (rows.length != matrix.rows.length || rows[0].getSize() != matrix.rows[0].getSize()) {
+        if (rows.length != matrix.rows.length || getColumnsCount() != matrix.getColumnsCount()) {
             throw new ArithmeticException(EXCEPTION_MATRICES_SIZES_NOT_EQUAL_MESSAGE);
         }
 
@@ -236,7 +236,7 @@ public class Matrix {
     }
 
     public void subtract(Matrix matrix) {
-        if (rows.length != matrix.rows.length || rows[0].getSize() != matrix.rows[0].getSize()) {
+        if (rows.length != matrix.rows.length || getColumnsCount() != matrix.getColumnsCount()) {
             throw new ArithmeticException(EXCEPTION_MATRICES_SIZES_NOT_EQUAL_MESSAGE);
         }
 
@@ -246,7 +246,7 @@ public class Matrix {
     }
 
     public double getDeterminant() {
-        if (rows.length != rows[0].getSize()) {
+        if (rows.length != getColumnsCount()) {
             throw new ArithmeticException(EXCEPTION_MATRIX_NOT_SQUARE_MESSAGE);
         }
 
