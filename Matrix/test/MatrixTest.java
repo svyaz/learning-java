@@ -81,8 +81,15 @@ public class MatrixTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void constructor3ExceptionTest() {
+    public void constructor3Exception1Test() {
         new Matrix(new double[][]{});
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void constructor3Exception2Test() {
+        double[] d1 = new double[0];
+        double[] d2 = new double[0];
+        new Matrix(new double[][]{d1, d2});
     }
 
     @Test

@@ -54,6 +54,9 @@ public class Matrix {
                 maxColumns = elements[i].length;
             }
         }
+        if (maxColumns == 0) {
+            throw new IllegalArgumentException(EXCEPTION_CONSTRUCTOR_MESSAGE);
+        }
         this.rows = new Vector[elements.length];
         for (int i = 0; i < elements.length; i++) {
             this.rows[i] = new Vector(maxColumns, elements[i]);
