@@ -71,12 +71,18 @@ public class Matrix {
     }
 
     public static Matrix add(Matrix matrix1, Matrix matrix2) {
+        if (matrix1.rows.length != matrix2.rows.length || matrix1.rows[0].getSize() != matrix2.rows[0].getSize()) {
+            throw new ArithmeticException(EXCEPTION_MATRICES_SIZES_NOT_EQUAL_MESSAGE);
+        }
         Matrix result = new Matrix(matrix1);
         result.add(matrix2);
         return result;
     }
 
     public static Matrix subtract(Matrix matrix1, Matrix matrix2) {
+        if (matrix1.rows.length != matrix2.rows.length || matrix1.rows[0].getSize() != matrix2.rows[0].getSize()) {
+            throw new ArithmeticException(EXCEPTION_MATRICES_SIZES_NOT_EQUAL_MESSAGE);
+        }
         Matrix result = new Matrix(matrix1);
         result.subtract(matrix2);
         return result;
