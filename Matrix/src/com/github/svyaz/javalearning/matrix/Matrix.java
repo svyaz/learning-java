@@ -88,7 +88,7 @@ public class Matrix {
         return result;
     }
 
-    public static Matrix multiplication(Matrix matrix1, Matrix matrix2) {
+    public static Matrix multiply(Matrix matrix1, Matrix matrix2) {
         if (matrix1.getColumnsCount() != matrix2.rows.length) {
             throw new ArithmeticException(EXCEPTION_MATRICES_NOT_CONSISTENT_MESSAGE);
         }
@@ -186,7 +186,7 @@ public class Matrix {
         rows = newRows;
     }
 
-    public void multiplication(double number) {
+    public void multiply(double number) {
         for (Vector row : rows) {
             row.multiplication(number);
         }
@@ -195,7 +195,7 @@ public class Matrix {
     /**
      * Multiplication by vector-column
      */
-    public void multiplicationByColumn(Vector column) {
+    public void multiplyByColumn(Vector column) {
         if (getColumnsCount() != column.getSize()) {
             throw new ArithmeticException(EXCEPTION_COLUMN_SIZE_NOT_MATCH_MESSAGE);
         }
@@ -212,7 +212,7 @@ public class Matrix {
     /**
      * Multiplication by vector-row
      */
-    public void multiplicationByRow(Vector row) {
+    public void multiplyByRow(Vector row) {
         if (rows.length != row.getSize() || getColumnsCount() > 1) {
             throw new ArithmeticException(EXCEPTION_ROW_OR_MATRIX_SIZE_NOT_MATCH_MESSAGE);
         }

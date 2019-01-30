@@ -221,7 +221,7 @@ public class MatrixTest {
     @Test
     public void multiplicationTest() {
         Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
-        matrix.multiplication(2);
+        matrix.multiply(2);
         Assert.assertTrue(matrix.getRow(0).getComponent(0) == 2.0 &&
                 matrix.getRow(0).getComponent(1) == 4.0 &&
                 matrix.getRow(1).getComponent(0) == 6.0 &&
@@ -250,7 +250,7 @@ public class MatrixTest {
     public void multiplicationByColumnTest() {
         Matrix matrix = new Matrix(new double[][]{{2, 4, 0}, {-2, 1, 3}, {-1, 0, 1}});
         Vector column = new Vector(new double[]{1, 2, -1});
-        matrix.multiplicationByColumn(column);
+        matrix.multiplyByColumn(column);
         Assert.assertTrue(matrix.getRowsCount() == 3 && matrix.getColumnsCount() == 1 &&
                 matrix.getRow(0).getComponent(0) == 10.0 &&
                 matrix.getRow(1).getComponent(0) == -3.0 &&
@@ -261,14 +261,14 @@ public class MatrixTest {
     public void multiplicationByColumnExceptionTest() {
         Matrix matrix = new Matrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
         Vector vector = new Vector(new double[]{7, 8});
-        matrix.multiplicationByColumn(vector);
+        matrix.multiplyByColumn(vector);
     }
 
     @Test
     public void multiplicationByRowTest() {
         Matrix matrix = new Matrix(new double[][]{{1}, {2}});
         Vector row = new Vector(new double[]{3, 4});
-        matrix.multiplicationByRow(row);
+        matrix.multiplyByRow(row);
         Assert.assertTrue(matrix.getRowsCount() == 2 && matrix.getColumnsCount() == 2 &&
                 matrix.getRow(0).getComponent(0) == 3.0 &&
                 matrix.getRow(0).getComponent(1) == 4.0 &&
@@ -280,7 +280,7 @@ public class MatrixTest {
     public void multiplicationByRowExceptionTest() {
         Matrix matrix = new Matrix(new double[][]{{1}, {2}});
         Vector row = new Vector(new double[]{3, 4, 5});
-        matrix.multiplicationByRow(row);
+        matrix.multiplyByRow(row);
     }
 
     @Test
@@ -361,7 +361,7 @@ public class MatrixTest {
     public void staticMultiplication1Test() {
         Matrix matrix1 = new Matrix(new double[][]{{1, 2, 1}, {0, 1, 2}});
         Matrix matrix2 = new Matrix(new double[][]{{1, 0}, {0, 1}, {1, 1}});
-        Matrix result = Matrix.multiplication(matrix1, matrix2);
+        Matrix result = Matrix.multiply(matrix1, matrix2);
         Assert.assertTrue(result.getRowsCount() == 2 && result.getColumnsCount() == 2 &&
                 result.getRow(0).getComponent(0) == 2.0 &&
                 result.getRow(0).getComponent(1) == 3.0 &&
@@ -373,7 +373,7 @@ public class MatrixTest {
     public void staticMultiplication2Test() {
         Matrix matrix1 = new Matrix(new double[][]{{1, 2, 1}, {0, 1, 2}});
         Matrix matrix2 = new Matrix(new double[][]{{1, 0}, {0, 1}, {1, 1}});
-        Matrix result = Matrix.multiplication(matrix2, matrix1);
+        Matrix result = Matrix.multiply(matrix2, matrix1);
         Assert.assertTrue(result.getRowsCount() == 3 && result.getColumnsCount() == 3 &&
                 result.getRow(0).getComponent(0) == 1.0 &&
                 result.getRow(0).getComponent(1) == 2.0 &&
@@ -390,7 +390,7 @@ public class MatrixTest {
     public void staticMultiplication3Test() {
         Matrix matrix1 = new Matrix(new double[][]{{1, 2}, {3, 4}});
         Matrix matrix2 = new Matrix(new double[][]{{1, 2, 3, 4}, {5, 6, 7, 8}});
-        Matrix result = Matrix.multiplication(matrix1, matrix2);
+        Matrix result = Matrix.multiply(matrix1, matrix2);
         Assert.assertTrue(result.getRowsCount() == 2 && result.getColumnsCount() == 4 &&
                 result.getRow(0).getComponent(0) == 11.0 &&
                 result.getRow(0).getComponent(1) == 14.0 &&
@@ -406,7 +406,7 @@ public class MatrixTest {
     public void staticMultiplicationExceptionTest() {
         Matrix matrix1 = new Matrix(new double[][]{{1, 2, 1}, {0, 1, 2}, {3, 0, 2}});
         Matrix matrix2 = new Matrix(new double[][]{{1, 0}, {0, 1}});
-        Matrix.multiplication(matrix1, matrix2);
+        Matrix.multiply(matrix1, matrix2);
     }
 
     @Test

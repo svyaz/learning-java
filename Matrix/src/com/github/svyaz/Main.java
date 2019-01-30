@@ -12,8 +12,8 @@ public class Main {
         System.out.println("matrix1: " + matrix1.toString());
         System.out.println("matrix2: " + matrix2.toString());
         System.out.println();
-        System.out.println("matrix1 * matrix2: " + Matrix.multiplication(matrix1, matrix2).toString());
-        System.out.println("matrix2 * matrix1: " + Matrix.multiplication(matrix2, matrix1).toString());
+        System.out.println("matrix1 * matrix2: " + Matrix.multiply(matrix1, matrix2).toString());
+        System.out.println("matrix2 * matrix1: " + Matrix.multiply(matrix2, matrix1).toString());
         System.out.println();
         matrix1.setRow(0, new Vector(3));
         System.out.println("After matrix1.setRow():      " + matrix1.toString());
