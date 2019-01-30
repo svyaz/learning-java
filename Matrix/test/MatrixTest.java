@@ -386,6 +386,22 @@ public class MatrixTest {
                 result.getRow(2).getComponent(2) == 3.0);
     }
 
+    @Test
+    public void staticMultiplication3Test() {
+        Matrix matrix1 = new Matrix(new double[][]{{1, 2}, {3, 4}});
+        Matrix matrix2 = new Matrix(new double[][]{{1, 2, 3, 4}, {5, 6, 7, 8}});
+        Matrix result = Matrix.multiplication(matrix1, matrix2);
+        Assert.assertTrue(result.getRowsCount() == 2 && result.getColumnsCount() == 4 &&
+                result.getRow(0).getComponent(0) == 11.0 &&
+                result.getRow(0).getComponent(1) == 14.0 &&
+                result.getRow(0).getComponent(2) == 17.0 &&
+                result.getRow(0).getComponent(3) == 20.0 &&
+                result.getRow(1).getComponent(0) == 23.0 &&
+                result.getRow(1).getComponent(1) == 30.0 &&
+                result.getRow(1).getComponent(2) == 37.0 &&
+                result.getRow(1).getComponent(3) == 44.0);
+    }
+
     @Test(expected = ArithmeticException.class)
     public void staticMultiplicationExceptionTest() {
         Matrix matrix1 = new Matrix(new double[][]{{1, 2, 1}, {0, 1, 2}, {3, 0, 2}});

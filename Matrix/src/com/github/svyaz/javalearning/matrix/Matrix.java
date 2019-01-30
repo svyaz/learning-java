@@ -93,11 +93,12 @@ public class Matrix {
             throw new ArithmeticException(EXCEPTION_MATRICES_NOT_CONSISTENT_MESSAGE);
         }
 
-        int dimension = matrix1.rows.length;
-        Matrix result = new Matrix(dimension, dimension);
-        for (int i = 0; i < dimension; i++) {
-            Vector tmpVector = new Vector(dimension);
-            for (int j = 0; j < dimension; j++) {
+        int rowsNumber = matrix1.rows.length;
+        int columnsNumber = matrix2.getColumnsCount();
+        Matrix result = new Matrix(rowsNumber, columnsNumber);
+        for (int i = 0; i < rowsNumber; i++) {
+            Vector tmpVector = new Vector(columnsNumber);
+            for (int j = 0; j < columnsNumber; j++) {
                 double element = Vector.scalarMultiplication(matrix1.getRow(i), matrix2.getColumn(j));
                 tmpVector.setComponent(j, element);
             }
