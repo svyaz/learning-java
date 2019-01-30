@@ -7,7 +7,7 @@ public class MatrixTest {
     @Test
     public void constructor1Test() {
         Matrix matrix = new Matrix(2, 1);
-        Assert.assertTrue(matrix.getSizes()[0] == 2 && matrix.getSizes()[1] == 1);
+        Assert.assertTrue(matrix.getRowsCount() == 2 && matrix.getColumnsCount() == 1);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -25,14 +25,14 @@ public class MatrixTest {
         Vector vector1 = new Vector(new double[]{1, 2});
         Vector vector2 = new Vector(new double[]{3, 4});
         Matrix matrix = new Matrix(new Vector[]{vector1, vector2});
-        Assert.assertTrue(matrix.getSizes()[0] == 2 && matrix.getSizes()[1] == 2);
+        Assert.assertTrue(matrix.getRowsCount() == 2 && matrix.getColumnsCount() == 2);
     }
 
     @Test
     public void constructor2OneRowTest() {
         Vector vector = new Vector(new double[]{1, 2});
         Matrix matrix = new Matrix(new Vector[]{vector});
-        Assert.assertTrue(matrix.getSizes()[0] == 1 && matrix.getSizes()[1] == 2);
+        Assert.assertTrue(matrix.getRowsCount() == 1 && matrix.getColumnsCount() == 2);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class MatrixTest {
         Vector vector1 = new Vector(new double[]{1});
         Vector vector2 = new Vector(new double[]{3, 4});
         Matrix matrix = new Matrix(new Vector[]{vector1, vector2});
-        Assert.assertTrue(matrix.getSizes()[0] == 2 && matrix.getSizes()[1] == 2);
+        Assert.assertTrue(matrix.getRowsCount() == 2 && matrix.getColumnsCount() == 2);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class MatrixTest {
         Vector vector1 = new Vector(new double[]{1, 2, 5});
         Vector vector2 = new Vector(new double[]{3, 4});
         Matrix matrix = new Matrix(new Vector[]{vector1, vector2});
-        Assert.assertTrue(matrix.getSizes()[0] == 2 && matrix.getSizes()[1] == 3);
+        Assert.assertTrue(matrix.getRowsCount() == 2 && matrix.getColumnsCount() == 3);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -59,25 +59,25 @@ public class MatrixTest {
     @Test
     public void constructor3Test() {
         Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
-        Assert.assertTrue(matrix.getSizes()[0] == 2 && matrix.getSizes()[1] == 2);
+        Assert.assertTrue(matrix.getRowsCount() == 2 && matrix.getColumnsCount() == 2);
     }
 
     @Test
     public void constructor3OneRowTest() {
         Matrix matrix = new Matrix(new double[][]{{1, 2}});
-        Assert.assertTrue(matrix.getSizes()[0] == 1 && matrix.getSizes()[1] == 2);
+        Assert.assertTrue(matrix.getRowsCount() == 1 && matrix.getColumnsCount() == 2);
     }
 
     @Test
     public void constructor3DifferentLength1Test() {
         Matrix matrix = new Matrix(new double[][]{{1, 2}, {3}, {4, 5, 6}});
-        Assert.assertTrue(matrix.getSizes()[0] == 3 && matrix.getSizes()[1] == 3);
+        Assert.assertTrue(matrix.getRowsCount() == 3 && matrix.getColumnsCount() == 3);
     }
 
     @Test
     public void constructor3DifferentLength2Test() {
         Matrix matrix = new Matrix(new double[][]{{1, 2, 3}, {4}});
-        Assert.assertTrue(matrix.getSizes()[0] == 2 && matrix.getSizes()[1] == 3);
+        Assert.assertTrue(matrix.getRowsCount() == 2 && matrix.getColumnsCount() == 3);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -96,7 +96,7 @@ public class MatrixTest {
     public void constructor4Test() {
         Matrix matrix1 = new Matrix(new double[][]{{1, 2}, {3, 4}});
         Matrix matrix2 = new Matrix(matrix1);
-        Assert.assertTrue(matrix2.getSizes()[0] == 2 && matrix2.getSizes()[1] == 2);
+        Assert.assertTrue(matrix2.getRowsCount() == 2 && matrix2.getColumnsCount() == 2);
     }
 
     @Test
@@ -209,7 +209,7 @@ public class MatrixTest {
     public void transposeTest() {
         Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}, {5, 6}});
         matrix.transpose();
-        Assert.assertTrue(matrix.getSizes()[0] == 2 && matrix.getSizes()[1] == 3 &&
+        Assert.assertTrue(matrix.getRowsCount() == 2 && matrix.getColumnsCount() == 3 &&
                 matrix.getRow(0).getComponent(0) == 1.0 &&
                 matrix.getRow(0).getComponent(1) == 3.0 &&
                 matrix.getRow(0).getComponent(2) == 5.0 &&
@@ -251,7 +251,7 @@ public class MatrixTest {
         Matrix matrix = new Matrix(new double[][]{{2, 4, 0}, {-2, 1, 3}, {-1, 0, 1}});
         Vector column = new Vector(new double[]{1, 2, -1});
         matrix.multiplicationByColumn(column);
-        Assert.assertTrue(matrix.getSizes()[0] == 3 && matrix.getSizes()[1] == 1 &&
+        Assert.assertTrue(matrix.getRowsCount() == 3 && matrix.getColumnsCount() == 1 &&
                 matrix.getRow(0).getComponent(0) == 10.0 &&
                 matrix.getRow(1).getComponent(0) == -3.0 &&
                 matrix.getRow(2).getComponent(0) == -2.0);
@@ -269,7 +269,7 @@ public class MatrixTest {
         Matrix matrix = new Matrix(new double[][]{{1}, {2}});
         Vector row = new Vector(new double[]{3, 4});
         matrix.multiplicationByRow(row);
-        Assert.assertTrue(matrix.getSizes()[0] == 2 && matrix.getSizes()[1] == 2 &&
+        Assert.assertTrue(matrix.getRowsCount() == 2 && matrix.getColumnsCount() == 2 &&
                 matrix.getRow(0).getComponent(0) == 3.0 &&
                 matrix.getRow(0).getComponent(1) == 4.0 &&
                 matrix.getRow(1).getComponent(0) == 6.0 &&
@@ -362,7 +362,7 @@ public class MatrixTest {
         Matrix matrix1 = new Matrix(new double[][]{{1, 2, 1}, {0, 1, 2}});
         Matrix matrix2 = new Matrix(new double[][]{{1, 0}, {0, 1}, {1, 1}});
         Matrix result = Matrix.multiplication(matrix1, matrix2);
-        Assert.assertTrue(result.getSizes()[0] == 2 && result.getSizes()[1] == 2 &&
+        Assert.assertTrue(result.getRowsCount() == 2 && result.getColumnsCount() == 2 &&
                 result.getRow(0).getComponent(0) == 2.0 &&
                 result.getRow(0).getComponent(1) == 3.0 &&
                 result.getRow(1).getComponent(0) == 2.0 &&
@@ -374,7 +374,7 @@ public class MatrixTest {
         Matrix matrix1 = new Matrix(new double[][]{{1, 2, 1}, {0, 1, 2}});
         Matrix matrix2 = new Matrix(new double[][]{{1, 0}, {0, 1}, {1, 1}});
         Matrix result = Matrix.multiplication(matrix2, matrix1);
-        Assert.assertTrue(result.getSizes()[0] == 3 && result.getSizes()[1] == 3 &&
+        Assert.assertTrue(result.getRowsCount() == 3 && result.getColumnsCount() == 3 &&
                 result.getRow(0).getComponent(0) == 1.0 &&
                 result.getRow(0).getComponent(1) == 2.0 &&
                 result.getRow(0).getComponent(2) == 1.0 &&

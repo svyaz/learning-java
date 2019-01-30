@@ -169,8 +169,12 @@ public class Matrix {
         }
     }
 
-    public int[] getSizes() {
-        return new int[]{rows.length, rows[0].getSize()};
+    public int getRowsCount() {
+        return rows.length;
+    }
+
+    public int getColumnsCount() {
+        return rows[0].getSize();
     }
 
     public void transpose() {
