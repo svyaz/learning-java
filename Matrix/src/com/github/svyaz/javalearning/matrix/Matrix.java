@@ -110,7 +110,7 @@ public class Matrix {
     /**
      * Код из дополнительного задания про определитель в курсе "Основы программирования".
      */
-    private static double countDeterminant(double[][] matrix) {
+    private static double calcDeterminant(double[][] matrix) {
         int n = matrix.length;
 
         if (n == 1) {
@@ -125,7 +125,7 @@ public class Matrix {
                     minor[j][k] = matrix[j + 1][k >= i ? k + 1 : k];
                 }
             }
-            d += matrix[0][i] * Math.pow(-1, i) * countDeterminant(minor);
+            d += matrix[0][i] * Math.pow(-1, i) * calcDeterminant(minor);
         }
         return d;
     }
@@ -260,7 +260,7 @@ public class Matrix {
             }
             tmpMatrix[i] = tmpRow;
         }
-        return countDeterminant(tmpMatrix);
+        return calcDeterminant(tmpMatrix);
     }
 
     @Override
