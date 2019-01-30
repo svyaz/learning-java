@@ -268,12 +268,10 @@ public class MatrixTest {
     public void multiplyByRowTest() {
         Matrix matrix = new Matrix(new double[][]{{1}, {2}});
         Vector row = new Vector(new double[]{3, 4});
-        matrix.multiplyByRow(row);
-        Assert.assertTrue(matrix.getRowsCount() == 2 && matrix.getColumnsCount() == 2 &&
-                matrix.getRow(0).getComponent(0) == 3.0 &&
-                matrix.getRow(0).getComponent(1) == 4.0 &&
-                matrix.getRow(1).getComponent(0) == 6.0 &&
-                matrix.getRow(1).getComponent(1) == 8.0);
+        Vector result = matrix.multiplyByRow(row);
+        Assert.assertTrue(result.getSize() == 2 &&
+                result.getComponent(0) == 7.0 &&
+                result.getComponent(1) == 14.0);
     }
 
     @Test(expected = ArithmeticException.class)
