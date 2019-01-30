@@ -219,7 +219,7 @@ public class MatrixTest {
     }
 
     @Test
-    public void multiplicationTest() {
+    public void multiplyTest() {
         Matrix matrix = new Matrix(new double[][]{{1, 2}, {3, 4}});
         matrix.multiply(2);
         Assert.assertTrue(matrix.getRow(0).getComponent(0) == 2.0 &&
@@ -247,25 +247,25 @@ public class MatrixTest {
     }
 
     @Test
-    public void multiplicationByColumnTest() {
+    public void multiplyByColumnTest() {
         Matrix matrix = new Matrix(new double[][]{{2, 4, 0}, {-2, 1, 3}, {-1, 0, 1}});
         Vector column = new Vector(new double[]{1, 2, -1});
-        matrix.multiplyByColumn(column);
-        Assert.assertTrue(matrix.getRowsCount() == 3 && matrix.getColumnsCount() == 1 &&
-                matrix.getRow(0).getComponent(0) == 10.0 &&
-                matrix.getRow(1).getComponent(0) == -3.0 &&
-                matrix.getRow(2).getComponent(0) == -2.0);
+        Vector result = matrix.multiplyByColumn(column);
+        Assert.assertTrue(result.getSize() == 3 &&
+                result.getComponent(0) == 10.0 &&
+                result.getComponent(1) == -3.0 &&
+                result.getComponent(2) == -2.0);
     }
 
     @Test(expected = ArithmeticException.class)
-    public void multiplicationByColumnExceptionTest() {
+    public void multiplyByColumnExceptionTest() {
         Matrix matrix = new Matrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
         Vector vector = new Vector(new double[]{7, 8});
         matrix.multiplyByColumn(vector);
     }
 
     @Test
-    public void multiplicationByRowTest() {
+    public void multiplyByRowTest() {
         Matrix matrix = new Matrix(new double[][]{{1}, {2}});
         Vector row = new Vector(new double[]{3, 4});
         matrix.multiplyByRow(row);
@@ -277,7 +277,7 @@ public class MatrixTest {
     }
 
     @Test(expected = ArithmeticException.class)
-    public void multiplicationByRowExceptionTest() {
+    public void multiplyByRowExceptionTest() {
         Matrix matrix = new Matrix(new double[][]{{1}, {2}});
         Vector row = new Vector(new double[]{3, 4, 5});
         matrix.multiplyByRow(row);
@@ -358,7 +358,7 @@ public class MatrixTest {
     }
 
     @Test
-    public void staticMultiplication1Test() {
+    public void staticMultiply1Test() {
         Matrix matrix1 = new Matrix(new double[][]{{1, 2, 1}, {0, 1, 2}});
         Matrix matrix2 = new Matrix(new double[][]{{1, 0}, {0, 1}, {1, 1}});
         Matrix result = Matrix.multiply(matrix1, matrix2);
@@ -370,7 +370,7 @@ public class MatrixTest {
     }
 
     @Test
-    public void staticMultiplication2Test() {
+    public void staticMultiply2Test() {
         Matrix matrix1 = new Matrix(new double[][]{{1, 2, 1}, {0, 1, 2}});
         Matrix matrix2 = new Matrix(new double[][]{{1, 0}, {0, 1}, {1, 1}});
         Matrix result = Matrix.multiply(matrix2, matrix1);
@@ -387,7 +387,7 @@ public class MatrixTest {
     }
 
     @Test
-    public void staticMultiplication3Test() {
+    public void staticMultiply3Test() {
         Matrix matrix1 = new Matrix(new double[][]{{1, 2}, {3, 4}});
         Matrix matrix2 = new Matrix(new double[][]{{1, 2, 3, 4}, {5, 6, 7, 8}});
         Matrix result = Matrix.multiply(matrix1, matrix2);
@@ -403,7 +403,7 @@ public class MatrixTest {
     }
 
     @Test(expected = ArithmeticException.class)
-    public void staticMultiplicationExceptionTest() {
+    public void staticMultiplyExceptionTest() {
         Matrix matrix1 = new Matrix(new double[][]{{1, 2, 1}, {0, 1, 2}, {3, 0, 2}});
         Matrix matrix2 = new Matrix(new double[][]{{1, 0}, {0, 1}});
         Matrix.multiply(matrix1, matrix2);

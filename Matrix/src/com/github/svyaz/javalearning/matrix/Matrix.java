@@ -195,18 +195,20 @@ public class Matrix {
     /**
      * Multiplication by vector-column
      */
-    public void multiplyByColumn(Vector column) {
+    public Vector multiplyByColumn(Vector column) {
         if (getColumnsCount() != column.getSize()) {
             throw new ArithmeticException(EXCEPTION_COLUMN_SIZE_NOT_MATCH_MESSAGE);
         }
 
+        Vector result = new Vector(rows.length);
         for (int i = 0; i < rows.length; i++) {
             double tmp = 0.0;
             for (int j = 0; j < column.getSize(); j++) {
                 tmp += rows[i].getComponent(j) * column.getComponent(j);
             }
-            rows[i] = new Vector(new double[]{tmp});
+            result.setComponent(i, tmp);
         }
+        return result;
     }
 
     /**
