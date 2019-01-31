@@ -202,11 +202,7 @@ public class Matrix {
 
         Vector result = new Vector(rows.length);
         for (int i = 0; i < rows.length; i++) {
-            double tmp = 0.0;
-            for (int j = 0; j < column.getSize(); j++) {
-                tmp += rows[i].getComponent(j) * column.getComponent(j);
-            }
-            result.setComponent(i, tmp);
+            result.setComponent(i, Vector.scalarMultiplication(rows[i], column));
         }
         return result;
     }
