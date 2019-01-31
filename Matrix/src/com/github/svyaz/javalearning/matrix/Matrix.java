@@ -214,18 +214,18 @@ public class Matrix {
     /**
      * Multiplication by vector-row
      */
-    public Vector multiplyByRow(Vector row) {
+    public Matrix multiplyByRow(Vector row) {
         if (rows.length != row.getSize() || getColumnsCount() > 1) {
             throw new ArithmeticException(EXCEPTION_ROW_OR_MATRIX_SIZE_NOT_MATCH_MESSAGE);
         }
 
-        Vector result = new Vector(rows.length);
+        Matrix result = new Matrix(rows.length, rows.length);
         for (int i = 0; i < rows.length; i++) {
-            double tmp = 0.0;
+            Vector tmpVector = new Vector(rows.length);
             for (int j = 0; j < rows.length; j++) {
-                tmp += rows[i].getComponent(0) * row.getComponent(j);
+                tmpVector.setComponent(j, rows[i].getComponent(0) * row.getComponent(j));
             }
-            result.setComponent(i, tmp);
+            result.setRow(i, tmpVector);
         }
         return result;
     }
