@@ -99,7 +99,7 @@ public class Matrix {
         for (int i = 0; i < rowsNumber; i++) {
             Vector tmpVector = new Vector(columnsNumber);
             for (int j = 0; j < columnsNumber; j++) {
-                double element = Vector.scalarMultiplication(matrix1.getRow(i), matrix2.getColumn(j));
+                double element = Vector.scalarMultiplication(matrix1.rows[i], matrix2.getColumn(j));
                 tmpVector.setComponent(j, element);
             }
             result.setRow(i, tmpVector);
