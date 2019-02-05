@@ -26,8 +26,6 @@ public class MyArrayList<T> implements List<T> {
 
     // TODO Implement constructors.
 
-    // TODO Implement tests for size()
-
     /**
      * Returns the number of elements in this list.
      */
@@ -36,14 +34,12 @@ public class MyArrayList<T> implements List<T> {
         return size;
     }
 
-    // TODO Implement tests for isEmpty()
-
     /**
      * Returns true if this list contains no elements.
      */
     @Override
     public boolean isEmpty() {
-        return size > 0;
+        return size == 0;
     }
 
     // TODO Implement this!

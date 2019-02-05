@@ -3,10 +3,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class MyArrayListTest {
-    @Test
-    public void constructorTest() {
 
-    }
 
     @Test
     public void sizeEmptyTest() {
@@ -14,12 +11,26 @@ public class MyArrayListTest {
         Assert.assertEquals(list.size(), 0);
     }
 
-    // TODO Implement this test!
-    /*@Test
+    @Test
     public void sizeNotEmptyTest() {
-        MyArrayList<Object> list = new MyArrayList<>();
-        Assert.assertEquals(list.size(), 10);
-    }*/
+        MyArrayList<Integer> list = new MyArrayList<>();
+        list.add(5);
+        list.add(2);
+        Assert.assertEquals(list.size(), 2);
+    }
+
+    @Test
+    public void isEmptyTest() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+        Assert.assertTrue(list.isEmpty());
+    }
+
+    @Test
+    public void isNotEmptyTest() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+        list.add(5);
+        Assert.assertFalse(list.isEmpty());
+    }
 
     @Test
     public void addTest() {
