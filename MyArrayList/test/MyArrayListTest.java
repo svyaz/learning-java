@@ -13,4 +13,10 @@ public class MyArrayListTest {
         MyArrayList<Object> list = new MyArrayList<>();
         Assert.assertEquals(list.size(), 0);
     }
+
+    /*@Test
+    public void sizeNotEmptyTest() {
+        MyArrayList<Object> list = new MyArrayList<>();
+        Assert.assertEquals(list.size(), 10);
+    }*/
 }

@@ -16,6 +16,8 @@ public class MyArrayList<E> implements List<E> {
      */
     private int length;
 
+    // TODO Implement constructors.
+
     /**
      * Returns the number of elements in this list.
      */
@@ -24,17 +26,15 @@ public class MyArrayList<E> implements List<E> {
         return length;
     }
 
-    // TODO Implement these methods:
     /**
-     * Returns {@code true} if this list contains no elements.
-     *
-     * @return {@code true} if this list contains no elements
+     * Returns true if this list contains no elements.
      */
     @Override
     public boolean isEmpty() {
-        return false;
+        return length > 0;
     }
 
+    // TODO Implement this!
     /**
      * Returns {@code true} if this list contains the specified element.
      * More formally, returns {@code true} if and only if this list contains
@@ -55,6 +55,7 @@ public class MyArrayList<E> implements List<E> {
         return false;
     }
 
+    // TODO Implement this!
     /**
      * Returns an iterator over the elements in this list in proper sequence.
      *
@@ -65,6 +66,7 @@ public class MyArrayList<E> implements List<E> {
         return null;
     }
 
+    // TODO Implement this!
     /**
      * Returns an array containing all of the elements in this list in proper
      * sequence (from first to last element).
@@ -74,6 +76,7 @@ public class MyArrayList<E> implements List<E> {
         return new Object[0];
     }
 
+    // TODO Implement this!
     /**
      * Returns an array containing all of the elements in this list in
      * proper sequence (from first to last element); the runtime type of
@@ -118,33 +121,7 @@ public class MyArrayList<E> implements List<E> {
         return null;
     }
 
-    /**
-     * Appends the specified element to the end of this list (optional
-     * operation).
-     *
-     * <p>Lists that support this operation may place limitations on what
-     * elements may be added to this list.  In particular, some
-     * lists will refuse to add null elements, and others will impose
-     * restrictions on the type of elements that may be added.  List
-     * classes should clearly specify in their documentation any restrictions
-     * on what elements may be added.
-     *
-     * @param e element to be appended to this list
-     * @return {@code true} (as specified by {@link Collection#add})
-     * @throws UnsupportedOperationException if the {@code add} operation
-     *                                       is not supported by this list
-     * @throws ClassCastException            if the class of the specified element
-     *                                       prevents it from being added to this list
-     * @throws NullPointerException          if the specified element is null and this
-     *                                       list does not permit null elements
-     * @throws IllegalArgumentException      if some property of this element
-     *                                       prevents it from being added to this list
-     */
-    @Override
-    public boolean add(E e) {
-        return false;
-    }
-
+    // TODO Implement this!
     /**
      * Removes the first occurrence of the specified element from this list,
      * if it is present (optional operation).  If this list does not contain
@@ -171,6 +148,7 @@ public class MyArrayList<E> implements List<E> {
         return false;
     }
 
+    // TODO Implement this!
     /**
      * Returns {@code true} if this list contains all of the elements of the
      * specified collection.
@@ -194,6 +172,7 @@ public class MyArrayList<E> implements List<E> {
         return false;
     }
 
+    // TODO Implement this!
     /**
      * Appends all of the elements in the specified collection to the end of
      * this list, in the order that they are returned by the specified
@@ -220,6 +199,7 @@ public class MyArrayList<E> implements List<E> {
         return false;
     }
 
+    // TODO Implement this!
     /**
      * Inserts all of the elements in the specified collection into this
      * list at the specified position (optional operation).  Shifts the
@@ -252,6 +232,7 @@ public class MyArrayList<E> implements List<E> {
         return false;
     }
 
+    // TODO Implement this!
     /**
      * Removes from this list all of its elements that are contained in the
      * specified collection (optional operation).
@@ -275,6 +256,7 @@ public class MyArrayList<E> implements List<E> {
         return false;
     }
 
+    // TODO Implement this!
     /**
      * Retains only the elements in this list that are contained in the
      * specified collection (optional operation).  In other words, removes
@@ -300,6 +282,7 @@ public class MyArrayList<E> implements List<E> {
         return false;
     }
 
+    // TODO Implement this!
     /**
      * Removes all of the elements from this list (optional operation).
      * The list will be empty after this call returns.
@@ -312,6 +295,7 @@ public class MyArrayList<E> implements List<E> {
 
     }
 
+    // TODO Implement this!
     /**
      * Returns the element at the specified position in this list.
      *
@@ -325,6 +309,7 @@ public class MyArrayList<E> implements List<E> {
         return null;
     }
 
+    // TODO Implement this!
     /**
      * Replaces the element at the specified position in this list with the
      * specified element (optional operation).
@@ -348,6 +333,35 @@ public class MyArrayList<E> implements List<E> {
         return null;
     }
 
+    // TODO Implement this!
+    /**
+     * Appends the specified element to the end of this list (optional
+     * operation).
+     *
+     * <p>Lists that support this operation may place limitations on what
+     * elements may be added to this list.  In particular, some
+     * lists will refuse to add null elements, and others will impose
+     * restrictions on the type of elements that may be added.  List
+     * classes should clearly specify in their documentation any restrictions
+     * on what elements may be added.
+     *
+     * @param element to be appended to this list
+     * @return {@code true} (as specified by {@link Collection#add})
+     * @throws UnsupportedOperationException if the {@code add} operation
+     *                                       is not supported by this list
+     * @throws ClassCastException            if the class of the specified element
+     *                                       prevents it from being added to this list
+     * @throws NullPointerException          if the specified element is null and this
+     *                                       list does not permit null elements
+     * @throws IllegalArgumentException      if some property of this element
+     *                                       prevents it from being added to this list
+     */
+    @Override
+    public boolean add(E element) {
+        return false;
+    }
+
+    // TODO Implement this!
     /**
      * Inserts the specified element at the specified position in this list
      * (optional operation).  Shifts the element currently at that position
@@ -372,6 +386,7 @@ public class MyArrayList<E> implements List<E> {
 
     }
 
+    // TODO Implement this!
     /**
      * Removes the element at the specified position in this list (optional
      * operation).  Shifts any subsequent elements to the left (subtracts one
@@ -390,6 +405,7 @@ public class MyArrayList<E> implements List<E> {
         return null;
     }
 
+    // TODO Implement this!
     /**
      * Returns the index of the first occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
@@ -412,6 +428,7 @@ public class MyArrayList<E> implements List<E> {
         return 0;
     }
 
+    // TODO Implement this!
     /**
      * Returns the index of the last occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
@@ -434,6 +451,7 @@ public class MyArrayList<E> implements List<E> {
         return 0;
     }
 
+    // TODO Implement this!
     /**
      * Returns a list iterator over the elements in this list (in proper
      * sequence).
@@ -446,6 +464,7 @@ public class MyArrayList<E> implements List<E> {
         return null;
     }
 
+    // TODO Implement this!
     /**
      * Returns a list iterator over the elements in this list (in proper
      * sequence), starting at the specified position in the list.
@@ -466,6 +485,7 @@ public class MyArrayList<E> implements List<E> {
         return null;
     }
 
+    // TODO Implement this!
     /**
      * Returns a view of the portion of this list between the specified
      * {@code fromIndex}, inclusive, and {@code toIndex}, exclusive.  (If
@@ -505,7 +525,7 @@ public class MyArrayList<E> implements List<E> {
         return null;
     }
 
-    // TODO hashCode()
-    // TODO equals()
-    // TODO toString()
+    // TODO Implement hashCode()
+    // TODO Implement equals()
+    // TODO Implement toString()
 }
