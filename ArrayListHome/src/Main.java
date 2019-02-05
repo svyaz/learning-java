@@ -19,20 +19,22 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
         // --- 1 ---
-        ArrayList<String> list = new ArrayList<>();
         try (Scanner scanner = new Scanner(new FileInputStream("ArrayListHome/inputStrings.txt"), String.valueOf(StandardCharsets.UTF_8))) {
+            ArrayList<String> list = new ArrayList<>();
             while (scanner.hasNextLine()) {
                 list.add(scanner.nextLine());
             }
-        }
-        if (list.size() == 0) {
-            System.out.println("File is empty.");
-        } else {
-            for (String string : list) {
-                System.out.println(string);
+            if (list.isEmpty()) {
+                System.out.println("File is empty.");
+            } else {
+                for (String string : list) {
+                    System.out.println(string);
+                }
             }
+        } catch (FileNotFoundException exception) {
+            System.out.println(exception.getMessage());
         }
         System.out.println();
 
@@ -54,12 +56,9 @@ public class Main {
         ArrayList<Integer> inputList = new ArrayList<>(Arrays.asList(1, 128, 5, 2, 1, 3, 5, 128, 129));
         ArrayList<Integer> outputList = new ArrayList<>();
         System.out.println("inputList:  " + inputList.toString());
-        outputList.add(inputList.get(0));
-
-        for (int j = 1; j < inputList.size(); j++) {
-            Integer tmp = inputList.get(j);
-            if (!outputList.contains(tmp)) {
-                outputList.add(tmp);
+        for (int element : inputList) {
+            if (!outputList.contains(element)) {
+                outputList.add(element);
             }
         }
         System.out.println("outputList: " + outputList.toString());
