@@ -1,40 +1,53 @@
 package com.github.svyaz.javalearning.myarraylist;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
-public class MyArrayList<E> implements List<E> {
+public class MyArrayList<T> implements List<T> {
+    /**
+     * Exceptions messages
+     */
+    private static final String EXCEPTION_MESSAGE_ILLEGAL_ARGUMENT = "Element cannot be null.";
+    private static final String EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS = "Specified index is out of list bounds.";
+
+    /**
+     * Default capacity for items.
+     */
+    private static final int DEFAULT_CAPACITY = 10;
+
     /**
      * Private array for storing objects.
      */
-    private Object[] items = new Object[10];
+    private Object[] items = new Object[DEFAULT_CAPACITY];
 
     /**
      * Private field for storing array length.
      */
-    private int length;
+    private int size;
 
     // TODO Implement constructors.
+
+    // TODO Implement tests for size()
 
     /**
      * Returns the number of elements in this list.
      */
     @Override
     public int size() {
-        return length;
+        return size;
     }
+
+    // TODO Implement tests for isEmpty()
 
     /**
      * Returns true if this list contains no elements.
      */
     @Override
     public boolean isEmpty() {
-        return length > 0;
+        return size > 0;
     }
 
     // TODO Implement this!
+
     /**
      * Returns {@code true} if this list contains the specified element.
      * More formally, returns {@code true} if and only if this list contains
@@ -56,17 +69,19 @@ public class MyArrayList<E> implements List<E> {
     }
 
     // TODO Implement this!
+
     /**
      * Returns an iterator over the elements in this list in proper sequence.
      *
      * @return an iterator over the elements in this list in proper sequence
      */
     @Override
-    public Iterator<E> iterator() {
+    public Iterator<T> iterator() {
         return null;
     }
 
     // TODO Implement this!
+
     /**
      * Returns an array containing all of the elements in this list in proper
      * sequence (from first to last element).
@@ -77,6 +92,7 @@ public class MyArrayList<E> implements List<E> {
     }
 
     // TODO Implement this!
+
     /**
      * Returns an array containing all of the elements in this list in
      * proper sequence (from first to last element); the runtime type of
@@ -122,6 +138,7 @@ public class MyArrayList<E> implements List<E> {
     }
 
     // TODO Implement this!
+
     /**
      * Removes the first occurrence of the specified element from this list,
      * if it is present (optional operation).  If this list does not contain
@@ -149,6 +166,7 @@ public class MyArrayList<E> implements List<E> {
     }
 
     // TODO Implement this!
+
     /**
      * Returns {@code true} if this list contains all of the elements of the
      * specified collection.
@@ -173,6 +191,7 @@ public class MyArrayList<E> implements List<E> {
     }
 
     // TODO Implement this!
+
     /**
      * Appends all of the elements in the specified collection to the end of
      * this list, in the order that they are returned by the specified
@@ -195,11 +214,12 @@ public class MyArrayList<E> implements List<E> {
      * @see #add(Object)
      */
     @Override
-    public boolean addAll(Collection<? extends E> c) {
+    public boolean addAll(Collection<? extends T> c) {
         return false;
     }
 
     // TODO Implement this!
+
     /**
      * Inserts all of the elements in the specified collection into this
      * list at the specified position (optional operation).  Shifts the
@@ -228,11 +248,12 @@ public class MyArrayList<E> implements List<E> {
      *                                       ({@code index < 0 || index > size()})
      */
     @Override
-    public boolean addAll(int index, Collection<? extends E> c) {
+    public boolean addAll(int index, Collection<? extends T> c) {
         return false;
     }
 
     // TODO Implement this!
+
     /**
      * Removes from this list all of its elements that are contained in the
      * specified collection (optional operation).
@@ -257,6 +278,7 @@ public class MyArrayList<E> implements List<E> {
     }
 
     // TODO Implement this!
+
     /**
      * Retains only the elements in this list that are contained in the
      * specified collection (optional operation).  In other words, removes
@@ -283,6 +305,7 @@ public class MyArrayList<E> implements List<E> {
     }
 
     // TODO Implement this!
+
     /**
      * Removes all of the elements from this list (optional operation).
      * The list will be empty after this call returns.
@@ -295,73 +318,53 @@ public class MyArrayList<E> implements List<E> {
 
     }
 
-    // TODO Implement this!
+    // TODO Why do I have warnings here?..
+
     /**
      * Returns the element at the specified position in this list.
-     *
-     * @param index index of the element to return
-     * @return the element at the specified position in this list
-     * @throws IndexOutOfBoundsException if the index is out of range
-     *                                   ({@code index < 0 || index >= size()})
      */
     @Override
-    public E get(int index) {
-        return null;
+    public T get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
+        }
+        return (T) items[index];
     }
 
-    // TODO Implement this!
     /**
      * Replaces the element at the specified position in this list with the
      * specified element (optional operation).
-     *
-     * @param index   index of the element to replace
-     * @param element element to be stored at the specified position
-     * @return the element previously at the specified position
-     * @throws UnsupportedOperationException if the {@code set} operation
-     *                                       is not supported by this list
-     * @throws ClassCastException            if the class of the specified element
-     *                                       prevents it from being added to this list
-     * @throws NullPointerException          if the specified element is null and
-     *                                       this list does not permit null elements
-     * @throws IllegalArgumentException      if some property of the specified
-     *                                       element prevents it from being added to this list
-     * @throws IndexOutOfBoundsException     if the index is out of range
-     *                                       ({@code index < 0 || index >= size()})
+     * Returns the element previously at the specified position
      */
     @Override
-    public E set(int index, E element) {
-        return null;
+    public T set(int index, T element) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
+        }
+        T currentElement = (T) items[index];
+        items[index] = element;
+        return currentElement;
     }
 
-    // TODO Implement this!
+    // TODO Implement test for this!
+
     /**
-     * Appends the specified element to the end of this list (optional
-     * operation).
-     *
-     * <p>Lists that support this operation may place limitations on what
-     * elements may be added to this list.  In particular, some
-     * lists will refuse to add null elements, and others will impose
-     * restrictions on the type of elements that may be added.  List
-     * classes should clearly specify in their documentation any restrictions
-     * on what elements may be added.
-     *
-     * @param element to be appended to this list
-     * @return {@code true} (as specified by {@link Collection#add})
-     * @throws UnsupportedOperationException if the {@code add} operation
-     *                                       is not supported by this list
-     * @throws ClassCastException            if the class of the specified element
-     *                                       prevents it from being added to this list
-     * @throws NullPointerException          if the specified element is null and this
-     *                                       list does not permit null elements
-     * @throws IllegalArgumentException      if some property of this element
-     *                                       prevents it from being added to this list
+     * Appends the specified element to the end of list.
      */
     @Override
-    public boolean add(E element) {
-        return false;
+    public boolean add(T element) {
+        if (element == null) {
+            throw new IllegalArgumentException(EXCEPTION_MESSAGE_ILLEGAL_ARGUMENT);
+        }
+        if (items.length == size) {
+            increaseCapacity();
+        }
+        items[size++] = element;
+        return true;
     }
 
     // TODO Implement this!
+
     /**
      * Inserts the specified element at the specified position in this list
      * (optional operation).  Shifts the element currently at that position
@@ -382,11 +385,12 @@ public class MyArrayList<E> implements List<E> {
      *                                       ({@code index < 0 || index > size()})
      */
     @Override
-    public void add(int index, E element) {
+    public void add(int index, T element) {
 
     }
 
     // TODO Implement this!
+
     /**
      * Removes the element at the specified position in this list (optional
      * operation).  Shifts any subsequent elements to the left (subtracts one
@@ -401,11 +405,12 @@ public class MyArrayList<E> implements List<E> {
      *                                       ({@code index < 0 || index >= size()})
      */
     @Override
-    public E remove(int index) {
+    public T remove(int index) {
         return null;
     }
 
     // TODO Implement this!
+
     /**
      * Returns the index of the first occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
@@ -429,6 +434,7 @@ public class MyArrayList<E> implements List<E> {
     }
 
     // TODO Implement this!
+
     /**
      * Returns the index of the last occurrence of the specified element
      * in this list, or -1 if this list does not contain the element.
@@ -452,6 +458,7 @@ public class MyArrayList<E> implements List<E> {
     }
 
     // TODO Implement this!
+
     /**
      * Returns a list iterator over the elements in this list (in proper
      * sequence).
@@ -460,11 +467,12 @@ public class MyArrayList<E> implements List<E> {
      * sequence)
      */
     @Override
-    public ListIterator<E> listIterator() {
+    public ListIterator<T> listIterator() {
         return null;
     }
 
     // TODO Implement this!
+
     /**
      * Returns a list iterator over the elements in this list (in proper
      * sequence), starting at the specified position in the list.
@@ -481,11 +489,12 @@ public class MyArrayList<E> implements List<E> {
      *                                   ({@code index < 0 || index > size()})
      */
     @Override
-    public ListIterator<E> listIterator(int index) {
+    public ListIterator<T> listIterator(int index) {
         return null;
     }
 
     // TODO Implement this!
+
     /**
      * Returns a view of the portion of this list between the specified
      * {@code fromIndex}, inclusive, and {@code toIndex}, exclusive.  (If
@@ -521,8 +530,15 @@ public class MyArrayList<E> implements List<E> {
      *                                   fromIndex > toIndex})
      */
     @Override
-    public List<E> subList(int fromIndex, int toIndex) {
+    public List<T> subList(int fromIndex, int toIndex) {
         return null;
+    }
+
+    /**
+     * Increases capacity of items
+     */
+    private void increaseCapacity() {
+        items = Arrays.copyOf(items, items.length * 2);
     }
 
     // TODO Implement hashCode()
