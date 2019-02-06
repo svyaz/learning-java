@@ -15,9 +15,9 @@ public class MyArrayList<E> implements List<E> {
     private static final int DEFAULT_CAPACITY = 10;
 
     /**
-     * Private array for storing objects.
+     * Private array for storing list elements.
      */
-    private Object[] items;
+    private E[] items;
 
     /**
      * Private field for storing array length.
@@ -29,18 +29,20 @@ public class MyArrayList<E> implements List<E> {
     /**
      * Create instance with DEFAULT_CAPACITY.
      */
+    @SuppressWarnings("unchecked")
     public MyArrayList() {
-        items = new Object[DEFAULT_CAPACITY];
+        items = (E[]) new Object[DEFAULT_CAPACITY];
     }
 
     /**
      * Create instance with specified capacity.
      */
+    @SuppressWarnings("unchecked")
     public MyArrayList(int capacity) {
         if (capacity <= 0) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_ILLEGAL_CAPACITY);
         }
-        items = new Object[capacity];
+        items = (E[]) new Object[capacity];
     }
 
     /**
@@ -327,18 +329,15 @@ public class MyArrayList<E> implements List<E> {
         //size = 0;
     }
 
-    // TODO Why do I have warnings here?..
-
     /**
      * Returns the element at the specified position in this list.
      */
     @Override
-    //@SuppressWarnings("unchecked")
     public E get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
         }
-        return (E) items[index];
+        return items[index];
     }
 
     /**
@@ -347,12 +346,11 @@ public class MyArrayList<E> implements List<E> {
      * Returns the element previously at the specified position
      */
     @Override
-    //@SuppressWarnings("unchecked")
     public E set(int index, E element) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
         }
-        E currentElement = (E) items[index];
+        E currentElement = items[index];
         items[index] = element;
         return currentElement;
     }
