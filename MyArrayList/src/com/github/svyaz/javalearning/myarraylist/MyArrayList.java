@@ -319,14 +319,16 @@ public class MyArrayList<E> implements List<E> {
         return false;
     }
 
-    // TODO Implement this!
+    /* TODO Is it necessary to reduce capacity?
+       Or do I need to call ensureCapacity(int) before every add() and addAll() methods?
+     */
 
     /**
      * Removes all of the elements from this list.
      */
     @Override
     public void clear() {
-        //size = 0;
+        size = 0;
     }
 
     /**

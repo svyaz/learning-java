@@ -60,6 +60,15 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void clearTest() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+        list.add(5);
+        list.add(2);
+        list.clear();
+        Assert.assertEquals(list.size(), 0);
+    }
+
+    @Test
     public void getTest() {
         MyArrayList<Integer> list = new MyArrayList<>();
         list.add(5);
