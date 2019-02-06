@@ -541,6 +541,15 @@ public class MyArrayList<E> implements List<E> {
     }
 
     /**
+     * Reduces items[] capacity to current list size.
+     */
+    public void trimToSize() {
+        if (items.length > size) {
+            items = Arrays.copyOf(items, size);
+        }
+    }
+
+    /**
      * Increases capacity of items
      */
     private void increaseCapacity() {

@@ -96,4 +96,15 @@ public class MyArrayListTest {
         //list.add(5);
         list.set(1, 2);
     }
+
+    /**
+     * Nothing asserts in trimToSizeTest below.
+     * Test only fails if any exception is thrown.
+     */
+    @Test
+    public void trimToSizeTest() {
+        MyArrayList<Integer> list = new MyArrayList<>(4);
+        list.add(5);
+        list.trimToSize();
+    }
 }
