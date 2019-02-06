@@ -42,6 +42,24 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void addNullTest() {
+        MyArrayList<String> list = new MyArrayList<>();
+        list.add(null);
+        Assert.assertTrue(list.size() == 1 &&
+                list.get(0) == null);
+    }
+
+    @Test
+    public void addWithIncreaseCapacityTest() {
+        MyArrayList<Integer> list = new MyArrayList<>(1);
+        list.add(5);
+        list.add(2);
+        Assert.assertTrue(list.size() == 2 &&
+                list.get(0) == 5 &&
+                list.get(1) == 2);
+    }
+
+    @Test
     public void getTest() {
         MyArrayList<Integer> list = new MyArrayList<>();
         list.add(5);

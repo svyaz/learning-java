@@ -2,12 +2,12 @@ package com.github.svyaz.javalearning.myarraylist;
 
 import java.util.*;
 
-public class MyArrayList<T> implements List<T> {
+public class MyArrayList<E> implements List<E> {
     /**
      * Exceptions messages
      */
-    private static final String EXCEPTION_MESSAGE_ILLEGAL_ARGUMENT = "Element cannot be null.";
     private static final String EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS = "Specified index is out of list bounds.";
+    private static final String EXCEPTION_MESSAGE_ILLEGAL_CAPACITY = "Specified capacity must be greater than 0.";
 
     /**
      * Default capacity for items.
@@ -17,14 +17,31 @@ public class MyArrayList<T> implements List<T> {
     /**
      * Private array for storing objects.
      */
-    private Object[] items = new Object[DEFAULT_CAPACITY];
+    private Object[] items;
 
     /**
      * Private field for storing array length.
      */
     private int size;
 
-    // TODO Implement constructors.
+    // TODO Implement constructor's tests.
+
+    /**
+     * Create instance with DEFAULT_CAPACITY.
+     */
+    public MyArrayList() {
+        items = new Object[DEFAULT_CAPACITY];
+    }
+
+    /**
+     * Create instance with specified capacity.
+     */
+    public MyArrayList(int capacity) {
+        if (capacity <= 0) {
+            throw new IllegalArgumentException(EXCEPTION_MESSAGE_ILLEGAL_CAPACITY);
+        }
+        items = new Object[capacity];
+    }
 
     /**
      * Returns the number of elements in this list.
@@ -72,7 +89,7 @@ public class MyArrayList<T> implements List<T> {
      * @return an iterator over the elements in this list in proper sequence
      */
     @Override
-    public Iterator<T> iterator() {
+    public Iterator<E> iterator() {
         return null;
     }
 
@@ -210,7 +227,7 @@ public class MyArrayList<T> implements List<T> {
      * @see #add(Object)
      */
     @Override
-    public boolean addAll(Collection<? extends T> c) {
+    public boolean addAll(Collection<? extends E> c) {
         return false;
     }
 
@@ -244,7 +261,7 @@ public class MyArrayList<T> implements List<T> {
      *                                       ({@code index < 0 || index > size()})
      */
     @Override
-    public boolean addAll(int index, Collection<? extends T> c) {
+    public boolean addAll(int index, Collection<? extends E> c) {
         return false;
     }
 
@@ -303,15 +320,11 @@ public class MyArrayList<T> implements List<T> {
     // TODO Implement this!
 
     /**
-     * Removes all of the elements from this list (optional operation).
-     * The list will be empty after this call returns.
-     *
-     * @throws UnsupportedOperationException if the {@code clear} operation
-     *                                       is not supported by this list
+     * Removes all of the elements from this list.
      */
     @Override
     public void clear() {
-
+        //size = 0;
     }
 
     // TODO Why do I have warnings here?..
@@ -320,11 +333,12 @@ public class MyArrayList<T> implements List<T> {
      * Returns the element at the specified position in this list.
      */
     @Override
-    public T get(int index) {
+    //@SuppressWarnings("unchecked")
+    public E get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
         }
-        return (T) items[index];
+        return (E) items[index];
     }
 
     /**
@@ -333,26 +347,22 @@ public class MyArrayList<T> implements List<T> {
      * Returns the element previously at the specified position
      */
     @Override
-    public T set(int index, T element) {
+    //@SuppressWarnings("unchecked")
+    public E set(int index, E element) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
         }
-        T currentElement = (T) items[index];
+        E currentElement = (E) items[index];
         items[index] = element;
         return currentElement;
     }
-
-    // TODO Implement test for this!
 
     /**
      * Appends the specified element to the end of list.
      */
     @Override
-    public boolean add(T element) {
-        if (element == null) {
-            throw new IllegalArgumentException(EXCEPTION_MESSAGE_ILLEGAL_ARGUMENT);
-        }
-        if (items.length == size) {
+    public boolean add(E element) {
+        if (items.length <= size) {
             increaseCapacity();
         }
         items[size++] = element;
@@ -381,7 +391,7 @@ public class MyArrayList<T> implements List<T> {
      *                                       ({@code index < 0 || index > size()})
      */
     @Override
-    public void add(int index, T element) {
+    public void add(int index, E element) {
 
     }
 
@@ -401,7 +411,7 @@ public class MyArrayList<T> implements List<T> {
      *                                       ({@code index < 0 || index >= size()})
      */
     @Override
-    public T remove(int index) {
+    public E remove(int index) {
         return null;
     }
 
@@ -463,7 +473,7 @@ public class MyArrayList<T> implements List<T> {
      * sequence)
      */
     @Override
-    public ListIterator<T> listIterator() {
+    public ListIterator<E> listIterator() {
         return null;
     }
 
@@ -485,7 +495,7 @@ public class MyArrayList<T> implements List<T> {
      *                                   ({@code index < 0 || index > size()})
      */
     @Override
-    public ListIterator<T> listIterator(int index) {
+    public ListIterator<E> listIterator(int index) {
         return null;
     }
 
@@ -526,7 +536,7 @@ public class MyArrayList<T> implements List<T> {
      *                                   fromIndex > toIndex})
      */
     @Override
-    public List<T> subList(int fromIndex, int toIndex) {
+    public List<E> subList(int fromIndex, int toIndex) {
         return null;
     }
 
