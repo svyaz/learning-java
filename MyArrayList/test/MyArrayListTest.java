@@ -101,6 +101,54 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void remove0Test() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+        list.add(10);
+        list.add(11);
+        list.add(12);
+        Assert.assertTrue(list.remove(0) == 10 &&
+                list.size() == 2 && list.get(0) == 11 && list.get(1) == 12);
+    }
+
+    @Test
+    public void removeLastTest() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+        list.add(10);
+        list.add(11);
+        list.add(12);
+        Assert.assertTrue(list.remove(2) == 12 &&
+                list.size() == 2 && list.get(0) == 10 && list.get(1) == 11);
+    }
+
+    @Test
+    public void removeMiddleTest() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+        list.add(10);
+        list.add(11);
+        list.add(12);
+        Assert.assertTrue(list.remove(1) == 11 &&
+                list.size() == 2 && list.get(0) == 10 && list.get(1) == 12);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void removeException1Test() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+        list.add(10);
+        list.add(11);
+        list.add(12);
+        list.remove(-1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void removeException2Test() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+        list.add(10);
+        list.add(11);
+        list.add(12);
+        list.remove(3);
+    }
+
+    @Test
     public void addWithIncreaseCapacityTest() {
         MyArrayList<Integer> list = new MyArrayList<>(1);
         list.add(5);

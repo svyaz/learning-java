@@ -25,6 +25,7 @@ public class MyArrayList<E> implements List<E> {
     private int size;
 
     // TODO Implement constructor's tests.
+    // TODO добавить конструктор, который массив на входе.
 
     /**
      * Create instance with DEFAULT_CAPACITY.
@@ -386,24 +387,20 @@ public class MyArrayList<E> implements List<E> {
         ++size;
     }
 
-    // TODO Implement this!
-
     /**
-     * Removes the element at the specified position in this list (optional
-     * operation).  Shifts any subsequent elements to the left (subtracts one
-     * from their indices).  Returns the element that was removed from the
-     * list.
-     *
-     * @param index the index of the element to be removed
-     * @return the element previously at the specified position
-     * @throws UnsupportedOperationException if the {@code remove} operation
-     *                                       is not supported by this list
-     * @throws IndexOutOfBoundsException     if the index is out of range
-     *                                       ({@code index < 0 || index >= size()})
+     * Removes the element at the specified position in the list.
      */
     @Override
     public E remove(int index) {
-        return null;
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
+        }
+        E removedElement = items[index];
+        if (index < size - 1) {
+            System.arraycopy(items, index + 1, items, index, size - index - 1);
+        }
+        --size;
+        return removedElement;
     }
 
     // TODO Implement this!
