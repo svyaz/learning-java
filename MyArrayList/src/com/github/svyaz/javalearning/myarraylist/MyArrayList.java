@@ -365,34 +365,25 @@ public class MyArrayList<E> implements List<E> {
         if (items.length <= size) {
             increaseCapacity();
         }
-        items[size++] = element;
+        items[size] = element;
+        ++size;
         return true;
     }
 
-    // TODO Implement this!
-
     /**
-     * Inserts the specified element at the specified position in this list
-     * (optional operation).  Shifts the element currently at that position
-     * (if any) and any subsequent elements to the right (adds one to their
-     * indices).
-     *
-     * @param index   index at which the specified element is to be inserted
-     * @param element element to be inserted
-     * @throws UnsupportedOperationException if the {@code add} operation
-     *                                       is not supported by this list
-     * @throws ClassCastException            if the class of the specified element
-     *                                       prevents it from being added to this list
-     * @throws NullPointerException          if the specified element is null and
-     *                                       this list does not permit null elements
-     * @throws IllegalArgumentException      if some property of the specified
-     *                                       element prevents it from being added to this list
-     * @throws IndexOutOfBoundsException     if the index is out of range
-     *                                       ({@code index < 0 || index > size()})
+     * Inserts the specified element at the specified position in the list.
      */
     @Override
     public void add(int index, E element) {
-
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
+        }
+        if (items.length <= size) {
+            increaseCapacity();
+        }
+        System.arraycopy(items, index, items, index + 1, size - index);
+        items[index] = element;
+        ++size;
     }
 
     // TODO Implement this!

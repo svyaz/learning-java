@@ -50,6 +50,57 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void addWithIndex0Test() {
+        MyArrayList<Integer> list = new MyArrayList<>(3);
+        list.add(0);
+        list.add(1);
+        list.add(2);
+        list.add(0, 10);
+        Assert.assertTrue(list.size() == 4 &&
+                list.get(0) == 10 && list.get(1) == 0 && list.get(2) == 1 && list.get(3) == 2);
+    }
+
+    @Test
+    public void addWithIndexLastTest() {
+        MyArrayList<Integer> list = new MyArrayList<>(3);
+        list.add(0);
+        list.add(1);
+        list.add(2);
+        list.add(2, 10);
+        Assert.assertTrue(list.size() == 4 &&
+                list.get(0) == 0 && list.get(1) == 1 && list.get(2) == 10 && list.get(3) == 2);
+    }
+
+    @Test
+    public void addWithIndexMiddleTest() {
+        MyArrayList<Integer> list = new MyArrayList<>(3);
+        list.add(0);
+        list.add(1);
+        list.add(2);
+        list.add(1, 10);
+        Assert.assertTrue(list.size() == 4 &&
+                list.get(0) == 0 && list.get(1) == 10 && list.get(2) == 1 && list.get(3) == 2);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void addException1Test() {
+        MyArrayList<Integer> list = new MyArrayList<>(3);
+        list.add(0);
+        list.add(1);
+        list.add(2);
+        list.add(-1, 100);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void addException2Test() {
+        MyArrayList<Integer> list = new MyArrayList<>(3);
+        list.add(0);
+        list.add(1);
+        list.add(2);
+        list.add(3, 100);
+    }
+
+    @Test
     public void addWithIncreaseCapacityTest() {
         MyArrayList<Integer> list = new MyArrayList<>(1);
         list.add(5);
