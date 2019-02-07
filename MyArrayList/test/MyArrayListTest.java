@@ -4,6 +4,7 @@ import org.junit.Test;
 
 public class MyArrayListTest {
 
+    // TODO constructors tests!!!
 
     @Test
     public void sizeEmptyTest() {
@@ -13,9 +14,7 @@ public class MyArrayListTest {
 
     @Test
     public void sizeNotEmptyTest() {
-        MyArrayList<Integer> list = new MyArrayList<>();
-        list.add(5);
-        list.add(2);
+        MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{5, 2});
         Assert.assertEquals(list.size(), 2);
     }
 
@@ -102,49 +101,34 @@ public class MyArrayListTest {
 
     @Test
     public void remove0Test() {
-        MyArrayList<Integer> list = new MyArrayList<>();
-        list.add(10);
-        list.add(11);
-        list.add(12);
+        MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{10, 11, 12});
         Assert.assertTrue(list.remove(0) == 10 &&
                 list.size() == 2 && list.get(0) == 11 && list.get(1) == 12);
     }
 
     @Test
     public void removeLastTest() {
-        MyArrayList<Integer> list = new MyArrayList<>();
-        list.add(10);
-        list.add(11);
-        list.add(12);
+        MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{10, 11, 12});
         Assert.assertTrue(list.remove(2) == 12 &&
                 list.size() == 2 && list.get(0) == 10 && list.get(1) == 11);
     }
 
     @Test
     public void removeMiddleTest() {
-        MyArrayList<Integer> list = new MyArrayList<>();
-        list.add(10);
-        list.add(11);
-        list.add(12);
+        MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{10, 11, 12});
         Assert.assertTrue(list.remove(1) == 11 &&
                 list.size() == 2 && list.get(0) == 10 && list.get(1) == 12);
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void removeException1Test() {
-        MyArrayList<Integer> list = new MyArrayList<>();
-        list.add(10);
-        list.add(11);
-        list.add(12);
+        MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{10, 11, 12});
         list.remove(-1);
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void removeException2Test() {
-        MyArrayList<Integer> list = new MyArrayList<>();
-        list.add(10);
-        list.add(11);
-        list.add(12);
+        MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{10, 11, 12});
         list.remove(3);
     }
 
@@ -160,9 +144,7 @@ public class MyArrayListTest {
 
     @Test
     public void clearTest() {
-        MyArrayList<Integer> list = new MyArrayList<>();
-        list.add(5);
-        list.add(2);
+        MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{0, 1, 2});
         list.clear();
         Assert.assertEquals(list.size(), 0);
     }
@@ -177,7 +159,6 @@ public class MyArrayListTest {
     @Test(expected = IndexOutOfBoundsException.class)
     public void getExceptionTest() {
         MyArrayList<Integer> list = new MyArrayList<>();
-        //list.add(5);
         list.get(1);
     }
 
@@ -191,8 +172,7 @@ public class MyArrayListTest {
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void setExceptionTest() {
-        MyArrayList<Integer> list = new MyArrayList<>();
-        //list.add(5);
+        MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{});
         list.set(1, 2);
     }
 

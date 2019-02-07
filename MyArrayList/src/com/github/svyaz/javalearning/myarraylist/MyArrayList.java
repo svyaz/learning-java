@@ -25,10 +25,9 @@ public class MyArrayList<E> implements List<E> {
     private int size;
 
     // TODO Implement constructor's tests.
-    // TODO добавить конструктор, который массив на входе.
 
     /**
-     * Create instance with DEFAULT_CAPACITY.
+     * Creates instance with DEFAULT_CAPACITY.
      */
     @SuppressWarnings("unchecked")
     public MyArrayList() {
@@ -36,7 +35,7 @@ public class MyArrayList<E> implements List<E> {
     }
 
     /**
-     * Create instance with specified capacity.
+     * Creates instance with specified capacity.
      */
     @SuppressWarnings("unchecked")
     public MyArrayList(int capacity) {
@@ -44,6 +43,17 @@ public class MyArrayList<E> implements List<E> {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_ILLEGAL_CAPACITY);
         }
         items = (E[]) new Object[capacity];
+    }
+
+    /**
+     * Creates instance with specified elements of input array.
+     */
+    @SuppressWarnings("unchecked")
+    public MyArrayList(E[] items) {
+        int capacity = DEFAULT_CAPACITY + (items.length <= DEFAULT_CAPACITY ? 0 : items.length);
+        this.items = (E[]) new Object[capacity];
+        this.items = Arrays.copyOf(items, items.length);
+        this.size = items.length;
     }
 
     /**
