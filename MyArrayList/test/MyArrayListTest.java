@@ -253,6 +253,30 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void removeObjectTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertTrue(list.remove("like"));
+    }
+
+    @Test
+    public void removeObjectFalseTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertFalse(list.remove("C++"));
+    }
+
+    @Test
+    public void removeObjectNullTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "don't", "like", null});
+        Assert.assertTrue(list.remove(null));
+    }
+
+    @Test
+    public void removeObjectNullFalseTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertFalse(list.remove(null));
+    }
+
+    @Test
     public void addWithIncreaseCapacityTest() {
         MyArrayList<Integer> list = new MyArrayList<>(1);
         list.add(5);

@@ -144,31 +144,26 @@ public class MyArrayList<E> implements List<E> {
         return array;
     }
 
-    // TODO Implement this!
-
     /**
-     * Removes the first occurrence of the specified element from this list,
-     * if it is present (optional operation).  If this list does not contain
-     * the element, it is unchanged.  More formally, removes the element with
-     * the lowest index {@code i} such that
-     * {@code Objects.equals(o, get(i))}
-     * (if such an element exists).  Returns {@code true} if this list
-     * contained the specified element (or equivalently, if this list changed
-     * as a result of the call).
-     *
-     * @param o element to be removed from this list, if present
-     * @return {@code true} if this list contained the specified element
-     * @throws ClassCastException            if the type of the specified element
-     *                                       is incompatible with this list
-     *                                       (<a href="Collection.html#optional-restrictions">optional</a>)
-     * @throws NullPointerException          if the specified element is null and this
-     *                                       list does not permit null elements
-     *                                       (<a href="Collection.html#optional-restrictions">optional</a>)
-     * @throws UnsupportedOperationException if the {@code remove} operation
-     *                                       is not supported by this list
+     * Removes the first occurrence of the specified element from the list.
      */
     @Override
-    public boolean remove(Object o) {
+    public boolean remove(Object object) {
+        if (object == null) {
+            for (int i = 0; i < size; i++) {
+                if (items[i] == null) {
+                    remove(i);
+                    return true;
+                }
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (object.equals(items[i])) {
+                    remove(i);
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
