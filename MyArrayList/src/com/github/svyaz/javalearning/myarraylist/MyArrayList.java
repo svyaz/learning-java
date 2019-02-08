@@ -92,15 +92,13 @@ public class MyArrayList<E> implements List<E> {
         return null;
     }
 
-    // TODO Implement this!
-
     /**
      * Returns an array containing all of the elements in this list in proper
      * sequence (from first to last element).
      */
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        return Arrays.copyOf(items, size);
     }
 
     // TODO Implement this!

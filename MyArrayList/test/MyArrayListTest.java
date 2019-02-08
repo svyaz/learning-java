@@ -205,6 +205,20 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void toArrayTest() {
+        MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{10, 11, 12});
+        Object[] result = list.toArray();
+        Assert.assertTrue(result.length == 3 &&
+                (int) result[0] == 10 && (int) result[1] == 11 && (int) result[2] == 12);
+    }
+
+    @Test
+    public void toArrayEmptyTest() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+        Assert.assertEquals(list.toArray().length, 0);
+    }
+
+    @Test
     public void addWithIncreaseCapacityTest() {
         MyArrayList<Integer> list = new MyArrayList<>(1);
         list.add(5);
