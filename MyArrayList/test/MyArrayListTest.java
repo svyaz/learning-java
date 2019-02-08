@@ -133,6 +133,30 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void indexOfTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertEquals(list.indexOf("like"), 1);
+    }
+
+    @Test
+    public void indexOfNotFoundTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertEquals(list.indexOf("C++"), -1);
+    }
+
+    @Test
+    public void indexOfNullFoundTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "don't", "like", null});
+        Assert.assertEquals(list.indexOf(null), 3);
+    }
+
+    @Test
+    public void indexOfNullNotFoundTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertEquals(list.indexOf(null), -1);
+    }
+
+    @Test
     public void addWithIncreaseCapacityTest() {
         MyArrayList<Integer> list = new MyArrayList<>(1);
         list.add(5);

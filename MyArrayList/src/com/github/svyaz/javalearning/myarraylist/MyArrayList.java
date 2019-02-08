@@ -413,28 +413,26 @@ public class MyArrayList<E> implements List<E> {
         return removedElement;
     }
 
-    // TODO Implement this!
-
     /**
-     * Returns the index of the first occurrence of the specified element
-     * in this list, or -1 if this list does not contain the element.
-     * More formally, returns the lowest index {@code i} such that
-     * {@code Objects.equals(o, get(i))},
-     * or -1 if there is no such index.
-     *
-     * @param o element to search for
-     * @return the index of the first occurrence of the specified element in
-     * this list, or -1 if this list does not contain the element
-     * @throws ClassCastException   if the type of the specified element
-     *                              is incompatible with this list
-     *                              (<a href="Collection.html#optional-restrictions">optional</a>)
-     * @throws NullPointerException if the specified element is null and this
-     *                              list does not permit null elements
-     *                              (<a href="Collection.html#optional-restrictions">optional</a>)
+     * Returns the index of the first occurrence of the specified element.
+     * Returns -1 if the specified element is not found.
      */
     @Override
-    public int indexOf(Object o) {
-        return 0;
+    public int indexOf(Object object) {
+        if (object == null) {
+            for (int i = 0; i < size; i++) {
+                if (items[i] == null) {
+                    return i;
+                }
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (object.equals(items[i])) {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 
     // TODO Implement this!
