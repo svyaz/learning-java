@@ -166,7 +166,7 @@ public class MyArrayList<E> implements List<E> {
         }
         return false;
     }
-    
+
     /**
      * Returns true if this list contains all of the elements of the
      * specified collection.
@@ -513,6 +513,16 @@ public class MyArrayList<E> implements List<E> {
      */
     private void increaseCapacity() {
         items = Arrays.copyOf(items, items.length * 2);
+    }
+
+    /**
+     * Check if the current capacity is not less than specified number
+     * and increases it if necessary.
+     */
+    private void ensureCapacity(int capacity) {
+        if (items.length < capacity) {
+            items = Arrays.copyOf(items, capacity);
+        }
     }
 
     // TODO Implement hashCode()
