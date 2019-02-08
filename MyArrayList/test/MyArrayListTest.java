@@ -2,6 +2,8 @@ import com.github.svyaz.javalearning.myarraylist.MyArrayList;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class MyArrayListTest {
 
     // TODO constructors tests!!!
@@ -202,6 +204,34 @@ public class MyArrayListTest {
     public void containsNullFalseTest() {
         MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
         Assert.assertFalse(list.contains(null));
+    }
+
+    @Test
+    public void containsAllTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        String[] strings = {"Java", "like"};
+        Assert.assertTrue(list.containsAll(Arrays.asList(strings)));
+    }
+
+    @Test
+    public void containsAllFalseTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        String[] strings = {"Java", "C++"};
+        Assert.assertFalse(list.containsAll(Arrays.asList(strings)));
+    }
+
+    @Test
+    public void containsAllNullTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "don't", "like", null});
+        String[] strings = {"I", null};
+        Assert.assertTrue(list.containsAll(Arrays.asList(strings)));
+    }
+
+    @Test
+    public void containsAllNullFalseTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        String[] strings = {"Java", null};
+        Assert.assertFalse(list.containsAll(Arrays.asList(strings)));
     }
 
     @Test
