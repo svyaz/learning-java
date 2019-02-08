@@ -101,8 +101,6 @@ public class MyArrayList<E> implements List<E> {
         return Arrays.copyOf(items, size);
     }
 
-    // TODO Implement this!
-
     /**
      * Returns an array containing all of the elements in this list in
      * proper sequence (from first to last element); the runtime type of
@@ -111,31 +109,16 @@ public class MyArrayList<E> implements List<E> {
      * array is allocated with the runtime type of the specified array and
      * the size of this list.
      *
-     * <p>If the list fits in the specified array with room to spare (i.e.,
-     * the array has more elements than the list), the element in the array
-     * immediately following the end of the list is set to {@code null}.
-     * (This is useful in determining the length of the list <i>only</i> if
-     * the caller knows that the list does not contain any null elements.)
+     * <p>If the list fits in the specified array with room to spare
+     * * (i.e., the array has more elements than the list), the element in
+     * * the array immediately following the end of the collection is set to
+     * * {@code null}.  (This is useful in determining the length of the
+     * * list <i>only</i> if the caller knows that the list does not contain
+     * * any null elements.)
      *
-     * <p>Like the {@link #toArray()} method, this method acts as bridge between
-     * array-based and collection-based APIs.  Further, this method allows
-     * precise control over the runtime type of the output array, and may,
-     * under certain circumstances, be used to save allocation costs.
-     *
-     * <p>Suppose {@code x} is a list known to contain only strings.
-     * The following code can be used to dump the list into a newly
-     * allocated array of {@code String}:
-     *
-     * <pre>{@code
-     *     String[] y = x.toArray(new String[0]);
-     * }</pre>
-     * <p>
-     * Note that {@code toArray(new Object[0])} is identical in function to
-     * {@code toArray()}.
-     *
-     * @param a the array into which the elements of this list are to
-     *          be stored, if it is big enough; otherwise, a new array of the
-     *          same runtime type is allocated for this purpose.
+     * @param array the array into which the elements of this list are to
+     *              be stored, if it is big enough; otherwise, a new array of the
+     *              same runtime type is allocated for this purpose.
      * @return an array containing the elements of this list
      * @throws ArrayStoreException  if the runtime type of the specified array
      *                              is not a supertype of the runtime type of every element in
@@ -143,8 +126,22 @@ public class MyArrayList<E> implements List<E> {
      * @throws NullPointerException if the specified array is null
      */
     @Override
-    public <T> T[] toArray(T[] a) {
-        return null;
+    @SuppressWarnings("unchecked")
+    public <T> T[] toArray(T[] array) {
+        if (array.length < size) {
+            return (T[]) Arrays.copyOf(items, size, array.getClass());
+        }
+        /* TODO Следующая закомментаренная строка - как из стандартной реализации ArrayList.
+           Но у меня на ней возникает варнинг. Не понимаю как правильно привести E[] к T[].
+           Поэтому заменил на for. */
+        //System.arraycopy(items, 0, array, 0, size);
+        for (int i = 0; i < size; i++) {
+            array[i] = (T) items[i];
+        }
+        if (array.length > size) {
+            array[size] = null;
+        }
+        return array;
     }
 
     // TODO Implement this!

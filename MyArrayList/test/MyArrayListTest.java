@@ -219,6 +219,40 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void toArrayT1Test() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        String[] strings = {"str_0", "str_1", "str_2", "str_3"};
+        String[] newStrings = list.toArray(strings);
+        Assert.assertTrue(newStrings == strings &&
+                newStrings[0].equals("I") &&
+                newStrings[1].equals("like") &&
+                newStrings[2].equals("Java") &&
+                newStrings[3] == null);
+    }
+
+    @Test
+    public void toArrayT2Test() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        String[] strings = {"str_0", "str_1", "str_2"};
+        String[] newStrings = list.toArray(strings);
+        Assert.assertTrue(newStrings == strings &&
+                newStrings[0].equals("I") &&
+                newStrings[1].equals("like") &&
+                newStrings[2].equals("Java"));
+    }
+
+    @Test
+    public void toArrayT3Test() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        String[] strings = {"str_0", "str_1"};
+        String[] newStrings = list.toArray(strings);
+        Assert.assertTrue(newStrings != strings &&
+                newStrings[0].equals("I") &&
+                newStrings[1].equals("like") &&
+                newStrings[2].equals("Java"));
+    }
+
+    @Test
     public void addWithIncreaseCapacityTest() {
         MyArrayList<Integer> list = new MyArrayList<>(1);
         list.add(5);
