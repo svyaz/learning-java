@@ -72,26 +72,12 @@ public class MyArrayList<E> implements List<E> {
         return size == 0;
     }
 
-    // TODO Implement this!
-
     /**
-     * Returns {@code true} if this list contains the specified element.
-     * More formally, returns {@code true} if and only if this list contains
-     * at least one element {@code e} such that
-     * {@code Objects.equals(o, e)}.
-     *
-     * @param o element whose presence in this list is to be tested
-     * @return {@code true} if this list contains the specified element
-     * @throws ClassCastException   if the type of the specified element
-     *                              is incompatible with this list
-     *                              (<a href="Collection.html#optional-restrictions">optional</a>)
-     * @throws NullPointerException if the specified element is null and this
-     *                              list does not permit null elements
-     *                              (<a href="Collection.html#optional-restrictions">optional</a>)
+     * Returns true if this list contains at least one element such as specified object.
      */
     @Override
-    public boolean contains(Object o) {
-        return false;
+    public boolean contains(Object object) {
+        return indexOf(object) >= 0;
     }
 
     // TODO Implement this!

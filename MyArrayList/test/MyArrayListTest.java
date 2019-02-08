@@ -181,6 +181,30 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void containsTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertTrue(list.contains("like"));
+    }
+
+    @Test
+    public void containsFalseTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertFalse(list.contains("C++"));
+    }
+
+    @Test
+    public void containsNullTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "don't", "like", null});
+        Assert.assertTrue(list.contains(null));
+    }
+
+    @Test
+    public void containsNullFalseTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertFalse(list.contains(null));
+    }
+
+    @Test
     public void addWithIncreaseCapacityTest() {
         MyArrayList<Integer> list = new MyArrayList<>(1);
         list.add(5);
