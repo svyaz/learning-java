@@ -235,6 +235,34 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void addAllTest() {
+        MyArrayList<String> list = new MyArrayList<>();
+        String[] strings = {"I", "like", "Java"};
+        Assert.assertTrue(list.addAll(Arrays.asList(strings)) &&
+                list.size() == 3 &&
+                list.get(0).equals("I") &&
+                list.get(1).equals("like") &&
+                list.get(2).equals("Java"));
+    }
+
+    @Test
+    public void addAllIncreaseCapacityTest() {
+        MyArrayList<Number> list = new MyArrayList<>(new Number[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9});
+        Double[] doubles = {100.0, 200.0, 300.0};
+        Assert.assertTrue(list.addAll(Arrays.asList(doubles)) &&
+                list.size() == 13 &&
+                list.get(10).equals(100.0) &&
+                list.get(11).equals(200.0) &&
+                list.get(12).equals(300.0));
+    }
+
+    @Test
+    public void addAllEmptyTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertFalse(list.addAll(Arrays.asList(new String[]{})));
+    }
+
+    @Test
     public void toArrayTest() {
         MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{10, 11, 12});
         Object[] result = list.toArray();
@@ -360,4 +388,17 @@ public class MyArrayListTest {
         list.add(5);
         list.trimToSize();
     }
+
+    /*@Test
+    public void justTest() {
+        MyArrayList<String> list = new MyArrayList<>(3);
+        list.add("0");
+        list.add("1");
+        list.add("2");
+        System.out.println(Arrays.toString(list.items));
+        String[] strings = {"one", "two", "three", null};
+        list.addAll(Arrays.asList(strings));
+        System.out.println(Arrays.toString(list.items));
+
+    }*/
 }

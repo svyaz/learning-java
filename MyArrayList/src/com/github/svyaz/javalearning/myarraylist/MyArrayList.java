@@ -181,32 +181,21 @@ public class MyArrayList<E> implements List<E> {
         return true;
     }
 
-    // TODO Implement this!
-
     /**
-     * Appends all of the elements in the specified collection to the end of
-     * this list, in the order that they are returned by the specified
-     * collection's iterator (optional operation).  The behavior of this
-     * operation is undefined if the specified collection is modified while
-     * the operation is in progress.  (Note that this will occur if the
-     * specified collection is this list, and it's nonempty.)
-     *
-     * @param c collection containing elements to be added to this list
-     * @return {@code true} if this list changed as a result of the call
-     * @throws UnsupportedOperationException if the {@code addAll} operation
-     *                                       is not supported by this list
-     * @throws ClassCastException            if the class of an element of the specified
-     *                                       collection prevents it from being added to this list
-     * @throws NullPointerException          if the specified collection contains one
-     *                                       or more null elements and this list does not permit null
-     *                                       elements, or if the specified collection is null
-     * @throws IllegalArgumentException      if some property of an element of the
-     *                                       specified collection prevents it from being added to this list
-     * @see #add(Object)
+     * Appends all of the elements in the specified collection to the end of the list.
+     * Returns true if this list changed as a result of the call.
      */
     @Override
-    public boolean addAll(Collection<? extends E> c) {
-        return false;
+    @SuppressWarnings("unchecked")
+    public boolean addAll(Collection<? extends E> collection) {
+        if (collection.size() == 0) {
+            return false;
+        }
+        E[] collectionArray = (E[]) collection.toArray();
+        ensureCapacity(size + collectionArray.length);
+        System.arraycopy(collectionArray, 0, items, size, collectionArray.length);
+        size += collectionArray.length;
+        return true;
     }
 
     // TODO Implement this!
