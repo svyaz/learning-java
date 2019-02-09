@@ -222,47 +222,22 @@ public class MyArrayList<E> implements List<E> {
      * Removes from this list all of its elements that are contained in the
      * specified collection.
      * Returns true if this list changed as a result of the call.
+     * Uses private method removeItems().
      */
     @Override
     public boolean removeAll(Collection<?> collection) {
-        boolean modified = false;
-        int i = 0;
-        while (i < size) {
-            if (collection.contains(items[i])) {
-                remove(i);
-                modified = true;
-                continue;
-            }
-            ++i;
-        }
-        return modified;
+        return removeItems(collection, true);
     }
-
-    // TODO Implement this!
 
     /**
      * Retains only the elements in this list that are contained in the
-     * specified collection (optional operation).  In other words, removes
-     * from this list all of its elements that are not contained in the
      * specified collection.
-     *
-     * @param c collection containing elements to be retained in this list
-     * @return {@code true} if this list changed as a result of the call
-     * @throws UnsupportedOperationException if the {@code retainAll} operation
-     *                                       is not supported by this list
-     * @throws ClassCastException            if the class of an element of this list
-     *                                       is incompatible with the specified collection
-     *                                       (<a href="Collection.html#optional-restrictions">optional</a>)
-     * @throws NullPointerException          if this list contains a null element and the
-     *                                       specified collection does not permit null elements
-     *                                       (<a href="Collection.html#optional-restrictions">optional</a>),
-     *                                       or if the specified collection is null
-     * @see #remove(Object)
-     * @see #contains(Object)
+     * Returns true if this list changed as a result of the call.
+     * Uses private method removeItems().
      */
     @Override
-    public boolean retainAll(Collection<?> c) {
-        return false;
+    public boolean retainAll(Collection<?> collection) {
+        return removeItems(collection, false);
     }
 
     /* TODO Is it necessary to reduce capacity?
@@ -493,6 +468,25 @@ public class MyArrayList<E> implements List<E> {
         if (items.length < capacity) {
             items = Arrays.copyOf(items, capacity);
         }
+    }
+
+    /**
+     * Internal method for removing items from the list with condition 'isPresent'.
+     * Used by removeAll and retainAll.
+     * Returns true if any items is removed.
+     */
+    private boolean removeItems(Collection<?> collection, boolean isPresent) {
+        boolean modified = false;
+        int i = 0;
+        while (i < size) {
+            if (collection.contains(items[i]) == isPresent) {
+                remove(i);
+                modified = true;
+                continue;
+            }
+            ++i;
+        }
+        return modified;
     }
 
     // TODO Implement hashCode()

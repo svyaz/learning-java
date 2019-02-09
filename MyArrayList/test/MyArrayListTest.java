@@ -157,6 +157,39 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void retainAllTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"One", "Two", "Two", "Three", "Four", "Two"});
+        String[] strings = {"One", "Two", "Eight"};
+        Assert.assertTrue(list.retainAll(Arrays.asList(strings)) &&
+                list.size() == 4 &&
+                list.get(0).equals("One") &&
+                list.get(1).equals("Two") &&
+                list.get(2).equals("Two") &&
+                list.get(3).equals("Two"));
+    }
+
+    @Test
+    public void retainAllFalseTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"One", "Two", "Two", "Three", "Four", "Two"});
+        String[] strings = {"One", "Two", "Three", "Four"};
+        Assert.assertFalse(list.retainAll(Arrays.asList(strings)));
+    }
+
+    @Test
+    public void retainAllNullTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"One", "Two", "Two", "Three", "Four", "Two"});
+        String[] strings = {null};
+        Assert.assertTrue(list.retainAll(Arrays.asList(strings)) && list.size() == 0);
+    }
+
+    @Test
+    public void retainAllEmptyTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"One", "Two", "Two", "Three", "Four", "Two"});
+        String[] strings = {};
+        Assert.assertTrue(list.retainAll(Arrays.asList(strings)) && list.size() == 0);
+    }
+
+    @Test
     public void remove0Test() {
         MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{10, 11, 12});
         Assert.assertTrue(list.remove(0) == 10 &&
