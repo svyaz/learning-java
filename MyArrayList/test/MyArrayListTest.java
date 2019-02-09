@@ -2,7 +2,7 @@ import com.github.svyaz.javalearning.myarraylist.MyArrayList;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class MyArrayListTest {
     @Test
@@ -320,6 +320,34 @@ public class MyArrayListTest {
         MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
         String[] strings = {"Java", null};
         Assert.assertFalse(list.containsAll(Arrays.asList(strings)));
+    }
+
+    @Test
+    public void iteratorTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Iterator<String> iterator = list.iterator();
+        StringBuilder sb = new StringBuilder();
+        while (iterator.hasNext()) {
+            sb.append(iterator.next()).append("-");
+        }
+        Assert.assertEquals(sb.toString(), "I-like-Java-");
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void iteratorException1Test() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"1 element"});
+        Iterator<String> iterator = list.iterator();
+        iterator.next();
+        iterator.next();
+    }
+
+    @Test(expected = ConcurrentModificationException.class)
+    @SuppressWarnings("unused")
+    public void iteratorException2Test() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"1 element", "2 element"});
+        for (String string : list) {
+            list.add("next element");
+        }
     }
 
     @Test

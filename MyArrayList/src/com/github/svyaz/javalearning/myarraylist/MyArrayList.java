@@ -10,6 +10,7 @@ public class MyArrayList<E> implements List<E> {
     private static final String EXCEPTION_MESSAGE_INDEXES_INCOMPATIBLE = "fromIndex cannot be greater than toIndex.";
     private static final String EXCEPTION_MESSAGE_ILLEGAL_CAPACITY = "Specified capacity must be greater than 0.";
     private static final String EXCEPTION_MESSAGE_NO_NEXT_ELEMENT = "No next element in list.";
+    private static final String EXCEPTION_MESSAGE_CONCURRENT_MODIFICATION = "Concurrent modification of list found.";
 
     /**
      * Default capacity for items.
@@ -85,8 +86,6 @@ public class MyArrayList<E> implements List<E> {
         return indexOf(object) >= 0;
     }
 
-    // TODO Implement this!
-
     /**
      * Returns an iterator over the elements in this list in proper sequence.
      */
@@ -99,7 +98,15 @@ public class MyArrayList<E> implements List<E> {
      * Nested class for implementation iterator.
      */
     private class MyArrayListIterator implements Iterator<E> {
+        /**
+         * Index of current list element.
+         */
         private int currentIndex = -1;
+
+        /**
+         * Start value of property modCount of the list.
+         */
+        int startModCount = modCount;
 
         /**
          * Returns {@code true} if the iteration has more elements.
@@ -123,6 +130,9 @@ public class MyArrayList<E> implements List<E> {
         public E next() {
             if (currentIndex + 1 >= size) {
                 throw new NoSuchElementException(EXCEPTION_MESSAGE_NO_NEXT_ELEMENT);
+            }
+            if (modCount != startModCount) {
+                throw new ConcurrentModificationException(EXCEPTION_MESSAGE_CONCURRENT_MODIFICATION);
             }
             ++currentIndex;
             return items[currentIndex];
@@ -189,6 +199,7 @@ public class MyArrayList<E> implements List<E> {
         if (object == null) {
             for (int i = 0; i < size; i++) {
                 if (items[i] == null) {
+                    ++modCount;
                     remove(i);
                     return true;
                 }
@@ -196,6 +207,7 @@ public class MyArrayList<E> implements List<E> {
         } else {
             for (int i = 0; i < size; i++) {
                 if (object.equals(items[i])) {
+                    ++modCount;
                     remove(i);
                     return true;
                 }
@@ -228,6 +240,7 @@ public class MyArrayList<E> implements List<E> {
         if (collection.size() == 0) {
             return false;
         }
+        ++modCount;
         E[] collectionArray = (E[]) collection.toArray();
         ensureCapacity(size + collectionArray.length);
         System.arraycopy(collectionArray, 0, items, size, collectionArray.length);
@@ -248,6 +261,7 @@ public class MyArrayList<E> implements List<E> {
         if (collection.size() == 0) {
             return false;
         }
+        ++modCount;
         E[] collectionArray = (E[]) collection.toArray();
         int additionsLength = collectionArray.length;
         ensureCapacity(size + additionsLength);
@@ -279,15 +293,12 @@ public class MyArrayList<E> implements List<E> {
         return removeItems(collection, false);
     }
 
-    /* TODO Is it necessary to reduce capacity?
-       Or do I need to call ensureCapacity(int) before every add() and addAll() methods?
-     */
-
     /**
      * Removes all of the elements from this list.
      */
     @Override
     public void clear() {
+        ++modCount;
         size = 0;
     }
 
@@ -325,6 +336,7 @@ public class MyArrayList<E> implements List<E> {
         if (items.length <= size) {
             increaseCapacity();
         }
+        ++modCount;
         items[size] = element;
         ++size;
         return true;
@@ -341,6 +353,7 @@ public class MyArrayList<E> implements List<E> {
         if (items.length <= size) {
             increaseCapacity();
         }
+        ++modCount;
         System.arraycopy(items, index, items, index + 1, size - index);
         items[index] = element;
         ++size;
@@ -354,6 +367,7 @@ public class MyArrayList<E> implements List<E> {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
         }
+        ++modCount;
         E removedElement = items[index];
         if (index < size - 1) {
             System.arraycopy(items, index + 1, items, index, size - index - 1);
@@ -494,6 +508,7 @@ public class MyArrayList<E> implements List<E> {
      * Reduces items[] capacity to current list size.
      */
     public void trimToSize() {
+        ++modCount;
         if (items.length > size) {
             items = Arrays.copyOf(items, size);
         }
@@ -512,6 +527,7 @@ public class MyArrayList<E> implements List<E> {
      */
     private void ensureCapacity(int capacity) {
         if (items.length < capacity) {
+            ++modCount;
             items = Arrays.copyOf(items, capacity);
         }
     }
