@@ -9,6 +9,7 @@ public class MyArrayList<E> implements List<E> {
     private static final String EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS = "Specified index is out of list bounds.";
     private static final String EXCEPTION_MESSAGE_INDEXES_INCOMPATIBLE = "fromIndex cannot be greater than toIndex.";
     private static final String EXCEPTION_MESSAGE_ILLEGAL_CAPACITY = "Specified capacity must be greater than 0.";
+    private static final String EXCEPTION_MESSAGE_NO_NEXT_ELEMENT = "No next element in list.";
 
     /**
      * Default capacity for items.
@@ -24,6 +25,11 @@ public class MyArrayList<E> implements List<E> {
      * Private field for storing array length.
      */
     private int size;
+
+    /**
+     * Modifications counter for checking by iterator.
+     */
+    private int modCount = 0;
 
     /**
      * Creates instance with DEFAULT_CAPACITY.
@@ -83,12 +89,44 @@ public class MyArrayList<E> implements List<E> {
 
     /**
      * Returns an iterator over the elements in this list in proper sequence.
-     *
-     * @return an iterator over the elements in this list in proper sequence
      */
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return new MyArrayListIterator();
+    }
+
+    /**
+     * Nested class for implementation iterator.
+     */
+    private class MyArrayListIterator implements Iterator<E> {
+        private int currentIndex = -1;
+
+        /**
+         * Returns {@code true} if the iteration has more elements.
+         * (In other words, returns {@code true} if {@link #next} would
+         * return an element rather than throwing an exception.)
+         *
+         * @return {@code true} if the iteration has more elements
+         */
+        @Override
+        public boolean hasNext() {
+            return currentIndex + 1 < size;
+        }
+
+        /**
+         * Returns the next element in the iteration.
+         *
+         * @return the next element in the iteration
+         * @throws NoSuchElementException if the iteration has no more elements
+         */
+        @Override
+        public E next() {
+            if (currentIndex + 1 >= size) {
+                throw new NoSuchElementException(EXCEPTION_MESSAGE_NO_NEXT_ELEMENT);
+            }
+            ++currentIndex;
+            return items[currentIndex];
+        }
     }
 
     /**
