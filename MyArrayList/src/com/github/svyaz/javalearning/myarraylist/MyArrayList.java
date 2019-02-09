@@ -23,7 +23,7 @@ public class MyArrayList<E> implements List<E> {
      * Private field for storing array length.
      */
     private int size;
-    
+
     /**
      * Creates instance with DEFAULT_CAPACITY.
      */
@@ -218,29 +218,24 @@ public class MyArrayList<E> implements List<E> {
         return true;
     }
 
-    // TODO Implement this!
-
     /**
      * Removes from this list all of its elements that are contained in the
-     * specified collection (optional operation).
-     *
-     * @param c collection containing elements to be removed from this list
-     * @return {@code true} if this list changed as a result of the call
-     * @throws UnsupportedOperationException if the {@code removeAll} operation
-     *                                       is not supported by this list
-     * @throws ClassCastException            if the class of an element of this list
-     *                                       is incompatible with the specified collection
-     *                                       (<a href="Collection.html#optional-restrictions">optional</a>)
-     * @throws NullPointerException          if this list contains a null element and the
-     *                                       specified collection does not permit null elements
-     *                                       (<a href="Collection.html#optional-restrictions">optional</a>),
-     *                                       or if the specified collection is null
-     * @see #remove(Object)
-     * @see #contains(Object)
+     * specified collection.
+     * Returns true if this list changed as a result of the call.
      */
     @Override
-    public boolean removeAll(Collection<?> c) {
-        return false;
+    public boolean removeAll(Collection<?> collection) {
+        boolean modified = false;
+        int i = 0;
+        while (i < size) {
+            if (collection.contains(items[i])) {
+                remove(i);
+                modified = true;
+                continue;
+            }
+            ++i;
+        }
+        return modified;
     }
 
     // TODO Implement this!

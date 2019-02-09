@@ -126,6 +126,37 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void removeAllTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"One", "Two", "Two", "Three", "Four", "Two"});
+        String[] strings = {"One", "Two"};
+        Assert.assertTrue(list.removeAll(Arrays.asList(strings)) &&
+                list.size() == 2 &&
+                list.get(0).equals("Three") &&
+                list.get(1).equals("Four"));
+    }
+
+    @Test
+    public void removeAllFalseTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"One", "Two", "Two", "Three", "Four", "Two"});
+        String[] strings = {"Zero"};
+        Assert.assertFalse(list.removeAll(Arrays.asList(strings)));
+    }
+
+    @Test
+    public void removeAllFalseNullTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"One", "Two", "Two", "Three", "Four", "Two"});
+        String[] strings = {null};
+        Assert.assertFalse(list.removeAll(Arrays.asList(strings)));
+    }
+
+    @Test
+    public void removeAllFalseEmptyTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"One", "Two", "Two", "Three", "Four", "Two"});
+        String[] strings = {};
+        Assert.assertFalse(list.removeAll(Arrays.asList(strings)));
+    }
+
+    @Test
     public void remove0Test() {
         MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{10, 11, 12});
         Assert.assertTrue(list.remove(0) == 10 &&
