@@ -173,18 +173,12 @@ public class MyArrayList<E> implements List<E> {
      * @throws NullPointerException if the specified array is null
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("all")
     public <T> T[] toArray(T[] array) {
         if (array.length < size) {
             return (T[]) Arrays.copyOf(items, size, array.getClass());
         }
-        /* TODO Следующая закомментаренная строка - как из стандартной реализации ArrayList.
-           Но у меня на ней возникает варнинг. Не понимаю как правильно привести E[] к T[].
-           Поэтому заменил на for. */
         System.arraycopy(items, 0, array, 0, size);
-        /*for (int i = 0; i < size; i++) {
-            array[i] = (T) items[i];
-        }*/
         if (array.length > size) {
             array[size] = null;
         }
