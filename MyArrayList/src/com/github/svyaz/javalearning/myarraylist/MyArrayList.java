@@ -181,10 +181,10 @@ public class MyArrayList<E> implements List<E> {
         /* TODO Следующая закомментаренная строка - как из стандартной реализации ArrayList.
            Но у меня на ней возникает варнинг. Не понимаю как правильно привести E[] к T[].
            Поэтому заменил на for. */
-        //System.arraycopy(items, 0, array, 0, size);
-        for (int i = 0; i < size; i++) {
+        System.arraycopy(items, 0, array, 0, size);
+        /*for (int i = 0; i < size; i++) {
             array[i] = (T) items[i];
-        }
+        }*/
         if (array.length > size) {
             array[size] = null;
         }
@@ -420,8 +420,6 @@ public class MyArrayList<E> implements List<E> {
         return -1;
     }
 
-    // TODO Implement this!
-
     /**
      * Returns a list iterator over the elements in this list (in proper
      * sequence).
@@ -433,8 +431,6 @@ public class MyArrayList<E> implements List<E> {
     public ListIterator<E> listIterator() {
         return null;
     }
-
-    // TODO Implement this!
 
     /**
      * Returns a list iterator over the elements in this list (in proper
@@ -455,8 +451,6 @@ public class MyArrayList<E> implements List<E> {
     public ListIterator<E> listIterator(int index) {
         return null;
     }
-
-    // TODO Implement this!
 
     /**
      * Returns a view of the portion of this list between the specified
@@ -551,7 +545,10 @@ public class MyArrayList<E> implements List<E> {
         return modified;
     }
 
-    // TODO Implement hashCode()
-    // TODO Implement equals()
-    // TODO Implement toString()
+    // TODO Implement hashCode() ?
+    // TODO Implement equals() ?
+    // TODO Implement toString() ?
+    // TODO Implement ListIterator<E> listIterator()
+    // TODO Implement ListIterator<E> listIterator(int index)
+    // TODO Implement List<E> subList(int fromIndex, int toIndex)
 }
