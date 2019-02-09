@@ -237,8 +237,7 @@ public class MyArrayListTest {
     @Test
     public void addAllTest() {
         MyArrayList<String> list = new MyArrayList<>();
-        String[] strings = {"I", "like", "Java"};
-        Assert.assertTrue(list.addAll(Arrays.asList(strings)) &&
+        Assert.assertTrue(list.addAll(Arrays.asList("I", "like", "Java")) &&
                 list.size() == 3 &&
                 list.get(0).equals("I") &&
                 list.get(1).equals("like") &&
@@ -260,6 +259,54 @@ public class MyArrayListTest {
     public void addAllEmptyTest() {
         MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
         Assert.assertFalse(list.addAll(Arrays.asList(new String[]{})));
+    }
+
+    @Test
+    public void addAllIndexTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertTrue(list.addAll(1, Arrays.asList("very", "much")) &&
+                list.size() == 5 &&
+                list.get(0).equals("I") &&
+                list.get(1).equals("very") &&
+                list.get(2).equals("much") &&
+                list.get(3).equals("like") &&
+                list.get(4).equals("Java"));
+    }
+
+    @Test
+    public void addAllIndexAt0Test() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertTrue(list.addAll(0, Arrays.asList("very", "much")) &&
+                list.size() == 5 &&
+                list.get(0).equals("very") &&
+                list.get(1).equals("much") &&
+                list.get(2).equals("I") &&
+                list.get(3).equals("like") &&
+                list.get(4).equals("Java"));
+    }
+
+    @Test
+    public void addAllIndexAtLastTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertTrue(list.addAll(3, Arrays.asList("very", "much")) &&
+                list.size() == 5 &&
+                list.get(0).equals("I") &&
+                list.get(1).equals("like") &&
+                list.get(2).equals("Java") &&
+                list.get(3).equals("very") &&
+                list.get(4).equals("much"));
+    }
+
+    @Test
+    public void addAllIndexFalseTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertFalse(list.addAll(1, Arrays.asList(new String[]{})));
+    }
+
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void addAllIndexExceptionTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        list.addAll(4, Arrays.asList("12", "13"));
     }
 
     @Test

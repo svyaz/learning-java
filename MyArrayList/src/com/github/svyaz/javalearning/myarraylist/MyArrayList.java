@@ -198,38 +198,26 @@ public class MyArrayList<E> implements List<E> {
         return true;
     }
 
-    // TODO Implement this!
-
     /**
      * Inserts all of the elements in the specified collection into this
      * list at the specified position (optional operation).  Shifts the
      * element currently at that position (if any) and any subsequent
-     * elements to the right (increases their indices).  The new elements
-     * will appear in this list in the order that they are returned by the
-     * specified collection's iterator.  The behavior of this operation is
-     * undefined if the specified collection is modified while the
-     * operation is in progress.  (Note that this will occur if the specified
-     * collection is this list, and it's nonempty.)
-     *
-     * @param index index at which to insert the first element from the
-     *              specified collection
-     * @param c     collection containing elements to be added to this list
-     * @return {@code true} if this list changed as a result of the call
-     * @throws UnsupportedOperationException if the {@code addAll} operation
-     *                                       is not supported by this list
-     * @throws ClassCastException            if the class of an element of the specified
-     *                                       collection prevents it from being added to this list
-     * @throws NullPointerException          if the specified collection contains one
-     *                                       or more null elements and this list does not permit null
-     *                                       elements, or if the specified collection is null
-     * @throws IllegalArgumentException      if some property of an element of the
-     *                                       specified collection prevents it from being added to this list
-     * @throws IndexOutOfBoundsException     if the index is out of range
-     *                                       ({@code index < 0 || index > size()})
+     * elements to the right (increases their indices).
+     * Returns true if this list changed as a result of the call.
      */
     @Override
-    public boolean addAll(int index, Collection<? extends E> c) {
-        return false;
+    @SuppressWarnings("unchecked")
+    public boolean addAll(int index, Collection<? extends E> collection) {
+        if (collection.size() == 0) {
+            return false;
+        }
+        E[] collectionArray = (E[]) collection.toArray();
+        int additionsLength = collectionArray.length;
+        ensureCapacity(size + additionsLength);
+        System.arraycopy(items, index, items, index + additionsLength, size - index);
+        System.arraycopy(collectionArray, 0, items, index, additionsLength);
+        size += additionsLength;
+        return true;
     }
 
     // TODO Implement this!
