@@ -23,9 +23,7 @@ public class MyArrayList<E> implements List<E> {
      * Private field for storing array length.
      */
     private int size;
-
-    // TODO Implement constructor's tests.
-
+    
     /**
      * Creates instance with DEFAULT_CAPACITY.
      */

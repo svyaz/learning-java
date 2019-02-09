@@ -5,8 +5,32 @@ import org.junit.Test;
 import java.util.Arrays;
 
 public class MyArrayListTest {
+    @Test
+    public void constructor1Test() {
+        MyArrayList<Object> list = new MyArrayList<>();
+        Assert.assertNotNull(list);
+    }
 
-    // TODO constructors tests!!!
+    @Test
+    public void constructor2Test() {
+        MyArrayList<Object> list = new MyArrayList<>(15);
+        Assert.assertNotNull(list);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void constructor2ExceptionTest() {
+        MyArrayList<Object> list = new MyArrayList<>(0);
+        Assert.assertNull(list);
+    }
+
+    @Test
+    public void constructor3Test() {
+        MyArrayList<Object> list = new MyArrayList<>(new String[]{"One", "Two", "Three"});
+        Assert.assertTrue(list.size() == 3 &&
+                list.get(0).equals("One") &&
+                list.get(1).equals("Two") &&
+                list.get(2).equals("Three"));
+    }
 
     @Test
     public void sizeEmptyTest() {
