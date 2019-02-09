@@ -7,6 +7,7 @@ public class MyArrayList<E> implements List<E> {
      * Exceptions messages
      */
     private static final String EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS = "Specified index is out of list bounds.";
+    private static final String EXCEPTION_MESSAGE_INDEXES_INCOMPATIBLE = "fromIndex cannot be greater than toIndex.";
     private static final String EXCEPTION_MESSAGE_ILLEGAL_CAPACITY = "Specified capacity must be greater than 0.";
 
     /**
@@ -441,6 +442,13 @@ public class MyArrayList<E> implements List<E> {
      */
     @Override
     public List<E> subList(int fromIndex, int toIndex) {
+        if (fromIndex < 0 || toIndex > size) {
+            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
+        }
+        if (fromIndex > toIndex) {
+            throw new IllegalArgumentException(EXCEPTION_MESSAGE_INDEXES_INCOMPATIBLE);
+        }
+
         return null;
     }
 
