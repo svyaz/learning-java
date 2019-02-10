@@ -575,13 +575,21 @@ public class MyArrayList<E> implements List<E> {
         return result;
     }
 
-    /*@Override
+    /**
+     * Returns string representation of the list.
+     */
+    @Override
     public String toString() {
-        return "MyArrayList{" +
-                "items=" + Arrays.toString(items) +
-                ", size=" + size +
-                '}';
-    }*/
+        StringBuilder resultString = new StringBuilder();
+        resultString.append('[');
+        for (int i = 0; i < size; i++) {
+            resultString.append(String.valueOf(items[i]));
+            if (i < size - 1) {
+                resultString.append(", ");
+            }
+        }
+        return resultString.append(']').toString();
+    }
 
     // TODO Implement ListIterator<E> listIterator()
     // TODO Implement ListIterator<E> listIterator(int index)

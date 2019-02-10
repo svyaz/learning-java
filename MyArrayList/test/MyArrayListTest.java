@@ -93,6 +93,25 @@ public class MyArrayListTest {
     }
 
     @Test
+    @SuppressWarnings("all")
+    public void toString1Test() {
+        MyArrayList<String> list = new MyArrayList<>(15);
+        Assert.assertEquals("[]", list.toString());
+    }
+
+    @Test
+    public void toString2Test() {
+        MyArrayList<Double> list = new MyArrayList<>(new Double[]{1.0, 2.0, null, 4.0});
+        Assert.assertEquals("[1.0, 2.0, null, 4.0]", list.toString());
+    }
+
+    @Test
+    public void toString3Test() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"One", "Two", "Three", "Four"});
+        Assert.assertEquals("[One, Two, Three, Four]", list.toString());
+    }
+
+    @Test
     public void sizeEmptyTest() {
         MyArrayList<String> list = new MyArrayList<>();
         Assert.assertEquals(list.size(), 0);
@@ -611,17 +630,4 @@ public class MyArrayListTest {
         list.add(5);
         list.trimToSize();
     }
-
-    /*@Test
-    public void justTest() {
-        MyArrayList<String> list = new MyArrayList<>(3);
-        list.add("0");
-        list.add("1");
-        list.add("2");
-        System.out.println(Arrays.toString(list.items));
-        String[] strings = {"one", "two", "three", null};
-        list.addAll(Arrays.asList(strings));
-        System.out.println(Arrays.toString(list.items));
-
-    }*/
 }
