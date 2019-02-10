@@ -563,15 +563,19 @@ public class MyArrayList<E> implements List<E> {
         return true;
     }
 
-    /*
+    /**
+     * Returns a hash code based on the contents of the specified array.
+     */
     @Override
     public int hashCode() {
-        int result = Arrays.hashCode(items);
-        result = 31 * result + size;
+        int result = 1;
+        for (int i = 0; i < size; i++) {
+            result = 31 * result + (items[i] == null ? 0 : items[i].hashCode());
+        }
         return result;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "MyArrayList{" +
                 "items=" + Arrays.toString(items) +
@@ -579,8 +583,6 @@ public class MyArrayList<E> implements List<E> {
                 '}';
     }*/
 
-    // TODO Implement hashCode()
-    // TODO Implement equals()
     // TODO Implement ListIterator<E> listIterator()
     // TODO Implement ListIterator<E> listIterator(int index)
     // TODO Implement List<E> subList(int fromIndex, int toIndex)

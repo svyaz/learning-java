@@ -73,6 +73,26 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void hashCode1Test() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"One", "Two", "Three", "Four", "Five"});
+        Assert.assertEquals(list.hashCode(), -1010478461);
+    }
+
+    @Test
+    public void hashCode2Test() {
+        MyArrayList<String> list1 = new MyArrayList<>(new String[]{"One", "Two", "Three", "Four", "Five"});
+        MyArrayList<String> list2 = new MyArrayList<>(new String[]{"One", "Two", "Three", "Four", "Five"});
+        Assert.assertEquals(list1.hashCode(), list2.hashCode());
+    }
+
+    @Test
+    public void hashCode3Test() {
+        MyArrayList<String> list1 = new MyArrayList<>(new String[]{"One", "Two", "Three", "Four", "Five"});
+        MyArrayList<String> list2 = new MyArrayList<>(new String[]{"One", "Two", "Three", "Four", "Five", "Six"});
+        Assert.assertNotEquals(list1.hashCode(), list2.hashCode());
+    }
+
+    @Test
     public void sizeEmptyTest() {
         MyArrayList<String> list = new MyArrayList<>();
         Assert.assertEquals(list.size(), 0);
