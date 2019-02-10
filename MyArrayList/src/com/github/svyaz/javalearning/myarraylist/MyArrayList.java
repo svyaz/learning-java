@@ -539,9 +539,48 @@ public class MyArrayList<E> implements List<E> {
         return modified;
     }
 
-    // TODO Implement hashCode() ?
-    // TODO Implement equals() ?
-    // TODO Implement toString() ?
+    /**
+     * Returns true if the specified object is equal to the list.
+     * Not included current value of modCount property.
+     */
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        MyArrayList<?> myArrayList = (MyArrayList<?>) object;
+        if (size != myArrayList.size) {
+            return false;
+        }
+        for (int i = 0; i < size; i++) {
+            if (!Objects.equals(myArrayList.items[i], items[i]))
+                return false;
+        }
+        return true;
+    }
+
+    /*
+    @Override
+    public int hashCode() {
+        int result = Arrays.hashCode(items);
+        result = 31 * result + size;
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "MyArrayList{" +
+                "items=" + Arrays.toString(items) +
+                ", size=" + size +
+                '}';
+    }*/
+
+    // TODO Implement hashCode()
+    // TODO Implement equals()
     // TODO Implement ListIterator<E> listIterator()
     // TODO Implement ListIterator<E> listIterator(int index)
     // TODO Implement List<E> subList(int fromIndex, int toIndex)

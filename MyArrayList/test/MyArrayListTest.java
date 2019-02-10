@@ -33,6 +33,46 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void equalsSameObjectTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"1", "2", "3"});
+        Assert.assertEquals(list, list);
+    }
+
+    @Test
+    public void equalsDifferentClassesTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"1", "2", "3"});
+        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList("1", "2", "3"));
+        Assert.assertNotEquals(list, arrayList);
+    }
+
+    @Test
+    public void equalsNullObjectTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"1", "2", "3"});
+        Assert.assertNotEquals(list, null);
+    }
+
+    @Test
+    public void equalsDifferentObjectsTest() {
+        MyArrayList<String> list1 = new MyArrayList<>(new String[]{"1", "2", "3"});
+        MyArrayList<String> list2 = new MyArrayList<>(new String[]{"1", "2", "4"});
+        Assert.assertNotEquals(list1, list2);
+    }
+
+    @Test
+    public void equalsDifferentSizesTest() {
+        MyArrayList<String> list1 = new MyArrayList<>(new String[]{"1", "2"});
+        MyArrayList<String> list2 = new MyArrayList<>(new String[]{"1", "2", "3"});
+        Assert.assertNotEquals(list1, list2);
+    }
+
+    @Test
+    public void equalsEqualObjectsTest() {
+        MyArrayList<String> list1 = new MyArrayList<>(new String[]{"1", "2", "3"});
+        MyArrayList<String> list2 = new MyArrayList<>(new String[]{"1", "2", "3"});
+        Assert.assertEquals(list1, list2);
+    }
+
+    @Test
     public void sizeEmptyTest() {
         MyArrayList<String> list = new MyArrayList<>();
         Assert.assertEquals(list.size(), 0);
