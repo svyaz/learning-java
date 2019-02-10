@@ -112,6 +112,7 @@ public class MyArrayListTest {
     }
 
     @Test
+    @SuppressWarnings("all")
     public void sizeEmptyTest() {
         MyArrayList<String> list = new MyArrayList<>();
         Assert.assertEquals(list.size(), 0);
@@ -124,6 +125,7 @@ public class MyArrayListTest {
     }
 
     @Test
+    @SuppressWarnings("all")
     public void isEmptyTest() {
         MyArrayList<Integer> list = new MyArrayList<>();
         Assert.assertTrue(list.isEmpty());
@@ -187,6 +189,7 @@ public class MyArrayListTest {
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
+    @SuppressWarnings("all")
     public void addException1Test() {
         MyArrayList<Integer> list = new MyArrayList<>(3);
         list.add(0);
@@ -196,6 +199,7 @@ public class MyArrayListTest {
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
+    @SuppressWarnings("all")
     public void addException2Test() {
         MyArrayList<Integer> list = new MyArrayList<>(3);
         list.add(0);
@@ -229,6 +233,7 @@ public class MyArrayListTest {
     }
 
     @Test
+    @SuppressWarnings("all")
     public void removeAllFalseEmptyTest() {
         MyArrayList<String> list = new MyArrayList<>(new String[]{"One", "Two", "Two", "Three", "Four", "Two"});
         String[] strings = {};
@@ -262,6 +267,7 @@ public class MyArrayListTest {
     }
 
     @Test
+    @SuppressWarnings("all")
     public void retainAllEmptyTest() {
         MyArrayList<String> list = new MyArrayList<>(new String[]{"One", "Two", "Two", "Three", "Four", "Two"});
         String[] strings = {};
@@ -513,6 +519,7 @@ public class MyArrayListTest {
     }
 
     @Test
+    @SuppressWarnings("all")
     public void toArrayEmptyTest() {
         MyArrayList<Integer> list = new MyArrayList<>();
         Assert.assertEquals(list.toArray().length, 0);
@@ -601,6 +608,7 @@ public class MyArrayListTest {
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
+    @SuppressWarnings("all")
     public void getExceptionTest() {
         MyArrayList<Integer> list = new MyArrayList<>();
         list.get(1);
