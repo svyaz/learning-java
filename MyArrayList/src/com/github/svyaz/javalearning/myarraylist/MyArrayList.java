@@ -105,7 +105,7 @@ public class MyArrayList<E> implements List<E> {
         /**
          * Start value of property modCount of the list.
          */
-        int startModCount = modCount;
+        private int startModCount = modCount;
 
         /**
          * Returns {@code true} if the iteration has more elements.
@@ -596,7 +596,6 @@ public class MyArrayList<E> implements List<E> {
 
     // TODO Замечания:
     /*
-    2. startModCount лучше сделать private
     3. remove(Object) - чтобы сравнивать с учетом null есть функция Objects.equals.
     И есть лишнее изменение mod count
     4. addAll - надо обойтись без преобразования коллекции в массив
