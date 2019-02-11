@@ -493,9 +493,8 @@ public class MyArrayList<E> implements List<E> {
      * Check if the current capacity is not less than specified number
      * and increases it if necessary.
      */
-    private void ensureCapacity(int capacity) {
+    public void ensureCapacity(int capacity) {
         if (items.length < capacity) {
-            ++modCount;
             items = Arrays.copyOf(items, capacity);
         }
     }
@@ -583,7 +582,6 @@ public class MyArrayList<E> implements List<E> {
     6. addAll по индексу - нет проверки индекса
     7. indexOf, lastIndexOf - Objects.equals
     8. trimToSize, ensureCapacity не должны менять modCount, логически список не изменился
-    9. ensureCapacity надо сделать public
     11. toString - можно не вызывать valueOf, билдер вызывает его сам
      */
 }

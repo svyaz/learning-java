@@ -638,4 +638,14 @@ public class MyArrayListTest {
         list.add(5);
         list.trimToSize();
     }
+
+    /**
+     * Nothing asserts in ensureCapacityTest below.
+     * Test only fails if any exception is thrown.
+     */
+    @Test
+    public void ensureCapacityTest() {
+        MyArrayList<Integer> list = new MyArrayList<>(4);
+        list.ensureCapacity(5);
+    }
 }
