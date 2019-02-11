@@ -57,8 +57,7 @@ public class MyArrayList<E> implements List<E> {
     @SuppressWarnings("unchecked")
     public MyArrayList(E[] items) {
         int capacity = DEFAULT_CAPACITY + (items.length <= DEFAULT_CAPACITY ? 0 : items.length);
-        this.items = (E[]) new Object[capacity];
-        this.items = Arrays.copyOf(items, items.length);
+        this.items = Arrays.copyOf(items, capacity);
         this.size = items.length;
     }
 
@@ -591,7 +590,22 @@ public class MyArrayList<E> implements List<E> {
         return resultString.append(']').toString();
     }
 
-    // TODO Implement ListIterator<E> listIterator()
-    // TODO Implement ListIterator<E> listIterator(int index)
-    // TODO Implement List<E> subList(int fromIndex, int toIndex)
+    // TODO Implement ListIterator<E> listIterator() ?
+    // TODO Implement ListIterator<E> listIterator(int index) ?
+    // TODO Implement List<E> subList(int fromIndex, int toIndex) ?
+
+    // TODO Замечания:
+    /*
+    2. startModCount лучше сделать private
+    3. remove(Object) - чтобы сравнивать с учетом null есть функция Objects.equals.
+    И есть лишнее изменение mod count
+    4. addAll - надо обойтись без преобразования коллекции в массив
+    5. add по индексу должен разрешать вставку в конец коллекции
+    6. addAll по индексу - нет проверки индекса
+    7. indexOf, lastIndexOf - Objects.equals
+    8. trimToSize, ensureCapacity не должны менять modCount, логически список не изменился
+    9. ensureCapacity надо сделать public
+    10. equals - нет фигурных скобок в if
+    11. toString - можно не вызывать valueOf, билдер вызывает его сам
+     */
 }
