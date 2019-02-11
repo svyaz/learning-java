@@ -178,6 +178,17 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void addWithIndexSizeTest() {
+        MyArrayList<Integer> list = new MyArrayList<>(3);
+        list.add(0);
+        list.add(1);
+        list.add(2);
+        list.add(3, 10);
+        Assert.assertTrue(list.size() == 4 &&
+                list.get(0) == 0 && list.get(1) == 1 && list.get(2) == 2 && list.get(3) == 10);
+    }
+
+    @Test
     public void addWithIndexMiddleTest() {
         MyArrayList<Integer> list = new MyArrayList<>(3);
         list.add(0);
@@ -205,7 +216,7 @@ public class MyArrayListTest {
         list.add(0);
         list.add(1);
         list.add(2);
-        list.add(3, 100);
+        list.add(4, 100);
     }
 
     @Test

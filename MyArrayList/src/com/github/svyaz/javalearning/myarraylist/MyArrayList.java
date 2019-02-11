@@ -329,14 +329,16 @@ public class MyArrayList<E> implements List<E> {
      */
     @Override
     public void add(int index, E element) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
         }
         if (items.length <= size) {
             increaseCapacity();
         }
         ++modCount;
-        System.arraycopy(items, index, items, index + 1, size - index);
+        if (index < size) {
+            System.arraycopy(items, index, items, index + 1, size - index);
+        }
         items[index] = element;
         ++size;
     }
@@ -569,7 +571,6 @@ public class MyArrayList<E> implements List<E> {
     // TODO Замечания:
     /*
     4. addAll - надо обойтись без преобразования коллекции в массив
-    5. add по индексу должен разрешать вставку в конец коллекции
     6. addAll по индексу - нет проверки индекса
      */
 }
