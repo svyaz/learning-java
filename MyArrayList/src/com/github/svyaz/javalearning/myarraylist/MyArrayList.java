@@ -537,8 +537,9 @@ public class MyArrayList<E> implements List<E> {
             return false;
         }
         for (int i = 0; i < size; i++) {
-            if (!Objects.equals(myArrayList.items[i], items[i]))
+            if (!Objects.equals(myArrayList.items[i], items[i])) {
                 return false;
+            }
         }
         return true;
     }
@@ -583,7 +584,6 @@ public class MyArrayList<E> implements List<E> {
     7. indexOf, lastIndexOf - Objects.equals
     8. trimToSize, ensureCapacity не должны менять modCount, логически список не изменился
     9. ensureCapacity надо сделать public
-    10. equals - нет фигурных скобок в if
     11. toString - можно не вызывать valueOf, билдер вызывает его сам
      */
 }
