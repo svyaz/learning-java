@@ -189,21 +189,10 @@ public class MyArrayList<E> implements List<E> {
      */
     @Override
     public boolean remove(Object object) {
-        if (object == null) {
-            for (int i = 0; i < size; i++) {
-                if (items[i] == null) {
-                    ++modCount;
-                    remove(i);
-                    return true;
-                }
-            }
-        } else {
-            for (int i = 0; i < size; i++) {
-                if (object.equals(items[i])) {
-                    ++modCount;
-                    remove(i);
-                    return true;
-                }
+        for (int i = 0; i < size; i++) {
+            if (Objects.equals(items[i], object)) {
+                remove(i);
+                return true;
             }
         }
         return false;
@@ -596,8 +585,6 @@ public class MyArrayList<E> implements List<E> {
 
     // TODO Замечания:
     /*
-    3. remove(Object) - чтобы сравнивать с учетом null есть функция Objects.equals.
-    И есть лишнее изменение mod count
     4. addAll - надо обойтись без преобразования коллекции в массив
     5. add по индексу должен разрешать вставку в конец коллекции
     6. addAll по индексу - нет проверки индекса
