@@ -364,17 +364,9 @@ public class MyArrayList<E> implements List<E> {
      */
     @Override
     public int indexOf(Object object) {
-        if (object == null) {
-            for (int i = 0; i < size; i++) {
-                if (items[i] == null) {
-                    return i;
-                }
-            }
-        } else {
-            for (int i = 0; i < size; i++) {
-                if (object.equals(items[i])) {
-                    return i;
-                }
+        for (int i = 0; i < size; i++) {
+            if (Objects.equals(items[i], object)) {
+                return i;
             }
         }
         return -1;
