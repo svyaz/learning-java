@@ -255,6 +255,9 @@ public class MyArrayList<E> implements List<E> {
     @Override
     public void clear() {
         ++modCount;
+        for (int i = 0; i < size; i++) {
+            items[i] = null;
+        }
         size = 0;
     }
 
