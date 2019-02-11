@@ -238,6 +238,9 @@ public class MyArrayList<E> implements List<E> {
     @Override
     @SuppressWarnings("unchecked")
     public boolean addAll(int index, Collection<? extends E> collection) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
+        }
         if (collection.size() == 0) {
             return false;
         }
@@ -565,9 +568,4 @@ public class MyArrayList<E> implements List<E> {
     // TODO Implement ListIterator<E> listIterator() ?
     // TODO Implement ListIterator<E> listIterator(int index) ?
     // TODO Implement List<E> subList(int fromIndex, int toIndex) ?
-
-    // TODO Замечания:
-    /*
-    6. addAll по индексу - нет проверки индекса
-     */
 }

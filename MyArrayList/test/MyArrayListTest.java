@@ -500,6 +500,18 @@ public class MyArrayListTest {
     @Test
     public void addAllIndexAtLastTest() {
         MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
+        Assert.assertTrue(list.addAll(2, Arrays.asList("very", "much")) &&
+                list.size() == 5 &&
+                list.get(0).equals("I") &&
+                list.get(1).equals("like") &&
+                list.get(2).equals("very") &&
+                list.get(3).equals("much") &&
+                list.get(4).equals("Java"));
+    }
+
+    @Test
+    public void addAllIndexAtSizeTest() {
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
         Assert.assertTrue(list.addAll(3, Arrays.asList("very", "much")) &&
                 list.size() == 5 &&
                 list.get(0).equals("I") &&
@@ -515,10 +527,10 @@ public class MyArrayListTest {
         Assert.assertFalse(list.addAll(1, Arrays.asList(new String[]{})));
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test(expected = IndexOutOfBoundsException.class)
     public void addAllIndexExceptionTest() {
         MyArrayList<String> list = new MyArrayList<>(new String[]{"I", "like", "Java"});
-        list.addAll(4, Arrays.asList("12", "13"));
+        list.addAll(5, Arrays.asList("12", "13"));
     }
 
     @Test
