@@ -7,7 +7,7 @@ public class MyArrayList<E> implements List<E> {
      * Exceptions messages
      */
     private static final String EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS = "Specified index is out of list bounds.";
-    private static final String EXCEPTION_MESSAGE_INDEXES_INCOMPATIBLE = "fromIndex cannot be greater than toIndex.";
+    private static final String EXCEPTION_MESSAGE_METHOD_NOT_IMPLEMENTED = "Method not implemented.";
     private static final String EXCEPTION_MESSAGE_ILLEGAL_CAPACITY = "Specified capacity must be greater than 0.";
     private static final String EXCEPTION_MESSAGE_NO_NEXT_ELEMENT = "No next element in list.";
     private static final String EXCEPTION_MESSAGE_CONCURRENT_MODIFICATION = "Concurrent modification of list found.";
@@ -108,11 +108,7 @@ public class MyArrayList<E> implements List<E> {
         private int startModCount = modCount;
 
         /**
-         * Returns {@code true} if the iteration has more elements.
-         * (In other words, returns {@code true} if {@link #next} would
-         * return an element rather than throwing an exception.)
-         *
-         * @return {@code true} if the iteration has more elements
+         * Returns true if the iteration has more elements.
          */
         @Override
         public boolean hasNext() {
@@ -121,9 +117,6 @@ public class MyArrayList<E> implements List<E> {
 
         /**
          * Returns the next element in the iteration.
-         *
-         * @return the next element in the iteration
-         * @throws NoSuchElementException if the iteration has no more elements
          */
         @Override
         public E next() {
@@ -149,27 +142,7 @@ public class MyArrayList<E> implements List<E> {
 
     /**
      * Returns an array containing all of the elements in this list in
-     * proper sequence (from first to last element); the runtime type of
-     * the returned array is that of the specified array.  If the list fits
-     * in the specified array, it is returned therein.  Otherwise, a new
-     * array is allocated with the runtime type of the specified array and
-     * the size of this list.
-     *
-     * <p>If the list fits in the specified array with room to spare
-     * * (i.e., the array has more elements than the list), the element in
-     * * the array immediately following the end of the collection is set to
-     * * {@code null}.  (This is useful in determining the length of the
-     * * list <i>only</i> if the caller knows that the list does not contain
-     * * any null elements.)
-     *
-     * @param array the array into which the elements of this list are to
-     *              be stored, if it is big enough; otherwise, a new array of the
-     *              same runtime type is allocated for this purpose.
-     * @return an array containing the elements of this list
-     * @throws ArrayStoreException  if the runtime type of the specified array
-     *                              is not a supertype of the runtime type of every element in
-     *                              this list
-     * @throws NullPointerException if the specified array is null
+     * proper sequence (from first to last element).
      */
     @Override
     @SuppressWarnings("all")
@@ -390,81 +363,30 @@ public class MyArrayList<E> implements List<E> {
     }
 
     /**
-     * Returns a list iterator over the elements in this list (in proper
-     * sequence).
-     *
-     * @return a list iterator over the elements in this list (in proper
-     * sequence)
+     * Method not implemented.
+     * Not necessary by the task.
      */
     @Override
     public ListIterator<E> listIterator() {
-        return null;
+        throw new UnsupportedOperationException(EXCEPTION_MESSAGE_METHOD_NOT_IMPLEMENTED);
     }
 
     /**
-     * Returns a list iterator over the elements in this list (in proper
-     * sequence), starting at the specified position in the list.
-     * The specified index indicates the first element that would be
-     * returned by an initial call to {@link ListIterator#next next}.
-     * An initial call to {@link ListIterator#previous previous} would
-     * return the element with the specified index minus one.
-     *
-     * @param index index of the first element to be returned from the
-     *              list iterator (by a call to {@link ListIterator#next next})
-     * @return a list iterator over the elements in this list (in proper
-     * sequence), starting at the specified position in the list
-     * @throws IndexOutOfBoundsException if the index is out of range
-     *                                   ({@code index < 0 || index > size()})
+     * Method not implemented.
+     * Not necessary by the task.
      */
     @Override
     public ListIterator<E> listIterator(int index) {
-        return null;
+        throw new UnsupportedOperationException(EXCEPTION_MESSAGE_METHOD_NOT_IMPLEMENTED);
     }
 
     /**
-     * Returns a view of the portion of this list between the specified
-     * {@code fromIndex}, inclusive, and {@code toIndex}, exclusive.  (If
-     * {@code fromIndex} and {@code toIndex} are equal, the returned list is
-     * empty.)  The returned list is backed by this list, so non-structural
-     * changes in the returned list are reflected in this list, and vice-versa.
-     * The returned list supports all of the optional list operations supported
-     * by this list.<p>
-     * <p>
-     * This method eliminates the need for explicit range operations (of
-     * the sort that commonly exist for arrays).  Any operation that expects
-     * a list can be used as a range operation by passing a subList view
-     * instead of a whole list.  For example, the following idiom
-     * removes a range of elements from a list:
-     * <pre>{@code
-     *      list.subList(from, to).clear();
-     * }</pre>
-     * Similar idioms may be constructed for {@code indexOf} and
-     * {@code lastIndexOf}, and all of the algorithms in the
-     * {@code Collections} class can be applied to a subList.<p>
-     * <p>
-     * The semantics of the list returned by this method become undefined if
-     * the backing list (i.e., this list) is <i>structurally modified</i> in
-     * any way other than via the returned list.  (Structural modifications are
-     * those that change the size of this list, or otherwise perturb it in such
-     * a fashion that iterations in progress may yield incorrect results.)
-     *
-     * @param fromIndex low endpoint (inclusive) of the subList
-     * @param toIndex   high endpoint (exclusive) of the subList
-     * @return a view of the specified range within this list
-     * @throws IndexOutOfBoundsException for an illegal endpoint index value
-     *                                   ({@code fromIndex < 0 || toIndex > size ||
-     *                                   fromIndex > toIndex})
+     * Method not implemented.
+     * Not necessary by the task.
      */
     @Override
     public List<E> subList(int fromIndex, int toIndex) {
-        if (fromIndex < 0 || toIndex > size) {
-            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
-        }
-        if (fromIndex > toIndex) {
-            throw new IllegalArgumentException(EXCEPTION_MESSAGE_INDEXES_INCOMPATIBLE);
-        }
-
-        return null;
+        throw new UnsupportedOperationException(EXCEPTION_MESSAGE_METHOD_NOT_IMPLEMENTED);
     }
 
     /**
@@ -564,8 +486,4 @@ public class MyArrayList<E> implements List<E> {
         }
         return resultString.append(']').toString();
     }
-
-    // TODO Implement ListIterator<E> listIterator() ?
-    // TODO Implement ListIterator<E> listIterator(int index) ?
-    // TODO Implement List<E> subList(int fromIndex, int toIndex) ?
 }

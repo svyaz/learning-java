@@ -671,4 +671,31 @@ public class MyArrayListTest {
         MyArrayList<Integer> list = new MyArrayList<>(4);
         list.ensureCapacity(5);
     }
+
+    /**
+     * Tests UnsupportedOperationException for not-implemented method.
+     */
+    @Test(expected = UnsupportedOperationException.class)
+    public void listIteratorExceptionTest() {
+        MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{0, 1, 2});
+        list.listIterator();
+    }
+
+    /**
+     * Tests UnsupportedOperationException for not-implemented method.
+     */
+    @Test(expected = UnsupportedOperationException.class)
+    public void listIteratorIndexExceptionTest() {
+        MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{0, 1, 2});
+        list.listIterator(1);
+    }
+
+    /**
+     * Tests UnsupportedOperationException for not-implemented method.
+     */
+    @Test(expected = UnsupportedOperationException.class)
+    public void subListExceptionTest() {
+        MyArrayList<Integer> list = new MyArrayList<>(new Integer[]{0, 1, 2});
+        list.subList(0, 1);
+    }
 }
