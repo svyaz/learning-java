@@ -378,17 +378,9 @@ public class MyArrayList<E> implements List<E> {
      */
     @Override
     public int lastIndexOf(Object object) {
-        if (object == null) {
-            for (int i = size - 1; i >= 0; i--) {
-                if (items[i] == null) {
-                    return i;
-                }
-            }
-        } else {
-            for (int i = size - 1; i >= 0; i--) {
-                if (object.equals(items[i])) {
-                    return i;
-                }
+        for (int i = size - 1; i >= 0; i--) {
+            if (Objects.equals(items[i], object)) {
+                return i;
             }
         }
         return -1;
@@ -579,7 +571,6 @@ public class MyArrayList<E> implements List<E> {
     4. addAll - надо обойтись без преобразования коллекции в массив
     5. add по индексу должен разрешать вставку в конец коллекции
     6. addAll по индексу - нет проверки индекса
-    7. indexOf, lastIndexOf - Objects.equals
     11. toString - можно не вызывать valueOf, билдер вызывает его сам
      */
 }
