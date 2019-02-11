@@ -554,7 +554,7 @@ public class MyArrayList<E> implements List<E> {
         StringBuilder resultString = new StringBuilder();
         resultString.append('[');
         for (int i = 0; i < size; i++) {
-            resultString.append(String.valueOf(items[i]));
+            resultString.append(items[i]);
             if (i < size - 1) {
                 resultString.append(", ");
             }
@@ -571,6 +571,5 @@ public class MyArrayList<E> implements List<E> {
     4. addAll - надо обойтись без преобразования коллекции в массив
     5. add по индексу должен разрешать вставку в конец коллекции
     6. addAll по индексу - нет проверки индекса
-    11. toString - можно не вызывать valueOf, билдер вызывает его сам
      */
 }
