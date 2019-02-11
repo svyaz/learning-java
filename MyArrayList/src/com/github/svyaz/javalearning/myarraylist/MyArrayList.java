@@ -222,11 +222,9 @@ public class MyArrayList<E> implements List<E> {
         if (collection.size() == 0) {
             return false;
         }
-        ++modCount;
-        E[] collectionArray = (E[]) collection.toArray();
-        ensureCapacity(size + collectionArray.length);
-        System.arraycopy(collectionArray, 0, items, size, collectionArray.length);
-        size += collectionArray.length;
+        for (E element : collection) {
+            add(element);
+        }
         return true;
     }
 
@@ -570,7 +568,6 @@ public class MyArrayList<E> implements List<E> {
 
     // TODO Замечания:
     /*
-    4. addAll - надо обойтись без преобразования коллекции в массив
     6. addAll по индексу - нет проверки индекса
      */
 }
