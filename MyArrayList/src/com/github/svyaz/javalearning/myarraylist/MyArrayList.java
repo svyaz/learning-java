@@ -219,11 +219,14 @@ public class MyArrayList<E> implements List<E> {
             return false;
         }
         ++modCount;
-        E[] collectionArray = (E[]) collection.toArray();
-        int additionsLength = collectionArray.length;
+        int additionsLength = collection.size();
         ensureCapacity(size + additionsLength);
         System.arraycopy(items, index, items, index + additionsLength, size - index);
-        System.arraycopy(collectionArray, 0, items, index, additionsLength);
+        int i = 0;
+        for (E element : collection) {
+            items[index + i] = element;
+            ++i;
+        }
         size += additionsLength;
         return true;
     }
@@ -334,7 +337,7 @@ public class MyArrayList<E> implements List<E> {
         if (index < size - 1) {
             System.arraycopy(items, index + 1, items, index, size - index - 1);
         }
-        items[size-1] = null;
+        items[size - 1] = null;
         --size;
         return removedElement;
     }
