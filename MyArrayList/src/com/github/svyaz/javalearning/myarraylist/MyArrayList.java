@@ -195,6 +195,7 @@ public class MyArrayList<E> implements List<E> {
         if (collection.size() == 0) {
             return false;
         }
+        ensureCapacity(size + collection.size());
         for (E element : collection) {
             add(element);
         }
