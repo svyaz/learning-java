@@ -333,7 +333,8 @@ public class MyArrayList<E> implements List<E> {
         if (index < size - 1) {
             System.arraycopy(items, index + 1, items, index, size - index - 1);
         }
-        items[--size] = null;
+        items[size-1] = null;
+        --size;
         return removedElement;
     }
 
