@@ -91,4 +91,67 @@ public class SinglyLinkedListTest {
         SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
         list.setData(3, "Hi there");
     }
+
+    @Test
+    public void addToHeadTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("John");
+        list.addToHead("Elton");
+        Assert.assertTrue(list.size() == 2 &&
+                list.getData(0).equals("Elton") &&
+                list.getData(1).equals("John"));
+    }
+
+    @Test
+    public void addByIndexToStartTest() {
+        ListItem<String> secondItem = new ListItem<>("2 item", null);
+        ListItem<String> firstItem = new ListItem<>("1 item", secondItem);
+        SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
+        list.add(0, "0 item");
+        Assert.assertTrue(list.size() == 3 &&
+                list.getData(0).equals("0 item") &&
+                list.getData(1).equals("1 item") &&
+                list.getData(2).equals("2 item"));
+    }
+
+    @Test
+    public void addByIndexToEndTest() {
+        ListItem<String> secondItem = new ListItem<>("2 item", null);
+        ListItem<String> firstItem = new ListItem<>("1 item", secondItem);
+        SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
+        list.add(2, "3 item");
+        Assert.assertTrue(list.size() == 3 &&
+                list.getData(0).equals("1 item") &&
+                list.getData(1).equals("2 item") &&
+                list.getData(2).equals("3 item"));
+    }
+
+    @Test
+    public void addByIndexToMiddleTest() {
+        ListItem<String> thirdItem = new ListItem<>("3 item", null);
+        ListItem<String> secondItem = new ListItem<>("2 item", thirdItem);
+        ListItem<String> firstItem = new ListItem<>("1 item", secondItem);
+        SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
+        list.add(1, "middle item");
+        Assert.assertTrue(list.size() == 4 &&
+                list.getData(0).equals("1 item") &&
+                list.getData(1).equals("middle item") &&
+                list.getData(2).equals("2 item") &&
+                list.getData(3).equals("3 item"));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void addByIndexException1Test() {
+        ListItem<String> secondItem = new ListItem<>("2 item", null);
+        ListItem<String> firstItem = new ListItem<>("1 item", secondItem);
+        SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
+        list.add(-1, "-1 item");
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void addByIndexException2Test() {
+        ListItem<String> secondItem = new ListItem<>("2 item", null);
+        ListItem<String> firstItem = new ListItem<>("1 item", secondItem);
+        SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
+        list.add(3, "3 item");
+    }
 }

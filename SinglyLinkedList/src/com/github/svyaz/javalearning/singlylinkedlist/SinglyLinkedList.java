@@ -93,10 +93,42 @@ public class SinglyLinkedList<T> {
         return currentData;
     }
 
+    /**
+     * Adds new element to the beginning of the list.
+     */
+    public void addToHead(T data) {
+        head = new ListItem<>(data, head);
+        ++count;
+    }
+
+    /**
+     * Adds new element to the specified index of the list.
+     */
+    public void add(int index, T data) {
+        if (index < 0 || index > count) {
+            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
+        }
+
+        ListItem<T> current = head, prev = null;
+        for (int i = 0; i <= count; i++) {
+            if (i == index) {
+                if (i == 0) {
+                    head = new ListItem<>(data, head);
+                } else if (i == count) {
+                    prev.setNext(new ListItem<>(data));
+                } else {
+                    prev.setNext(new ListItem<>(data, current));
+                }
+                ++count;
+                break;
+            }
+            prev = current;
+            current = current.getNext();
+        }
+    }
+
     /*
     TODO удаление элемента по индексу, пусть выдает значение элемента
-    TODO вставка элемента в начало
-    TODO вставка элемента по индексу
     TODO удаление узла по значению, пусть выдает true, если элемент был удален
     TODO удаление первого элемента, пусть выдает значение элемента
     TODO разворот списка за линейное время
