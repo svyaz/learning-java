@@ -11,14 +11,13 @@ public class SinglyLinkedListTest {
         Assert.assertTrue(list.size() == 1 && list.getHeadData().equals("Hi there"));
     }
 
-    // TODO check all 3 elements
     @Test
     public void constructor1Items3Test() {
         ListItem<String> thirdItem = new ListItem<>("3 item", null);
         ListItem<String> secondItem = new ListItem<>("2 item", thirdItem);
         ListItem<String> firstItem = new ListItem<>("1 item", secondItem);
         SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
-        Assert.assertTrue(list.size() == 3);
+        Assert.assertEquals(list.size(), 3);
     }
 
     @Test
@@ -27,6 +26,34 @@ public class SinglyLinkedListTest {
         Assert.assertTrue(list.size() == 1 && list.getHeadData().equals("Hi there"));
     }
 
+    @Test
+    public void getDataIndexTest() {
+        ListItem<String> thirdItem = new ListItem<>("3 item", null);
+        ListItem<String> secondItem = new ListItem<>("2 item", thirdItem);
+        ListItem<String> firstItem = new ListItem<>("1 item", secondItem);
+        SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
+        Assert.assertTrue(list.size() == 3 &&
+                list.getData(0).equals("1 item") &&
+                list.getData(1).equals("2 item") &&
+                list.getData(2).equals("3 item"));
+    }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getDataIndexException1Test() {
+        ListItem<String> thirdItem = new ListItem<>("3 item", null);
+        ListItem<String> secondItem = new ListItem<>("2 item", thirdItem);
+        ListItem<String> firstItem = new ListItem<>("1 item", secondItem);
+        SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
+        list.getData(-1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getDataIndexException2Test() {
+        ListItem<String> thirdItem = new ListItem<>("3 item", null);
+        ListItem<String> secondItem = new ListItem<>("2 item", thirdItem);
+        ListItem<String> firstItem = new ListItem<>("1 item", secondItem);
+        SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
+        list.getData(3);
+    }
 
 }

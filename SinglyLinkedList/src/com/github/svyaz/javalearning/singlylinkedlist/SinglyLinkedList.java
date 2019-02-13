@@ -1,6 +1,8 @@
 package com.github.svyaz.javalearning.singlylinkedlist;
 
 public class SinglyLinkedList<T> {
+    private static final String EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS = "Specified index is out of list bounds.";
+
     /**
      * Head item of the list.
      */
@@ -50,7 +52,24 @@ public class SinglyLinkedList<T> {
         return head.getData();
     }
 
-
+    /**
+     * Returns data of the element with specified index of the list.
+     */
+    public T getData(int index) {
+        if (index < 0 || index >= count) {
+            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
+        }
+        ListItem<T> tmpListItem = head;
+        int i = 0;
+        while (i < count) {
+            if (i == index) {
+                break;
+            }
+            tmpListItem = tmpListItem.getNext();
+            ++i;
+        }
+        return tmpListItem.getData();
+    }
 
     // TODO Implement equals
     // TODO Implement hashCode
