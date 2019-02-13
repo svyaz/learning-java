@@ -195,10 +195,14 @@ public class MyArrayList<E> implements List<E> {
         if (collection.size() == 0) {
             return false;
         }
+        ++modCount;
         ensureCapacity(size + collection.size());
+        int i = size;
         for (E element : collection) {
-            add(element);
+            items[i] = element;
+            ++i;
         }
+        size += collection.size();
         return true;
     }
 
