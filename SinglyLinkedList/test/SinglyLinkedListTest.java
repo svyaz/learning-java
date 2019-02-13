@@ -56,4 +56,39 @@ public class SinglyLinkedListTest {
         list.getData(3);
     }
 
+    @Test
+    public void setDataTest() {
+        ListItem<String> thirdItem = new ListItem<>("3 item", null);
+        ListItem<String> secondItem = new ListItem<>("2 item", thirdItem);
+        ListItem<String> firstItem = new ListItem<>("1 item", secondItem);
+        SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
+        Assert.assertEquals(list.setData(1, "Second item!"), "2 item");
+    }
+
+    @Test
+    public void setDataToHeadByIndexTest() {
+        ListItem<String> thirdItem = new ListItem<>("3 item", null);
+        ListItem<String> secondItem = new ListItem<>("2 item", thirdItem);
+        ListItem<String> firstItem = new ListItem<>("1 item", secondItem);
+        SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
+        Assert.assertEquals(list.setData(0, "Head item!"), "1 item");
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void setDataIndexException1Test() {
+        ListItem<String> thirdItem = new ListItem<>("3 item", null);
+        ListItem<String> secondItem = new ListItem<>("2 item", thirdItem);
+        ListItem<String> firstItem = new ListItem<>("1 item", secondItem);
+        SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
+        list.setData(-1, "Hi there");
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void setDataIndexException2Test() {
+        ListItem<String> thirdItem = new ListItem<>("3 item", null);
+        ListItem<String> secondItem = new ListItem<>("2 item", thirdItem);
+        ListItem<String> firstItem = new ListItem<>("1 item", secondItem);
+        SinglyLinkedList<String> list = new SinglyLinkedList<>(firstItem);
+        list.setData(3, "Hi there");
+    }
 }
