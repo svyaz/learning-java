@@ -222,9 +222,9 @@ public class MyArrayList<E> implements List<E> {
         int additionsLength = collection.size();
         ensureCapacity(size + additionsLength);
         System.arraycopy(items, index, items, index + additionsLength, size - index);
-        int i = 0;
+        int i = index;
         for (E element : collection) {
-            items[index + i] = element;
+            items[i] = element;
             ++i;
         }
         size += additionsLength;
