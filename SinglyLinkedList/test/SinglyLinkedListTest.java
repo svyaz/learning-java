@@ -279,4 +279,60 @@ public class SinglyLinkedListTest {
         SinglyLinkedList<String> list = new SinglyLinkedList<>("Hi there");
         list.remove(1);
     }
+
+    @Test
+    public void removeElementTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("1 item");
+        list.addToTail("2 item");
+        list.addToTail("3 item");
+        Assert.assertTrue(list.remove("2 item") &&
+                list.size() == 2 &&
+                list.getData(0).equals("1 item") &&
+                list.getData(1).equals("3 item"));
+    }
+
+    @Test
+    public void removeElementHeadTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("1 item");
+        list.addToTail("2 item");
+        list.addToTail("3 item");
+        Assert.assertTrue(list.remove("1 item") &&
+                list.size() == 2 &&
+                list.getData(0).equals("2 item") &&
+                list.getData(1).equals("3 item"));
+    }
+
+    @Test
+    public void removeElementLastTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("1 item");
+        list.addToTail("2 item");
+        list.addToTail("3 item");
+        Assert.assertTrue(list.remove("3 item") &&
+                list.size() == 2 &&
+                list.getData(0).equals("1 item") &&
+                list.getData(1).equals("2 item"));
+    }
+
+    @Test
+    public void removeElementFalseTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("1 item");
+        list.addToTail("2 item");
+        list.addToTail("3 item");
+        Assert.assertTrue(!list.remove("4 item") &&
+                list.size() == 3);
+    }
+
+    @Test
+    public void removeElementOneTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("1 item");
+        Assert.assertTrue(list.remove("1 item") &&
+                list.size() == 0);
+    }
+
+    @Test
+    public void removeElementEmptyTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        Assert.assertTrue(!list.remove("Hi there") &&
+                list.size() == 0);
+    }
 }

@@ -168,7 +168,7 @@ public class SinglyLinkedList<T> {
     }
 
     /**
-     * Remove last element of the list.
+     * Removes last element of the list.
      * Returns data of removed element or null if the list is empty.
      */
     public T removeTail() {
@@ -223,6 +223,28 @@ public class SinglyLinkedList<T> {
             current = current.getNext();
         }
         return returnData;
+    }
+
+    /**
+     * Removes specified element from the list if it presents.
+     * Returns true if list is changed.
+     */
+    public boolean remove(T element) {
+        for (ListItem<T> current = head, prev = null;
+             current != null;
+             prev = current, current = current.getNext()) {
+
+            if (current.getData().equals(element)) {
+                if (prev == null) {
+                    head = head.getNext();
+                } else {
+                    prev.setNext(current.getNext());
+                }
+                --count;
+                return true;
+            }
+        }
+        return false;
     }
 
 
