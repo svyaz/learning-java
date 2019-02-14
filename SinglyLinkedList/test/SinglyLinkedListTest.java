@@ -198,6 +198,12 @@ public class SinglyLinkedListTest {
     }
 
     @Test
+    public void removeHead1ElementTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("1 item");
+        Assert.assertTrue(list.removeHead().equals("1 item") && list.size() == 0);
+    }
+
+    @Test
     public void removeHeadEmptyListTest() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>("1 item");
         list.removeHead();
