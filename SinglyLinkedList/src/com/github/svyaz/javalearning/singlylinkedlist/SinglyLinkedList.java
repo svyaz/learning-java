@@ -127,14 +127,29 @@ public class SinglyLinkedList<T> {
         }
     }
 
+    /**
+     * Removes head element of the list.
+     * Returns data of removed element or null if the list is empty.
+     */
+    public T removeHead() {
+        if (count == 0) {
+            return null;
+        }
+        T returnData = head.getData();
+        head = head.getNext();
+        --count;
+        return returnData;
+    }
+
     /*
+    TODO Метод добавления в конец списка
     TODO удаление элемента по индексу, пусть выдает значение элемента
     TODO удаление узла по значению, пусть выдает true, если элемент был удален
-    TODO удаление первого элемента, пусть выдает значение элемента
     TODO разворот списка за линейное время
     TODO копирование списка
+
+    TODO Implement equals
+    TODO Implement hashCode
+    TODO Implement toString
     */
-    // TODO Implement equals
-    // TODO Implement hashCode
-    // TODO Implement toString
 }
