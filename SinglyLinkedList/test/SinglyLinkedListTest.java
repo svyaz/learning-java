@@ -205,9 +205,31 @@ public class SinglyLinkedListTest {
 
     @Test
     public void removeHeadEmptyListTest() {
-        SinglyLinkedList<String> list = new SinglyLinkedList<>("1 item");
-        list.removeHead();
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
         Assert.assertNull(list.removeHead());
+    }
+
+    @Test
+    public void removeTailTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("1 item");
+        list.addToTail("2 item");
+        list.addToTail("3 item");
+        Assert.assertTrue(list.removeTail().equals("3 item") &&
+                list.size() == 2 &&
+                list.getData(0).equals("1 item") &&
+                list.getData(1).equals("2 item"));
+    }
+
+    @Test
+    public void removeTail1ElementTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("1 item");
+        Assert.assertTrue(list.removeTail().equals("1 item") && list.size() == 0);
+    }
+
+    @Test
+    public void removeTailEmptyListTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        Assert.assertNull(list.removeTail());
     }
 
     @Test

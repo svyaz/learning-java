@@ -168,6 +168,34 @@ public class SinglyLinkedList<T> {
     }
 
     /**
+     * Remove last element of the list.
+     * Returns data of removed element or null if the list is empty.
+     */
+    public T removeTail() {
+        if (count == 0) {
+            return null;
+        }
+
+        ListItem<T> current = head, prev = null;
+        T returnData = null;
+        for (int i = 0; i < count; i++) {
+            if (i == count - 1) {
+                returnData = current.getData();
+                if (i == 0) {
+                    head = null;
+                } else {
+                    prev.setNext(null);
+                }
+                --count;
+                break;
+            }
+            prev = current;
+            current = current.getNext();
+        }
+        return returnData;
+    }
+
+    /**
      * Removes element of the list with specified index.
      * Returns removed element data.
      */
@@ -199,7 +227,6 @@ public class SinglyLinkedList<T> {
 
 
     /*
-    TODO удаление элемента из конца списка, выдает значение элемента
     TODO удаление узла по значению, пусть выдает true, если элемент был удален
     TODO разворот списка за линейное время
     TODO копирование списка
