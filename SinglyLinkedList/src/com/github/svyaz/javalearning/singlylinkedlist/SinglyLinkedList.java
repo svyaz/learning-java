@@ -249,15 +249,29 @@ public class SinglyLinkedList<T> {
 
 
     /*
-    TODO удаление узла по значению, пусть выдает true, если элемент был удален
     TODO разворот списка за линейное время
     TODO копирование списка
 
     TODO Implement equals
     TODO Implement hashCode
-    TODO Implement toString
 
     TODO Сделать ListItem с уровнем доступа на пакет.
     TODO Сделать тесты на ListItem если получится по уровню доступа.
     */
+
+    /**
+     * Returns string representation of the list.
+     */
+    @Override
+    public String toString() {
+        StringBuilder resultString = new StringBuilder();
+        resultString.append('[');
+        for (ListItem<T> item = head; item != null; item = item.getNext()) {
+            resultString.append(item.getData());
+            if (item.getNext() != null) {
+                resultString.append(", ");
+            }
+        }
+        return resultString.append(']').toString();
+    }
 }

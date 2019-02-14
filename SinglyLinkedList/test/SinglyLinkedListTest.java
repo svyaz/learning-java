@@ -335,4 +335,25 @@ public class SinglyLinkedListTest {
         Assert.assertTrue(!list.remove("Hi there") &&
                 list.size() == 0);
     }
+
+    @Test
+    public void toStringTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addToTail("I");
+        list.addToTail("like");
+        list.addToTail("Java");
+        Assert.assertEquals(list.toString(), "[I, like, Java]");
+    }
+
+    @Test
+    public void toStringEmptyTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        Assert.assertEquals(list.toString(), "[]");
+    }
+
+    @Test
+    public void toStringOneElementTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("Hi there");
+        Assert.assertEquals(list.toString(), "[Hi there]");
+    }
 }
