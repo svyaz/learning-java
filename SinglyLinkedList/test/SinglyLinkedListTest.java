@@ -5,6 +5,12 @@ import org.junit.Test;
 
 public class SinglyLinkedListTest {
     @Test
+    public void constructorEmptyTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        Assert.assertEquals(list.size(), 0);
+    }
+
+    @Test
     public void constructor1Items1Test() {
         ListItem<String> startItem = new ListItem<>("Hi there", null);
         SinglyLinkedList<String> list = new SinglyLinkedList<>(startItem);
@@ -99,6 +105,31 @@ public class SinglyLinkedListTest {
         Assert.assertTrue(list.size() == 2 &&
                 list.getData(0).equals("Elton") &&
                 list.getData(1).equals("John"));
+    }
+
+    @Test
+    public void addToHeadOfEmptyTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addToHead("Hi there");
+        Assert.assertTrue(list.size() == 1 && list.getHeadData().equals("Hi there"));
+    }
+
+    @Test
+    public void addToTailTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("1 item");
+        list.addToTail("2 item");
+        list.addToTail("last item");
+        Assert.assertTrue(list.size() == 3 &&
+                list.getData(0).equals("1 item") &&
+                list.getData(1).equals("2 item") &&
+                list.getData(2).equals("last item"));
+    }
+
+    @Test
+    public void addToTailOfEmpty() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addToTail("Hi there");
+        Assert.assertTrue(list.size() == 1 && list.getHeadData().equals("Hi there"));
     }
 
     @Test

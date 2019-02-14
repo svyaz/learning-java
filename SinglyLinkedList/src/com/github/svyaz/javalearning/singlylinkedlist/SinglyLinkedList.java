@@ -14,6 +14,12 @@ public class SinglyLinkedList<T> {
     private int count;
 
     /**
+     * Creates empty list.
+     */
+    public SinglyLinkedList() {
+    }
+
+    /**
      * Creates SinglyLinkedList with 1-st item head.
      */
     public SinglyLinkedList(ListItem<T> head) {
@@ -102,6 +108,26 @@ public class SinglyLinkedList<T> {
     }
 
     /**
+     * Adds new element to the end of the list.
+     */
+    public void addToTail(T data) {
+        if (count == 0) {
+            head = new ListItem<>(data);
+        } else {
+            ListItem<T> current = head, prev = null;
+            for (int i = 0; i <= count; i++) {
+                if (i == count) {
+                    prev.setNext(new ListItem<>(data));
+                    break;
+                }
+                prev = current;
+                current = current.getNext();
+            }
+        }
+        ++count;
+    }
+
+    /**
      * Adds new element to the specified index of the list.
      */
     public void add(int index, T data) {
@@ -142,7 +168,6 @@ public class SinglyLinkedList<T> {
     }
 
     /*
-    TODO Метод добавления в конец списка
     TODO удаление элемента по индексу, пусть выдает значение элемента
     TODO удаление узла по значению, пусть выдает true, если элемент был удален
     TODO разворот списка за линейное время
