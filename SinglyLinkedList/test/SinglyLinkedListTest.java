@@ -203,4 +203,52 @@ public class SinglyLinkedListTest {
         list.removeHead();
         Assert.assertNull(list.removeHead());
     }
+
+    @Test
+    public void removeByIndexFromStartTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addToTail("111");
+        list.addToTail("222");
+        list.addToTail("333");
+        Assert.assertTrue(list.remove(0).equals("111") &&
+                list.size() == 2 &&
+                list.getData(0).equals("222") &&
+                list.getData(1).equals("333"));
+    }
+
+    @Test
+    public void removeByIndexFromEndTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addToTail("111");
+        list.addToTail("222");
+        list.addToTail("333");
+        Assert.assertTrue(list.remove(2).equals("333") &&
+                list.size() == 2 &&
+                list.getData(0).equals("111") &&
+                list.getData(1).equals("222"));
+    }
+
+    @Test
+    public void removeByIndexFromMiddleTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addToTail("111");
+        list.addToTail("222");
+        list.addToTail("333");
+        Assert.assertTrue(list.remove(1).equals("222") &&
+                list.size() == 2 &&
+                list.getData(0).equals("111") &&
+                list.getData(1).equals("333"));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void removeByIndexException1Test() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("Hi there");
+        list.remove(-1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void removeByIndexException2Test() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("Hi there");
+        list.remove(1);
+    }
 }

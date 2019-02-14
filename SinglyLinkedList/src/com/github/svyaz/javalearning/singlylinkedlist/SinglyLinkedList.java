@@ -167,8 +167,39 @@ public class SinglyLinkedList<T> {
         return returnData;
     }
 
+    /**
+     * Removes element of the list with specified index.
+     * Returns removed element data.
+     */
+    public T remove(int index) {
+        if (index < 0 || index >= count) {
+            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
+        }
+
+        ListItem<T> current = head, prev = null;
+        T returnData = null;
+        for (int i = 0; i < count; i++) {
+            if (i == index) {
+                returnData = current.getData();
+                if (i == 0) {
+                    head = head.getNext();
+                } else if (i == count - 1) {
+                    prev.setNext(null);
+                } else {
+                    prev.setNext(current.getNext());
+                }
+                --count;
+                break;
+            }
+            prev = current;
+            current = current.getNext();
+        }
+        return returnData;
+    }
+
+
     /*
-    TODO удаление элемента по индексу, пусть выдает значение элемента
+    TODO удаление элемента из конца списка, выдает значение элемента
     TODO удаление узла по значению, пусть выдает true, если элемент был удален
     TODO разворот списка за линейное время
     TODO копирование списка
@@ -176,5 +207,8 @@ public class SinglyLinkedList<T> {
     TODO Implement equals
     TODO Implement hashCode
     TODO Implement toString
+
+    TODO Сделать ListItem с уровнем доступа на пакет.
+    TODO Сделать тесты на ListItem если получится по уровню доступа.
     */
 }
