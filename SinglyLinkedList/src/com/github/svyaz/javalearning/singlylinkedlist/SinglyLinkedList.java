@@ -20,26 +20,11 @@ public class SinglyLinkedList<T> {
     }
 
     /**
-     * Creates SinglyLinkedList with 1-st item head.
-     */
-    public SinglyLinkedList(ListItem<T> head) {
-        if (head != null) {
-            this.head = head;
-            count = 1;
-            ListItem<T> tmpListItem = head;
-            while (tmpListItem.getNext() != null) {
-                tmpListItem = tmpListItem.getNext();
-                ++count;
-            }
-        }
-    }
-
-    /**
      * Creates SinglyLinkedList with 1 item specified as data.
      */
     public SinglyLinkedList(T head) {
         if (head != null) {
-            this.head = new ListItem<>(head, null);
+            this.head = new ListItem<>(head);
             count = 1;
         }
     }
@@ -273,8 +258,6 @@ public class SinglyLinkedList<T> {
     TODO Implement equals
     TODO Implement hashCode
 
-    TODO Сделать ListItem с уровнем доступа на пакет.
-    TODO Сделать тесты на ListItem если получится по уровню доступа.
     */
 
     /**
