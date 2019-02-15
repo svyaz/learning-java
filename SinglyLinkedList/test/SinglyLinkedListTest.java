@@ -337,6 +337,36 @@ public class SinglyLinkedListTest {
     }
 
     @Test
+    public void turnTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addToTail("One");
+        list.addToTail("Two");
+        list.addToTail("Three");
+        list.addToTail("Four");
+        list.turn();
+        Assert.assertTrue(list.size() == 4 &&
+                list.getData(0).equals("Four") &&
+                list.getData(1).equals("Three") &&
+                list.getData(2).equals("Two") &&
+                list.getData(3).equals("One"));
+    }
+
+    @Test
+    public void turnEmptyTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.turn();
+        Assert.assertEquals(list.size(), 0);
+    }
+
+    @Test
+    public void turnOneElementTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("Hi there");
+        list.turn();
+        Assert.assertTrue(list.size() == 1 &&
+                list.getHeadData().equals("Hi there"));
+    }
+
+    @Test
     public void toStringTest() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>();
         list.addToTail("I");
