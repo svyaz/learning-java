@@ -365,6 +365,34 @@ public class SinglyLinkedListTest {
     }
 
     @Test
+    public void copyTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addToTail("I");
+        list.addToTail("like");
+        list.addToTail("Java");
+        SinglyLinkedList<?> copy = list.copy();
+        Assert.assertTrue(copy.size() == 3 &&
+                copy.getData(0).equals("I") &&
+                copy.getData(1).equals("like") &&
+                copy.getData(2).equals("Java"));
+    }
+
+    @Test
+    public void copyOneElementTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("Hi there");
+        SinglyLinkedList<?> copy = list.copy();
+        Assert.assertTrue(copy.size() == 1 &&
+                copy.getData(0).equals("Hi there"));
+    }
+
+    @Test
+    public void copyEmptyListTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        SinglyLinkedList<?> copy = list.copy();
+        Assert.assertEquals(copy.size(), 0);
+    }
+
+    @Test
     public void toStringTest() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>();
         list.addToTail("I");

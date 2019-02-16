@@ -252,10 +252,26 @@ public class SinglyLinkedList<T> {
         }
     }
 
-    /*
-    TODO Main с примерами использования.
-    TODO копирование списка
-    */
+    /**
+     * Returns a copy of the list.
+     */
+    public SinglyLinkedList<T> copy() {
+        SinglyLinkedList<T> newList = new SinglyLinkedList<>();
+        if (count > 0) {
+            newList.count = count;
+            ListItem<T> tmpItemLink, tmpPrev = null;
+            for (ListItem<T> current = head; current != null; current = current.getNext()) {
+                tmpItemLink = new ListItem<>(current.getData());
+                if (tmpPrev != null) {
+                    tmpPrev.setNext(tmpItemLink);
+                } else {
+                    newList.head = tmpItemLink;
+                }
+                tmpPrev = tmpItemLink;
+            }
+        }
+        return newList;
+    }
 
     /**
      * Returns string representation of the list.
