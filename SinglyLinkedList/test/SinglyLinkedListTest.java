@@ -384,4 +384,54 @@ public class SinglyLinkedListTest {
         SinglyLinkedList<String> list = new SinglyLinkedList<>("Hi there");
         Assert.assertEquals(list.toString(), "[Hi there]");
     }
+
+    @Test
+    public void equalsSameObjectTest() {
+        SinglyLinkedList<String> list1 = new SinglyLinkedList<>("Hi there");
+        Assert.assertEquals(list1, list1);
+    }
+
+    @Test
+    public void equalsNullTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("Hi there");
+        Assert.assertNotEquals(list, null);
+    }
+
+    @Test
+    public void equalsDifferentTypesObjectsTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("Hi there");
+        StringBuilder object = new StringBuilder(list.getHeadData());
+        Assert.assertNotEquals(list, object);
+    }
+    
+    @Test
+    public void equalsDifferentDataTypesTest() {
+        SinglyLinkedList<Integer> intList = new SinglyLinkedList<>(10);
+        SinglyLinkedList<Double> doubleList = new SinglyLinkedList<>(10.0);
+        Assert.assertNotEquals(intList, doubleList);
+    }
+
+    @Test
+    public void equalsDifferentSizesTest() {
+        SinglyLinkedList<String> list1 = new SinglyLinkedList<>("Hi there");
+        SinglyLinkedList<String> list2 = new SinglyLinkedList<>("Hi there");
+        list2.addToTail("Hello world!");
+        Assert.assertNotEquals(list1, list2);
+    }
+
+    @Test
+    public void equalsTrueTest() {
+        SinglyLinkedList<String> list1 = new SinglyLinkedList<>("Hi there");
+        SinglyLinkedList<String> list2 = new SinglyLinkedList<>("Hi there");
+        Assert.assertEquals(list1, list2);
+    }
+
+    @Test
+    public void equalsFalseTest() {
+        SinglyLinkedList<String> list1 = new SinglyLinkedList<>("Hi there");
+        list1.addToTail("Hello world!");
+        SinglyLinkedList<String> list2 = new SinglyLinkedList<>("Hi there");
+        list1.addToTail("Hello universe!");
+        Assert.assertNotEquals(list1, list2);
+    }
 }

@@ -20,7 +20,7 @@ public class SinglyLinkedList<T> {
     }
 
     /**
-     * Creates SinglyLinkedList with 1 item specified as data.
+     * Creates SinglyLinkedList with 1 item specified as head data.
      */
     public SinglyLinkedList(T head) {
         if (head != null) {
@@ -254,10 +254,7 @@ public class SinglyLinkedList<T> {
 
     /*
     TODO копирование списка
-
-    TODO Implement equals
     TODO Implement hashCode
-
     */
 
     /**
@@ -275,4 +272,35 @@ public class SinglyLinkedList<T> {
         }
         return resultString.append(']').toString();
     }
+
+    /**
+     * Returns true if the specified object is equal to the list.
+     */
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        SinglyLinkedList<?> that = (SinglyLinkedList<?>) object;
+        if (count != that.count) {
+            return false;
+        }
+        if (count > 0) {
+            ListItem<T> currentThis = this.head;
+            ListItem<?> currentThat = that.head;
+            while (currentThis != null) {
+                if (!currentThis.getData().equals(currentThat.getData())) {
+                    return false;
+                }
+                currentThis = currentThis.getNext();
+                currentThat = currentThat.getNext();
+            }
+        }
+        return true;
+    }
+
+
 }
