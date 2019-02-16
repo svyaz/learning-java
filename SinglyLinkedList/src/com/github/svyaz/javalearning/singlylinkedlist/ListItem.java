@@ -1,5 +1,7 @@
 package com.github.svyaz.javalearning.singlylinkedlist;
 
+import java.util.Objects;
+
 class ListItem<T> {
     private T data;
     private ListItem<T> next;
@@ -27,5 +29,24 @@ class ListItem<T> {
 
     void setNext(ListItem<T> next) {
         this.next = next;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(data);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        ListItem<?> listItem = (ListItem<?>) object;
+
+        return data != null ? data.equals(listItem.data) : listItem.data == null;
     }
 }

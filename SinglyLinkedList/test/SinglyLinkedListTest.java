@@ -403,7 +403,7 @@ public class SinglyLinkedListTest {
         StringBuilder object = new StringBuilder(list.getHeadData());
         Assert.assertNotEquals(list, object);
     }
-    
+
     @Test
     public void equalsDifferentDataTypesTest() {
         SinglyLinkedList<Integer> intList = new SinglyLinkedList<>(10);
@@ -433,5 +433,32 @@ public class SinglyLinkedListTest {
         SinglyLinkedList<String> list2 = new SinglyLinkedList<>("Hi there");
         list1.addToTail("Hello universe!");
         Assert.assertNotEquals(list1, list2);
+    }
+
+    @Test
+    public void hashCode1Test() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addToTail("1 item");
+        list.addToTail("2 item");
+        list.addToTail("3 item");
+        Assert.assertEquals(list.hashCode(), 590184190);
+    }
+
+    @Test
+    public void hashCode2Test() {
+        SinglyLinkedList<String> list1 = new SinglyLinkedList<>("Hi there");
+        SinglyLinkedList<String> list2 = new SinglyLinkedList<>("Hi there");
+        Assert.assertEquals(list1.hashCode(), list2.hashCode());
+    }
+
+    @Test
+    public void hashCode3Test() {
+        SinglyLinkedList<String> list1 = new SinglyLinkedList<>();
+        list1.addToTail("Hi");
+        list1.addToTail("there");
+        SinglyLinkedList<String> list2 = new SinglyLinkedList<>();
+        list2.addToTail("Hi");
+        list2.addToTail("buddy");
+        Assert.assertNotEquals(list1.hashCode(), list2.hashCode());
     }
 }

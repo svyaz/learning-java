@@ -253,8 +253,8 @@ public class SinglyLinkedList<T> {
     }
 
     /*
+    TODO Main с примерами использования.
     TODO копирование списка
-    TODO Implement hashCode
     */
 
     /**
@@ -302,5 +302,15 @@ public class SinglyLinkedList<T> {
         return true;
     }
 
-
+    /**
+     * Calculates hash code of the list.
+     */
+    @Override
+    public int hashCode() {
+        int result = count;
+        for (ListItem<T> item = head; item != null; item = item.getNext()) {
+            result = 31 * result + item.hashCode();
+        }
+        return result;
+    }
 }
