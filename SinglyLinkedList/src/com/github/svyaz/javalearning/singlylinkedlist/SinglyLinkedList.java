@@ -86,15 +86,8 @@ public class SinglyLinkedList<T> {
         if (count == 0) {
             head = new ListItem<>(data);
         } else {
-            ListItem<T> current = head, prev = null;
-            for (int i = 0; i <= count; i++) {
-                if (i == count) {
-                    prev.setNext(new ListItem<>(data));
-                    break;
-                }
-                prev = current;
-                current = current.getNext();
-            }
+            ListItem<T> currentTail = getListItem(count - 1);
+            currentTail.setNext(new ListItem<>(data));
         }
         ++count;
     }
