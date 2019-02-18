@@ -159,7 +159,7 @@ public class SinglyLinkedList<T> {
      */
     public T removeTail() {
         if (count == 0) {
-            return null;
+            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_EMPTY_LIST);
         }
 
         ListItem<T> current = head, prev = null;

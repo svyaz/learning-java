@@ -224,10 +224,10 @@ public class SinglyLinkedListTest {
         Assert.assertTrue(list.removeTail().equals("1 item") && list.size() == 0);
     }
 
-    @Test
+    @Test(expected = IndexOutOfBoundsException.class)
     public void removeTailEmptyListTest() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>();
-        Assert.assertNull(list.removeTail());
+        list.removeTail();
     }
 
     @Test
