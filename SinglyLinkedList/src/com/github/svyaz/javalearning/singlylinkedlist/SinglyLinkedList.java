@@ -54,16 +54,7 @@ public class SinglyLinkedList<T> {
         if (index < 0 || index >= count) {
             throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
         }
-        ListItem<T> tmpListItem = head;
-        int i = 0;
-        while (i < count) {
-            if (i == index) {
-                break;
-            }
-            tmpListItem = tmpListItem.getNext();
-            ++i;
-        }
-        return tmpListItem.getData();
+        return getListItem(index).getData();
     }
 
     /**
@@ -74,17 +65,9 @@ public class SinglyLinkedList<T> {
         if (index < 0 || index >= count) {
             throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS);
         }
-        ListItem<T> tmpListItem = head;
-        int i = 0;
-        while (i < count) {
-            if (i == index) {
-                break;
-            }
-            tmpListItem = tmpListItem.getNext();
-            ++i;
-        }
-        T currentData = tmpListItem.getData();
-        tmpListItem.setData(data);
+        ListItem<T> currentItem = getListItem(index);
+        T currentData = currentItem.getData();
+        currentItem.setData(data);
         return currentData;
     }
 
@@ -275,6 +258,24 @@ public class SinglyLinkedList<T> {
             }
         }
         return newList;
+    }
+
+    /**
+     * Iterates through the list to find element with specified index.
+     * Returns ListItem by the index.
+     * Internal method.
+     */
+    private ListItem<T> getListItem(int index) {
+        int i = 0;
+        ListItem<T> tmpListItem = head;
+        while (i < count) {
+            if (i == index) {
+                break;
+            }
+            tmpListItem = tmpListItem.getNext();
+            ++i;
+        }
+        return tmpListItem;
     }
 
     /**
