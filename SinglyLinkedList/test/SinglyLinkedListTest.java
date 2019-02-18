@@ -201,10 +201,10 @@ public class SinglyLinkedListTest {
         Assert.assertTrue(list.removeHead().equals("1 item") && list.size() == 0);
     }
 
-    @Test
+    @Test(expected = IndexOutOfBoundsException.class)
     public void removeHeadEmptyListTest() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>();
-        Assert.assertNull(list.removeHead());
+        list.removeHead();
     }
 
     @Test
