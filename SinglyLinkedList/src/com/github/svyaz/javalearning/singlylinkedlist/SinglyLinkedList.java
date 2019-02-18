@@ -1,5 +1,7 @@
 package com.github.svyaz.javalearning.singlylinkedlist;
 
+import java.util.Objects;
+
 public class SinglyLinkedList<T> {
     private static final String EXCEPTION_MESSAGE_INDEX_OUT_OF_BOUNDS = "Specified index is out of list bounds.";
     private static final String EXCEPTION_MESSAGE_EMPTY_LIST = "List is empty.";
@@ -179,7 +181,7 @@ public class SinglyLinkedList<T> {
              current != null;
              prev = current, current = current.getNext()) {
 
-            if (current.getData().equals(element)) {
+            if (Objects.equals(current.getData(), element)) {
                 if (prev == null) {
                     head = head.getNext();
                 } else {

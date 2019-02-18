@@ -356,6 +356,18 @@ public class SinglyLinkedListTest {
     }
 
     @Test
+    public void removeElementNullTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("Hi there");
+        list.addToHead(null);
+        list.addToTail(null);
+        System.out.println(list.toString());
+        Assert.assertTrue(list.remove(null) &&
+                list.size() == 2 &&
+                list.getData(0).equals("Hi there") &&
+                list.getData(1) == null);
+    }
+
+    @Test
     public void turnTest() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>();
         list.addToTail("One");
