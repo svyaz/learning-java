@@ -135,22 +135,16 @@ public class SinglyLinkedList<T> {
             throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_EMPTY_LIST);
         }
 
-        ListItem<T> current = head, prev = null;
-        T returnData = null;
-        for (int i = 0; i < count; i++) {
-            if (i == count - 1) {
-                returnData = current.getData();
-                if (i == 0) {
-                    head = null;
-                } else {
-                    prev.setNext(null);
-                }
-                --count;
-                break;
-            }
-            prev = current;
-            current = current.getNext();
+        T returnData;
+        if (count == 1) {
+            returnData = head.getData();
+            head = null;
+        } else {
+            ListItem<T> previousItem = getListItem(count - 2);
+            returnData = previousItem.getNext().getData();
+            previousItem.setNext(null);
         }
+        --count;
         return returnData;
     }
 
