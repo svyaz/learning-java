@@ -198,18 +198,21 @@ public class SinglyLinkedList<T> {
      * Turns the list from end to start.
      */
     public void turn() {
-        if (count > 0) {
-            ListItem<T> current = head, prev = null;
-            while (true) {
-                if (head.getNext() != null) {
-                    head = head.getNext();
-                    current.setNext(prev);
-                    prev = current;
-                    current = head;
-                } else {
-                    current.setNext(prev);
-                    break;
-                }
+        if (count < 2) {
+            return;
+        }
+
+        ListItem<T> current = head;
+        ListItem<T> prev = null;
+        while (true) {
+            if (head.getNext() != null) {
+                head = head.getNext();
+                current.setNext(prev);
+                prev = current;
+                current = head;
+            } else {
+                current.setNext(prev);
+                return;
             }
         }
     }
