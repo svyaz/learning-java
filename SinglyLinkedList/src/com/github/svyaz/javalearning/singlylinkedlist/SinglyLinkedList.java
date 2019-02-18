@@ -41,6 +41,9 @@ public class SinglyLinkedList<T> {
      * Returns head-data of the list.
      */
     public T getHeadData() {
+        if (count == 0) {
+            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_EMPTY_LIST);
+        }
         return head.getData();
     }
 

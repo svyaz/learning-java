@@ -185,6 +185,27 @@ public class SinglyLinkedListTest {
     }
 
     @Test
+    public void getHeadDataTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addToTail("1 element");
+        list.addToTail("2 element");
+        list.addToTail("3 element");
+        Assert.assertEquals(list.getHeadData(), "1 element");
+    }
+
+    @Test
+    public void getHeadData1ElementTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("Hi there");
+        Assert.assertEquals(list.getHeadData(), "Hi there");
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getHeadDataEmptyListTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.getHeadData();
+    }
+
+    @Test
     public void removeHeadTest() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>("1 item");
         list.addToHead("2 item");
