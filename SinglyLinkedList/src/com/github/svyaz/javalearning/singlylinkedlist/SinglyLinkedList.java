@@ -291,7 +291,7 @@ public class SinglyLinkedList<T> {
             ListItem<T> currentThis = this.head;
             ListItem<?> currentThat = that.head;
             while (currentThis != null) {
-                if (!currentThis.getData().equals(currentThat.getData())) {
+                if (!Objects.equals(currentThis.getData(), currentThat.getData())) {
                     return false;
                 }
                 currentThis = currentThis.getNext();

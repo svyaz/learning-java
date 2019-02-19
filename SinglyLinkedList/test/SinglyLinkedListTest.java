@@ -460,6 +460,15 @@ public class SinglyLinkedListTest {
     }
 
     @Test
+    public void equalsNullsInDataTest() {
+        SinglyLinkedList<String> list1 = new SinglyLinkedList<>("Hi there");
+        SinglyLinkedList<String> list2 = new SinglyLinkedList<>("Hi there");
+        list1.addToTail(null);
+        list2.addToTail(null);
+        Assert.assertEquals(list1, list2);
+    }
+
+    @Test
     public void equalsDifferentTypesObjectsTest() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>("Hi there");
         StringBuilder object = new StringBuilder(list.getHeadData());
