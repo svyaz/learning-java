@@ -105,9 +105,6 @@ public class SinglyLinkedList<T> {
 
         if (index == 0) {
             head = new ListItem<>(data, head);
-        } else if (index == count) {
-            ListItem<T> currentTail = getListItem(count - 1);
-            currentTail.setNext(new ListItem<>(data));
         } else {
             ListItem<T> previousItem = getListItem(index - 1);
             previousItem.setNext(new ListItem<>(data, previousItem.getNext()));
