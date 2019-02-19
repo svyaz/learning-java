@@ -1,5 +1,6 @@
 package com.github.svyaz.javalearning.singlylinkedlist;
 
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 public class SinglyLinkedList<T> {
@@ -44,7 +45,7 @@ public class SinglyLinkedList<T> {
      */
     public T getHeadData() {
         if (count == 0) {
-            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_EMPTY_LIST);
+            throw new NoSuchElementException(EXCEPTION_MESSAGE_EMPTY_LIST);
         }
         return head.getData();
     }
@@ -120,7 +121,7 @@ public class SinglyLinkedList<T> {
      */
     public T removeHead() {
         if (count == 0) {
-            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_EMPTY_LIST);
+            throw new NoSuchElementException(EXCEPTION_MESSAGE_EMPTY_LIST);
         }
         T returnData = head.getData();
         head = head.getNext();
@@ -134,7 +135,7 @@ public class SinglyLinkedList<T> {
      */
     public T removeTail() {
         if (count == 0) {
-            throw new IndexOutOfBoundsException(EXCEPTION_MESSAGE_EMPTY_LIST);
+            throw new NoSuchElementException(EXCEPTION_MESSAGE_EMPTY_LIST);
         }
 
         T returnData;

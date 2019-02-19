@@ -2,6 +2,8 @@ import com.github.svyaz.javalearning.singlylinkedlist.SinglyLinkedList;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
+
 public class SinglyLinkedListTest {
     @Test
     public void constructorEmptyTest() {
@@ -199,7 +201,7 @@ public class SinglyLinkedListTest {
         Assert.assertEquals(list.getHeadData(), "Hi there");
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test(expected = NoSuchElementException.class)
     public void getHeadDataEmptyListTest() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>();
         list.getHeadData();
@@ -222,7 +224,7 @@ public class SinglyLinkedListTest {
         Assert.assertTrue(list.removeHead().equals("1 item") && list.size() == 0);
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test(expected = NoSuchElementException.class)
     public void removeHeadEmptyListTest() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>();
         list.removeHead();
@@ -245,7 +247,7 @@ public class SinglyLinkedListTest {
         Assert.assertTrue(list.removeTail().equals("1 item") && list.size() == 0);
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test(expected = NoSuchElementException.class)
     public void removeTailEmptyListTest() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>();
         list.removeTail();
