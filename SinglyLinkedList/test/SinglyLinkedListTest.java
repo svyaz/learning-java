@@ -532,4 +532,12 @@ public class SinglyLinkedListTest {
         list2.addToTail("buddy");
         Assert.assertNotEquals(list1.hashCode(), list2.hashCode());
     }
+
+    @Test
+    public void hashCodeNullInDataTest() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("Hi");
+        list.addToTail(null);
+        list.addToTail("there");
+        Assert.assertEquals(list.hashCode(), 112818788);
+    }
 }

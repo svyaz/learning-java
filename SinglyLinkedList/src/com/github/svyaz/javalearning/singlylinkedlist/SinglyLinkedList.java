@@ -308,7 +308,7 @@ public class SinglyLinkedList<T> {
     public int hashCode() {
         int result = count;
         for (ListItem<T> item = head; item != null; item = item.getNext()) {
-            result = 31 * result + item.hashCode();
+            result += 31 * result + item.hashCode();
         }
         return result;
     }
