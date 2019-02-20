@@ -40,6 +40,17 @@ public class MyHashTableTest {
         Assert.assertEquals(hashTable.size(), 0);
     }
 
-    // TODO isEmpty() tests
+    @Test
+    @SuppressWarnings("all")
+    public void isEmptyTrueTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        Assert.assertTrue(hashTable.isEmpty());
+    }
 
+    @Test
+    public void isEmptyFalseTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi there");
+        Assert.assertFalse(hashTable.isEmpty());
+    }
 }
