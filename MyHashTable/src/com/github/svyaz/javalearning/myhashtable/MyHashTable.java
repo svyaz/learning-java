@@ -326,17 +326,15 @@ public class MyHashTable<T> implements Collection<T> {
         return false;
     }
 
-    //TODO implement this
     /**
-     * Removes all of the elements from this collection (optional operation).
-     * The collection will be empty after this method returns.
-     *
-     * @throws UnsupportedOperationException if the {@code clear} operation
-     *                                       is not supported by this collection
+     * Removes all of the elements from this collection.
      */
     @Override
     public void clear() {
-
+        for (int i = 0; i < items.length; i++) {
+            items[i] = null;
+        }
+        count = 0;
     }
 
     //TODO функция перестройки таблицы при увеличении емкости

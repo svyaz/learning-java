@@ -53,4 +53,12 @@ public class MyHashTableTest {
         hashTable.add("Hi there");
         Assert.assertFalse(hashTable.isEmpty());
     }
+
+    @Test
+    public void clearTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi there");
+        hashTable.clear();
+        Assert.assertEquals(hashTable.size(), 0);
+    }
 }
