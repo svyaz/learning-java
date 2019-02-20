@@ -14,12 +14,19 @@ public class MyHashTable<T> implements Collection<T> {
     /**
      * Internal array for storing lists.
      */
-    private ArrayList<T>[] items;
+    private ArrayList<?>[] items;
 
     /**
      * count of elements in the table
      */
     private int count;
+
+    /**
+     * Creates instance with DEFAULT_CAPACITY size of internal array
+     */
+    public MyHashTable () {
+        items = new ArrayList<?>[DEFAULT_CAPACITY];
+    }
 
     /**
      * Returns the number of elements in this collection.
@@ -34,7 +41,7 @@ public class MyHashTable<T> implements Collection<T> {
      */
     @Override
     public boolean isEmpty() {
-        return false;
+        return count == 0;
     }
 
     /**
@@ -321,6 +328,7 @@ public class MyHashTable<T> implements Collection<T> {
 
     }
 
+    //TODO функция перестройки таблицы при увеличении емкости
     //TODO toString
     //TODO equals
     //TODO hashCode
