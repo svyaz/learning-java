@@ -2,8 +2,6 @@ import com.github.svyaz.javalearning.myhashtable.MyHashTable;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 public class MyHashTableTest {
     @Test
     public void constructor1Test() {
@@ -17,7 +15,10 @@ public class MyHashTableTest {
         Assert.assertNotNull(hashTable);
     }
 
-    //TODO constructor2 test with exception
+    @Test(expected = IllegalArgumentException.class)
+    public void constructor2ExceptionTest() {
+        new MyHashTable<String>(-10);
+    }
 
     @Test
     public void addAndSizeTest() {
