@@ -224,10 +224,9 @@ public class SinglyLinkedList<T> {
             return newList;
         }
         newList.count = count;
-        ListItem<T> tmpItemLink;
         ListItem<T> tmpPrev = null;
         for (ListItem<T> current = head; current != null; current = current.getNext()) {
-            tmpItemLink = new ListItem<>(current.getData());
+            ListItem<T> tmpItemLink = new ListItem<>(current.getData());
             if (tmpPrev != null) {
                 tmpPrev.setNext(tmpItemLink);
             } else {

@@ -512,7 +512,7 @@ public class SinglyLinkedListTest {
         list.addToTail("1 item");
         list.addToTail("2 item");
         list.addToTail("3 item");
-        Assert.assertEquals(list.hashCode(), 590184190);
+        Assert.assertEquals(list.hashCode(), -1990532352);
     }
 
     @Test
