@@ -1,26 +1,36 @@
 package com.github.svyaz.javalearning.myhashtable;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
 public class MyHashTable<T> implements Collection<T> {
 
     /**
-     * Returns the number of elements in this collection.  If this collection
-     * contains more than {@code Integer.MAX_VALUE} elements, returns
-     * {@code Integer.MAX_VALUE}.
-     *
-     * @return the number of elements in this collection
+     * Default capacity for items.
+     */
+    private static final int DEFAULT_CAPACITY = 10;
+
+    /**
+     * Internal array for storing lists.
+     */
+    private ArrayList<T>[] items;
+
+    /**
+     * count of elements in the table
+     */
+    private int count;
+
+    /**
+     * Returns the number of elements in this collection.
      */
     @Override
     public int size() {
-        return 0;
+        return count;
     }
 
     /**
-     * Returns {@code true} if this collection contains no elements.
-     *
-     * @return {@code true} if this collection contains no elements
+     * Returns true if this collection contains no elements.
      */
     @Override
     public boolean isEmpty() {
@@ -310,4 +320,8 @@ public class MyHashTable<T> implements Collection<T> {
     public void clear() {
 
     }
+
+    //TODO toString
+    //TODO equals
+    //TODO hashCode
 }
