@@ -7,7 +7,6 @@ import java.util.Objects;
 
 /**
  * Collection permits null as elements and permits duplicate objects.
- *
  */
 public class MyHashTable<T> implements Collection<T> {
     /**
@@ -16,14 +15,14 @@ public class MyHashTable<T> implements Collection<T> {
     private static final String EXCEPTION_MESSAGE_ILLEGAL_CAPACITY = "Specified capacity must be greater than 0.";
 
     /**
-     * Default capacity for items.
+     * Default capacity for arrayItems.
      */
     private static final int DEFAULT_CAPACITY = 10;
 
     /**
      * Internal array for storing lists.
      */
-    private ArrayList[] items;
+    private ArrayList[] arrayItems;
 
     /**
      * count of elements in the table
@@ -33,18 +32,18 @@ public class MyHashTable<T> implements Collection<T> {
     /**
      * Creates instance with DEFAULT_CAPACITY size of internal array
      */
-    public MyHashTable () {
-        items = new ArrayList[DEFAULT_CAPACITY];
+    public MyHashTable() {
+        arrayItems = new ArrayList[DEFAULT_CAPACITY];
     }
 
     /**
      * Creates instance with specified size of internal array
      */
-    public MyHashTable (int capacity) {
+    public MyHashTable(int capacity) {
         if (capacity <= 0) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_ILLEGAL_CAPACITY);
         }
-        items = new ArrayList[capacity];
+        arrayItems = new ArrayList[capacity];
     }
 
     /**
@@ -63,29 +62,29 @@ public class MyHashTable<T> implements Collection<T> {
         return count == 0;
     }
 
-    //TODO implement this
     /**
-     * Returns {@code true} if this collection contains the specified element.
-     * More formally, returns {@code true} if and only if this collection
-     * contains at least one element {@code e} such that
-     * {@code Objects.equals(o, e)}.
-     *
-     * @param o element whose presence in this collection is to be tested
-     * @return {@code true} if this collection contains the specified
-     * element
-     * @throws ClassCastException   if the type of the specified element
-     *                              is incompatible with this collection
-     *                              (<a href="#optional-restrictions">optional</a>)
-     * @throws NullPointerException if the specified element is null and this
-     *                              collection does not permit null elements
-     *                              (<a href="#optional-restrictions">optional</a>)
+     * Returns true if this collection contains at least one of the specified element
+     * such that Objects.equals(object, element).
      */
     @Override
-    public boolean contains(Object o) {
+    public boolean contains(Object object) {
+        if (count == 0) {
+            return false;
+        }
+        int index = Math.abs(Objects.hashCode(object) % arrayItems.length);
+        if (arrayItems[index] == null) {
+            return false;
+        }
+        for (int i = 0; i < arrayItems[index].size(); i++) {
+            if (Objects.equals(object, arrayItems[index].get(i))) {
+                return true;
+            }
+        }
         return false;
     }
 
     //TODO implement this
+
     /**
      * Returns an iterator over the elements in this collection.  There are no
      * guarantees concerning the order in which the elements are returned
@@ -100,6 +99,7 @@ public class MyHashTable<T> implements Collection<T> {
     }
 
     //TODO implement this
+
     /**
      * Returns an array containing all of the elements in this collection.
      * If this collection makes any guarantees as to what order its elements
@@ -122,6 +122,7 @@ public class MyHashTable<T> implements Collection<T> {
     }
 
     //TODO implement this
+
     /**
      * Returns an array containing all of the elements in this collection;
      * the runtime type of the returned array is that of the specified array.
@@ -177,19 +178,20 @@ public class MyHashTable<T> implements Collection<T> {
     @Override
     @SuppressWarnings("unchecked")
     public boolean add(T object) {
-        int index = Math.abs(Objects.hashCode(object) % items.length);
-        if (items[index] == null) {
+        int index = Math.abs(Objects.hashCode(object) % arrayItems.length);
+        if (arrayItems[index] == null) {
             ArrayList<T> list = new ArrayList<>();
             list.add(object);
-            items[index] = list;
+            arrayItems[index] = list;
         } else {
-            items[index].add(object);
+            arrayItems[index].add(object);
         }
         ++count;
         return true;
     }
 
     //TODO implement this
+
     /**
      * Removes a single instance of the specified element from this
      * collection, if it is present (optional operation).  More formally,
@@ -216,6 +218,7 @@ public class MyHashTable<T> implements Collection<T> {
     }
 
     //TODO implement this
+
     /**
      * Returns {@code true} if this collection contains all of the elements
      * in the specified collection.
@@ -240,6 +243,7 @@ public class MyHashTable<T> implements Collection<T> {
     }
 
     //TODO implement this
+
     /**
      * Adds all of the elements in the specified collection to this collection
      * (optional operation).  The behavior of this operation is undefined if
@@ -270,6 +274,7 @@ public class MyHashTable<T> implements Collection<T> {
     }
 
     //TODO implement this
+
     /**
      * Removes all of this collection's elements that are also contained in the
      * specified collection (optional operation).  After this call returns,
@@ -299,6 +304,7 @@ public class MyHashTable<T> implements Collection<T> {
     }
 
     //TODO implement this
+
     /**
      * Retains only the elements in this collection that are contained in the
      * specified collection (optional operation).  In other words, removes from
@@ -331,8 +337,8 @@ public class MyHashTable<T> implements Collection<T> {
      */
     @Override
     public void clear() {
-        for (int i = 0; i < items.length; i++) {
-            items[i] = null;
+        for (int i = 0; i < arrayItems.length; i++) {
+            arrayItems[i] = null;
         }
         count = 0;
     }

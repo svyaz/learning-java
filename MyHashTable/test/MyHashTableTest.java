@@ -2,6 +2,8 @@ import com.github.svyaz.javalearning.myhashtable.MyHashTable;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class MyHashTableTest {
     @Test
     public void constructor1Test() {
@@ -14,6 +16,8 @@ public class MyHashTableTest {
         MyHashTable<String> hashTable = new MyHashTable<>(15);
         Assert.assertNotNull(hashTable);
     }
+
+    //TODO constructor2 test with exception
 
     @Test
     public void addAndSizeTest() {
@@ -60,5 +64,55 @@ public class MyHashTableTest {
         hashTable.add("Hi there");
         hashTable.clear();
         Assert.assertEquals(hashTable.size(), 0);
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void containsEmptyTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        Assert.assertFalse(hashTable.contains("Hi there"));
+    }
+
+    @Test
+    public void containsNullArrayItemTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("1");
+        Assert.assertFalse(hashTable.contains("2"));
+    }
+
+    @Test
+    public void containsOneArrayItemFalseTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>(1);
+        hashTable.add("1");
+        hashTable.add("2");
+        hashTable.add("3");
+        Assert.assertFalse(hashTable.contains("4"));
+    }
+
+    @Test
+    public void containsOneArrayItemTrueTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>(1);
+        hashTable.add("1");
+        hashTable.add("2");
+        hashTable.add("3");
+        Assert.assertTrue(hashTable.contains("2"));
+    }
+
+    @Test
+    public void containsTrueTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("I");
+        hashTable.add("like");
+        hashTable.add("Java");
+        Assert.assertTrue(hashTable.contains("Java"));
+    }
+
+    @Test
+    public void containsFalseTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("I");
+        hashTable.add("like");
+        hashTable.add("Java");
+        Assert.assertFalse(hashTable.contains("C++"));
     }
 }
