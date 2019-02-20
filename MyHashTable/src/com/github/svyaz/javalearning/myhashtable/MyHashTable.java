@@ -5,6 +5,10 @@ import java.util.Collection;
 import java.util.Iterator;
 
 public class MyHashTable<T> implements Collection<T> {
+    /**
+     * Exceptions messages
+     */
+    private static final String EXCEPTION_MESSAGE_ILLEGAL_CAPACITY = "Specified capacity must be greater than 0.";
 
     /**
      * Default capacity for items.
@@ -26,6 +30,16 @@ public class MyHashTable<T> implements Collection<T> {
      */
     public MyHashTable () {
         items = new ArrayList<?>[DEFAULT_CAPACITY];
+    }
+
+    /**
+     * Creates instance with specified size of internal array
+     */
+    public MyHashTable (int capacity) {
+        if (capacity <= 0) {
+            throw new IllegalArgumentException(EXCEPTION_MESSAGE_ILLEGAL_CAPACITY);
+        }
+        items = new ArrayList<?>[capacity];
     }
 
     /**
