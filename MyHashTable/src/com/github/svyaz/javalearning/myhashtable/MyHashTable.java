@@ -3,7 +3,12 @@ package com.github.svyaz.javalearning.myhashtable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
+/**
+ * Collection permits null as elements and permits duplicate objects.
+ *
+ */
 public class MyHashTable<T> implements Collection<T> {
     /**
      * Exceptions messages
@@ -18,7 +23,7 @@ public class MyHashTable<T> implements Collection<T> {
     /**
      * Internal array for storing lists.
      */
-    private ArrayList<?>[] items;
+    private ArrayList[] items;
 
     /**
      * count of elements in the table
@@ -29,7 +34,7 @@ public class MyHashTable<T> implements Collection<T> {
      * Creates instance with DEFAULT_CAPACITY size of internal array
      */
     public MyHashTable () {
-        items = new ArrayList<?>[DEFAULT_CAPACITY];
+        items = new ArrayList[DEFAULT_CAPACITY];
     }
 
     /**
@@ -39,7 +44,7 @@ public class MyHashTable<T> implements Collection<T> {
         if (capacity <= 0) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_ILLEGAL_CAPACITY);
         }
-        items = new ArrayList<?>[capacity];
+        items = new ArrayList[capacity];
     }
 
     /**
@@ -58,6 +63,7 @@ public class MyHashTable<T> implements Collection<T> {
         return count == 0;
     }
 
+    //TODO implement this
     /**
      * Returns {@code true} if this collection contains the specified element.
      * More formally, returns {@code true} if and only if this collection
@@ -79,6 +85,7 @@ public class MyHashTable<T> implements Collection<T> {
         return false;
     }
 
+    //TODO implement this
     /**
      * Returns an iterator over the elements in this collection.  There are no
      * guarantees concerning the order in which the elements are returned
@@ -92,6 +99,7 @@ public class MyHashTable<T> implements Collection<T> {
         return null;
     }
 
+    //TODO implement this
     /**
      * Returns an array containing all of the elements in this collection.
      * If this collection makes any guarantees as to what order its elements
@@ -113,6 +121,7 @@ public class MyHashTable<T> implements Collection<T> {
         return new Object[0];
     }
 
+    //TODO implement this
     /**
      * Returns an array containing all of the elements in this collection;
      * the runtime type of the returned array is that of the specified array.
@@ -161,43 +170,26 @@ public class MyHashTable<T> implements Collection<T> {
     }
 
     /**
-     * Ensures that this collection contains the specified element (optional
-     * operation).  Returns {@code true} if this collection changed as a
-     * result of the call.  (Returns {@code false} if this collection does
-     * not permit duplicates and already contains the specified element.)<p>
-     * <p>
-     * Collections that support this operation may place limitations on what
-     * elements may be added to this collection.  In particular, some
-     * collections will refuse to add {@code null} elements, and others will
-     * impose restrictions on the type of elements that may be added.
-     * Collection classes should clearly specify in their documentation any
-     * restrictions on what elements may be added.<p>
-     * <p>
-     * If a collection refuses to add a particular element for any reason
-     * other than that it already contains the element, it <i>must</i> throw
-     * an exception (rather than returning {@code false}).  This preserves
-     * the invariant that a collection always contains the specified element
-     * after this call returns.
-     *
-     * @param t element whose presence in this collection is to be ensured
-     * @return {@code true} if this collection changed as a result of the
-     * call
-     * @throws UnsupportedOperationException if the {@code add} operation
-     *                                       is not supported by this collection
-     * @throws ClassCastException            if the class of the specified element
-     *                                       prevents it from being added to this collection
-     * @throws NullPointerException          if the specified element is null and this
-     *                                       collection does not permit null elements
-     * @throws IllegalArgumentException      if some property of the element
-     *                                       prevents it from being added to this collection
-     * @throws IllegalStateException         if the element cannot be added at this
-     *                                       time due to insertion restrictions
+     * Adds an element to the table.
+     * Permits null and duplicates.
+     * Returns true if this collection changed as a result of the call.
      */
     @Override
-    public boolean add(T t) {
-        return false;
+    @SuppressWarnings("unchecked")
+    public boolean add(T object) {
+        int index = Math.abs(Objects.hashCode(object) % items.length);
+        if (items[index] == null) {
+            ArrayList<T> list = new ArrayList<>();
+            list.add(object);
+            items[index] = list;
+        } else {
+            items[index].add(object);
+        }
+        ++count;
+        return true;
     }
 
+    //TODO implement this
     /**
      * Removes a single instance of the specified element from this
      * collection, if it is present (optional operation).  More formally,
@@ -223,6 +215,7 @@ public class MyHashTable<T> implements Collection<T> {
         return false;
     }
 
+    //TODO implement this
     /**
      * Returns {@code true} if this collection contains all of the elements
      * in the specified collection.
@@ -246,6 +239,7 @@ public class MyHashTable<T> implements Collection<T> {
         return false;
     }
 
+    //TODO implement this
     /**
      * Adds all of the elements in the specified collection to this collection
      * (optional operation).  The behavior of this operation is undefined if
@@ -275,6 +269,7 @@ public class MyHashTable<T> implements Collection<T> {
         return false;
     }
 
+    //TODO implement this
     /**
      * Removes all of this collection's elements that are also contained in the
      * specified collection (optional operation).  After this call returns,
@@ -303,6 +298,7 @@ public class MyHashTable<T> implements Collection<T> {
         return false;
     }
 
+    //TODO implement this
     /**
      * Retains only the elements in this collection that are contained in the
      * specified collection (optional operation).  In other words, removes from
@@ -330,6 +326,7 @@ public class MyHashTable<T> implements Collection<T> {
         return false;
     }
 
+    //TODO implement this
     /**
      * Removes all of the elements from this collection (optional operation).
      * The collection will be empty after this method returns.

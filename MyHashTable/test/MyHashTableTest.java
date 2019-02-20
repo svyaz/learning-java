@@ -15,8 +15,31 @@ public class MyHashTableTest {
         Assert.assertNotNull(hashTable);
     }
 
+    @Test
+    public void addAndSizeTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi there!");
+        hashTable.add("I");
+        hashTable.add("like");
+        hashTable.add("Java");
+        Assert.assertEquals(hashTable.size(), 4);
+    }
 
+    @Test
+    public void addNullTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add(null);
+        hashTable.add(null);
+        Assert.assertEquals(hashTable.size(), 2);
+    }
 
-    // TODO size() tests
+    @Test
+    @SuppressWarnings("all")
+    public void sizeOfEmptyTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        Assert.assertEquals(hashTable.size(), 0);
+    }
+
     // TODO isEmpty() tests
+
 }
