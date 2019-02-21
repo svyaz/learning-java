@@ -39,6 +39,65 @@ public class MyHashTableTest {
     }
 
     @Test
+    public void removeEmptyTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        Assert.assertFalse(hashTable.remove("Hi there!"));
+    }
+
+    @Test
+    public void removeFalseTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi");
+        hashTable.add("there!");
+        Assert.assertFalse(hashTable.remove("Hi there!"));
+    }
+
+    @Test
+    public void removeTrueTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi");
+        hashTable.add("there!");
+        hashTable.add("Hi there!");
+        Assert.assertTrue(hashTable.remove("Hi there!"));
+    }
+
+    @Test
+    public void removeOneArrayItemFalseTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>(1);
+        hashTable.add("1");
+        hashTable.add("2");
+        hashTable.add("3");
+        Assert.assertFalse(hashTable.remove("4"));
+    }
+
+    @Test
+    public void removeOneArrayItemTrueTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>(1);
+        hashTable.add("1");
+        hashTable.add("2");
+        hashTable.add("3");
+        Assert.assertTrue(hashTable.remove("2") && hashTable.size() == 2);
+    }
+
+    @Test
+    public void removeNullFalseTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("1");
+        hashTable.add("2");
+        hashTable.add("3");
+        Assert.assertFalse(hashTable.remove(null));
+    }
+
+    @Test
+    public void removeNullTrueTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi");
+        hashTable.add(null);
+        hashTable.add("null");
+        Assert.assertTrue(hashTable.remove(null) && hashTable.size() == 2);
+    }
+
+    @Test
     @SuppressWarnings("all")
     public void sizeOfEmptyTest() {
         MyHashTable<String> hashTable = new MyHashTable<>();

@@ -22,7 +22,7 @@ public class MyHashTable<T> implements Collection<T> {
     /**
      * Internal array for storing lists.
      */
-    private ArrayList[] arrayItems;
+    public ArrayList[] arrayItems;
 
     /**
      * count of elements in the table
@@ -190,31 +190,30 @@ public class MyHashTable<T> implements Collection<T> {
         return true;
     }
 
-    //TODO implement this
-
     /**
-     * Removes a single instance of the specified element from this
-     * collection, if it is present (optional operation).  More formally,
-     * removes an element {@code e} such that
-     * {@code Objects.equals(o, e)}, if
-     * this collection contains one or more such elements.  Returns
-     * {@code true} if this collection contained the specified element (or
-     * equivalently, if this collection changed as a result of the call).
-     *
-     * @param o element to be removed from this collection, if present
-     * @return {@code true} if an element was removed as a result of this call
-     * @throws ClassCastException            if the type of the specified element
-     *                                       is incompatible with this collection
-     *                                       (<a href="#optional-restrictions">optional</a>)
-     * @throws NullPointerException          if the specified element is null and this
-     *                                       collection does not permit null elements
-     *                                       (<a href="#optional-restrictions">optional</a>)
-     * @throws UnsupportedOperationException if the {@code remove} operation
-     *                                       is not supported by this collection
+     * Removes all element in the collection such that Objects.equals(object, element).
+     * Returns true if any element was removed as a result of this call.
      */
     @Override
-    public boolean remove(Object o) {
-        return false;
+    public boolean remove(Object object) {
+        int index = Math.abs(Objects.hashCode(object) % arrayItems.length);
+        if (arrayItems[index] == null) {
+            return false;
+        }
+
+        boolean hasChanged = false;
+        for (int i = 0; i < arrayItems[index].size(); i++) {
+            if (Objects.equals(object, arrayItems[index].get(i))) {
+                arrayItems[index].remove(i);
+                --count;
+                hasChanged = true;
+                if (arrayItems[index].size() == 0) {
+                    arrayItems[index] = null;
+                    break;
+                }
+            }
+        }
+        return hasChanged;
     }
 
     //TODO implement this
