@@ -100,6 +100,21 @@ public class MyHashTableTest {
     }
 
     @Test
+    public void containsNullFalseTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi there");
+        Assert.assertFalse(hashTable.contains(null));
+    }
+
+    @Test
+    public void containsNullTrueTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi there");
+        hashTable.add(null);
+        Assert.assertTrue(hashTable.contains(null));
+    }
+
+    @Test
     public void containsTrueTest() {
         MyHashTable<String> hashTable = new MyHashTable<>();
         hashTable.add("I");
