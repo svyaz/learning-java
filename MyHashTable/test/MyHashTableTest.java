@@ -2,6 +2,8 @@ import com.github.svyaz.javalearning.myhashtable.MyHashTable;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Objects;
+
 public class MyHashTableTest {
     @Test
     public void constructor1Test() {
@@ -18,6 +20,26 @@ public class MyHashTableTest {
     @Test(expected = IllegalArgumentException.class)
     public void constructor2ExceptionTest() {
         new MyHashTable<String>(-10);
+    }
+
+    @Test
+    public void toArrayTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi");
+        hashTable.add("there!");
+        hashTable.add(null);
+        hashTable.add("Hi there!");
+        Object[] objects = hashTable.toArray();
+        Assert.assertTrue(objects.length == 4 &&
+                Objects.equals(objects[0], null) &&
+                objects[1].equals("Hi there!") &&
+                objects[2].equals("Hi") &&
+                objects[3].equals("there!"));
+    }
+
+    @Test
+    public void toArrayEmptyTest() {
+        Assert.assertEquals(new MyHashTable<>().toArray().length, 0);
     }
 
     @Test

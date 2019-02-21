@@ -95,27 +95,26 @@ public class MyHashTable<T> implements Collection<T> {
         return null;
     }
 
-    //TODO implement this
-
     /**
      * Returns an array containing all of the elements in this collection.
-     * If this collection makes any guarantees as to what order its elements
-     * are returned by its iterator, this method must return the elements in
-     * the same order.
-     *
-     * <p>The returned array will be "safe" in that no references to it are
-     * maintained by this collection.  (In other words, this method must
-     * allocate a new array even if this collection is backed by an array).
-     * The caller is thus free to modify the returned array.
-     *
-     * <p>This method acts as bridge between array-based and collection-based
-     * APIs.
-     *
-     * @return an array containing all of the elements in this collection
      */
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        if (count == 0) {
+            return new Object[0];
+        }
+
+        Object[] result = new Object[count];
+        int index = 0;
+        for (ArrayList list : arrayItems) {
+            if (list != null) {
+                for (Object item : list) {
+                    result[index] = item;
+                    ++index;
+                }
+            }
+        }
+        return result;
     }
 
     //TODO implement this
