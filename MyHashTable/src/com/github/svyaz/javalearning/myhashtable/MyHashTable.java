@@ -1,9 +1,6 @@
 package com.github.svyaz.javalearning.myhashtable;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Collection permits null as elements and permits duplicate objects.
@@ -22,7 +19,7 @@ public class MyHashTable<T> implements Collection<T> {
     /**
      * Internal array for storing lists.
      */
-    public ArrayList[] arrayItems;
+    private ArrayList[] arrayItems;
 
     /**
      * count of elements in the table
@@ -343,7 +340,27 @@ public class MyHashTable<T> implements Collection<T> {
     }
 
     //TODO функция перестройки таблицы при увеличении емкости
-    //TODO toString
     //TODO equals
     //TODO hashCode
+
+    /**
+     * Returns string representation of the table.
+     */
+    @Override
+    public String toString() {
+        StringBuilder resultString = new StringBuilder();
+        resultString.append('[');
+        boolean isFirst = true;
+        for (ArrayList list : arrayItems) {
+            if (list != null) {
+                if (isFirst) {
+                    isFirst = false;
+                } else {
+                    resultString.append(", ");
+                }
+                resultString.append(list.toString());
+            }
+        }
+        return resultString.append(']').toString();
+    }
 }

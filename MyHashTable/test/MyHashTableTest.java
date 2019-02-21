@@ -58,6 +58,7 @@ public class MyHashTableTest {
         hashTable.add("Hi");
         hashTable.add("there!");
         hashTable.add("Hi there!");
+        System.out.println(hashTable.toString());
         Assert.assertTrue(hashTable.remove("Hi there!"));
     }
 
@@ -189,5 +190,29 @@ public class MyHashTableTest {
         hashTable.add("like");
         hashTable.add("Java");
         Assert.assertFalse(hashTable.contains("C++"));
+    }
+
+
+    @Test
+    public void toStringTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi");
+        hashTable.add("there!");
+        hashTable.add("Hi there!");
+        Assert.assertEquals(hashTable.toString(), "[[Hi there!], [Hi, there!]]");
+    }
+
+    @Test
+    public void toStringNullTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi");
+        hashTable.add("there!");
+        hashTable.add(null);
+        Assert.assertEquals(hashTable.toString(), "[[null], [Hi, there!]]");
+    }
+
+    @Test
+    public void toStringEmptyTest() {
+        Assert.assertEquals(new MyHashTable<>(15).toString(), "[]");
     }
 }
