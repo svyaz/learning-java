@@ -10,6 +10,7 @@ public class MyHashTable<T> implements Collection<T> {
      * Exceptions messages
      */
     private static final String EXCEPTION_MESSAGE_ILLEGAL_CAPACITY = "Specified capacity must be greater than 0.";
+    private static final String EXCEPTION_MESSAGE_NULL_ARGUMENT = "Specified argument is null.";
 
     /**
      * Default capacity for arrayItems.
@@ -117,8 +118,6 @@ public class MyHashTable<T> implements Collection<T> {
         return result;
     }
 
-    //TODO implement this
-
     /**
      * Returns an array containing all of the elements in this collection;
      * the runtime type of the returned array is that of the specified array.
@@ -152,9 +151,9 @@ public class MyHashTable<T> implements Collection<T> {
      * Note that {@code toArray(new Object[0])} is identical in function to
      * {@code toArray()}.
      *
-     * @param a the array into which the elements of this collection are to be
-     *          stored, if it is big enough; otherwise, a new array of the same
-     *          runtime type is allocated for this purpose.
+     * @param array the array into which the elements of this collection are to be
+     *              stored, if it is big enough; otherwise, a new array of the same
+     *              runtime type is allocated for this purpose.
      * @return an array containing all of the elements in this collection
      * @throws ArrayStoreException  if the runtime type of the specified array
      *                              is not a supertype of the runtime type of every element in
@@ -162,8 +161,48 @@ public class MyHashTable<T> implements Collection<T> {
      * @throws NullPointerException if the specified array is null
      */
     @Override
-    public <T1> T1[] toArray(T1[] a) {
-        return null;
+    //@SuppressWarnings("all")
+    public <T1> T1[] toArray(T1[] array) {
+        if (array == null) {
+            throw new NullPointerException(EXCEPTION_MESSAGE_NULL_ARGUMENT);
+        }
+        if (array.length < count) {
+
+            /*T1[] result = new Object[count];
+
+            int index = 0;
+            for (ArrayList list : arrayItems) {
+                if (list != null) {
+                    for (Object item : list) {
+                        result[index] = (T1) item;
+                        ++index;
+                    }
+                }
+            }
+
+            return result;*/
+
+
+            ArrayList<T1> result = new ArrayList<>(count);
+            for (ArrayList list : arrayItems) {
+                if (list != null) {
+                    for (Object item : list) {
+                        result.add((T1) item);
+                    }
+                }
+            }
+
+
+            return (T1[]) result.toArray();
+        }
+
+
+        System.arraycopy(toArray(), 0, array, 0, count);
+
+        //TODO: Вопрос: Если моя таблица допускает в значениях null-ы, то нужно ли тут выставлять в null
+        //TODO: элемент array[count] как написано в условии реализации метода?
+
+        return array;
     }
 
     /**

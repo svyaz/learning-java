@@ -2,6 +2,7 @@ import com.github.svyaz.javalearning.myhashtable.MyHashTable;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class MyHashTableTest {
@@ -40,6 +41,59 @@ public class MyHashTableTest {
     @Test
     public void toArrayEmptyTest() {
         Assert.assertEquals(new MyHashTable<>().toArray().length, 0);
+    }
+
+    @Test
+    public void toArrayWithParamLessLengthTest() {
+        /*MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi");
+        hashTable.add("there");
+        String[] strings = new String[1];
+        String[] newStrings = hashTable.toArray(strings);
+        //hashTable.toArray(strings);
+        System.out.println(Arrays.toString(newStrings));
+        //Assert.assertTrue(strings.equals(newStrings));*/
+
+        /*Object[] objects = new Object[2];
+        objects[0] = "Hi";
+        objects[1] = "why?";
+        String[] strings = (String[]) objects;
+        System.out.println(Arrays.toString(strings));*/
+
+        /*Object obj = "str";
+        String newString = (String) obj;
+        System.out.println(newString);*/
+    }
+
+    @Test
+    public void toArrayWithParamGreaterLengthTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi");
+        hashTable.add("there");
+        String[] strings = new String[3];
+        hashTable.toArray(strings);
+        Assert.assertTrue(strings[0].equals("there") &&
+                strings[1].equals("Hi") &&
+                strings[2] == null);
+    }
+
+
+    @Test(expected = NullPointerException.class)
+    public void toArrayWithParamNullPointerExceptionTest() {
+        MyHashTable<Integer> hashTable = new MyHashTable<>();
+        hashTable.add(1);
+        hashTable.add(2);
+        hashTable.toArray(null);
+    }
+
+    @Test(expected = ArrayStoreException.class)
+    @SuppressWarnings("all")
+    public void toArrayWithParamArrayStoreExceptionTest() {
+        MyHashTable<Integer> hashTable = new MyHashTable<>();
+        hashTable.add(1);
+        hashTable.add(2);
+        Double[] array = new Double[3];
+        hashTable.toArray(array);
     }
 
     @Test
