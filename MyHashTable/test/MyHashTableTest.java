@@ -134,7 +134,6 @@ public class MyHashTableTest {
         hashTable.add("Hi");
         hashTable.add("there!");
         hashTable.add("Hi there!");
-        System.out.println(hashTable.toString());
         Assert.assertTrue(hashTable.remove("Hi there!"));
     }
 
@@ -172,6 +171,47 @@ public class MyHashTableTest {
         hashTable.add(null);
         hashTable.add("null");
         Assert.assertTrue(hashTable.remove(null) && hashTable.size() == 2);
+    }
+
+    @Test
+    public void containsAllTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("I");
+        hashTable.add("like");
+        hashTable.add("Java");
+        String[] strings = {"Java", "like"};
+        Assert.assertTrue(hashTable.containsAll(Arrays.asList(strings)));
+    }
+
+    @Test
+    public void containsAllFalseTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("I");
+        hashTable.add("like");
+        hashTable.add("Java");
+        String[] strings = {"Java", "C++"};
+        Assert.assertFalse(hashTable.containsAll(Arrays.asList(strings)));
+    }
+
+    @Test
+    public void containsAllNullTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("I");
+        hashTable.add("don't");
+        hashTable.add("like");
+        hashTable.add(null);
+        String[] strings = {"I", null};
+        Assert.assertTrue(hashTable.containsAll(Arrays.asList(strings)));
+    }
+
+    @Test
+    public void containsAllNullFalseTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("I");
+        hashTable.add("like");
+        hashTable.add("Java");
+        String[] strings = {"Java", null};
+        Assert.assertFalse(hashTable.containsAll(Arrays.asList(strings)));
     }
 
     @Test

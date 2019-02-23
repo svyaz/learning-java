@@ -251,29 +251,18 @@ public class MyHashTable<T> implements Collection<T> {
         return hasChanged;
     }
 
-    //TODO implement this
-
     /**
-     * Returns {@code true} if this collection contains all of the elements
+     * Returns true if this collection contains all of the elements
      * in the specified collection.
-     *
-     * @param c collection to be checked for containment in this collection
-     * @return {@code true} if this collection contains all of the elements
-     * in the specified collection
-     * @throws ClassCastException   if the types of one or more elements
-     *                              in the specified collection are incompatible with this
-     *                              collection
-     *                              (<a href="#optional-restrictions">optional</a>)
-     * @throws NullPointerException if the specified collection contains one
-     *                              or more null elements and this collection does not permit null
-     *                              elements
-     *                              (<a href="#optional-restrictions">optional</a>),
-     *                              or if the specified collection is null.
-     * @see #contains(Object)
      */
     @Override
-    public boolean containsAll(Collection<?> c) {
-        return false;
+    public boolean containsAll(Collection<?> collection) {
+        for (Object object : collection) {
+            if (!contains(object)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     //TODO implement this
