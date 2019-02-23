@@ -524,4 +524,64 @@ public class MyHashTableTest {
         hashTable2.add("there");
         Assert.assertNotEquals(hashTable1.hashCode(), hashTable2.hashCode());
     }
+
+    @Test
+    public void equalsSameObjectTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi there");
+        Assert.assertEquals(hashTable, hashTable);
+    }
+
+    @Test
+    public void equalsDifferentClassesTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("One");
+        hashTable.add("Two");
+        hashTable.add("Three");
+        String[] strings = {"One", "Two", "Three"};
+        Assert.assertNotEquals(hashTable, strings);
+    }
+
+    @Test
+    public void equalsNullObjectTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi there");
+        Assert.assertNotEquals(hashTable, null);
+    }
+
+    @Test
+    public void equalsDifferentObjectsTest() {
+        MyHashTable<String> hashTable1 = new MyHashTable<>();
+        hashTable1.add("Hi");
+        hashTable1.add("there");
+        MyHashTable<String> hashTable2 = new MyHashTable<>();
+        hashTable2.add("Hi");
+        hashTable2.add("there");
+        Assert.assertEquals(hashTable1, hashTable2);
+    }
+
+    @Test
+    public void equalsDifferentSizesTest() {
+        MyHashTable<String> hashTable1 = new MyHashTable<>();
+        hashTable1.add("Hi");
+        hashTable1.add("there");
+        hashTable1.add("!!!");
+        MyHashTable<String> hashTable2 = new MyHashTable<>();
+        hashTable2.add("Hi");
+        hashTable2.add("there");
+        Assert.assertNotEquals(hashTable1, hashTable2);
+    }
+
+    @Test
+    public void equalsEqualObjectsTest() {
+        MyHashTable<String> hashTable1 = new MyHashTable<>();
+        hashTable1.add("One");
+        hashTable1.add("Two");
+        hashTable1.add("Three");
+        MyHashTable<String> hashTable2 = new MyHashTable<>();
+        hashTable2.add("One");
+        hashTable2.add("Two");
+        hashTable2.add("Three");
+        Assert.assertEquals(hashTable1, hashTable2);
+    }
 }

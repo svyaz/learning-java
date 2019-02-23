@@ -335,8 +335,29 @@ public class MyHashTable<T> implements Collection<T> {
         count = 0;
     }
 
+    /**
+     * Returns true if the specified object is equal to the table.
+     */
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
 
-    //TODO equals
+        MyHashTable<?> myHashTable = (MyHashTable<?>) object;
+        if (count != myHashTable.count) {
+            return false;
+        }
+        for (int i = 0; i < arrayItems.length; i++) {
+            if (!Objects.equals(myHashTable.arrayItems[i], arrayItems[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     /**
      * Returns a hash code based on the contents of the specified array.
