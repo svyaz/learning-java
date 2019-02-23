@@ -326,6 +326,55 @@ public class MyHashTableTest {
     }
 
     @Test
+    public void retainAllTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("One");
+        hashTable.add("Two");
+        hashTable.add("Two");
+        hashTable.add("Three");
+        hashTable.add("Four");
+        hashTable.add("Two");
+        String[] strings = {"One", "Two", "Six"};
+        Assert.assertTrue(hashTable.retainAll(Arrays.asList(strings)) &&
+                hashTable.size() == 4 &&
+                hashTable.contains("One") &&
+                hashTable.contains("Two"));
+    }
+
+    @Test
+    public void retainAllToEmptyTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("One");
+        hashTable.add("Two");
+        hashTable.add("Two");
+        hashTable.add("Three");
+        hashTable.add("Four");
+        hashTable.add("Two");
+        String[] strings = {"Zero"};
+        Assert.assertTrue(hashTable.retainAll(Arrays.asList(strings)) &&
+                hashTable.size() == 0);
+    }
+
+    @Test
+    public void retainAllFalseEmptyTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("One");
+        hashTable.add("Two");
+        hashTable.add(null);
+        hashTable.add("Two");
+        hashTable.add("Three");
+        hashTable.add("Four");
+        hashTable.add("Two");
+        String[] strings = {"One", "Two", "Three", "Four", null};
+        Assert.assertFalse(hashTable.retainAll(Arrays.asList(strings)));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void retainAllFalseNullTest() {
+        new MyHashTable<>().retainAll(null);
+    }
+
+    @Test
     @SuppressWarnings("all")
     public void sizeOfEmptyTest() {
         MyHashTable<String> hashTable = new MyHashTable<>();

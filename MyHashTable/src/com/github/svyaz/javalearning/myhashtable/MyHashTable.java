@@ -289,40 +289,39 @@ public class MyHashTable<T> implements Collection<T> {
         if (count == 0) {
             return false;
         }
-        boolean modified = false;
+        boolean hasChanged = false;
         for (Object element : collection) {
-            modified = remove(element);
+            hasChanged = remove(element);
         }
-        return modified;
+        return hasChanged;
     }
-
-    //TODO implement this
 
     /**
      * Retains only the elements in this collection that are contained in the
-     * specified collection (optional operation).  In other words, removes from
-     * this collection all of its elements that are not contained in the
      * specified collection.
-     *
-     * @param c collection containing elements to be retained in this collection
-     * @return {@code true} if this collection changed as a result of the call
-     * @throws UnsupportedOperationException if the {@code retainAll} operation
-     *                                       is not supported by this collection
-     * @throws ClassCastException            if the types of one or more elements
-     *                                       in this collection are incompatible with the specified
-     *                                       collection
-     *                                       (<a href="#optional-restrictions">optional</a>)
-     * @throws NullPointerException          if this collection contains one or more
-     *                                       null elements and the specified collection does not permit null
-     *                                       elements
-     *                                       (<a href="#optional-restrictions">optional</a>),
-     *                                       or if the specified collection is null
-     * @see #remove(Object)
-     * @see #contains(Object)
+     * Returns true if this collection changed as a result of the call.
      */
     @Override
-    public boolean retainAll(Collection<?> c) {
-        return false;
+    @SuppressWarnings("unchecked")
+    public boolean retainAll(Collection<?> collection) {
+        if (collection == null) {
+            throw new NullPointerException(EXCEPTION_MESSAGE_NULL_ARGUMENT);
+        }
+        if (count == 0) {
+            return false;
+        }
+        boolean hasChanged = false;
+        for (int i = 0; i < arrayItems.length; i++) {
+            if (arrayItems[i] != null) {
+                int listCountBefore = arrayItems[i].size();
+                hasChanged = arrayItems[i].retainAll(collection);
+                count -= listCountBefore - arrayItems[i].size();
+                if (arrayItems[i].size() == 0) {
+                    arrayItems[i] = null;
+                }
+            }
+        }
+        return hasChanged;
     }
 
     /**
