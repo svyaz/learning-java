@@ -215,6 +215,39 @@ public class MyHashTableTest {
     }
 
     @Test
+    public void addAllTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        Assert.assertTrue(hashTable.addAll(Arrays.asList("I", "like", "Java")) &&
+                hashTable.size() == 3 &&
+                hashTable.contains("I") &&
+                hashTable.contains("like") &&
+                hashTable.contains("Java"));
+    }
+
+    @Test
+    public void addAllWithNullTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        Assert.assertTrue(hashTable.addAll(Arrays.asList("I", "like", "Java", null)) &&
+                hashTable.size() == 4 &&
+                hashTable.contains(null) &&
+                hashTable.contains("I") &&
+                hashTable.contains("like") &&
+                hashTable.contains("Java"));
+    }
+
+    @Test
+    public void addAllEmptyCollectionTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi there!");
+        Assert.assertFalse(hashTable.addAll(Arrays.asList(new String[]{})));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void addAllNullPointerExceptionTest() {
+        new MyHashTable<>().addAll(null);
+    }
+
+    @Test
     @SuppressWarnings("all")
     public void sizeOfEmptyTest() {
         MyHashTable<String> hashTable = new MyHashTable<>();

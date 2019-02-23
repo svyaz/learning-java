@@ -264,36 +264,22 @@ public class MyHashTable<T> implements Collection<T> {
         }
         return true;
     }
-
-    //TODO implement this
-
+    
     /**
-     * Adds all of the elements in the specified collection to this collection
-     * (optional operation).  The behavior of this operation is undefined if
-     * the specified collection is modified while the operation is in progress.
-     * (This implies that the behavior of this call is undefined if the
-     * specified collection is this collection, and this collection is
-     * nonempty.)
-     *
-     * @param c collection containing elements to be added to this collection
-     * @return {@code true} if this collection changed as a result of the call
-     * @throws UnsupportedOperationException if the {@code addAll} operation
-     *                                       is not supported by this collection
-     * @throws ClassCastException            if the class of an element of the specified
-     *                                       collection prevents it from being added to this collection
-     * @throws NullPointerException          if the specified collection contains a
-     *                                       null element and this collection does not permit null elements,
-     *                                       or if the specified collection is null
-     * @throws IllegalArgumentException      if some property of an element of the
-     *                                       specified collection prevents it from being added to this
-     *                                       collection
-     * @throws IllegalStateException         if not all the elements can be added at
-     *                                       this time due to insertion restrictions
-     * @see #add(Object)
+     * Adds all of the elements in the specified collection to this collection.
      */
     @Override
-    public boolean addAll(Collection<? extends T> c) {
-        return false;
+    public boolean addAll(Collection<? extends T> collection) {
+        if (collection == null) {
+            throw new NullPointerException(EXCEPTION_MESSAGE_NULL_ARGUMENT);
+        }
+        if (collection.size() == 0) {
+            return false;
+        }
+        for (T element : collection) {
+            add(element);
+        }
+        return true;
     }
 
     //TODO implement this
