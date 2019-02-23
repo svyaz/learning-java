@@ -138,6 +138,23 @@ public class MyHashTableTest {
     }
 
     @Test
+    public void removeSomeEqualsTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("One");
+        hashTable.add("Two");
+        hashTable.add("Two");
+        hashTable.add("Three");
+        hashTable.add("Four");
+        hashTable.add("Two");
+        Assert.assertTrue(hashTable.remove("Two") &&
+                hashTable.size() == 3 &&
+                hashTable.contains("One") &&
+                hashTable.contains("Three") &&
+                hashTable.contains("Four") &&
+                !hashTable.contains("Two"));
+    }
+
+    @Test
     public void removeOneArrayItemFalseTest() {
         MyHashTable<String> hashTable = new MyHashTable<>(1);
         hashTable.add("1");
@@ -248,6 +265,67 @@ public class MyHashTableTest {
     }
 
     @Test
+    public void removeAllTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("One");
+        hashTable.add("Two");
+        hashTable.add("Two");
+        hashTable.add("Three");
+        hashTable.add("Four");
+        hashTable.add("Two");
+        String[] strings = {"One", "Two"};
+        Assert.assertTrue(hashTable.removeAll(Arrays.asList(strings)) &&
+                hashTable.size() == 2 &&
+                hashTable.contains("Three") &&
+                hashTable.contains("Four"));
+    }
+
+    @Test
+    public void removeAllFalseTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("One");
+        hashTable.add("Two");
+        hashTable.add("Two");
+        hashTable.add("Three");
+        hashTable.add("Four");
+        hashTable.add("Two");
+        String[] strings = {"Zero"};
+        Assert.assertFalse(hashTable.removeAll(Arrays.asList(strings)));
+    }
+
+    @Test
+    public void removeAllFalseNullTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("One");
+        hashTable.add("Two");
+        hashTable.add("Two");
+        hashTable.add("Three");
+        hashTable.add("Four");
+        hashTable.add("Two");
+        String[] strings = {null};
+        Assert.assertFalse(hashTable.removeAll(Arrays.asList(strings)));
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void removeAllFalseEmptyTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("One");
+        hashTable.add("Two");
+        hashTable.add("Two");
+        hashTable.add("Three");
+        hashTable.add("Four");
+        hashTable.add("Two");
+        String[] strings = {};
+        Assert.assertFalse(hashTable.removeAll(Arrays.asList(strings)));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void removeAllNullCollectionTest() {
+        new MyHashTable<>().removeAll(null);
+    }
+
+    @Test
     @SuppressWarnings("all")
     public void sizeOfEmptyTest() {
         MyHashTable<String> hashTable = new MyHashTable<>();
@@ -340,7 +418,6 @@ public class MyHashTableTest {
         hashTable.add("Java");
         Assert.assertFalse(hashTable.contains("C++"));
     }
-
 
     @Test
     public void toStringTest() {

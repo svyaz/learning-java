@@ -230,23 +230,17 @@ public class MyHashTable<T> implements Collection<T> {
      * Returns true if any element was removed as a result of this call.
      */
     @Override
+    @SuppressWarnings("all")
     public boolean remove(Object object) {
         int index = Math.abs(Objects.hashCode(object) % arrayItems.length);
         if (arrayItems[index] == null) {
             return false;
         }
-
-        boolean hasChanged = false;
-        for (int i = 0; i < arrayItems[index].size(); i++) {
-            if (Objects.equals(object, arrayItems[index].get(i))) {
-                arrayItems[index].remove(i);
-                --count;
-                hasChanged = true;
-                if (arrayItems[index].size() == 0) {
-                    arrayItems[index] = null;
-                    break;
-                }
-            }
+        int listCountBefore = arrayItems[index].size();
+        boolean hasChanged = arrayItems[index].removeAll(Arrays.asList(object));
+        count -= listCountBefore - arrayItems[index].size();
+        if (arrayItems[index].size() == 0) {
+            arrayItems[index] = null;
         }
         return hasChanged;
     }
@@ -264,7 +258,7 @@ public class MyHashTable<T> implements Collection<T> {
         }
         return true;
     }
-    
+
     /**
      * Adds all of the elements in the specified collection to this collection.
      */
@@ -282,34 +276,24 @@ public class MyHashTable<T> implements Collection<T> {
         return true;
     }
 
-    //TODO implement this
-
     /**
-     * Removes all of this collection's elements that are also contained in the
-     * specified collection (optional operation).  After this call returns,
-     * this collection will contain no elements in common with the specified
-     * collection.
-     *
-     * @param c collection containing elements to be removed from this collection
-     * @return {@code true} if this collection changed as a result of the
-     * call
-     * @throws UnsupportedOperationException if the {@code removeAll} method
-     *                                       is not supported by this collection
-     * @throws ClassCastException            if the types of one or more elements
-     *                                       in this collection are incompatible with the specified
-     *                                       collection
-     *                                       (<a href="#optional-restrictions">optional</a>)
-     * @throws NullPointerException          if this collection contains one or more
-     *                                       null elements and the specified collection does not support
-     *                                       null elements
-     *                                       (<a href="#optional-restrictions">optional</a>),
-     *                                       or if the specified collection is null
-     * @see #remove(Object)
-     * @see #contains(Object)
+     * Removes all of this table's elements that are also contained in the
+     * specified collection.
+     * Returns true if this table changed as a result of the call.
      */
     @Override
-    public boolean removeAll(Collection<?> c) {
-        return false;
+    public boolean removeAll(Collection<?> collection) {
+        if (collection == null) {
+            throw new NullPointerException(EXCEPTION_MESSAGE_NULL_ARGUMENT);
+        }
+        if (count == 0) {
+            return false;
+        }
+        boolean modified = false;
+        for (Object element : collection) {
+            modified = remove(element);
+        }
+        return modified;
     }
 
     //TODO implement this
