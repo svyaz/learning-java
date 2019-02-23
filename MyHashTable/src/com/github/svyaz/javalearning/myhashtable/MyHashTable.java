@@ -335,9 +335,20 @@ public class MyHashTable<T> implements Collection<T> {
         count = 0;
     }
 
-    //TODO функция перестройки таблицы при увеличении емкости
+
     //TODO equals
-    //TODO hashCode
+
+    /**
+     * Returns a hash code based on the contents of the specified array.
+     */
+    @Override
+    public int hashCode() {
+        int result = 31 + Objects.hashCode(count);
+        for (ArrayList arrayItem : arrayItems) {
+            result = 31 * result + (arrayItem == null ? 0 : arrayItem.hashCode());
+        }
+        return result;
+    }
 
     /**
      * Returns string representation of the table.
@@ -360,3 +371,5 @@ public class MyHashTable<T> implements Collection<T> {
         return resultString.append(']').toString();
     }
 }
+
+//TODO функция перестройки таблицы при достижении какого-либо порога заполненности массива arrayItems?

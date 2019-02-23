@@ -490,4 +490,38 @@ public class MyHashTableTest {
     public void toStringEmptyTest() {
         Assert.assertEquals(new MyHashTable<>(15).toString(), "[]");
     }
+
+    @Test
+    public void hashCode1Test() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("One");
+        hashTable.add("Two");
+        hashTable.add("Three");
+        hashTable.add("Four");
+        hashTable.add("Five");
+        Assert.assertEquals(hashTable.hashCode(), 1571857435);
+    }
+
+    @Test
+    public void hashCode2Test() {
+        MyHashTable<String> hashTable1 = new MyHashTable<>();
+        hashTable1.add("Hi");
+        hashTable1.add("there");
+        MyHashTable<String> hashTable2 = new MyHashTable<>();
+        hashTable2.add("Hi");
+        hashTable2.add("there");
+        Assert.assertEquals(hashTable1.hashCode(), hashTable2.hashCode());
+    }
+
+    @Test
+    public void hashCode3Test() {
+        MyHashTable<String> hashTable1 = new MyHashTable<>();
+        hashTable1.add("Hi");
+        hashTable1.add("there");
+        hashTable1.add("!!!");
+        MyHashTable<String> hashTable2 = new MyHashTable<>();
+        hashTable2.add("Hi");
+        hashTable2.add("there");
+        Assert.assertNotEquals(hashTable1.hashCode(), hashTable2.hashCode());
+    }
 }
