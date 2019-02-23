@@ -2,8 +2,11 @@ import com.github.svyaz.javalearning.myhashtable.MyHashTable;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.Objects;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.ConcurrentModificationException;
 
 public class MyHashTableTest {
     @Test
@@ -76,7 +79,6 @@ public class MyHashTableTest {
                 strings[1].equals("Hi") &&
                 strings[2] == null);
     }
-
 
     @Test(expected = NullPointerException.class)
     public void toArrayWithParamNullPointerExceptionTest() {
@@ -466,6 +468,43 @@ public class MyHashTableTest {
         hashTable.add("like");
         hashTable.add("Java");
         Assert.assertFalse(hashTable.contains("C++"));
+    }
+
+    @Test
+    public void iteratorTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Zero");
+        hashTable.add(null);
+        hashTable.add("One");
+        hashTable.add("Two");
+        hashTable.add("Three");
+        hashTable.add("Four");
+        Iterator<String> iterator = hashTable.iterator();
+        StringBuilder sb = new StringBuilder();
+        while (iterator.hasNext()) {
+            sb.append(iterator.next()).append("-");
+        }
+        Assert.assertEquals(sb.toString(), "null-One-Four-Two-Three-Zero-");
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void iteratorException1Test() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi there");
+        Iterator<String> iterator = hashTable.iterator();
+        iterator.next();
+        iterator.next();
+    }
+
+    @Test(expected = ConcurrentModificationException.class)
+    @SuppressWarnings("unused")
+    public void iteratorException2Test() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi");
+        hashTable.add("there");
+        for (String string : hashTable) {
+            hashTable.add("next element");
+        }
     }
 
     @Test

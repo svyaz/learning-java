@@ -1,6 +1,12 @@
 package com.github.svyaz.javalearning.myhashtable;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Objects;
 
 /**
  * Collection permits null as elements and permits duplicate objects.
@@ -11,6 +17,8 @@ public class MyHashTable<T> implements Collection<T> {
      */
     private static final String EXCEPTION_MESSAGE_ILLEGAL_CAPACITY = "Specified capacity must be greater than 0.";
     private static final String EXCEPTION_MESSAGE_NULL_ARGUMENT = "Specified argument is null.";
+    private static final String EXCEPTION_MESSAGE_NO_NEXT_ELEMENT = "No next element in table.";
+    private static final String EXCEPTION_MESSAGE_CONCURRENT_MODIFICATION = "Concurrent modification of table found.";
 
     /**
      * Default capacity for arrayItems.
@@ -26,6 +34,11 @@ public class MyHashTable<T> implements Collection<T> {
      * count of elements in the table
      */
     private int count;
+
+    /**
+     * Modifications counter for checking by iterator.
+     */
+    private int modCount = 0;
 
     /**
      * Creates instance with DEFAULT_CAPACITY size of internal array
@@ -81,19 +94,63 @@ public class MyHashTable<T> implements Collection<T> {
         return false;
     }
 
-    //TODO implement this
-
     /**
-     * Returns an iterator over the elements in this collection.  There are no
-     * guarantees concerning the order in which the elements are returned
-     * (unless this collection is an instance of some class that provides a
-     * guarantee).
-     *
-     * @return an {@code Iterator} over the elements in this collection
+     * Returns an iterator over the elements in this collection.
      */
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new MyHashTableIterator();
+    }
+
+    /**
+     * Nested class for implementation iterator.
+     */
+    private class MyHashTableIterator implements Iterator<T> {
+        /**
+         * Position of current table element.
+         */
+        private int currentPosition = -1;
+
+        /**
+         * Start value of property modCount of the table.
+         */
+        private int startModCount = modCount;
+
+        /**
+         * Returns true if the iteration has more elements.
+         */
+        @Override
+        public boolean hasNext() {
+            return currentPosition + 1 < count;
+        }
+
+        /**
+         * Returns the next element in the iteration.
+         */
+        @Override
+        @SuppressWarnings("unchecked")
+        public T next() {
+            if (currentPosition + 1 >= count) {
+                throw new NoSuchElementException(EXCEPTION_MESSAGE_NO_NEXT_ELEMENT);
+            }
+            if (modCount != startModCount) {
+                throw new ConcurrentModificationException(EXCEPTION_MESSAGE_CONCURRENT_MODIFICATION);
+            }
+
+            int position = -1;
+            for (ArrayList arrayItem : arrayItems) {
+                if (arrayItem != null) {
+                    for (Object item : arrayItem) {
+                        ++position;
+                        if (position == currentPosition + 1) {
+                            ++currentPosition;
+                            return (T) item;
+                        }
+                    }
+                }
+            }
+            return null;
+        }
     }
 
     /**
@@ -214,6 +271,7 @@ public class MyHashTable<T> implements Collection<T> {
     @SuppressWarnings("unchecked")
     public boolean add(T object) {
         int index = Math.abs(Objects.hashCode(object) % arrayItems.length);
+        ++modCount;
         if (arrayItems[index] == null) {
             ArrayList<T> list = new ArrayList<>();
             list.add(object);
@@ -237,12 +295,15 @@ public class MyHashTable<T> implements Collection<T> {
             return false;
         }
         int listCountBefore = arrayItems[index].size();
-        boolean hasChanged = arrayItems[index].removeAll(Arrays.asList(object));
-        count -= listCountBefore - arrayItems[index].size();
-        if (arrayItems[index].size() == 0) {
-            arrayItems[index] = null;
+        if (arrayItems[index].removeAll(Arrays.asList(object))) {
+            ++modCount;
+            count -= listCountBefore - arrayItems[index].size();
+            if (arrayItems[index].size() == 0) {
+                arrayItems[index] = null;
+            }
+            return true;
         }
-        return hasChanged;
+        return false;
     }
 
     /**
@@ -314,10 +375,13 @@ public class MyHashTable<T> implements Collection<T> {
         for (int i = 0; i < arrayItems.length; i++) {
             if (arrayItems[i] != null) {
                 int listCountBefore = arrayItems[i].size();
-                hasChanged = arrayItems[i].retainAll(collection);
-                count -= listCountBefore - arrayItems[i].size();
-                if (arrayItems[i].size() == 0) {
-                    arrayItems[i] = null;
+                if (arrayItems[i].retainAll(collection)) {
+                    ++modCount;
+                    hasChanged = true;
+                    count -= listCountBefore - arrayItems[i].size();
+                    if (arrayItems[i].size() == 0) {
+                        arrayItems[i] = null;
+                    }
                 }
             }
         }
@@ -329,6 +393,7 @@ public class MyHashTable<T> implements Collection<T> {
      */
     @Override
     public void clear() {
+        ++modCount;
         for (int i = 0; i < arrayItems.length; i++) {
             arrayItems[i] = null;
         }
@@ -392,5 +457,3 @@ public class MyHashTable<T> implements Collection<T> {
         return resultString.append(']').toString();
     }
 }
-
-//TODO функция перестройки таблицы при достижении какого-либо порога заполненности массива arrayItems?
