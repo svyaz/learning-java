@@ -218,47 +218,18 @@ public class MyHashTable<T> implements Collection<T> {
      * @throws NullPointerException if the specified array is null
      */
     @Override
-    //@SuppressWarnings("all")
+    @SuppressWarnings("all")
     public <T1> T1[] toArray(T1[] array) {
         if (array == null) {
             throw new NullPointerException(EXCEPTION_MESSAGE_NULL_ARGUMENT);
         }
         if (array.length < count) {
-
-            /*T1[] result = new Object[count];
-
-            int index = 0;
-            for (ArrayList list : arrayItems) {
-                if (list != null) {
-                    for (Object item : list) {
-                        result[index] = (T1) item;
-                        ++index;
-                    }
-                }
-            }
-
-            return result;*/
-
-
-            ArrayList<T1> result = new ArrayList<>(count);
-            for (ArrayList list : arrayItems) {
-                if (list != null) {
-                    for (Object item : list) {
-                        result.add((T1) item);
-                    }
-                }
-            }
-
-
-            return (T1[]) result.toArray();
+            return (T1[]) Arrays.copyOf(toArray(), count, array.getClass());
         }
-
-
         System.arraycopy(toArray(), 0, array, 0, count);
-
-        //TODO: Вопрос: Если моя таблица допускает в значениях null-ы, то нужно ли тут выставлять в null
-        //TODO: элемент array[count] как написано в условии реализации метода?
-
+        if (array.length > count) {
+            array[count] = null;
+        }
         return array;
     }
 

@@ -48,24 +48,16 @@ public class MyHashTableTest {
 
     @Test
     public void toArrayWithParamLessLengthTest() {
-        /*MyHashTable<String> hashTable = new MyHashTable<>();
+        MyHashTable<String> hashTable = new MyHashTable<>();
         hashTable.add("Hi");
         hashTable.add("there");
-        String[] strings = new String[1];
+        hashTable.add("!");
+        String[] strings = {"Hi there!"};
         String[] newStrings = hashTable.toArray(strings);
-        //hashTable.toArray(strings);
-        System.out.println(Arrays.toString(newStrings));
-        //Assert.assertTrue(strings.equals(newStrings));*/
-
-        /*Object[] objects = new Object[2];
-        objects[0] = "Hi";
-        objects[1] = "why?";
-        String[] strings = (String[]) objects;
-        System.out.println(Arrays.toString(strings));*/
-
-        /*Object obj = "str";
-        String newString = (String) obj;
-        System.out.println(newString);*/
+        Assert.assertTrue(strings != newStrings && newStrings.length == 3 &&
+                newStrings[0].equals("!") &&
+                newStrings[1].equals("there") &&
+                newStrings[2].equals("Hi"));
     }
 
     @Test
