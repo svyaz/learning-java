@@ -103,6 +103,13 @@ public class MyHashTable<T> implements Collection<T> {
     }
 
     /**
+     * Iterator 2 - to test which of these to iterators is faster :)
+     */
+    public Iterator<T> iterator2() {
+        return new MyHashTableIterator2();
+    }
+
+    /**
      * Nested class for implementation iterator.
      */
     private class MyHashTableIterator implements Iterator<T> {
@@ -150,6 +157,64 @@ public class MyHashTable<T> implements Collection<T> {
                 }
             }
             return null;
+        }
+    }
+
+    /**
+     * Nested class for implementation iterator 2.
+     */
+    private class MyHashTableIterator2 implements Iterator<T> {
+        /**
+         * Position of current internal array element.
+         */
+        private int currentPosition = 0;
+
+        /**
+         * Iterator for current element in internal array.
+         */
+        private Iterator<T> currentIterator = null;
+
+        /**
+         * Start value of property modCount of the table.
+         */
+        private int startModCount = modCount;
+
+        /**
+         * Returns true if the iteration has more elements.
+         */
+        @Override
+        public boolean hasNext() {
+            if (currentIterator != null && currentIterator.hasNext()) {
+                return true;
+            }
+            for (int i = currentPosition; i < arrayItems.length; i++) {
+                if (arrayItems[i] != null) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /**
+         * Returns the next element in the iteration.
+         */
+        @Override
+        @SuppressWarnings("unchecked")
+        public T next() {
+            if (modCount != startModCount) {
+                throw new ConcurrentModificationException(EXCEPTION_MESSAGE_CONCURRENT_MODIFICATION);
+            }
+            if (currentIterator != null && currentIterator.hasNext()) {
+                return currentIterator.next();
+            }
+            for (int i = currentPosition; i < arrayItems.length; i++) {
+                if (arrayItems[i] != null) {
+                    currentPosition = i + 1;
+                    currentIterator = arrayItems[i].iterator();
+                    return currentIterator.next();
+                }
+            }
+            throw new NoSuchElementException(EXCEPTION_MESSAGE_NO_NEXT_ELEMENT);
         }
     }
 

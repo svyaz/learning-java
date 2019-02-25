@@ -500,6 +500,45 @@ public class MyHashTableTest {
     }
 
     @Test
+    public void iterator2Test() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Zero");
+        hashTable.add(null);
+        hashTable.add("One");
+        hashTable.add("Two");
+        hashTable.add("Three");
+        hashTable.add("Four");
+        Iterator<String> iterator = hashTable.iterator2();
+        StringBuilder sb = new StringBuilder();
+        while (iterator.hasNext()) {
+            sb.append(iterator.next()).append("-");
+        }
+        Assert.assertEquals(sb.toString(), "null-One-Four-Two-Three-Zero-");
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void iterator2Exception1Test() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi there");
+        Iterator<String> iterator = hashTable.iterator2();
+        iterator.next();
+        iterator.next();
+    }
+
+    @Test(expected = ConcurrentModificationException.class)
+    @SuppressWarnings("unused")
+    public void iterator2Exception2Test() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        hashTable.add("Hi");
+        hashTable.add("there");
+        Iterator<String> iterator = hashTable.iterator2();
+        while (iterator.hasNext()) {
+            iterator.next();
+            hashTable.add("next element");
+        }
+    }
+
+    @Test
     public void toStringTest() {
         MyHashTable<String> hashTable = new MyHashTable<>();
         hashTable.add("Hi");
