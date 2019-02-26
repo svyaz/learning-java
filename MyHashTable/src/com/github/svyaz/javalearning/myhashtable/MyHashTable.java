@@ -28,7 +28,7 @@ public class MyHashTable<T> implements Collection<T> {
     /**
      * Internal array for storing lists.
      */
-    private ArrayList[] arrayItems;
+    private ArrayList<T>[] arrayItems;
 
     /**
      * count of elements in the table
@@ -43,18 +43,20 @@ public class MyHashTable<T> implements Collection<T> {
     /**
      * Creates instance with DEFAULT_CAPACITY size of internal array
      */
+    @SuppressWarnings("unchecked")
     public MyHashTable() {
-        arrayItems = new ArrayList[DEFAULT_CAPACITY];
+        arrayItems = (ArrayList<T>[]) new ArrayList[DEFAULT_CAPACITY];
     }
 
     /**
      * Creates instance with specified size of internal array
      */
+    @SuppressWarnings("unchecked")
     public MyHashTable(int capacity) {
         if (capacity <= 0) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_ILLEGAL_CAPACITY);
         }
-        arrayItems = new ArrayList[capacity];
+        arrayItems = (ArrayList<T>[]) new ArrayList[capacity];
     }
 
     /**
