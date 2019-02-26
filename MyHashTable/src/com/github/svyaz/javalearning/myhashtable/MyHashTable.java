@@ -333,7 +333,6 @@ public class MyHashTable<T> implements Collection<T> {
      * specified collection.
      * Returns true if this table changed as a result of the call.
      */
-    //TODO 4. removeAll должен удалять все вхождения
     @Override
     public boolean removeAll(Collection<?> collection) {
         if (collection == null) {
@@ -343,8 +342,17 @@ public class MyHashTable<T> implements Collection<T> {
             return false;
         }
         boolean hasChanged = false;
-        for (Object element : collection) {
-            hasChanged = remove(element);
+        for (ArrayList<T> list : arrayItems) {
+            if (list != null) {
+                int listCountBefore = list.size();
+                if (list.removeAll(collection)) {
+                    hasChanged = true;
+                    count -= listCountBefore - list.size();
+                }
+            }
+        }
+        if (hasChanged) {
+            ++modCount;
         }
         return hasChanged;
     }
@@ -355,7 +363,6 @@ public class MyHashTable<T> implements Collection<T> {
      * Returns true if this collection changed as a result of the call.
      */
     @Override
-    @SuppressWarnings("unchecked")
     public boolean retainAll(Collection<?> collection) {
         if (collection == null) {
             throw new NullPointerException(EXCEPTION_MESSAGE_NULL_ARGUMENT);
@@ -364,24 +371,15 @@ public class MyHashTable<T> implements Collection<T> {
             return false;
         }
         boolean hasChanged = false;
-        for (ArrayList<T> arrayItem : arrayItems) {
-            if (arrayItem != null) {
-                int listCountBefore = arrayItem.size();
-                if (arrayItem.retainAll(collection)) {
+        for (ArrayList<T> list : arrayItems) {
+            if (list != null) {
+                int listCountBefore = list.size();
+                if (list.retainAll(collection)) {
                     hasChanged = true;
-                    count -= listCountBefore - arrayItem.size();
+                    count -= listCountBefore - list.size();
                 }
             }
         }
-        /*for (int i = 0; i < arrayItems.length; i++) {
-            if (arrayItems[i] != null) {
-                int listCountBefore = arrayItems[i].size();
-                if (arrayItems[i].retainAll(collection)) {
-                    hasChanged = true;
-                    count -= listCountBefore - arrayItems[i].size();
-                }
-            }
-        }*/
         if (hasChanged) {
             ++modCount;
         }
