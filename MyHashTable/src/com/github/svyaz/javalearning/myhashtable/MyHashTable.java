@@ -85,15 +85,7 @@ public class MyHashTable<T> implements Collection<T> {
             return false;
         }
         int index = getIndex(object);
-        if (arrayItems[index] == null) {
-            return false;
-        }
-        for (int i = 0; i < arrayItems[index].size(); i++) {
-            if (Objects.equals(object, arrayItems[index].get(i))) {
-                return true;
-            }
-        }
-        return false;
+        return arrayItems[index] != null && arrayItems[index].contains(object);
     }
 
     /**
