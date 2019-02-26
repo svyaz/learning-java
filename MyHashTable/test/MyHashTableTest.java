@@ -544,7 +544,7 @@ public class MyHashTableTest {
         hashTable.add("Hi");
         hashTable.add("there!");
         hashTable.add("Hi there!");
-        Assert.assertEquals(hashTable.toString(), "[[Hi there!], [Hi, there!]]");
+        Assert.assertEquals(hashTable.toString(), "[Hi there!, Hi, there!]");
     }
 
     @Test
@@ -553,7 +553,7 @@ public class MyHashTableTest {
         hashTable.add("Hi");
         hashTable.add("there!");
         hashTable.add(null);
-        Assert.assertEquals(hashTable.toString(), "[[null], [Hi, there!]]");
+        Assert.assertEquals(hashTable.toString(), "[null, Hi, there!]");
     }
 
     @Test

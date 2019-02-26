@@ -443,15 +443,13 @@ public class MyHashTable<T> implements Collection<T> {
         StringBuilder resultString = new StringBuilder();
         resultString.append('[');
         boolean isFirst = true;
-        for (ArrayList list : arrayItems) {
-            if (list != null) {
-                if (isFirst) {
-                    isFirst = false;
-                } else {
-                    resultString.append(", ");
-                }
-                resultString.append(list.toString());
+        for (T item : this) {
+            if (isFirst) {
+                isFirst = false;
+            } else {
+                resultString.append(", ");
             }
+            resultString.append(String.valueOf(item));
         }
         return resultString.append(']').toString();
     }
