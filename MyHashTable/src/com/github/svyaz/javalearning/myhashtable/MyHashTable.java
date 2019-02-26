@@ -97,67 +97,9 @@ public class MyHashTable<T> implements Collection<T> {
     }
 
     /**
-     * Iterator 2 - to test which of these to iterators is faster :)
-     */
-    public Iterator<T> iterator2() {
-        return new MyHashTableIterator2();
-    }
-
-    /**
-     * Nested class for implementation iterator.
-     */
-    private class MyHashTableIterator implements Iterator<T> {
-        /**
-         * Position of current table element.
-         */
-        private int currentPosition = -1;
-
-        /**
-         * Start value of property modCount of the table.
-         */
-        private int startModCount = modCount;
-
-        /**
-         * Returns true if the iteration has more elements.
-         */
-        @Override
-        public boolean hasNext() {
-            return currentPosition + 1 < count;
-        }
-
-        /**
-         * Returns the next element in the iteration.
-         */
-        @Override
-        @SuppressWarnings("unchecked")
-        public T next() {
-            if (currentPosition + 1 >= count) {
-                throw new NoSuchElementException(EXCEPTION_MESSAGE_NO_NEXT_ELEMENT);
-            }
-            if (modCount != startModCount) {
-                throw new ConcurrentModificationException(EXCEPTION_MESSAGE_CONCURRENT_MODIFICATION);
-            }
-
-            int position = -1;
-            for (ArrayList arrayItem : arrayItems) {
-                if (arrayItem != null) {
-                    for (Object item : arrayItem) {
-                        ++position;
-                        if (position == currentPosition + 1) {
-                            ++currentPosition;
-                            return (T) item;
-                        }
-                    }
-                }
-            }
-            return null;
-        }
-    }
-
-    /**
      * Nested class for implementation iterator 2.
      */
-    private class MyHashTableIterator2 implements Iterator<T> {
+    private class MyHashTableIterator implements Iterator<T> {
         /**
          * Position of current internal array element.
          */
