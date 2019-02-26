@@ -335,26 +335,7 @@ public class MyHashTable<T> implements Collection<T> {
      */
     @Override
     public boolean removeAll(Collection<?> collection) {
-        if (collection == null) {
-            throw new NullPointerException(EXCEPTION_MESSAGE_NULL_ARGUMENT);
-        }
-        if (count == 0) {
-            return false;
-        }
-        boolean hasChanged = false;
-        for (ArrayList<T> list : arrayItems) {
-            if (list != null) {
-                int listCountBefore = list.size();
-                if (list.removeAll(collection)) {
-                    hasChanged = true;
-                    count -= listCountBefore - list.size();
-                }
-            }
-        }
-        if (hasChanged) {
-            ++modCount;
-        }
-        return hasChanged;
+        return removeItems(collection, true);
     }
 
     /**
@@ -364,6 +345,16 @@ public class MyHashTable<T> implements Collection<T> {
      */
     @Override
     public boolean retainAll(Collection<?> collection) {
+        return removeItems(collection, false);
+    }
+
+    /**
+     * Internal method for removeAll() and retainAll().
+     * isPresent = true - removeAll
+     * isPresent = false - retainAll
+     */
+    @SuppressWarnings("all")
+    private boolean removeItems(Collection<?> collection, boolean isPresent) {
         if (collection == null) {
             throw new NullPointerException(EXCEPTION_MESSAGE_NULL_ARGUMENT);
         }
@@ -374,10 +365,8 @@ public class MyHashTable<T> implements Collection<T> {
         for (ArrayList<T> list : arrayItems) {
             if (list != null) {
                 int listCountBefore = list.size();
-                if (list.retainAll(collection)) {
-                    hasChanged = true;
-                    count -= listCountBefore - list.size();
-                }
+                hasChanged = isPresent ? list.removeAll(collection) : list.retainAll(collection);
+                count -= listCountBefore - list.size();
             }
         }
         if (hasChanged) {
