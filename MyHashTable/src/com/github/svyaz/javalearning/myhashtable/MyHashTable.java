@@ -230,14 +230,10 @@ public class MyHashTable<T> implements Collection<T> {
         }
 
         Object[] result = new Object[count];
-        int index = 0;
-        for (ArrayList list : arrayItems) {
-            if (list != null) {
-                for (Object item : list) {
-                    result[index] = item;
-                    ++index;
-                }
-            }
+        int i = 0;
+        for (T item : this) {
+            result[i] = item;
+            ++i;
         }
         return result;
     }
