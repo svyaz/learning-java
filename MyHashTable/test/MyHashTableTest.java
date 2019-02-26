@@ -141,11 +141,11 @@ public class MyHashTableTest {
         hashTable.add("Four");
         hashTable.add("Two");
         Assert.assertTrue(hashTable.remove("Two") &&
-                hashTable.size() == 3 &&
+                hashTable.size() == 5 &&
                 hashTable.contains("One") &&
                 hashTable.contains("Three") &&
                 hashTable.contains("Four") &&
-                !hashTable.contains("Two"));
+                hashTable.contains("Two"));
     }
 
     @Test

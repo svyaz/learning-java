@@ -279,20 +279,19 @@ public class MyHashTable<T> implements Collection<T> {
     }
 
     /**
-     * Removes all element in the collection such that Objects.equals(object, element).
-     * Returns true if any element was removed as a result of this call.
+     * Removes the first occurrence of the specified element from this collection
+     * such that Objects.equals(object, element).
+     * Returns true if the collection changed as a result of this call.
      */
     @Override
-    @SuppressWarnings("all")
     public boolean remove(Object object) {
         int index = getIndex(object);
         if (arrayItems[index] == null) {
             return false;
         }
-        int listCountBefore = arrayItems[index].size();
-        if (arrayItems[index].removeAll(Arrays.asList(object))) {
+        if (arrayItems[index].remove(object)) {
             ++modCount;
-            count -= listCountBefore - arrayItems[index].size();
+            --count;
             return true;
         }
         return false;
