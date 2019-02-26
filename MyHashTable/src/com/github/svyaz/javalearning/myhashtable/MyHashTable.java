@@ -266,14 +266,11 @@ public class MyHashTable<T> implements Collection<T> {
     @SuppressWarnings("unchecked")
     public boolean add(T object) {
         int index = getIndex(object);
-        ++modCount;
         if (arrayItems[index] == null) {
-            ArrayList<T> list = new ArrayList<>();
-            list.add(object);
-            arrayItems[index] = list;
-        } else {
-            arrayItems[index].add(object);
+            arrayItems[index] = new ArrayList<>();
         }
+        arrayItems[index].add(object);
+        ++modCount;
         ++count;
         return true;
     }
