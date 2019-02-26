@@ -337,6 +337,7 @@ public class MyHashTable<T> implements Collection<T> {
      * specified collection.
      * Returns true if this table changed as a result of the call.
      */
+    //TODO 4. removeAll должен удалять все вхождения
     @Override
     public boolean removeAll(Collection<?> collection) {
         if (collection == null) {
@@ -371,7 +372,6 @@ public class MyHashTable<T> implements Collection<T> {
             if (arrayItems[i] != null) {
                 int listCountBefore = arrayItems[i].size();
                 if (arrayItems[i].retainAll(collection)) {
-                    ++modCount;
                     hasChanged = true;
                     count -= listCountBefore - arrayItems[i].size();
                     if (arrayItems[i].size() == 0) {
@@ -379,6 +379,9 @@ public class MyHashTable<T> implements Collection<T> {
                     }
                 }
             }
+        }
+        if (hasChanged) {
+            ++modCount;
         }
         return hasChanged;
     }
