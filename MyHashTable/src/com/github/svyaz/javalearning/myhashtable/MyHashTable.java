@@ -293,9 +293,6 @@ public class MyHashTable<T> implements Collection<T> {
         if (arrayItems[index].removeAll(Arrays.asList(object))) {
             ++modCount;
             count -= listCountBefore - arrayItems[index].size();
-            if (arrayItems[index].size() == 0) {
-                arrayItems[index] = null;
-            }
             return true;
         }
         return false;
@@ -368,18 +365,24 @@ public class MyHashTable<T> implements Collection<T> {
             return false;
         }
         boolean hasChanged = false;
-        for (int i = 0; i < arrayItems.length; i++) {
+        for (ArrayList<T> arrayItem : arrayItems) {
+            if (arrayItem != null) {
+                int listCountBefore = arrayItem.size();
+                if (arrayItem.retainAll(collection)) {
+                    hasChanged = true;
+                    count -= listCountBefore - arrayItem.size();
+                }
+            }
+        }
+        /*for (int i = 0; i < arrayItems.length; i++) {
             if (arrayItems[i] != null) {
                 int listCountBefore = arrayItems[i].size();
                 if (arrayItems[i].retainAll(collection)) {
                     hasChanged = true;
                     count -= listCountBefore - arrayItems[i].size();
-                    if (arrayItems[i].size() == 0) {
-                        arrayItems[i] = null;
-                    }
                 }
             }
-        }
+        }*/
         if (hasChanged) {
             ++modCount;
         }
