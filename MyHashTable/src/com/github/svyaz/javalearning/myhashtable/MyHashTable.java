@@ -289,21 +289,23 @@ public class MyHashTable<T> implements Collection<T> {
         if (collection == null) {
             throw new NullPointerException(EXCEPTION_MESSAGE_NULL_ARGUMENT);
         }
-        /*if (count == 0) {
-            return false;
-        }*/
-        boolean hasChanged = false;
+        int countBefore = count;
         for (ArrayList<T> list : arrayItems) {
             if (list != null) {
                 int listCountBefore = list.size();
-                hasChanged = isPresent ? list.removeAll(collection) : list.retainAll(collection);
+                if (isPresent) {
+                    list.removeAll(collection);
+                } else {
+                    list.retainAll(collection);
+                }
                 count -= listCountBefore - list.size();
             }
         }
-        if (hasChanged) {
+        if (count < countBefore) {
             ++modCount;
+            return true;
         }
-        return hasChanged;
+        return false;
     }
 
     /**
