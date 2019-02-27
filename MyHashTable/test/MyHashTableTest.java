@@ -271,7 +271,9 @@ public class MyHashTableTest {
         Assert.assertTrue(hashTable.removeAll(Arrays.asList(strings)) &&
                 hashTable.size() == 2 &&
                 hashTable.contains("Three") &&
-                hashTable.contains("Four"));
+                hashTable.contains("Four") &&
+                !hashTable.contains("One") &&
+                !hashTable.contains("Two"));
     }
 
     @Test
@@ -283,6 +285,13 @@ public class MyHashTableTest {
         hashTable.add("Three");
         hashTable.add("Four");
         hashTable.add("Two");
+        String[] strings = {"Zero"};
+        Assert.assertFalse(hashTable.removeAll(Arrays.asList(strings)));
+    }
+
+    @Test
+    public void removeAllEmptyTableTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
         String[] strings = {"Zero"};
         Assert.assertFalse(hashTable.removeAll(Arrays.asList(strings)));
     }
@@ -332,7 +341,8 @@ public class MyHashTableTest {
         Assert.assertTrue(hashTable.retainAll(Arrays.asList(strings)) &&
                 hashTable.size() == 4 &&
                 hashTable.contains("One") &&
-                hashTable.contains("Two"));
+                hashTable.contains("Two") &&
+                !hashTable.contains("Six"));
     }
 
     @Test
@@ -347,6 +357,13 @@ public class MyHashTableTest {
         String[] strings = {"Zero"};
         Assert.assertTrue(hashTable.retainAll(Arrays.asList(strings)) &&
                 hashTable.size() == 0);
+    }
+
+    @Test
+    public void retainAllEmptyTableTest() {
+        MyHashTable<String> hashTable = new MyHashTable<>();
+        String[] strings = {"Zero"};
+        Assert.assertFalse(hashTable.retainAll(Arrays.asList(strings)));
     }
 
     @Test

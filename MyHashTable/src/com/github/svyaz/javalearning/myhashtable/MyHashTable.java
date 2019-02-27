@@ -289,9 +289,9 @@ public class MyHashTable<T> implements Collection<T> {
         if (collection == null) {
             throw new NullPointerException(EXCEPTION_MESSAGE_NULL_ARGUMENT);
         }
-        if (count == 0) {
+        /*if (count == 0) {
             return false;
-        }
+        }*/
         boolean hasChanged = false;
         for (ArrayList<T> list : arrayItems) {
             if (list != null) {
