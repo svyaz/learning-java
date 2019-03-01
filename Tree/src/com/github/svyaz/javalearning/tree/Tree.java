@@ -1,6 +1,7 @@
 package com.github.svyaz.javalearning.tree;
 
 public class Tree<T extends Comparable> {
+    private static final String MSG_EXCEPTION_NULL_NOT_ACCEPTABLE = "null is not acceptable as data.";
     /**
      * Root node
      */
@@ -13,9 +14,14 @@ public class Tree<T extends Comparable> {
 
     /**
      * Creates Tree with 1 item specified as root data.
+     *
+     * @throws IllegalArgumentException if specified data is null.
      */
     public Tree(T data) {
-        root = new TreeNode<T>(data);
+        if (data == null) {
+            throw new IllegalArgumentException(MSG_EXCEPTION_NULL_NOT_ACCEPTABLE);
+        }
+        root = new TreeNode<>(data);
         count = 1;
     }
 
