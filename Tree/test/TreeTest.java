@@ -33,4 +33,16 @@ public class TreeTest {
         Tree<Integer> tree = new Tree<>(10);
         tree.add(null);
     }
+
+    @Test
+    public void toStringTest() {
+        Tree<Integer> tree = new Tree<>(10);
+        tree.add(8);
+        tree.add(18);
+        String sb = "Tree:" + System.lineSeparator() +
+                "10 (left: 8, right: 18)" + System.lineSeparator() +
+                "8 (left: null, right: null)" + System.lineSeparator() +
+                "18 (left: null, right: null)" + System.lineSeparator();
+        Assert.assertEquals(tree.toString(), sb);
+    }
 }

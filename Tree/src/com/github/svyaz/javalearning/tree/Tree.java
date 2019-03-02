@@ -1,5 +1,7 @@
 package com.github.svyaz.javalearning.tree;
 
+import java.util.LinkedList;
+
 public class Tree<T extends Comparable> {
     private static final String MSG_EXCEPTION_NULL_NOT_ACCEPTABLE = "null is not acceptable as data.";
     /**
@@ -62,14 +64,46 @@ public class Tree<T extends Comparable> {
         }
         ++count;
     }
-    
+
+    /**
+     * @return string representation of the tree.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Tree:" + System.lineSeparator());
+        LinkedList<TreeNode<T>> queue = new LinkedList<>();
+        queue.addFirst(root);
+
+        while (queue.size() > 0) {
+            TreeNode<T> current = queue.getFirst();
+            sb.append(current.getData()).append(" (left: ");
+            TreeNode<T> left = current.getLeft();
+            TreeNode<T> right = current.getRight();
+            if (left != null) {
+                queue.addLast(left);
+                sb.append(left.getData());
+            } else {
+                sb.append("null");
+            }
+            sb.append(", right: ");
+            if (right != null) {
+                queue.addLast(right);
+                sb.append(right.getData());
+            } else {
+                sb.append("null");
+            }
+            sb.append(')').append(System.lineSeparator());
+            queue.removeFirst();
+        }
+        return sb.toString();
+    }
+
     //TODO Поиск узла
     //TODO Удаление первого вхождения узла по значению
     //TODO Получение числа элементов
     //TODO Обход в ширину и
     //TODO Обход в глубину с рекурсией
     //TODO Обход в глубину без рекурсии
-    //TODO toString()
     //TODO hashCode()
     //TODO equals()
 }
