@@ -35,6 +35,52 @@ public class TreeTest {
     }
 
     @Test
+    public void searchTrueRootTest() {
+        Tree<Integer> tree = new Tree<>(10);
+        tree.add(2);
+        tree.add(12);
+        Assert.assertTrue(tree.search(10));
+    }
+
+    @Test
+    public void searchTrueLeftTest() {
+        Tree<Integer> tree = new Tree<>(10);
+        tree.add(8);
+        tree.add(9);
+        tree.add(6);
+        tree.add(7);
+        tree.add(4);
+        Assert.assertTrue(tree.search(4));
+    }
+
+    @Test
+    public void searchTrueRightTest() {
+        Tree<Integer> tree = new Tree<>(10);
+        tree.add(20);
+        tree.add(18);
+        tree.add(21);
+        tree.add(22);
+        Assert.assertTrue(tree.search(22));
+    }
+
+    @Test
+    public void searchFalseTest() {
+        Tree<Integer> tree = new Tree<>(10);
+        tree.add(8);
+        tree.add(9);
+        tree.add(6);
+        tree.add(7);
+        tree.add(4);
+        Assert.assertFalse(tree.search(0));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void searchExceptionTest() {
+        Tree<Integer> tree = new Tree<>(10);
+        tree.search(null);
+    }
+
+    @Test
     public void toStringTest() {
         Tree<Integer> tree = new Tree<>(10);
         tree.add(8);

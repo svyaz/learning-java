@@ -8,12 +8,12 @@ public class Main {
 
         tree.add(8);
         tree.add(18);
-        /*tree.add(6);
+        tree.add(6);
         tree.add(3);
         tree.add(5);
-        tree.add(12);*/
+        tree.add(12);
 
-        System.out.println(tree);
+        System.out.println(tree.search(31));
 
     }
 }

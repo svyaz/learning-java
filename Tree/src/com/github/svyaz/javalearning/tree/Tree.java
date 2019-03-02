@@ -29,9 +29,43 @@ public class Tree<T extends Comparable> {
 
     /**
      * Returns size of the tree.
+     *
+     * @return number of elements (nodes) in the tree.
      */
     public int size() {
         return count;
+    }
+
+    /**
+     * Search specified data in the tree.
+     *
+     * @return true if specified data is present, false otherwise.
+     * @throws IllegalArgumentException if specified data is null.
+     */
+    @SuppressWarnings("unchecked")
+    public boolean search(T data) {
+        if (data == null) {
+            throw new IllegalArgumentException(MSG_EXCEPTION_NULL_NOT_ACCEPTABLE);
+        }
+
+        TreeNode<T> currentNode = root;
+        while (true) {
+            int compareResult = data.compareTo(currentNode.getData());
+            if (compareResult == 0) {
+                return true;
+            } else if (compareResult < 0) {
+                if (currentNode.getLeft() == null) {
+                    break;
+                }
+                currentNode = currentNode.getLeft();
+            } else {
+                if (currentNode.getRight() == null) {
+                    break;
+                }
+                currentNode = currentNode.getRight();
+            }
+        }
+        return false;
     }
 
     /**
@@ -100,8 +134,8 @@ public class Tree<T extends Comparable> {
 
     //TODO Поиск узла
     //TODO Удаление первого вхождения узла по значению
-    //TODO Получение числа элементов
-    //TODO Обход в ширину и
+    //TODO Получение числа элементов ???
+    //TODO Обход в ширину
     //TODO Обход в глубину с рекурсией
     //TODO Обход в глубину без рекурсии
     //TODO hashCode()
