@@ -54,6 +54,23 @@ public class Tree<T> {
     }
 
     /**
+     * Tries to use comparator or casts specified data to Comparable<T>.
+     * Internal method.
+     *
+     * @return a negative integer, zero, or a positive integer as data1 is less
+     * than, equal to, or greater than data2.
+     * @throws ClassCastException if data1 cannot be cast to Comparable<T>.
+     */
+    private int compare(T data1, T data2) {
+        if (comparator == null) {
+            @SuppressWarnings("unchecked")
+            Comparable<T> comp = (Comparable<T>) data1;
+            return comp.compareTo(data2);
+        }
+        return comparator.compare(data1, data2);
+    }
+
+    /**
      * Searches specified data in the tree.
      *
      * @return true if specified data is present, false otherwise.
@@ -66,7 +83,7 @@ public class Tree<T> {
 
         TreeNode<T> currentNode = root;
         while (true) {
-            int compareResult = data.compareTo(currentNode.getData());
+            int compareResult = compare(data, currentNode.getData());
             if (compareResult == 0) {
                 return true;
             } else if (compareResult < 0) {
@@ -85,57 +102,19 @@ public class Tree<T> {
     }
 
     /**
-     * Searches specified data in the tree.
-     * Internal method.
-     *
-     * @return TreeNode which data equals to the specified data, null if node was not found.
-     * @throws IllegalArgumentException if specified data is null.
-     */
-    /*@SuppressWarnings("unchecked")
-    private TreeNode<T> searchNode(T data) {
-        if (data == null) {
-            throw new IllegalArgumentException(MSG_EXCEPTION_NULL_NOT_ACCEPTABLE);
-        }
-
-        TreeNode<T> currentNode = root;
-        while (true) {
-            int compareResult = data.compareTo(currentNode.getData());
-            if (compareResult == 0) {
-                return currentNode;
-            } else if (compareResult < 0) {
-                if (currentNode.getLeft() == null) {
-                    break;
-                }
-                currentNode = currentNode.getLeft();
-            } else {
-                if (currentNode.getRight() == null) {
-                    break;
-                }
-                currentNode = currentNode.getRight();
-            }
-        }
-        return null;
-    }*/
-
-    /**
      * Adds data as new node to the tree with specified data.
      *
      * @throws IllegalArgumentException if specified data is null.
      */
-    @SuppressWarnings("unchecked")
     public void add(T data) {
         if (data == null) {
             throw new IllegalArgumentException(MSG_EXCEPTION_NULL_NOT_ACCEPTABLE);
-        }
-        if (data instanceof Comparable) {
-            throw new ClassCastException();
-            ????
         }
 
         TreeNode<T> newNode = new TreeNode<>(data);
         TreeNode<T> currentNode = root;
         while (true) {
-            if (data.compareTo(currentNode.getData()) < 0) {
+            if (compare(data, currentNode.getData()) < 0) {
                 if (currentNode.getLeft() == null) {
                     currentNode.setLeft(newNode);
                     break;
@@ -166,7 +145,8 @@ public class Tree<T> {
         TreeNode<T> currentNode = root;
         TreeNode<T> parent = null;
         while (true) {
-            int compareResult = data.compareTo(currentNode.getData());
+            int compareResult = compare(data, currentNode.getData());
+
             if (compareResult == 0) {
 
                 //1
@@ -233,7 +213,6 @@ public class Tree<T> {
     }
 
     //TODO Удаление первого вхождения узла по значению
-    //TODO Получение числа элементов ???
     //TODO Обход в ширину
     //TODO Обход в глубину с рекурсией
     //TODO Обход в глубину без рекурсии

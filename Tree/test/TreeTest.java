@@ -2,6 +2,8 @@ import com.github.svyaz.javalearning.tree.Tree;
 import org.junit.Test;
 import org.junit.Assert;
 
+import java.util.Comparator;
+
 public class TreeTest {
     @Test
     public void constructorTest() {
@@ -12,6 +14,21 @@ public class TreeTest {
     @Test(expected = IllegalArgumentException.class)
     public void constructorExceptionTest() {
         new Tree<String>(null);
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void constructorWithComparatorTest() {
+        Comparator<String> byLengthComparator = new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return Integer.compare(o1.length(), o2.length());
+            }
+        };
+        Tree<String> tree = new Tree<>("12345", byLengthComparator);
+        tree.add("1234");
+        tree.add("123456");
+        Assert.assertEquals(tree.size(), 3);
     }
 
     @Test
