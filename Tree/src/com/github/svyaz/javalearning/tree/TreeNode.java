@@ -11,6 +11,7 @@ class TreeNode<T> {
         this.data = data;
     }
 
+    // TODO нужен ли этот конструктор?
     TreeNode(T data, TreeNode<T> left, TreeNode<T> right) {
         this.data = data;
         this.left = left;
@@ -21,6 +22,7 @@ class TreeNode<T> {
         return data;
     }
 
+    // TODO Нужен ли setData?? После изменения data надо перестраивать дерево.
     void setData(T data) {
         this.data = data;
     }
