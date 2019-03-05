@@ -6,14 +6,17 @@ public class Main {
     public static void main(String[] args) {
         Tree<Integer> tree = new Tree<>(10);
 
-        tree.add(8);
+        tree.add(9);
+        tree.add(20);
+        tree.add(22);
         tree.add(18);
-        tree.add(6);
-        tree.add(3);
-        tree.add(5);
-        tree.add(12);
+        tree.add(21);
+        tree.add(21);
 
-        System.out.println(tree.search(31));
+        System.out.println(tree);
+        tree.remove(20);
+        System.out.println(tree);
+
 
     }
 }

@@ -108,4 +108,6 @@ public class TreeTest {
                 "18 (left: null, right: null)" + System.lineSeparator();
         Assert.assertEquals(tree.toString(), sb);
     }
+
+    //TODO empty tree toString test
 }

@@ -56,9 +56,7 @@ class TreeNode<T> {
         if (object == null || getClass() != object.getClass()) {
             return false;
         }
-
         TreeNode<?> treeNode = (TreeNode<?>) object;
-
         return data != null ? data.equals(treeNode.data) : treeNode.data == null;
     }
 }

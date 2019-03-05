@@ -144,23 +144,87 @@ public class Tree<T> {
 
         TreeNode<T> currentNode = root;
         TreeNode<T> parent = null;
+
         while (true) {
             int compareResult = compare(data, currentNode.getData());
 
             if (compareResult == 0) {
+                
+                if (parent == null) {
+                    // удаление корня
+                    if (currentNode.getLeft() == null && currentNode.getRight() == null) {
+                        // нет потомков
+                        root = null;
+                    } else if (currentNode.getLeft() != null && currentNode.getRight() == null) {
+                        // есть только левая ветвь
+                        root = root.getLeft();
+                    } else if (currentNode.getLeft() == null && currentNode.getRight() != null) {
+                        // есть только правая ветвь
+                        root = root.getRight();
+                    } else {
+                        // если есть обе ветви
+                        TreeNode<T> minNode = currentNode.getRight();
+                        TreeNode<T> minParent = currentNode;
+                        while (minNode != null) {
+                            if (minNode.getLeft() == null) {
+                                break;
+                            }
+                            minParent = minNode;
+                            minNode = minNode.getLeft();
+                        }
+                        minParent.setLeft(minNode.getRight()); // установка правого потомка
+                        minNode.setLeft(currentNode.getLeft());
+                        minNode.setRight(currentNode.getRight());
+                        root = minNode;
+                    }
 
-                //1
-                if (currentNode.getLeft() == null && currentNode.getRight() == null) {
+                } else {
+                    // не корень
+                    if (currentNode.getLeft() == null && currentNode.getRight() == null) {
+                        // нет потомков
+                        if (compare(data, parent.getData()) < 0) {
+                            parent.setLeft(null);
+                        } else {
+                            parent.setRight(null);
+                        }
+                    } else if (currentNode.getLeft() != null && currentNode.getRight() == null) {
+                        // есть только левая ветвь
+                        if (compare(data, parent.getData()) < 0) {
+                            parent.setLeft(currentNode.getLeft());
+                        } else {
+                            parent.setRight(currentNode.getLeft());
+                        }
+                    } else if (currentNode.getLeft() == null && currentNode.getRight() != null) {
+                        // есть только правая ветвь
+                        if (compare(data, parent.getData()) < 0) {
+                            parent.setLeft(currentNode.getRight());
+                        } else {
+                            parent.setRight(currentNode.getRight());
+                        }
+                    } else {
+                        // если есть обе ветви
+                        TreeNode<T> minNode = currentNode.getRight();
+                        TreeNode<T> minParent = currentNode;
+                        while (minNode != null) {
+                            if (minNode.getLeft() == null) {
+                                break;
+                            }
+                            minParent = minNode;
+                            minNode = minNode.getLeft();
+                        }
+                        minParent.setLeft(minNode.getRight()); // установка правого потомка
+                        minNode.setLeft(currentNode.getLeft());
+                        minNode.setRight(currentNode.getRight());
+                        if (compare(minNode.getData(), parent.getData()) < 0) {
+                            parent.setLeft(minNode);
+                        } else {
+                            parent.setRight(minNode);
+                        }
+                    }
 
                 }
-
-                //2
-
-                //3
-
-
+                --count;
                 return true;
-
 
             } else if (compareResult < 0) {
                 if (currentNode.getLeft() == null) {
@@ -184,30 +248,34 @@ public class Tree<T> {
      */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("Tree:" + System.lineSeparator());
+        StringBuilder sb = new StringBuilder("Tree (count = " + count + "):" + System.lineSeparator());
         LinkedList<TreeNode<T>> queue = new LinkedList<>();
-        queue.addFirst(root);
 
-        while (queue.size() > 0) {
-            TreeNode<T> current = queue.getFirst();
-            sb.append(current.getData()).append(" (left: ");
-            TreeNode<T> left = current.getLeft();
-            TreeNode<T> right = current.getRight();
-            if (left != null) {
-                queue.addLast(left);
-                sb.append(left.getData());
-            } else {
-                sb.append("null");
+        if (root != null) {
+            queue.addFirst(root);
+            while (queue.size() > 0) {
+                TreeNode<T> current = queue.getFirst();
+                sb.append(current.getData()).append(" (left: ");
+                TreeNode<T> left = current.getLeft();
+                TreeNode<T> right = current.getRight();
+                if (left != null) {
+                    queue.addLast(left);
+                    sb.append(left.getData());
+                } else {
+                    sb.append("null");
+                }
+                sb.append(", right: ");
+                if (right != null) {
+                    queue.addLast(right);
+                    sb.append(right.getData());
+                } else {
+                    sb.append("null");
+                }
+                sb.append(')').append(System.lineSeparator());
+                queue.removeFirst();
             }
-            sb.append(", right: ");
-            if (right != null) {
-                queue.addLast(right);
-                sb.append(right.getData());
-            } else {
-                sb.append("null");
-            }
-            sb.append(')').append(System.lineSeparator());
-            queue.removeFirst();
+        } else {
+            sb.append("empty");
         }
         return sb.toString();
     }
@@ -218,4 +286,5 @@ public class Tree<T> {
     //TODO Обход в глубину без рекурсии
     //TODO hashCode()
     //TODO equals()
+    //TODO search переименовать в contains.
 }
