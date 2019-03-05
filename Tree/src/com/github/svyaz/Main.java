@@ -10,12 +10,13 @@ public class Main {
         tree.add(20);
         tree.add(22);
         tree.add(18);
-        tree.add(21);
+        tree.add(19);
         tree.add(21);
 
         System.out.println(tree);
-        tree.remove(20);
+        tree.remove(10);
         System.out.println(tree);
+        //tree.remove(10);
 
 
     }
