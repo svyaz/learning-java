@@ -307,7 +307,7 @@ public class TreeTest {
     }
 
     @Test
-    public void toStringTest() {
+    public void toStringNotEmptyTest() {
         Tree<Integer> tree = new Tree<>(10);
         tree.add(8);
         tree.add(18);
@@ -318,5 +318,11 @@ public class TreeTest {
         Assert.assertEquals(tree.toString(), string);
     }
 
-    //TODO empty tree toString test
+    @Test
+    public void toStringEmptyTest() {
+        Tree<Integer> tree = new Tree<>(10);
+        tree.remove(10);
+        String string = "Tree (count = 0):" + System.lineSeparator() + "empty";
+        Assert.assertEquals(tree.toString(), string);
+    }
 }
