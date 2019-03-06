@@ -162,10 +162,15 @@ public class Tree<T> {
                             ;
                          minParent = minNode, minNode = minNode.getLeft()) {
                         if (minNode.getLeft() == null) {
-                            minParent.setLeft(minNode.getRight()); // установка правого потомка
-                            minNode.setLeft(current.getLeft());
-                            minNode.setRight(current.getRight());
-                            deleteNode(minNode, parent, minNode);
+                            if (minParent == current) {
+                                minNode.setLeft(current.getLeft());
+                                deleteNode(current, parent, current.getRight());
+                            } else {
+                                minParent.setLeft(minNode.getRight()); // установка правого потомка
+                                minNode.setLeft(current.getLeft());
+                                minNode.setRight(current.getRight());
+                                deleteNode(minNode, parent, minNode);
+                            }
                             break;
                         }
                     }
@@ -187,184 +192,6 @@ public class Tree<T> {
             }
         }
         return false;
-
-        /*
-        // 2-nd variant
-        for (TreeNode<T> current = root, parent = null; current != null; ) {
-            int compareResult = compare(data, current.getData());
-
-            if (compareResult == 0) {
-                if (parent == null) {
-                    // удаление корня
-                    if (current.getLeft() == null && current.getRight() == null) {
-                        // нет потомков
-                        root = null;
-                    } else if (current.getLeft() != null && current.getRight() == null) {
-                        // есть только левая ветвь
-                        root = root.getLeft();
-                    } else if (current.getLeft() == null && current.getRight() != null) {
-                        // есть только правая ветвь
-                        root = root.getRight();
-                    } else {
-                        // если есть обе ветви
-                        for (TreeNode<T> minNode = current.getRight(), minParent = current;
-                                ;
-                             minParent = minNode, minNode = minNode.getLeft()) {
-                            if (minNode.getLeft() == null) {
-                                minParent.setLeft(minNode.getRight()); // установка правого потомка
-                                minNode.setLeft(current.getLeft());
-                                minNode.setRight(current.getRight());
-                                root = minNode;
-                                break;
-                            }
-                        }
-                    }
-                } else {
-                    // не корень
-                    if (current.getLeft() == null && current.getRight() == null) {
-                        // нет потомков
-                        deleteNode(current, parent, null);
-                    } else if (current.getLeft() != null && current.getRight() == null) {
-                        // есть только левая ветвь
-                        deleteNode(current, parent, current.getLeft());
-                    } else if (current.getLeft() == null && current.getRight() != null) {
-                        // есть только правая ветвь
-                        deleteNode(current, parent, current.getRight());
-                    } else {
-                        // если есть обе ветви
-                        for (TreeNode<T> minNode = current.getRight(), minParent = current;
-                                ;
-                             minParent = minNode, minNode = minNode.getLeft()) {
-                            if (minNode.getLeft() == null) {
-                                minParent.setLeft(minNode.getRight()); // установка правого потомка
-                                minNode.setLeft(current.getLeft());
-                                minNode.setRight(current.getRight());
-                                deleteNode(minNode, parent, minNode);
-                                break;
-                            }
-                        }
-                    }
-                }
-                --count;
-                return true;
-
-            } else if (compareResult < 0) {
-                if (current.getLeft() == null) {
-                    break;
-                }
-                parent = current;
-                current = current.getLeft();
-            } else {
-                if (current.getRight() == null) {
-                    break;
-                }
-                parent = current;
-                current = current.getRight();
-            }
-        }
-        return false;*/
-
-        /*
-        // 1-st variant
-        TreeNode<T> currentNode = root;
-        TreeNode<T> parent = null;
-
-        while (currentNode != null) {
-            int compareResult = compare(data, currentNode.getData());
-
-            if (compareResult == 0) {
-
-                if (parent == null) {
-                    // удаление корня
-                    if (currentNode.getLeft() == null && currentNode.getRight() == null) {
-                        // нет потомков
-                        root = null;
-                    } else if (currentNode.getLeft() != null && currentNode.getRight() == null) {
-                        // есть только левая ветвь
-                        root = root.getLeft();
-                    } else if (currentNode.getLeft() == null && currentNode.getRight() != null) {
-                        // есть только правая ветвь
-                        root = root.getRight();
-                    } else {
-                        // если есть обе ветви
-                        TreeNode<T> minNode = currentNode.getRight();
-                        TreeNode<T> minParent = currentNode;
-                        while (minNode != null) {
-                            if (minNode.getLeft() == null) {
-                                break;
-                            }
-                            minParent = minNode;
-                            minNode = minNode.getLeft();
-                        }
-                        minParent.setLeft(minNode.getRight()); // установка правого потомка
-                        minNode.setLeft(currentNode.getLeft());
-                        minNode.setRight(currentNode.getRight());
-                        root = minNode;
-                    }
-
-                } else {
-                    // не корень
-                    if (currentNode.getLeft() == null && currentNode.getRight() == null) {
-                        // нет потомков
-                        if (compare(data, parent.getData()) < 0) {
-                            parent.setLeft(null);
-                        } else {
-                            parent.setRight(null);
-                        }
-                    } else if (currentNode.getLeft() != null && currentNode.getRight() == null) {
-                        // есть только левая ветвь
-                        if (compare(data, parent.getData()) < 0) {
-                            parent.setLeft(currentNode.getLeft());
-                        } else {
-                            parent.setRight(currentNode.getLeft());
-                        }
-                    } else if (currentNode.getLeft() == null && currentNode.getRight() != null) {
-                        // есть только правая ветвь
-                        if (compare(data, parent.getData()) < 0) {
-                            parent.setLeft(currentNode.getRight());
-                        } else {
-                            parent.setRight(currentNode.getRight());
-                        }
-                    } else {
-                        // если есть обе ветви
-                        TreeNode<T> minNode = currentNode.getRight();
-                        TreeNode<T> minParent = currentNode;
-                        while (minNode != null) {
-                            if (minNode.getLeft() == null) {
-                                break;
-                            }
-                            minParent = minNode;
-                            minNode = minNode.getLeft();
-                        }
-                        minParent.setLeft(minNode.getRight()); // установка правого потомка
-                        minNode.setLeft(currentNode.getLeft());
-                        minNode.setRight(currentNode.getRight());
-                        if (compare(minNode.getData(), parent.getData()) < 0) {
-                            parent.setLeft(minNode);
-                        } else {
-                            parent.setRight(minNode);
-                        }
-                    }
-
-                }
-                --count;
-                return true;
-
-            } else if (compareResult < 0) {
-                if (currentNode.getLeft() == null) {
-                    break;
-                }
-                parent = currentNode;
-                currentNode = currentNode.getLeft();
-            } else {
-                if (currentNode.getRight() == null) {
-                    break;
-                }
-                parent = currentNode;
-                currentNode = currentNode.getRight();
-            }
-        }
-        return false;*/
     }
 
     private void deleteNode(TreeNode<T> node, TreeNode<T> parent, TreeNode<T> next) {
@@ -377,13 +204,6 @@ public class Tree<T> {
                 parent.setRight(next);
             }
         }
-        /*
-        // 2-nd variant
-        if (compare(node.getData(), parent.getData()) < 0) {
-            parent.setLeft(next);
-        } else {
-            parent.setRight(next);
-        }*/
     }
 
     /**
@@ -423,7 +243,7 @@ public class Tree<T> {
         return sb.toString();
     }
 
-    //TODO Удаление первого вхождения узла по значению
+    //TODO конструктор на пустое дерево
     //TODO Обход в ширину
     //TODO Обход в глубину с рекурсией
     //TODO Обход в глубину без рекурсии
