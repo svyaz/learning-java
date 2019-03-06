@@ -111,21 +111,25 @@ public class Tree<T> {
             throw new IllegalArgumentException(MSG_EXCEPTION_NULL_NOT_ACCEPTABLE);
         }
 
-        TreeNode<T> newNode = new TreeNode<>(data);
-        TreeNode<T> currentNode = root;
-        while (true) {
-            if (compare(data, currentNode.getData()) < 0) {
-                if (currentNode.getLeft() == null) {
-                    currentNode.setLeft(newNode);
-                    break;
+        if (root == null) {
+            root = new TreeNode<>(data);
+        } else {
+            TreeNode<T> newNode = new TreeNode<>(data);
+            TreeNode<T> current = root;
+            while (true) {
+                if (compare(data, current.getData()) < 0) {
+                    if (current.getLeft() == null) {
+                        current.setLeft(newNode);
+                        break;
+                    }
+                    current = current.getLeft();
+                } else {
+                    if (current.getRight() == null) {
+                        current.setRight(newNode);
+                        break;
+                    }
+                    current = current.getRight();
                 }
-                currentNode = currentNode.getLeft();
-            } else {
-                if (currentNode.getRight() == null) {
-                    currentNode.setRight(newNode);
-                    break;
-                }
-                currentNode = currentNode.getRight();
             }
         }
         ++count;
