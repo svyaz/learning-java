@@ -52,49 +52,49 @@ public class TreeTest {
     }
 
     @Test
-    public void searchTrueRootTest() {
+    public void containsTrueRootTest() {
         Tree<Integer> tree = new Tree<>(10);
         tree.add(2);
         tree.add(12);
-        Assert.assertTrue(tree.search(10));
+        Assert.assertTrue(tree.contains(10));
     }
 
     @Test
-    public void searchTrueLeftTest() {
+    public void containsTrueLeftTest() {
         Tree<Integer> tree = new Tree<>(10);
         tree.add(8);
         tree.add(9);
         tree.add(6);
         tree.add(7);
         tree.add(4);
-        Assert.assertTrue(tree.search(4));
+        Assert.assertTrue(tree.contains(4));
     }
 
     @Test
-    public void searchTrueRightTest() {
+    public void containsTrueRightTest() {
         Tree<Integer> tree = new Tree<>(10);
         tree.add(20);
         tree.add(18);
         tree.add(21);
         tree.add(22);
-        Assert.assertTrue(tree.search(22));
+        Assert.assertTrue(tree.contains(22));
     }
 
     @Test
-    public void searchFalseTest() {
+    public void containsFalseTest() {
         Tree<Integer> tree = new Tree<>(10);
         tree.add(8);
         tree.add(9);
         tree.add(6);
         tree.add(7);
         tree.add(4);
-        Assert.assertFalse(tree.search(0));
+        Assert.assertFalse(tree.contains(0));
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void searchExceptionTest() {
+    public void containsExceptionTest() {
         Tree<Integer> tree = new Tree<>(10);
-        tree.search(null);
+        tree.contains(null);
     }
 
     /* Удаление корня когда нет потомков */
@@ -113,7 +113,7 @@ public class TreeTest {
         String string = "Tree (count = 2):" + System.lineSeparator() +
                 "6 (left: 4, right: null)" + System.lineSeparator() +
                 "4 (left: null, right: null)" + System.lineSeparator();
-        Assert.assertTrue(tree.remove(10) && tree.size() == 2 && !tree.search(10) &&
+        Assert.assertTrue(tree.remove(10) && tree.size() == 2 && !tree.contains(10) &&
                 tree.toString().equals(string));
     }
 
@@ -126,7 +126,7 @@ public class TreeTest {
         String string = "Tree (count = 2):" + System.lineSeparator() +
                 "16 (left: null, right: 20)" + System.lineSeparator() +
                 "20 (left: null, right: null)" + System.lineSeparator();
-        Assert.assertTrue(tree.remove(10) && tree.size() == 2 && !tree.search(10) &&
+        Assert.assertTrue(tree.remove(10) && tree.size() == 2 && !tree.contains(10) &&
                 tree.toString().equals(string));
     }
 
@@ -143,7 +143,7 @@ public class TreeTest {
                 "6 (left: null, right: null)" + System.lineSeparator() +
                 "16 (left: null, right: 20)" + System.lineSeparator() +
                 "20 (left: null, right: null)" + System.lineSeparator();
-        Assert.assertTrue(tree.remove(10) && tree.size() == 4 && !tree.search(10) &&
+        Assert.assertTrue(tree.remove(10) && tree.size() == 4 && !tree.contains(10) &&
                 tree.toString().equals(string));
     }
 
@@ -160,7 +160,7 @@ public class TreeTest {
                 "6 (left: null, right: null)" + System.lineSeparator() +
                 "16 (left: null, right: 20)" + System.lineSeparator() +
                 "20 (left: null, right: null)" + System.lineSeparator();
-        Assert.assertTrue(tree.remove(14) && tree.size() == 4 && !tree.search(14) &&
+        Assert.assertTrue(tree.remove(14) && tree.size() == 4 && !tree.contains(14) &&
                 tree.toString().equals(string));
     }
 
@@ -177,7 +177,7 @@ public class TreeTest {
                 "6 (left: null, right: null)" + System.lineSeparator() +
                 "16 (left: 14, right: null)" + System.lineSeparator() +
                 "14 (left: null, right: null)" + System.lineSeparator();
-        Assert.assertTrue(tree.remove(20) && tree.size() == 4 && !tree.search(20) &&
+        Assert.assertTrue(tree.remove(20) && tree.size() == 4 && !tree.contains(20) &&
                 tree.toString().equals(string));
     }
 
@@ -196,7 +196,7 @@ public class TreeTest {
                 "16 (left: 12, right: 20)" + System.lineSeparator() +
                 "12 (left: null, right: null)" + System.lineSeparator() +
                 "20 (left: null, right: null)" + System.lineSeparator();
-        Assert.assertTrue(tree.remove(14) && tree.size() == 5 && !tree.search(14) &&
+        Assert.assertTrue(tree.remove(14) && tree.size() == 5 && !tree.contains(14) &&
                 tree.toString().equals(string));
     }
 
@@ -215,7 +215,7 @@ public class TreeTest {
                 "16 (left: 15, right: 20)" + System.lineSeparator() +
                 "15 (left: null, right: null)" + System.lineSeparator() +
                 "20 (left: null, right: null)" + System.lineSeparator();
-        Assert.assertTrue(tree.remove(14) && tree.size() == 5 && !tree.search(14) &&
+        Assert.assertTrue(tree.remove(14) && tree.size() == 5 && !tree.contains(14) &&
                 tree.toString().equals(string));
     }
 
@@ -234,7 +234,7 @@ public class TreeTest {
                 "20 (left: 14, right: null)" + System.lineSeparator() +
                 "14 (left: null, right: 15)" + System.lineSeparator() +
                 "15 (left: null, right: null)" + System.lineSeparator();
-        Assert.assertTrue(tree.remove(16) && tree.size() == 5 && !tree.search(16) &&
+        Assert.assertTrue(tree.remove(16) && tree.size() == 5 && !tree.contains(16) &&
                 tree.toString().equals(string));
     }
 
@@ -253,7 +253,7 @@ public class TreeTest {
                 "18 (left: 14, right: 20)" + System.lineSeparator() +
                 "14 (left: null, right: null)" + System.lineSeparator() +
                 "20 (left: null, right: null)" + System.lineSeparator();
-        Assert.assertTrue(tree.remove(16) && tree.size() == 5 && !tree.search(16) &&
+        Assert.assertTrue(tree.remove(16) && tree.size() == 5 && !tree.contains(16) &&
                 tree.toString().equals(string));
     }
 
@@ -274,7 +274,7 @@ public class TreeTest {
                 "14 (left: null, right: null)" + System.lineSeparator() +
                 "20 (left: 19, right: null)" + System.lineSeparator() +
                 "19 (left: null, right: null)" + System.lineSeparator();
-        Assert.assertTrue(tree.remove(16) && tree.size() == 6 && !tree.search(16) &&
+        Assert.assertTrue(tree.remove(16) && tree.size() == 6 && !tree.contains(16) &&
                 tree.toString().equals(string));
     }
 

@@ -71,12 +71,12 @@ public class Tree<T> {
     }
 
     /**
-     * Searches specified data in the tree.
+     * Returns true if the specified data is present in the tree.
      *
      * @return true if specified data is present, false otherwise.
      * @throws IllegalArgumentException if specified data is null.
      */
-    public boolean search(T data) {
+    public boolean contains(T data) {
         if (data == null) {
             throw new IllegalArgumentException(MSG_EXCEPTION_NULL_NOT_ACCEPTABLE);
         }
@@ -249,5 +249,4 @@ public class Tree<T> {
     //TODO Обход в глубину без рекурсии
     //TODO hashCode()
     //TODO equals()
-    //TODO search переименовать в contains.
 }
