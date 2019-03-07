@@ -232,6 +232,41 @@ public class Tree<T> {
     }
 
     /**
+     * Performs specified action for each element in the tree.
+     * Goes by depth.
+     * Recursive.
+     *
+     * @param action to perform.
+     */
+    public void forEachByDepthRecursive(Consumer<T> action) {
+        if (count > 0) {
+            performRecursive(root, action);
+        }
+    }
+
+    /**
+     * Internal supporting recursive method for going by depth.
+     *
+     * @param node   for perform action to.
+     * @param action action to perform.
+     */
+    private void performRecursive(TreeNode<T> node, Consumer<T> action) {
+        action.accept(node.getData());
+
+        TreeNode<T> left = node.getLeft();
+        TreeNode<T> right = node.getRight();
+        if (left == null && right == null) {
+            return;
+        }
+        if (left != null) {
+            performRecursive(left, action);
+        }
+        if (right != null) {
+            performRecursive(right, action);
+        }
+    }
+
+    /**
      * @return string representation of the tree.
      */
     @Override
@@ -268,7 +303,6 @@ public class Tree<T> {
         return sb.toString();
     }
 
-    //TODO Обход в глубину с рекурсией
     //TODO Обход в глубину без рекурсии
     //TODO hashCode()
     //TODO equals()
