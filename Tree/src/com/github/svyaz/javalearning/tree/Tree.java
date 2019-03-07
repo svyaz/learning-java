@@ -142,13 +142,13 @@ public class Tree<T> {
                 // не корень
                 if (current.getLeft() == null && current.getRight() == null) {
                     // нет потомков
-                    deleteNode(current, parent, null);
+                    removeNode(current, parent, null);
                 } else if (current.getLeft() != null && current.getRight() == null) {
                     // есть только левая ветвь
-                    deleteNode(current, parent, current.getLeft());
+                    removeNode(current, parent, current.getLeft());
                 } else if (current.getLeft() == null && current.getRight() != null) {
                     // есть только правая ветвь
-                    deleteNode(current, parent, current.getRight());
+                    removeNode(current, parent, current.getRight());
                 } else {
                     // если есть обе ветви
                     for (TreeNode<T> minNode = current.getRight(), minParent = current;
@@ -157,12 +157,12 @@ public class Tree<T> {
                         if (minNode.getLeft() == null) {
                             if (minParent == current) {
                                 minNode.setLeft(current.getLeft());
-                                deleteNode(current, parent, current.getRight());
+                                removeNode(current, parent, current.getRight());
                             } else {
                                 minParent.setLeft(minNode.getRight()); // установка правого потомка
                                 minNode.setLeft(current.getLeft());
                                 minNode.setRight(current.getRight());
-                                deleteNode(minNode, parent, minNode);
+                                removeNode(minNode, parent, minNode);
                             }
                             break;
                         }
@@ -187,7 +187,14 @@ public class Tree<T> {
         return false;
     }
 
-    private void deleteNode(TreeNode<T> node, TreeNode<T> parent, TreeNode<T> next) {
+    /**
+     * Internal supporting method for removing node.
+     *
+     * @param node   to remove.
+     * @param parent node which left or right son is linked to next node.
+     * @param next   node.
+     */
+    private void removeNode(TreeNode<T> node, TreeNode<T> parent, TreeNode<T> next) {
         if (parent == null) {
             root = next;
         } else {
