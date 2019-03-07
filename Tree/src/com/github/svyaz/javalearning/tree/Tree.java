@@ -2,6 +2,7 @@ package com.github.svyaz.javalearning.tree;
 
 import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.function.Consumer;
 
 public class Tree<T> {
     private static final String MSG_EXCEPTION_NULL_NOT_ACCEPTABLE = "null is not acceptable as data.";
@@ -207,14 +208,38 @@ public class Tree<T> {
     }
 
     /**
+     * Performs specified action for each element in the tree.
+     * Goes by width.
+     *
+     * @param action to perform.
+     */
+    public void forEachByWidth(Consumer<T> action) {
+        if (count > 0) {
+            LinkedList<TreeNode<T>> queue = new LinkedList<>();
+            queue.addFirst(root);
+            while (queue.size() > 0) {
+                TreeNode<T> current = queue.getFirst();
+                action.accept(current.getData());
+                if (current.getLeft() != null) {
+                    queue.addLast(current.getLeft());
+                }
+                if (current.getRight() != null) {
+                    queue.addLast(current.getRight());
+                }
+                queue.removeFirst();
+            }
+        }
+    }
+
+    /**
      * @return string representation of the tree.
      */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Tree (count = " + count + "):" + System.lineSeparator());
-        LinkedList<TreeNode<T>> queue = new LinkedList<>();
 
-        if (root != null) {
+        if (count > 0) {
+            LinkedList<TreeNode<T>> queue = new LinkedList<>();
             queue.addFirst(root);
             while (queue.size() > 0) {
                 TreeNode<T> current = queue.getFirst();
@@ -243,7 +268,6 @@ public class Tree<T> {
         return sb.toString();
     }
 
-    //TODO Обход в ширину
     //TODO Обход в глубину с рекурсией
     //TODO Обход в глубину без рекурсии
     //TODO hashCode()

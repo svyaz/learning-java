@@ -4,8 +4,8 @@ import com.github.svyaz.javalearning.tree.Tree;
 
 public class Main {
     public static void main(String[] args) {
+        // Create tree
         Tree<Integer> tree = new Tree<>();
-
         tree.add(10);
         tree.add(9);
         tree.add(20);
@@ -14,10 +14,11 @@ public class Main {
         tree.add(19);
         tree.add(21);
 
+        // Print tree
         System.out.println(tree);
-        tree.remove(10);
-        System.out.println(tree);
-        //tree.remove(10);
+
+        // Perform an action by width
+        tree.forEachByWidth(x -> System.out.println((double) x / 2.0));
 
 
     }
