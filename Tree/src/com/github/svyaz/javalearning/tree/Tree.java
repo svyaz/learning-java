@@ -21,27 +21,16 @@ public class Tree<T> {
     private int count;
 
     /**
-     * Creates Tree with 1 item specified as root data.
-     *
-     * @throws IllegalArgumentException if specified data is null.
+     * Creates empty Tree.
      */
-    public Tree(T data) {
-        this(data, null);
+    public Tree() {
     }
 
     /**
-     * Creates Tree with 1 item specified as root data and
-     * specified comparator.
-     *
-     * @throws IllegalArgumentException if specified data is null.
+     * Creates empty Tree with specified comparator.
      */
-    public Tree(T data, Comparator<T> comparator) {
-        if (data == null) {
-            throw new IllegalArgumentException(MSG_EXCEPTION_NULL_NOT_ACCEPTABLE);
-        }
+    public Tree(Comparator<T> comparator) {
         this.comparator = comparator;
-        root = new TreeNode<>(data);
-        count = 1;
     }
 
     /**
@@ -247,7 +236,6 @@ public class Tree<T> {
         return sb.toString();
     }
 
-    //TODO конструктор на пустое дерево
     //TODO Обход в ширину
     //TODO Обход в глубину с рекурсией
     //TODO Обход в глубину без рекурсии

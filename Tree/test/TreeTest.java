@@ -7,13 +7,8 @@ import java.util.Comparator;
 public class TreeTest {
     @Test
     public void constructorTest() {
-        Tree<String> tree = new Tree<>("Hello Tree!");
-        Assert.assertEquals(tree.size(), 1);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void constructorExceptionTest() {
-        new Tree<String>(null);
+        Tree<String> tree = new Tree<>();
+        Assert.assertEquals(tree.size(), 0);
     }
 
     @Test
@@ -25,35 +20,38 @@ public class TreeTest {
                 return Integer.compare(o1.length(), o2.length());
             }
         };
-        Tree<String> tree = new Tree<>("12345", byLengthComparator);
+        Tree<String> tree = new Tree<>(byLengthComparator);
         tree.add("1234");
         tree.add("123456");
-        Assert.assertEquals(tree.size(), 3);
+        Assert.assertEquals(tree.size(), 2);
     }
 
     @Test
     public void addToLeftTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(8);
         Assert.assertEquals(tree.size(), 2);
     }
 
     @Test
     public void addToRightTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(12);
         Assert.assertEquals(tree.size(), 2);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void addExceptionTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
         tree.add(null);
     }
 
     @Test
     public void containsTrueRootTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(2);
         tree.add(12);
         Assert.assertTrue(tree.contains(10));
@@ -61,7 +59,8 @@ public class TreeTest {
 
     @Test
     public void containsTrueLeftTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(8);
         tree.add(9);
         tree.add(6);
@@ -72,7 +71,8 @@ public class TreeTest {
 
     @Test
     public void containsTrueRightTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(20);
         tree.add(18);
         tree.add(21);
@@ -82,7 +82,8 @@ public class TreeTest {
 
     @Test
     public void containsFalseTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(8);
         tree.add(9);
         tree.add(6);
@@ -93,21 +94,24 @@ public class TreeTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void containsExceptionTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.contains(null);
     }
 
     /* Удаление корня когда нет потомков */
     @Test
     public void removeRootWithoutSonsTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         Assert.assertTrue(tree.remove(10) && tree.size() == 0);
     }
 
     /* Удаление корня когда только левый потомок */
     @Test
     public void removeRootWitOnlyLeftSonTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(6);
         tree.add(4);
         String string = "Tree (count = 2):" + System.lineSeparator() +
@@ -120,7 +124,8 @@ public class TreeTest {
     /* Удаление корня когда только правый потомок */
     @Test
     public void removeRootWitOnlyRightSonTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(16);
         tree.add(20);
         String string = "Tree (count = 2):" + System.lineSeparator() +
@@ -133,7 +138,8 @@ public class TreeTest {
     /* Удаление корня когда оба потомка */
     @Test
     public void removeRootWitBothSons() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(6);
         tree.add(16);
         tree.add(14);
@@ -150,7 +156,8 @@ public class TreeTest {
     /* Удаление левого листа */
     @Test
     public void removeLeftLeafTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(6);
         tree.add(16);
         tree.add(14);
@@ -167,7 +174,8 @@ public class TreeTest {
     /* Удаление правого листа */
     @Test
     public void removeRightLeafTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(6);
         tree.add(16);
         tree.add(14);
@@ -184,7 +192,8 @@ public class TreeTest {
     /* Удаление элеменита с одним левым потомком */
     @Test
     public void removeNodeWithOnlyOneLeftSonTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(6);
         tree.add(16);
         tree.add(14);
@@ -203,7 +212,8 @@ public class TreeTest {
     /* Удаление элеменита с одним правым потомком */
     @Test
     public void removeNodeWithOnlyOneRightSonTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(6);
         tree.add(16);
         tree.add(14);
@@ -222,7 +232,8 @@ public class TreeTest {
     /* Удаление элеменита с двумя потомками. В правой ветви только один элемент. */
     @Test
     public void removeNodeWithTwoSons1RightNodeTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(6);
         tree.add(16);
         tree.add(14);
@@ -241,7 +252,8 @@ public class TreeTest {
     /* Удаление элеменита с двумя потомками. В правой ветви есть левый элемент без потомков. */
     @Test
     public void removeNodeWithTwoSonsLeftWithoutSonsTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(6);
         tree.add(16);
         tree.add(14);
@@ -260,7 +272,8 @@ public class TreeTest {
     /* Удаление элеменита с двумя потомками. В правой ветви есть левый элемент с правым потомков. */
     @Test
     public void removeNodeWithTwoSonsLeftWithRightSonTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(6);
         tree.add(16);
         tree.add(14);
@@ -281,7 +294,8 @@ public class TreeTest {
     /* Элемент не найден в пустом дереве. */
     @Test
     public void removeElementNotFountInEmptyTreeTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(6);
         tree.add(16);
         tree.add(14);
@@ -294,21 +308,21 @@ public class TreeTest {
     /* Элемент не найден в пустом дереве. */
     @Test
     public void removeElementNotFountTest() {
-        Tree<Integer> tree = new Tree<>(10);
-        tree.remove(10);
+        Tree<Integer> tree = new Tree<>();
         Assert.assertFalse(tree.remove(50));
     }
 
     /* IllegalArgumentException test */
     @Test(expected = IllegalArgumentException.class)
     public void removeIllegalArgumentExceptionTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
         tree.remove(null);
     }
 
     @Test
     public void toStringNotEmptyTest() {
-        Tree<Integer> tree = new Tree<>(10);
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
         tree.add(8);
         tree.add(18);
         String string = "Tree (count = 3):" + System.lineSeparator() +
@@ -320,8 +334,7 @@ public class TreeTest {
 
     @Test
     public void toStringEmptyTest() {
-        Tree<Integer> tree = new Tree<>(10);
-        tree.remove(10);
+        Tree<Integer> tree = new Tree<>();
         String string = "Tree (count = 0):" + System.lineSeparator() + "empty";
         Assert.assertEquals(tree.toString(), string);
     }
