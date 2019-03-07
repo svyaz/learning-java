@@ -2,6 +2,7 @@ package com.github.svyaz.javalearning.tree;
 
 import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 public class Tree<T> {
@@ -325,6 +326,77 @@ public class Tree<T> {
         return sb.toString();
     }
 
-    //TODO hashCode()
-    //TODO equals()
+    /**
+     * Returns true if the specified object is equal to the tree.
+     *
+     * @param object compare with.
+     * @return true for equal objects.
+     */
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        Tree<?> tree = (Tree<?>) object;
+        if (count != tree.count) {
+            return false;
+        }
+        if (comparator != null ? !comparator.equals(tree.comparator) : tree.comparator != null) {
+            return false;
+        }
+
+        if (count > 0) {
+            LinkedList<TreeNode<T>> thisStack = new LinkedList<>();
+            LinkedList<TreeNode<?>> treeStack = new LinkedList<>();
+            thisStack.addLast(this.root);
+            treeStack.addLast(tree.root);
+            while (thisStack.size() > 0) {
+                TreeNode<T> thisCurrent = thisStack.removeLast();
+                TreeNode<?> treeCurrent = treeStack.removeLast();
+                if (!Objects.equals(thisCurrent.getData(), treeCurrent.getData()) ||
+                        !Objects.equals(thisCurrent.getRight(), treeCurrent.getRight()) ||
+                        !Objects.equals(thisCurrent.getLeft(), treeCurrent.getLeft())) {
+                    return false;
+                }
+                if (thisCurrent.getRight() != null) {
+                    thisStack.addLast(thisCurrent.getRight());
+                    treeStack.addLast(treeCurrent.getRight());
+                }
+                if (thisCurrent.getLeft() != null) {
+                    thisStack.addLast(thisCurrent.getLeft());
+                    treeStack.addLast(treeCurrent.getLeft());
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Calculates hash code of the tree.
+     *
+     * @return hashCode integer value.
+     */
+    @Override
+    public int hashCode() {
+        int result = 37 + Objects.hashCode(comparator);
+        if (count > 0) {
+            LinkedList<TreeNode<T>> queue = new LinkedList<>();
+            queue.addFirst(root);
+            while (queue.size() > 0) {
+                TreeNode<T> current = queue.removeFirst();
+                result = 37 * result + current.hashCode();
+                if (current.getLeft() != null) {
+                    queue.addLast(current.getLeft());
+                }
+                if (current.getRight() != null) {
+                    queue.addLast(current.getRight());
+                }
+            }
+        }
+        return result;
+    }
 }

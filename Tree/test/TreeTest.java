@@ -338,4 +338,99 @@ public class TreeTest {
         String string = "Tree (count = 0):" + System.lineSeparator() + "empty";
         Assert.assertEquals(tree.toString(), string);
     }
+
+    @Test
+    public void equalsSameObjectTest() {
+        Tree<String> tree = new Tree<>();
+        Assert.assertEquals(tree, tree);
+    }
+
+    @Test
+    public void equalsNullTest() {
+        Tree<String> tree = new Tree<>();
+        Assert.assertNotEquals(tree, null);
+    }
+
+    @Test
+    public void equalsDifferentTypesObjectsTest() {
+        Tree<String> tree = new Tree<>();
+        tree.add("Hi there");
+        StringBuilder object = new StringBuilder("Hi there");
+        Assert.assertNotEquals(tree, object);
+    }
+
+    @Test
+    public void equalsDifferentDataTypesTest() {
+        Tree<Integer> intTree = new Tree<>();
+        intTree.add(10);
+        Tree<Double> doubleTree = new Tree<>();
+        doubleTree.add(10.0);
+        Assert.assertNotEquals(intTree, doubleTree);
+    }
+
+    @Test
+    public void equalsDifferentSizesTest() {
+        Tree<String> tree1 = new Tree<>();
+        tree1.add("Hi there");
+        tree1.add("Hello world!");
+        Tree<String> tree2 = new Tree<>();
+        tree2.add("Hi there");
+        Assert.assertNotEquals(tree1, tree2);
+    }
+
+    @Test
+    public void equalsTrueTest() {
+        Tree<Integer> tree1 = new Tree<>();
+        tree1.add(10);
+        tree1.add(5);
+        tree1.add(15);
+        Tree<Integer> tree2 = new Tree<>();
+        tree2.add(10);
+        tree2.add(5);
+        tree2.add(15);
+        Assert.assertEquals(tree1, tree2);
+    }
+
+    @Test
+    public void equalsFalseTest() {
+        Tree<Integer> tree1 = new Tree<>();
+        tree1.add(10);
+        tree1.add(5);
+        tree1.add(15);
+        Tree<Integer> tree2 = new Tree<>();
+        tree2.add(10);
+        tree2.add(5);
+        tree2.add(14);
+        Assert.assertNotEquals(tree1, tree2);
+    }
+
+    @Test
+    public void hashCode1Test() {
+        Tree<String> tree = new Tree<>();
+        tree.add("1 item");
+        tree.add("2 item");
+        tree.add("3 item");
+        Assert.assertEquals(tree.hashCode(), -1888439672);
+    }
+
+    @Test
+    @SuppressWarnings("all")
+    public void hashCode2Test() {
+        Tree<String> tree1 = new Tree<>();
+        tree1.add(new String("Hi there"));
+        Tree<String> tree2 = new Tree<>();
+        tree2.add(new String("Hi there"));
+        Assert.assertEquals(tree1.hashCode(), tree2.hashCode());
+    }
+
+    @Test
+    public void hashCode3Test() {
+        Tree<String> tree1 = new Tree<>();
+        tree1.add("Hi");
+        tree1.add("there");
+        Tree<String> tree2 = new Tree<>();
+        tree2.add("Hi");
+        tree2.add("buddy");
+        Assert.assertNotEquals(tree1.hashCode(), tree2.hashCode());
+    }
 }
