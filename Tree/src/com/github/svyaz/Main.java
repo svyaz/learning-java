@@ -41,5 +41,7 @@ public class Main {
         stringTree.forEachByDepthRecursive(s -> System.out.println(s.toUpperCase()));
         System.out.println();
 
+        // Perform an action by depth. Non recursive
+        stringTree.forEachByDepthNonRecursive(s -> System.out.println(s.replaceAll("[aeiouy]", "*")));
     }
 }

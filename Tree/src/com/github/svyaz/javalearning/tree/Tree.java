@@ -218,7 +218,7 @@ public class Tree<T> {
             LinkedList<TreeNode<T>> queue = new LinkedList<>();
             queue.addFirst(root);
             while (queue.size() > 0) {
-                TreeNode<T> current = queue.getFirst();
+                TreeNode<T> current = queue.removeFirst();
                 action.accept(current.getData());
                 if (current.getLeft() != null) {
                     queue.addLast(current.getLeft());
@@ -226,7 +226,30 @@ public class Tree<T> {
                 if (current.getRight() != null) {
                     queue.addLast(current.getRight());
                 }
-                queue.removeFirst();
+            }
+        }
+    }
+
+    /**
+     * Performs specified action for each element in the tree.
+     * Goes by depth.
+     * Non recursive.
+     *
+     * @param action to perform.
+     */
+    public void forEachByDepthNonRecursive(Consumer<T> action) {
+        if (count > 0) {
+            LinkedList<TreeNode<T>> stack = new LinkedList<>();
+            stack.addLast(root);
+            while (stack.size() > 0) {
+                TreeNode<T> current = stack.removeLast();
+                action.accept(current.getData());
+                if (current.getRight() != null) {
+                    stack.addLast(current.getRight());
+                }
+                if (current.getLeft() != null) {
+                    stack.addLast(current.getLeft());
+                }
             }
         }
     }
@@ -277,7 +300,7 @@ public class Tree<T> {
             LinkedList<TreeNode<T>> queue = new LinkedList<>();
             queue.addFirst(root);
             while (queue.size() > 0) {
-                TreeNode<T> current = queue.getFirst();
+                TreeNode<T> current = queue.removeFirst();
                 sb.append(current.getData()).append(" (left: ");
                 TreeNode<T> left = current.getLeft();
                 TreeNode<T> right = current.getRight();
@@ -295,7 +318,6 @@ public class Tree<T> {
                     sb.append("null");
                 }
                 sb.append(')').append(System.lineSeparator());
-                queue.removeFirst();
             }
         } else {
             sb.append("empty");
@@ -303,7 +325,6 @@ public class Tree<T> {
         return sb.toString();
     }
 
-    //TODO Обход в глубину без рекурсии
     //TODO hashCode()
     //TODO equals()
 }
