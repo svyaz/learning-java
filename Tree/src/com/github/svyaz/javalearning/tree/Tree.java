@@ -1,8 +1,6 @@
 package com.github.svyaz.javalearning.tree;
 
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class Tree<T> {
@@ -72,21 +70,21 @@ public class Tree<T> {
             throw new IllegalArgumentException(MSG_EXCEPTION_NULL_NOT_ACCEPTABLE);
         }
 
-        TreeNode<T> currentNode = root;
+        TreeNode<T> current = root;
         while (true) {
-            int compareResult = compare(data, currentNode.getData());
+            int compareResult = compare(data, current.getData());
             if (compareResult == 0) {
                 return true;
             } else if (compareResult < 0) {
-                if (currentNode.getLeft() == null) {
+                if (current.getLeft() == null) {
                     break;
                 }
-                currentNode = currentNode.getLeft();
+                current = current.getLeft();
             } else {
-                if (currentNode.getRight() == null) {
+                if (current.getRight() == null) {
                     break;
                 }
-                currentNode = currentNode.getRight();
+                current = current.getRight();
             }
         }
         return false;
@@ -216,16 +214,16 @@ public class Tree<T> {
      */
     public void forEachByWidth(Consumer<T> action) {
         if (count > 0) {
-            LinkedList<TreeNode<T>> queue = new LinkedList<>();
-            queue.addFirst(root);
+            Queue<TreeNode<T>> queue = new LinkedList<>();
+            queue.add(root);
             while (queue.size() > 0) {
-                TreeNode<T> current = queue.removeFirst();
+                TreeNode<T> current = queue.remove();
                 action.accept(current.getData());
                 if (current.getLeft() != null) {
-                    queue.addLast(current.getLeft());
+                    queue.add(current.getLeft());
                 }
                 if (current.getRight() != null) {
-                    queue.addLast(current.getRight());
+                    queue.add(current.getRight());
                 }
             }
         }
@@ -240,16 +238,16 @@ public class Tree<T> {
      */
     public void forEachByDepthNonRecursive(Consumer<T> action) {
         if (count > 0) {
-            LinkedList<TreeNode<T>> stack = new LinkedList<>();
-            stack.addLast(root);
+            Deque<TreeNode<T>> stack = new LinkedList<>();
+            stack.push(root);
             while (stack.size() > 0) {
-                TreeNode<T> current = stack.removeLast();
+                TreeNode<T> current = stack.pop();
                 action.accept(current.getData());
                 if (current.getRight() != null) {
-                    stack.addLast(current.getRight());
+                    stack.push(current.getRight());
                 }
                 if (current.getLeft() != null) {
-                    stack.addLast(current.getLeft());
+                    stack.push(current.getLeft());
                 }
             }
         }
@@ -298,22 +296,22 @@ public class Tree<T> {
         StringBuilder sb = new StringBuilder("Tree (count = " + count + "):" + System.lineSeparator());
 
         if (count > 0) {
-            LinkedList<TreeNode<T>> queue = new LinkedList<>();
-            queue.addFirst(root);
+            Queue<TreeNode<T>> queue = new LinkedList<>();
+            queue.add(root);
             while (queue.size() > 0) {
-                TreeNode<T> current = queue.removeFirst();
+                TreeNode<T> current = queue.remove();
                 sb.append(current.getData()).append(" (left: ");
                 TreeNode<T> left = current.getLeft();
                 TreeNode<T> right = current.getRight();
                 if (left != null) {
-                    queue.addLast(left);
+                    queue.add(left);
                     sb.append(left.getData());
                 } else {
                     sb.append("null");
                 }
                 sb.append(", right: ");
                 if (right != null) {
-                    queue.addLast(right);
+                    queue.add(right);
                     sb.append(right.getData());
                 } else {
                     sb.append("null");
@@ -350,25 +348,25 @@ public class Tree<T> {
         }
 
         if (count > 0) {
-            LinkedList<TreeNode<T>> thisStack = new LinkedList<>();
-            LinkedList<TreeNode<?>> treeStack = new LinkedList<>();
-            thisStack.addLast(this.root);
-            treeStack.addLast(tree.root);
+            Deque<TreeNode<T>> thisStack = new LinkedList<>();
+            Deque<TreeNode<?>> treeStack = new LinkedList<>();
+            thisStack.push(this.root);
+            treeStack.push(tree.root);
             while (thisStack.size() > 0) {
-                TreeNode<T> thisCurrent = thisStack.removeLast();
-                TreeNode<?> treeCurrent = treeStack.removeLast();
+                TreeNode<T> thisCurrent = thisStack.pop();
+                TreeNode<?> treeCurrent = treeStack.pop();
                 if (!Objects.equals(thisCurrent.getData(), treeCurrent.getData()) ||
                         !Objects.equals(thisCurrent.getRight(), treeCurrent.getRight()) ||
                         !Objects.equals(thisCurrent.getLeft(), treeCurrent.getLeft())) {
                     return false;
                 }
                 if (thisCurrent.getRight() != null) {
-                    thisStack.addLast(thisCurrent.getRight());
-                    treeStack.addLast(treeCurrent.getRight());
+                    thisStack.push(thisCurrent.getRight());
+                    treeStack.push(treeCurrent.getRight());
                 }
                 if (thisCurrent.getLeft() != null) {
-                    thisStack.addLast(thisCurrent.getLeft());
-                    treeStack.addLast(treeCurrent.getLeft());
+                    thisStack.push(thisCurrent.getLeft());
+                    treeStack.push(treeCurrent.getLeft());
                 }
             }
         }
@@ -384,16 +382,16 @@ public class Tree<T> {
     public int hashCode() {
         int result = 37 + Objects.hashCode(comparator);
         if (count > 0) {
-            LinkedList<TreeNode<T>> queue = new LinkedList<>();
-            queue.addFirst(root);
+            Queue<TreeNode<T>> queue = new LinkedList<>();
+            queue.add(root);
             while (queue.size() > 0) {
-                TreeNode<T> current = queue.removeFirst();
+                TreeNode<T> current = queue.remove();
                 result = 37 * result + current.hashCode();
                 if (current.getLeft() != null) {
-                    queue.addLast(current.getLeft());
+                    queue.add(current.getLeft());
                 }
                 if (current.getRight() != null) {
-                    queue.addLast(current.getRight());
+                    queue.add(current.getRight());
                 }
             }
         }
