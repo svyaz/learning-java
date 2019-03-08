@@ -42,10 +42,18 @@ public class TreeTest {
         Assert.assertEquals(tree.size(), 2);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void addExceptionTest() {
+    @Test
+    public void addNullTest() {
         Tree<Integer> tree = new Tree<>();
         tree.add(null);
+        Assert.fail();
+    }
+
+    @Test
+    public void compareTest() {
+        Tree<Integer> tree = new Tree<>();
+        tree.add(10);
+        System.out.println(tree.compare(null, 10));
     }
 
     @Test

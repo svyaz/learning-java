@@ -4,7 +4,6 @@ import java.util.*;
 import java.util.function.Consumer;
 
 public class Tree<T> {
-    private static final String MSG_EXCEPTION_NULL_NOT_ACCEPTABLE = "null is not acceptable as data.";
     /**
      * Root node
      */
@@ -51,6 +50,16 @@ public class Tree<T> {
      * @throws ClassCastException if data1 cannot be cast to Comparable<T>.
      */
     private int compare(T data1, T data2) {
+        if (data1 == null && data2 == null) {
+            return 0;
+        }
+        if (data1 == null) {
+            return -1;
+        }
+        if (data2 == null) {
+            return 1;
+        }
+
         if (comparator == null) {
             @SuppressWarnings("unchecked")
             Comparable<T> comp = (Comparable<T>) data1;
@@ -66,10 +75,6 @@ public class Tree<T> {
      * @throws IllegalArgumentException if specified data is null.
      */
     public boolean contains(T data) {
-        if (data == null) {
-            throw new IllegalArgumentException(MSG_EXCEPTION_NULL_NOT_ACCEPTABLE);
-        }
-
         TreeNode<T> current = root;
         while (true) {
             int compareResult = compare(data, current.getData());
@@ -96,10 +101,6 @@ public class Tree<T> {
      * @throws IllegalArgumentException if specified data is null.
      */
     public void add(T data) {
-        if (data == null) {
-            throw new IllegalArgumentException(MSG_EXCEPTION_NULL_NOT_ACCEPTABLE);
-        }
-
         if (root == null) {
             root = new TreeNode<>(data);
         } else {
@@ -131,10 +132,6 @@ public class Tree<T> {
      * @throws IllegalArgumentException if specified data is null.
      */
     public boolean remove(T data) {
-        if (data == null) {
-            throw new IllegalArgumentException(MSG_EXCEPTION_NULL_NOT_ACCEPTABLE);
-        }
-
         for (TreeNode<T> current = root, parent = null; current != null; ) {
             int compareResult = compare(data, current.getData());
 
@@ -323,6 +320,8 @@ public class Tree<T> {
         }
         return sb.toString();
     }
+
+    // TODO toString() left: -- right: --
 
     /**
      * Returns true if the specified object is equal to the tree.
