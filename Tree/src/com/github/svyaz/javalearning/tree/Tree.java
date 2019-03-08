@@ -304,14 +304,14 @@ public class Tree<T> {
                     queue.add(left);
                     sb.append(left.getData());
                 } else {
-                    sb.append("null");
+                    sb.append("--");
                 }
                 sb.append(", right: ");
                 if (right != null) {
                     queue.add(right);
                     sb.append(right.getData());
                 } else {
-                    sb.append("null");
+                    sb.append("--");
                 }
                 sb.append(')').append(System.lineSeparator());
             }
@@ -320,8 +320,6 @@ public class Tree<T> {
         }
         return sb.toString();
     }
-
-    // TODO toString() left: -- right: --
 
     /**
      * Returns true if the specified object is equal to the tree.
