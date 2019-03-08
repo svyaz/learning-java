@@ -131,57 +131,64 @@ public class Tree<T> {
      * @return true if the tree was changed as a result of the method call.
      * @throws IllegalArgumentException if specified data is null.
      */
+    @SuppressWarnings("all")
     public boolean remove(T data) {
-        for (TreeNode<T> current = root, parent = null; current != null; ) {
+        if (root == null) {
+            return false;
+        }
+
+        TreeNode<T> current = root;
+        TreeNode<T> parent = null;
+        while (current != null) {
             int compareResult = compare(data, current.getData());
 
             if (compareResult == 0) {
-                // не корень
-                if (current.getLeft() == null && current.getRight() == null) {
-                    // нет потомков
-                    removeNode(current, parent, null);
-                } else if (current.getLeft() != null && current.getRight() == null) {
-                    // есть только левая ветвь
-                    removeNode(current, parent, current.getLeft());
-                } else if (current.getLeft() == null && current.getRight() != null) {
-                    // есть только правая ветвь
-                    removeNode(current, parent, current.getRight());
-                } else {
-                    // если есть обе ветви
-                    for (TreeNode<T> minNode = current.getRight(), minParent = current;
-                            ;
-                         minParent = minNode, minNode = minNode.getLeft()) {
-                        if (minNode.getLeft() == null) {
-                            if (minParent == current) {
-                                minNode.setLeft(current.getLeft());
-                                removeNode(current, parent, current.getRight());
-                            } else {
-                                minParent.setLeft(minNode.getRight()); // установка правого потомка
-                                minNode.setLeft(current.getLeft());
-                                minNode.setRight(current.getRight());
-                                removeNode(minNode, parent, minNode);
-                            }
-                            break;
-                        }
-                    }
-                }
-                --count;
-                return true;
+                break;
             } else if (compareResult < 0) {
                 if (current.getLeft() == null) {
-                    break;
+                    return false;
                 }
                 parent = current;
                 current = current.getLeft();
             } else {
                 if (current.getRight() == null) {
-                    break;
+                    return false;
                 }
                 parent = current;
                 current = current.getRight();
             }
         }
-        return false;
+
+        if (current.getLeft() == null && current.getRight() == null) {
+            // нет потомков
+            removeNode(current, parent, null);
+        } else if (current.getLeft() != null && current.getRight() == null) {
+            // есть только левая ветвь
+            removeNode(current, parent, current.getLeft());
+        } else if (current.getLeft() == null && current.getRight() != null) {
+            // есть только правая ветвь
+            removeNode(current, parent, current.getRight());
+        } else {
+            // если есть обе ветви
+            for (TreeNode<T> minNode = current.getRight(), minParent = current;
+                    ;
+                 minParent = minNode, minNode = minNode.getLeft()) {
+                if (minNode.getLeft() == null) {
+                    if (minParent == current) {
+                        minNode.setLeft(current.getLeft());
+                        removeNode(current, parent, current.getRight());
+                    } else {
+                        minParent.setLeft(minNode.getRight()); // установка правого потомка
+                        minNode.setLeft(current.getLeft());
+                        minNode.setRight(current.getRight());
+                        removeNode(minNode, parent, minNode);
+                    }
+                    break;
+                }
+            }
+        }
+        --count;
+        return true;
     }
 
     /**

@@ -51,7 +51,7 @@ public class TreeTest {
                 "10 (left: null, right: --)" + System.lineSeparator() +
                 "null (left: --, right: --)" + System.lineSeparator();
         Assert.assertTrue(tree.contains(null) && tree.size() == 2 &&
-                tree.toString().equals(string));
+        tree.toString().equals(string));
     }
 
     @Test
