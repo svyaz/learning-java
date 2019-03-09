@@ -1,6 +1,7 @@
 package com.github.svyaz.javalearning.graph;
 
 public class Graph<T> {
+    private final static String EXC_MSG_INDEX_OUT_OF_BOUNDS = "Specified index is out of bounds of vertices.";
     /**
      * Graph structure is a 2-dimensions array
      */
@@ -38,7 +39,7 @@ public class Graph<T> {
     @SuppressWarnings("unchecked")
     public T get(int index) {
         if (index < 0 || index >= vertices.length) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException(EXC_MSG_INDEX_OUT_OF_BOUNDS);
         }
         return (T) vertices[index];
     }
