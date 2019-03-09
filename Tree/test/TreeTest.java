@@ -116,6 +116,12 @@ public class TreeTest {
         Assert.assertFalse(tree.contains(null));
     }
 
+    @Test
+    public void containsEmptyTreeTest() {
+        Tree<Integer> tree = new Tree<>();
+        Assert.assertFalse(tree.contains(10));
+    }
+
     /* Удаление корня когда нет потомков */
     @Test
     public void removeRootWithoutSonsTest() {

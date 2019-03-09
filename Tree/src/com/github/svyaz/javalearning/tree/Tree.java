@@ -75,6 +75,9 @@ public class Tree<T> {
      * @throws IllegalArgumentException if specified data is null.
      */
     public boolean contains(T data) {
+        if (count == 0) {
+            return false;
+        }
         TreeNode<T> current = root;
         while (true) {
             int compareResult = compare(data, current.getData());
