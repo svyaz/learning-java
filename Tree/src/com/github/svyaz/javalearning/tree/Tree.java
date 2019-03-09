@@ -134,7 +134,6 @@ public class Tree<T> {
      * @return true if the tree was changed as a result of the method call.
      * @throws IllegalArgumentException if specified data is null.
      */
-    @SuppressWarnings("all")
     public boolean remove(T data) {
         if (root == null) {
             return false;
@@ -142,7 +141,7 @@ public class Tree<T> {
 
         TreeNode<T> current = root;
         TreeNode<T> parent = null;
-        while (current != null) {
+        while (true) {
             int compareResult = compare(data, current.getData());
 
             if (compareResult == 0) {
