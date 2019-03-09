@@ -2,14 +2,14 @@ package com.github.svyaz.javalearning.graph;
 
 import java.util.Objects;
 
-class Vertex<T> {
+public class Vertex<T> {
     private T data;
 
-    Vertex(T data) {
+    public Vertex(T data) {
         this.data = data;
     }
 
-    T getData() {
+    public T getData() {
         return data;
     }
 
