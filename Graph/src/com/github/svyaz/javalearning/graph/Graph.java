@@ -1,5 +1,6 @@
 package com.github.svyaz.javalearning.graph;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -41,12 +42,11 @@ public class Graph<T> {
      * @return vertex by the specified index.
      * @throws IndexOutOfBoundsException if the specified index is out of bounds of vertices array.
      */
-    @SuppressWarnings("unchecked")
-    public T get(int index) {
+    public Vertex<T> get(int index) {
         if (index < 0 || index >= vertices.length) {
             throw new IndexOutOfBoundsException(EXC_MSG_INDEX_OUT_OF_BOUNDS);
         }
-        return (T) vertices[index];
+        return vertices[index];
     }
 
     /**
@@ -111,5 +111,47 @@ public class Graph<T> {
                 }
             }
         }
+    }
+
+    /**
+     * Returns true if the specified object is equal to the graph.
+     *
+     * @param object compare with.
+     * @return true for equal objects.
+     */
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+
+        Graph<?> graph = (Graph<?>) object;
+        if (!Arrays.equals(vertices, graph.vertices)) {
+            return false;
+        }
+        for (int i = 0; i < vertices.length; i++) {
+            if (!Arrays.equals(adjMatrix[i], graph.adjMatrix[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Calculates hash code of the graph.
+     *
+     * @return hashCode integer value.
+     */
+    @Override
+    public int hashCode() {
+        int result = 1;
+        for (int[] matrixRow : adjMatrix) {
+            result = 37 * result + Arrays.hashCode(matrixRow);
+        }
+        result = 37 * result + Arrays.hashCode(vertices);
+        return result;
     }
 }

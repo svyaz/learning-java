@@ -55,7 +55,6 @@ public class VertexTest {
     }
 
     @Test
-    //@SuppressWarnings("all")
     public void hashCode2Test() {
         Vertex<String> vertex1 = new Vertex<>("Hi there");
         Vertex<String> vertex2 = new Vertex<>("Hi there");
