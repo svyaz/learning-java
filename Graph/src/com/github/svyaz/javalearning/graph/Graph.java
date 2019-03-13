@@ -114,6 +114,42 @@ public class Graph<T> {
     }
 
     /**
+     * Performs specified action for each element in the graph.
+     * Traversing by depth with recursion.
+     *
+     * @param action to perform.
+     */
+    public void forEachByDepthRecursive(Consumer<T> action) {
+        int dim = vertices.length;
+        boolean[] visited = new boolean[dim];
+
+        for (int i = 0; i < dim; i++) {     // проход по несвязанным частям графа
+            if (visited[i]) {
+                continue;
+            }
+            performRecursive(i, visited, action);
+        }
+    }
+
+    /**
+     * Internal supporting recursive method for going by depth.
+     *
+     * @param index   start index the graph part.
+     * @param visited array of visited vertices.
+     * @param action  to perform.
+     */
+    private void performRecursive(int index, boolean[] visited, Consumer<T> action) {
+        action.accept(vertices[index].getData());
+        visited[index] = true;
+
+        for (int i = 0; i < visited.length; i++) {
+            if (!visited[i] && adjMatrix[index][i] == 1 && index != i) {
+                performRecursive(i, visited, action);
+            }
+        }
+    }
+
+    /**
      * Returns true if the specified object is equal to the graph.
      *
      * @param object compare with.

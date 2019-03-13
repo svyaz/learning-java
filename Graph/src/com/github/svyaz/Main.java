@@ -46,5 +46,9 @@ public class Main {
         System.out.println("Traversing by depth without recursion:");
         cityGraph.forEachByDepthNonRecursive(s -> System.out.println(s.toUpperCase()));
         System.out.println();
+
+        System.out.println("Traversing by depth with recursion:");
+        cityGraph.forEachByDepthRecursive(s -> System.out.println(s.toLowerCase()));
+        System.out.println();
     }
 }
