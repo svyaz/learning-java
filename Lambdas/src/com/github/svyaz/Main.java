@@ -2,10 +2,7 @@ package com.github.svyaz;
 
 import com.github.svyaz.javalearning.lambdas.Person;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.OptionalDouble;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -17,7 +14,7 @@ public class Main {
                 new Person("Аркадий", 20),
                 new Person("Борис", 15),
                 new Person("Анастасия", 17),
-                new Person("Кирилл", 38),
+                new Person("Василий", 46),
                 new Person("Василий", 12),
                 new Person("Борис", 24)
         );
@@ -45,15 +42,26 @@ public class Main {
         System.out.printf("Средний возраст тех кому меньше 18 лет: %.2f%n", average);
         System.out.println();
 
-        /* Г) при помощи группировки получить Map, в котором ключи – имена, а значения – средний возраст */
-
-        /*Map<String, Double> namesMap = persons
+        /*
+         * Г) при помощи группировки получить Map, в котором ключи – имена, а значения – средний возраст
+         */
+        Map<String, Double> namesMap = persons
                 .stream()
-                .collect(Collectors.groupingBy(Person::getName))
-                .average()
-                .orElse(0.0);*/
+                .collect(Collectors.groupingBy(Person::getName,
+                        Collectors.averagingInt(Person::getAge)));
+        System.out.println("Мэп с группировкой по имени и средним возрастом:");
+        System.out.println(namesMap.toString());
+        System.out.println();
 
-        /* Д) получить людей, возраст которых от 20 до 45, вывести в консоль их имена в порядке убывания возраста */
-
+        /*
+         * Д) получить людей, возраст которых от 20 до 45, вывести в консоль их имена в порядке убывания возраста
+         */
+        String sortedNamesString = persons.stream()
+                .filter(a -> a.getAge() >= 20 && a.getAge() <= 45)
+                .map(Person::getName)
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.joining(", "));
+        System.out.println("Список имен тех кому от 20 до 45 в обратном порядке:");
+        System.out.println(sortedNamesString);
     }
 }
