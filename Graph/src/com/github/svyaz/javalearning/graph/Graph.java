@@ -83,11 +83,11 @@ public class Graph<T> {
 
     /**
      * Performs specified action for each element in the graph.
-     * Traversing by depth.
+     * Traversing by depth without recursion.
      *
      * @param action to perform.
      */
-    public void forEachByDepth(Consumer<T> action) {
+    public void forEachByDepthNonRecursive(Consumer<T> action) {
         int dim = vertices.length;
         boolean[] visited = new boolean[dim];
 
@@ -103,7 +103,7 @@ public class Graph<T> {
             while (!stack.isEmpty()) {  // проход по очереди
                 int index = stack.pop();
                 action.accept(vertices[index].getData());   // действие с элементом
-                for (int j = 0; j < dim; j++) { // проход по непосещенным элементам
+                for (int j = dim - 1; j >= 0; j--) { // проход по непосещенным элементам
                     if (!visited[j] && adjMatrix[index][j] == 1 && index != j) {
                         stack.push(j);
                         visited[j] = true;
