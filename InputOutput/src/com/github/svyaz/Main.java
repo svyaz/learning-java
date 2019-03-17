@@ -12,6 +12,8 @@ package com.github.svyaz;
  */
 
 import java.io.*;
+import java.util.Date;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,6 +25,22 @@ public class Main {
                 output.write(currentByte);
             }
         } catch (IOException exception) {
+            System.out.println("Task 1 failed.");
+            exception.printStackTrace();
+        }
+
+        // Task 2
+        try (PrintWriter writer = new PrintWriter(new FileOutputStream("InputOutput/Task2Output.txt"))) {
+            Stream.iterate(1, n -> n + 1)
+                    .limit(100)
+                    .map(n -> "Строка " + n)
+                    .forEach(writer::println);
+
+            writer.printf("--- From printf: PI = %.10f%n", Math.PI);
+            writer.println("--- From println: Hello, file!");
+            writer.print("--- From print: " + new Date().toString());
+        } catch (FileNotFoundException exception) {
+            System.out.println("Task 2 failed.");
             exception.printStackTrace();
         }
     }

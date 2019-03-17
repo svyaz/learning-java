@@ -82,7 +82,7 @@ public class Main {
          * Создать бесконечный поток корней чисел. С консоли прочитать число –
          * сколько элементов нужно вычислить, затем – распечатать эти элементы.
          */
-        try(Scanner scanner = new Scanner(new InputStreamReader(System.in))) {
+        try (Scanner scanner = new Scanner(new InputStreamReader(System.in))) {
             System.out.println("Enter number to get square root till:");
             while (!scanner.hasNextInt()) {
                 scanner.next();
