@@ -1,6 +1,7 @@
 package com.github.svyaz.javalearning.reflection;
 
 public class Dog extends Animal {
+    private static final String TYPE = "dog";
     private String name;
 
     /**
@@ -25,7 +26,7 @@ public class Dog extends Animal {
      */
     @Override
     public void move() {
-        System.out.println(name + " moved.");
+        System.out.println(TYPE + " " + name + " moved.");
     }
 
     /**
@@ -38,5 +39,10 @@ public class Dog extends Animal {
 
     private String getVoice() {
         return "Wof, wof.";
+    }
+
+    @Override
+    public String toString() {
+        return "Dog { TYPE = '" + TYPE + "', name = '" + name + "'}";
     }
 }
