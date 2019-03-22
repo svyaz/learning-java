@@ -100,4 +100,4 @@
 Строка 100
 --- From printf: PI = 3,1415926536
 --- From println: Hello, file!
---- From print: Mon Mar 18 23:09:47 NOVT 2019
+--- From print: Sat Mar 23 16:25:34 NOVT 2019
