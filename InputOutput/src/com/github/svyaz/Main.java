@@ -20,9 +20,12 @@ public class Main {
         // Task 1
         try (BufferedInputStream input = new BufferedInputStream(new FileInputStream("InputOutput/task1Input.txt"));
              BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream("InputOutput/task1Output.txt"))) {
-            int currentByte;
-            while ((currentByte = input.read()) != -1) {
-                output.write(currentByte);
+            int read;
+            int off = 0;
+            byte[] result = new byte[1_000_000];
+            while ((read = input.read(result, off, result.length - off)) != -1) {
+                output.write(result, off, read);
+                off += read;
             }
         } catch (IOException exception) {
             System.out.println("Task 1 failed.");
