@@ -33,7 +33,7 @@ public class Main {
         }
 
         // Task 2
-        try (PrintWriter writer = new PrintWriter(new FileOutputStream("InputOutput/Task2Output.txt"))) {
+        try (PrintWriter writer = new PrintWriter("InputOutput/Task2Output.txt")) {
             Stream.iterate(1, n -> n + 1)
                     .limit(100)
                     .map(n -> "Строка " + n)
