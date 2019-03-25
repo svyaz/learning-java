@@ -21,11 +21,9 @@ public class Main {
         try (BufferedInputStream input = new BufferedInputStream(new FileInputStream("InputOutput/task1Input.txt"));
              BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream("InputOutput/task1Output.txt"))) {
             int read;
-            int off = 0;
-            byte[] result = new byte[1_000_000];
-            while ((read = input.read(result, off, result.length - off)) != -1) {
-                output.write(result, off, read);
-                off += read;
+            byte[] result = new byte[1_024];
+            while ((read = input.read(result, 0, result.length)) != -1) {
+                output.write(result, 0, read);
             }
         } catch (IOException exception) {
             System.out.println("Task 1 failed.");
