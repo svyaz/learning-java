@@ -8,7 +8,7 @@ public class Main {
         System.out.println("Task 1:");
         Thread task1Thread = new Thread(new Task1());
         task1Thread.start();
-        System.out.println("Main thread end.");
+        System.out.println("Main thread ends.");
         System.out.println();
     }
 }
