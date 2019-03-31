@@ -15,10 +15,8 @@ public class Main2 {
         Thread thread2 = new Thread(new Task2(integerList1, 100));
         thread1.start();
         thread2.start();
-        while (thread1.isAlive() || thread2.isAlive()) {
-            System.out.println("at least one thread is alive ...");
-            Thread.sleep(100);
-        }
+        thread1.join();
+        thread2.join();
         System.out.println("Without synchronization:");
         System.out.println("List size: " + integerList1.size());
         System.out.println(integerList1.toString());
@@ -30,11 +28,9 @@ public class Main2 {
         Thread syncTread2 = new Thread(new SyncTask2(integerList2, 100));
         syncTread1.start();
         syncTread2.start();
-        while (syncTread1.isAlive() || syncTread2.isAlive()) {
-            System.out.println("at least one synchronized thread is alive ...");
-            Thread.sleep(100);
-        }
-        System.out.println("Without synchronization:");
+        syncTread1.join();
+        syncTread2.join();
+        System.out.println("With synchronization:");
         System.out.println("List size: " + integerList2.size());
         System.out.println(integerList2.toString());
     }
