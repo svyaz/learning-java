@@ -8,8 +8,7 @@ public class Task1 implements Runnable {
                 System.out.println(i);
                 Thread.sleep(1000);
             }
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
+        } catch (InterruptedException ignore) {
         }
     }
 }

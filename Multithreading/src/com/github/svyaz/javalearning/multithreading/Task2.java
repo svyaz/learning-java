@@ -18,8 +18,7 @@ public class Task2 implements Runnable {
                 list.add(list.size(), i);
                 Thread.sleep(1);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (InterruptedException ignore) {
         }
     }
 }

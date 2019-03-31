@@ -18,8 +18,7 @@ public class SyncTask2 extends Task2 {
                 }
                 Thread.sleep(1);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (InterruptedException ignore) {
         }
     }
 }
