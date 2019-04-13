@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Consumer implements Runnable {
     private final ProducerConsumerManager manager;
 
-    public Consumer(ProducerConsumerManager manager) {
+    Consumer(ProducerConsumerManager manager) {
         this.manager = manager;
     }
 
@@ -24,9 +24,10 @@ public class Consumer implements Runnable {
     public void run() {
         while (true) {
             try {
-                manager.getItem();
-                int randomValue = ThreadLocalRandom.current().nextInt(1000, 2000);
+                String item = manager.getItem();
+                int randomValue = ThreadLocalRandom.current().nextInt(500, 1200);
                 Thread.sleep(randomValue);
+                System.out.println(item);
             } catch (InterruptedException e) {
                 return;
             }

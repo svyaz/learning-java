@@ -15,14 +15,16 @@ public class ProducerConsumerManager {
      */
     public void start() {
         for (int i = 0; i < PRODUCERS_COUNT; i++) {
-            Thread producer = new Thread(new Producer(this));
-            producer.setName("Producer-" + i);
-            producer.start();
+            Thread producerThread = new Thread(new Producer(this));
+            producerThread.setName("Producer-" + i);
+            producerThread.start();
+            System.out.println(producerThread.getName() + " started.");
         }
         for (int i = 0; i < CONSUMERS_COUNT; i++) {
-            Thread consumer = new Thread(new Consumer(this));
-            consumer.setName("Consumer-" + i);
-            consumer.start();
+            Thread consumerThread = new Thread(new Consumer(this));
+            consumerThread.setName("Consumer-" + i);
+            consumerThread.start();
+            System.out.println(consumerThread.getName() + " started.");
         }
     }
 
@@ -30,11 +32,11 @@ public class ProducerConsumerManager {
      * Gets an item from the queue.
      *
      * @return item from the queue
-     * @throws InterruptedException
+     * @throws InterruptedException can be thrown.
      */
-    public String getItem() throws InterruptedException {
+    String getItem() throws InterruptedException {
         synchronized (lock) {
-            while (queue.size() < CAPACITY) {
+            while (queue.size() == 0) {
                 lock.wait();
             }
             String result = queue.remove();
@@ -46,9 +48,9 @@ public class ProducerConsumerManager {
     /**
      * Puts an item to the queue.
      *
-     * @throws InterruptedException
+     * @throws InterruptedException can be thrown.
      */
-    public void addItem(String item) throws InterruptedException {
+    void addItem(String item) throws InterruptedException {
         synchronized (lock) {
             while (queue.size() >= CAPACITY) {
                 lock.wait();
