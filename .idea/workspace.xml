@@ -1,0 +1,1378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="4" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c4aedf7d-c565-400f-aea5-f99b41e397fe" name="Default" comment="ProducerConsumer - отлажена работа программы.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyArrayList/MyArrayList.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyArrayList/src/com/github/svyaz/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyArrayList/src/com/github/svyaz/javalearning/myarraylist/MyArrayList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyArrayList/test/com/github/svyaz/javalearning/myarraylist/MyArrayListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyHashTable/MyHashTable.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyHashTable/src/com/github/svyaz/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyHashTable/src/com/github/svyaz/javalearning/myhashtable/MyHashTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyHashTable/test/com/github/svyaz/javalearning/myhashtable/MyHashTableTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SinglyLinkedList/SinglyLinkedList.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SinglyLinkedList/src/com/github/svyaz/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SinglyLinkedList/src/com/github/svyaz/javalearning/singlylinkedlist/ListItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SinglyLinkedList/src/com/github/svyaz/javalearning/singlylinkedlist/SinglyLinkedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SinglyLinkedList/test/com/github/svyaz/javalearning/singlylinkedlist/SinglyLinkedListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/MyArrayList/META-INF/MyArrayList.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/MyHashTable/META-INF/MyHashTable.kotlin_module" beforeDir="false" />
+    </list>
+    <list id="b2f13ac0-efe3-4124-a0bf-f90e8de5dc6a" name="Revert &quot;Задача ArrayListHome.&quot;" comment="Revert &quot;Задача ArrayListHome.&quot;" />
+    <list id="6004cf5f-004c-47b8-8424-11b9c6241f5f" name="Задача ArrayListHome." comment="Задача ArrayListHome." />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/03_Java_OOP$RectangleTest.ic" NAME="RectangleTest Coverage Results" MODIFIED="1547654819713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/03_Java_OOP$TreeTest.ic" NAME="TreeTest Coverage Results" MODIFIED="1551971786740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/03_Java_OOP$All_in_Graph.ic" NAME="All in Graph Coverage Results" MODIFIED="1552237505887" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="03_Java-OOP" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="46">
+              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>EXCEPTION_MESSAGE_NULL_ARGUMENT</find>
+      <find>removeA</find>
+      <find>hasC</find>
+      <find>removeItems</find>
+      <find>iterator</find>
+      <find>addAll</find>
+      <find>clea</find>
+      <find>add(</find>
+      <find>remove(</find>
+      <find>modCount</find>
+      <find>itera</find>
+      <find>Math.abs(Objects.hashCode(object) % arrayItems.length);</find>
+      <find>toString</find>
+      <find>arrayItems[i] = null;</find>
+      <find>removeAll</find>
+      <find>BNode</find>
+      <find>insert</find>
+      <find>add</find>
+      <find>compare</find>
+      <find>search</find>
+      <find>Consumer</find>
+      <find>equals</find>
+      <find>remove</find>
+      <find>: null</find>
+      <find>toString(</find>
+      <find>forEa</find>
+      <find>writeObject</find>
+      <find>defaultwriteObject</find>
+      <find>read</find>
+      <find>get</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>: --</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Reflection/src/com/github/svyaz/javalearning/reflection/Cat.java" />
+        <option value="$PROJECT_DIR$/Reflection/src/com/github/svyaz/javalearning/reflection/Dog.java" />
+        <option value="$PROJECT_DIR$/Reflection/src/com/github/svyaz/Main.java" />
+        <option value="$PROJECT_DIR$/InputOutput/src/com/github/svyaz/Main.java" />
+        <option value="$PROJECT_DIR$/InputOutput/Task2Output.txt" />
+        <option value="$PROJECT_DIR$/Serialization/src/com/github/svyaz/javalearning/serialization/Matrix.java" />
+        <option value="$PROJECT_DIR$/Serialization/src/com/github/svyaz/Main.java" />
+        <option value="$PROJECT_DIR$/Multithreading/src/com/github/svyaz/Main.java" />
+        <option value="$PROJECT_DIR$/Multithreading/src/com/github/svyaz/javalearning/multithreading/Task2Synched.java" />
+        <option value="$PROJECT_DIR$/Multithreading/src/com/github/svyaz/javalearning/multithreading/Task2Synced.java" />
+        <option value="$PROJECT_DIR$/Multithreading/src/com/github/svyaz/Main1.java" />
+        <option value="$PROJECT_DIR$/Multithreading/src/com/github/svyaz/javalearning/multithreading/Task1.java" />
+        <option value="$PROJECT_DIR$/Multithreading/src/com/github/svyaz/Main2.java" />
+        <option value="$PROJECT_DIR$/Multithreading/src/com/github/svyaz/javalearning/multithreading/Task2.java" />
+        <option value="$PROJECT_DIR$/Multithreading/src/com/github/svyaz/javalearning/multithreading/SyncTask2.java" />
+        <option value="$PROJECT_DIR$/SinglyLinkedList/src/com/github/svyaz/javalearning/singlylinkedlist/SinglyLinkedList.java" />
+        <option value="$PROJECT_DIR$/ProducerConsumer/src/com/github/svyaz/Main.java" />
+        <option value="$PROJECT_DIR$/ProducerConsumer/src/com/github/svyaz/javalearning/producerconsumer/Consumer.java" />
+        <option value="$PROJECT_DIR$/ProducerConsumer/src/com/github/svyaz/javalearning/producerconsumer/ProducerConsumerManager.java" />
+        <option value="$PROJECT_DIR$/ProducerConsumer/src/com/github/svyaz/javalearning/producerconsumer/Producer.java" />
+        <option value="$PROJECT_DIR$/Lambdas/src/com/github/svyaz/Main.java" />
+        <option value="$PROJECT_DIR$/MyArrayList/src/com/github/svyaz/javalearning/myarraylist/MyArrayList.java" />
+        <option value="$PROJECT_DIR$/Graph/test/com/github/svyaz/javalearning/graph/GraphTest.java" />
+        <option value="$PROJECT_DIR$/Lambdas/test/PersonTest.java" />
+        <option value="$PROJECT_DIR$/Lambdas/test/com/github/svyaz/javalearning/lambdas/PersonTest.java" />
+        <option value="$PROJECT_DIR$/Matrix/test/MatrixTest.java" />
+        <option value="$PROJECT_DIR$/Matrix/test/com/github/svyaz/javalearning/matrix/MatrixTest.java" />
+        <option value="$PROJECT_DIR$/MyArrayList/test/MyArrayListTest.java" />
+        <option value="$PROJECT_DIR$/MyArrayList/test/com/github/svyaz/javalearning/myarraylist/MyArrayListTest.java" />
+        <option value="$PROJECT_DIR$/MyHashTable/test/MyHashTableTest.java" />
+        <option value="$PROJECT_DIR$/MyHashTable/test/com/github/svyaz/javalearning/myhashtable/MyHashTableTest.java" />
+        <option value="$PROJECT_DIR$/Range/test/RangeTest.java" />
+        <option value="$PROJECT_DIR$/Range/test/com/github/svyaz/javalearning/range/RangeTest.java" />
+        <option value="$PROJECT_DIR$/Shapes/test/CircleTest.java" />
+        <option value="$PROJECT_DIR$/Shapes/test/com/github/svyaz/javalearning/shapes/CircleTest.java" />
+        <option value="$PROJECT_DIR$/Shapes/test/RectangleTest.java" />
+        <option value="$PROJECT_DIR$/Shapes/test/ShapeAreaComparatorTest.java" />
+        <option value="$PROJECT_DIR$/Shapes/test/com/github/svyaz/javalearning/shapes/ShapeAreaComparatorTest.java" />
+        <option value="$PROJECT_DIR$/Shapes/test/ShapePerimeterComparatorTest.java" />
+        <option value="$PROJECT_DIR$/Shapes/test/com/github/svyaz/javalearning/shapes/ShapePerimeterComparatorTest.java" />
+        <option value="$PROJECT_DIR$/Shapes/test/SquareTest.java" />
+        <option value="$PROJECT_DIR$/Shapes/test/com/github/svyaz/javalearning/shapes/SquareTest.java" />
+        <option value="$PROJECT_DIR$/Shapes/test/TriangleTest.java" />
+        <option value="$PROJECT_DIR$/Shapes/test/com/github/svyaz/javalearning/shapes/TriangleTest.java" />
+        <option value="$PROJECT_DIR$/SinglyLinkedList/test/SinglyLinkedListTest.java" />
+        <option value="$PROJECT_DIR$/SinglyLinkedList/test/com/github/svyaz/javalearning/singlylinkedlist/SinglyLinkedListTest.java" />
+        <option value="$PROJECT_DIR$/Tree/test/TreeTest.java" />
+        <option value="$PROJECT_DIR$/Tree/test/com/github/svyaz/javalearning/tree/TreeTest.java" />
+        <option value="$PROJECT_DIR$/Vector/test/VectorTest.java" />
+        <option value="$PROJECT_DIR$/Vector/test/com/github/svyaz/javalearning/vector/VectorTest.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="809" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="03_Java-OOP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="03_Java-OOP" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554746717432" />
+    <property name="jdk.selected.JAVA_MODULE" value="9" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/Vector/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.github.svyaz.javalearning.graph" />
+      <recent name="com.github.svyaz" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Graph/src/com/github/svyaz" />
+      <recent name="$PROJECT_DIR$/Graph/src/com/github/svyaz/javalearning" />
+      <recent name="$PROJECT_DIR$/Graph/test" />
+      <recent name="$PROJECT_DIR$/ArrayListHome" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.All in Shapes">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in Matrix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Matrix" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in Shapes" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="Shapes" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyArrayListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyArrayList" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.svyaz.javalearning.myarraylist.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.svyaz.javalearning.myarraylist" />
+      <option name="MAIN_CLASS_NAME" value="com.github.svyaz.javalearning.myarraylist.MyArrayListTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyHashTableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyHashTable" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.svyaz.javalearning.myhashtable.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.svyaz.javalearning.myhashtable" />
+      <option name="MAIN_CLASS_NAME" value="com.github.svyaz.javalearning.myhashtable.MyHashTableTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Lambdas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.svyaz.javalearning.lambdas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.svyaz.javalearning.lambdas" />
+      <option name="MAIN_CLASS_NAME" value="com.github.svyaz.javalearning.lambdas.PersonTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RangeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Range" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.svyaz.javalearning.range.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.svyaz.javalearning.range" />
+      <option name="MAIN_CLASS_NAME" value="com.github.svyaz.javalearning.range.RangeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.All in Shapes" />
+      <item itemvalue="JUnit.PersonTest" />
+      <item itemvalue="JUnit.All in Matrix" />
+      <item itemvalue="JUnit.MyArrayListTest" />
+      <item itemvalue="JUnit.MyHashTableTest" />
+      <item itemvalue="JUnit.RangeTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RangeTest" />
+        <item itemvalue="JUnit.MyHashTableTest" />
+        <item itemvalue="JUnit.MyArrayListTest" />
+        <item itemvalue="JUnit.All in Matrix" />
+        <item itemvalue="JUnit.PersonTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c4aedf7d-c565-400f-aea5-f99b41e397fe" name="Default" comment="" />
+      <changelist id="6004cf5f-004c-47b8-8424-11b9c6241f5f" name="Задача ArrayListHome." comment="" />
+      <created>1546614287244</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1546614287244</updated>
+      <workItem from="1567234365754" duration="1580000" />
+      <workItem from="1567276100398" duration="576000" />
+      <workItem from="1567444005372" duration="44000" />
+      <workItem from="1570381759400" duration="2171000" />
+      <workItem from="1570459641558" duration="1979000" />
+      <workItem from="1570466893451" duration="2945000" />
+      <workItem from="1570469960454" duration="1383000" />
+    </task>
+    <task id="LOCAL-00177" summary="Tree - в TreeNode метод equals переделан через Objects.equals.">
+      <created>1552054169560</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1552054169561</updated>
+    </task>
+    <task id="LOCAL-00178" summary="Tree - в data null допускается теперь везде, исправлен compare с учетом null.">
+      <created>1552055354558</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1552055354558</updated>
+    </task>
+    <task id="LOCAL-00179" summary="Tree - в toString() вместо null выводится '--', чтобы отличать от data null.&#10;Исправлены тесты с учетом data null.">
+      <created>1552062877012</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1552062877012</updated>
+    </task>
+    <task id="LOCAL-00180" summary="Tree - метод remove() переписан чтобы само удаление было вне цикла.">
+      <created>1552063894507</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1552063894507</updated>
+    </task>
+    <task id="LOCAL-00181" summary="Tree - во всех обходах дерева сначала проверка на count=0 с return.">
+      <created>1552064707100</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1552064707100</updated>
+    </task>
+    <task id="LOCAL-00182" summary="Tree - исправлен contains() - падал на пустом дереве. Добавлен тест на этот случай.">
+      <created>1552121459881</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1552121459882</updated>
+    </task>
+    <task id="LOCAL-00183" summary="Tree - исправлен remove() чтобы не было варнинга.">
+      <created>1552121605792</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1552121605792</updated>
+    </task>
+    <task id="LOCAL-00184" summary="Graph - файлы для модуля и тестов.&#10;Сделан класс Vertex для вершин графа.">
+      <created>1552146787524</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1552146787524</updated>
+    </task>
+    <task id="LOCAL-00185" summary="Graph - класс для Graph, файл Main, картинка для Main.">
+      <created>1552154143866</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1552154143866</updated>
+    </task>
+    <task id="LOCAL-00186" summary="Graph - файл для тестов Vertex.&#10;Сообщение для исключения в Graph.">
+      <created>1552154711461</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1552154711461</updated>
+    </task>
+    <task id="LOCAL-00187" summary="Graph - методы для обхода графа в ширину и в глубину.">
+      <created>1552233261683</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1552233261684</updated>
+    </task>
+    <task id="LOCAL-00188" summary="Graph - тесты на класс Vertex.">
+      <created>1552234732354</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1552234732354</updated>
+    </task>
+    <task id="LOCAL-00189" summary="Graph - тесты на класс Graph.">
+      <created>1552237567280</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1552237567280</updated>
+    </task>
+    <task id="LOCAL-00190" summary="Lambdas - файлы модуля и тестов.">
+      <created>1552404424879</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1552404424879</updated>
+    </task>
+    <task id="LOCAL-00191" summary="Lambdas - класс Person и тесты на него.">
+      <created>1552406694462</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1552406694462</updated>
+    </task>
+    <task id="LOCAL-00192" summary="Graph - обход в глубину сделан по увеличению индекса.">
+      <created>1552479426608</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1552479426608</updated>
+    </task>
+    <task id="LOCAL-00193" summary="Graph - обход в глубину сделан по увеличению индекса.">
+      <created>1552479679767</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1552479679767</updated>
+    </task>
+    <task id="LOCAL-00194" summary="Graph - метод для рекурсивного обхода в глубину.">
+      <created>1552486179111</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1552486179112</updated>
+    </task>
+    <task id="LOCAL-00195" summary="Lambdas - использование класса (не доделано).">
+      <created>1552486289437</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1552486289437</updated>
+    </task>
+    <task id="LOCAL-00196" summary="Lambdas - использование класса в Main.">
+      <created>1552498157337</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1552498157337</updated>
+    </task>
+    <task id="LOCAL-00197" summary="Lambdas - сделаны примеры в Main для генерации бесконечных последовательностей.">
+      <created>1552665889222</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1552665889223</updated>
+    </task>
+    <task id="LOCAL-00198" summary="Lambdas - исправление замечаний по генераторам бесконечных stream.">
+      <created>1552754352021</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1552754352022</updated>
+    </task>
+    <task id="LOCAL-00199" summary="InputOutput - Побайтовое копирование файла.">
+      <created>1552842900275</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1552842900275</updated>
+    </task>
+    <task id="LOCAL-00200" summary="InputOutput - Вывод в файл через PrintWriter.">
+      <created>1552845333977</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1552845333977</updated>
+    </task>
+    <task id="LOCAL-00201" summary="InputOutput - Вывод в файл через PrintWriter.">
+      <created>1552920173320</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1552920173320</updated>
+    </task>
+    <task id="LOCAL-00202" summary="InputOutput - Вывод в файл через PrintWriter.">
+      <created>1552920264935</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1552920264936</updated>
+    </task>
+    <task id="LOCAL-00203" summary="InputOutput - Вывод в файл через PrintWriter.">
+      <created>1552925454436</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1552925454436</updated>
+    </task>
+    <task id="LOCAL-00204" summary="Reflection - классы для работы.">
+      <created>1553020441327</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1553020441327</updated>
+    </task>
+    <task id="LOCAL-00205" summary="Reflection - работа с классами в Main.">
+      <created>1553185265490</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1553185265491</updated>
+    </task>
+    <task id="LOCAL-00206" summary="InputOutput - задание 1 сделано с массивом байт.">
+      <created>1553279046993</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1553279046993</updated>
+    </task>
+    <task id="LOCAL-00207" summary="InputOutput - задание 1 сделано с массивом байт.">
+      <created>1553333179721</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1553333179721</updated>
+    </task>
+    <task id="LOCAL-00208" summary="Serialization - класс матрицы и Main.">
+      <created>1553447092181</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1553447092181</updated>
+    </task>
+    <task id="LOCAL-00209" summary="Serialization - стандартная сериализация объекта matrix в файл matrixFull.txt">
+      <created>1553449759572</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1553449759572</updated>
+    </task>
+    <task id="LOCAL-00210" summary="Serialization - стандартная сериализация объекта matrix в файл matrixFull.txt">
+      <created>1553529487791</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1553529487793</updated>
+    </task>
+    <task id="LOCAL-00211" summary="InputOutput - исправление, чтение/запись через массив меньшей длины.">
+      <created>1553530547856</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1553530547857</updated>
+    </task>
+    <task id="LOCAL-00212" summary="Serialization - добавлены методы writeObject и readObject. Доделан Main.">
+      <created>1553537718312</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1553537718312</updated>
+    </task>
+    <task id="LOCAL-00213" summary="Multithreading - Task1.">
+      <created>1553622865609</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
+      <option name="project" value="LOCAL" />
+      <updated>1553622865609</updated>
+    </task>
+    <task id="LOCAL-00214" summary="Multithreading - Task1.">
+      <created>1553700746605</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1553700746605</updated>
+    </task>
+    <task id="LOCAL-00215" summary="Multithreading - Task1.">
+      <created>1553700799683</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1553700799684</updated>
+    </task>
+    <task id="LOCAL-00216" summary="Multithreading - переименован файл Main1">
+      <created>1553700936536</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1553700936536</updated>
+    </task>
+    <task id="LOCAL-00217" summary="Multithreading - причесал названия переменных.">
+      <created>1553704119627</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1553704119628</updated>
+    </task>
+    <task id="LOCAL-00218" summary="Multithreading - Task2">
+      <created>1553707452452</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1553707452452</updated>
+    </task>
+    <task id="LOCAL-00219" summary="Multithreading - Task2">
+      <created>1553707652176</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1553707652176</updated>
+    </task>
+    <task id="LOCAL-00220" summary="Multithreading - не распечатывать stack trace при InterruptedException.">
+      <created>1554054667505</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1554054667506</updated>
+    </task>
+    <task id="LOCAL-00221" summary="Multithreading - task 1, main поток должен дожидаться когда завершится созданный.">
+      <created>1554055122477</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1554055122477</updated>
+    </task>
+    <task id="LOCAL-00222" summary="Multithreading - task 2 сделан через join().">
+      <created>1554055507288</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1554055507288</updated>
+    </task>
+    <task id="LOCAL-00223" summary="ProducerConsumer - файлы модуля.">
+      <created>1555090845255</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1555090845256</updated>
+    </task>
+    <task id="LOCAL-00224" summary="ProducerConsumer - реализация классов модуля.">
+      <created>1555095556923</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1555095556937</updated>
+    </task>
+    <task id="LOCAL-00225" summary="ProducerConsumer - отлажена работа программы.">
+      <created>1555175666227</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1555175666228</updated>
+    </task>
+    <option name="localTasksCounter" value="226" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="PersonTest - 2019.03.12 at 23h 03m 48s.xml">
+      <configuration name="PersonTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PersonTest - 2019.03.14 at 00h 28m 14s.xml">
+      <configuration name="PersonTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SinglyLinkedListTest - 2019.04.12 at 22h 52m 30s.xml">
+      <configuration name="SinglyLinkedListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Graph - 2019.10.07 at 23h 47m 13s.xml">
+      <configuration name="All in Graph" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PersonTest - 2019.10.07 at 23h 50m 40s.xml">
+      <configuration name="PersonTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Matrix - 2019.10.07 at 23h 52m 01s.xml">
+      <configuration name="All in Matrix" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyArrayListTest - 2019.10.07 at 23h 53m 09s.xml">
+      <configuration name="MyArrayListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyHashTableTest - 2019.10.07 at 23h 54m 08s.xml">
+      <configuration name="MyHashTableTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RangeTest - 2019.10.07 at 23h 55m 15s.xml">
+      <configuration name="RangeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Shapes - 2019.10.07 at 23h 59m 14s.xml">
+      <configuration name="All in Shapes" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="10678000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="809" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4979592" visible="true" weight="0.2453505" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.5020408" side_tool="true" weight="0.19861111" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32914925" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985694" weight="0.32357043" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39888424" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32914925" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49791667" weight="0.27475592" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.74616456" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50143063" side_tool="true" weight="0.33891213" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32914925" />
+      <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.3292517" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="PVS-Studio" order="14" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Coverage" order="5" side_tool="true" weight="0.3298611" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" weight="0.3298611" />
+      <window_info anchor="right" id="Maven" order="9" weight="0.3297568" />
+      <window_info anchor="right" id="Database" order="10" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Graph - обход в глубину сделан по увеличению индекса." />
+    <MESSAGE value="Graph - метод для рекурсивного обхода в глубину." />
+    <MESSAGE value="Lambdas - использование класса (не доделано)." />
+    <MESSAGE value="Lambdas - использование класса в Main." />
+    <MESSAGE value="Lambdas - сделаны примеры в Main для генерации бесконечных последовательностей." />
+    <MESSAGE value="Lambdas - исправление замечаний по генераторам бесконечных stream." />
+    <MESSAGE value="InputOutput - Побайтовое копирование файла." />
+    <MESSAGE value="InputOutput - Вывод в файл через PrintWriter." />
+    <MESSAGE value="Reflection - классы для работы." />
+    <MESSAGE value="Reflection - работа с классами в Main." />
+    <MESSAGE value="InputOutput - задание 1 сделано с массивом байт." />
+    <MESSAGE value="Serialization - класс матрицы и Main." />
+    <MESSAGE value="Serialization - стандартная сериализация объекта matrix в файл matrixFull.txt" />
+    <MESSAGE value="InputOutput - исправление, чтение/запись через массив меньшей длины." />
+    <MESSAGE value="Serialization - добавлены методы writeObject и readObject. Доделан Main." />
+    <MESSAGE value="Multithreading - Task1." />
+    <MESSAGE value="Multithreading - переименован файл Main1" />
+    <MESSAGE value="Multithreading - причесал названия переменных." />
+    <MESSAGE value="Multithreading - Task2" />
+    <MESSAGE value="Multithreading - не распечатывать stack trace при InterruptedException." />
+    <MESSAGE value="Multithreading - task 1, main поток должен дожидаться когда завершится созданный." />
+    <MESSAGE value="Multithreading - task 2 сделан через join()." />
+    <MESSAGE value="ProducerConsumer - файлы модуля." />
+    <MESSAGE value="ProducerConsumer - реализация классов модуля." />
+    <MESSAGE value="ProducerConsumer - отлажена работа программы." />
+    <option name="LAST_COMMIT_MESSAGE" value="ProducerConsumer - отлажена работа программы." />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ProducerConsumer/src/com/github/svyaz/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProducerConsumer/src/com/github/svyaz/javalearning/producerconsumer/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProducerConsumer/src/com/github/svyaz/javalearning/producerconsumer/ProducerConsumerManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProducerConsumer/src/com/github/svyaz/javalearning/producerconsumer/Producer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArrayListHome/ArrayListHome.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/Contents/Home/lib/src.zip!/java.base/java/io/BufferedInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="181" column="11" selection-start-line="181" selection-start-column="11" selection-end-line="181" selection-end-column="11" />
+          <folding>
+            <element signature="docComment;class#BufferedInputStream#0" />
+            <element signature="docComment;field#MAX_BUFFER_SIZE#0;class#BufferedInputStream#0" />
+            <element signature="docComment;field#buf#0;class#BufferedInputStream#0" />
+            <element signature="docComment;field#bufUpdater#0;class#BufferedInputStream#0" />
+            <element signature="docComment;field#count#0;class#BufferedInputStream#0" />
+            <element signature="docComment;field#pos#0;class#BufferedInputStream#0" />
+            <element signature="docComment;field#markpos#0;class#BufferedInputStream#0" />
+            <element signature="docComment;field#marklimit#0;class#BufferedInputStream#0" />
+            <element signature="docComment;method#getInIfOpen#0;class#BufferedInputStream#0" />
+            <element signature="method#getInIfOpen#0;class#BufferedInputStream#0" />
+            <element signature="docComment;method#getBufIfOpen#0;class#BufferedInputStream#0" />
+            <element signature="method#getBufIfOpen#0;class#BufferedInputStream#0" />
+            <element signature="docComment;method#BufferedInputStream#0;class#BufferedInputStream#0" />
+            <element signature="docComment;method#BufferedInputStream#1;class#BufferedInputStream#0" />
+            <element signature="method#BufferedInputStream#1;class#BufferedInputStream#0" />
+            <element signature="e#6566#6645#1" />
+            <element signature="docComment;method#fill#0;class#BufferedInputStream#0" />
+            <element signature="method#fill#0;class#BufferedInputStream#0" />
+            <element signature="e#7122#7158#0" />
+            <element signature="e#7199#7227#0" />
+            <element signature="e#7257#7480#1" />
+            <element signature="e#7260#7305#0" />
+            <element signature="e#7518#7666#1" />
+            <element signature="e#7552#7593#0" />
+            <element signature="e#7626#7652#0" />
+            <element signature="e#7710#7802#1" />
+            <element signature="e#7808#8644#1" />
+            <element signature="e#7821#7838#0" />
+            <element signature="e#8194#8599#1" />
+            <element signature="e#8216#8265#0" />
+            <element signature="docComment;method#read#0;class#BufferedInputStream#0" />
+            <element signature="method#read#0;class#BufferedInputStream#0" />
+            <element signature="e#9366#9454#1" />
+            <element signature="docComment;method#read1#0;class#BufferedInputStream#0" />
+            <element signature="method#read1#0;class#BufferedInputStream#0" />
+            <element signature="e#9771#10280#1" />
+            <element signature="e#9785#10045#0" />
+            <element signature="e#10107#10178#1" />
+            <element signature="docComment;method#read#1;class#BufferedInputStream#0" />
+            <element signature="method#read#1;class#BufferedInputStream#0" />
+            <element signature="e#12536#12598#1" />
+            <element signature="e#12618#12651#1" />
+            <element signature="e#12689#13080#1" />
+            <element signature="docComment;method#skip#0;class#BufferedInputStream#0" />
+            <element signature="method#skip#0;class#BufferedInputStream#0" />
+            <element signature="e#13601#13634#1" />
+            <element signature="e#13694#14006#1" />
+            <element signature="docComment;method#available#0;class#BufferedInputStream#0" />
+            <element signature="method#available#0;class#BufferedInputStream#0" />
+            <element signature="docComment;method#mark#0;class#BufferedInputStream#0" />
+            <element signature="method#mark#0;class#BufferedInputStream#0" />
+            <element signature="docComment;method#reset#0;class#BufferedInputStream#0" />
+            <element signature="method#reset#0;class#BufferedInputStream#0" />
+            <element signature="docComment;method#markSupported#0;class#BufferedInputStream#0" />
+            <element signature="docComment;method#close#0;class#BufferedInputStream#0" />
+            <element signature="method#close#0;class#BufferedInputStream#0" />
+            <element signature="e#17733#18047#1" />
+            <element signature="e#17797#17973#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reflection/src/com/github/svyaz/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="971">
+          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multithreading/src/com/github/svyaz/Main1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lambdas/src/com/github/svyaz/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multithreading/src/com/github/svyaz/javalearning/multithreading/Task1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multithreading/src/com/github/svyaz/javalearning/multithreading/Task2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multithreading/src/com/github/svyaz/Main2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multithreading/src/com/github/svyaz/javalearning/multithreading/SyncTask2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="34" />
+          <folding>
+            <element signature="e#224#225#0" expanded="true" />
+            <element signature="e#258#259#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InputOutput/InputOutput.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InputOutput/src/com/github/svyaz/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="631">
+          <caret line="36" column="44" selection-start-line="34" selection-start-column="12" selection-end-line="36" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Hashtable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2759">
+          <caret line="134" column="13" selection-start-line="134" selection-start-column="13" selection-end-line="134" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/Contents/Home/lib/src.zip!/java.base/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArrayListHome/inputStrings.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../03_Java-OOP-Collections/MyHashTable1/src/svyaz/Main.java" />
+    <entry file="file://$PROJECT_DIR$/Graph/test/com/github/svyaz/javalearning/graph/GraphTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" lean-forward="true" selection-start-column="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graph/src/com/github/svyaz/javalearning/graph/Vertex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lambdas/src/com/github/svyaz/javalearning/lambdas/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" lean-forward="true" selection-start-column="8" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lambdas/test/com/github/svyaz/javalearning/lambdas/PersonTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Matrix/test/com/github/svyaz/javalearning/matrix/MatrixTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../03_Java-OOP-Collections/MyArrayList/test/com/github/svyaz/javalearning/myarraylist/MyArrayListTest.java" />
+    <entry file="file://$PROJECT_DIR$/../03_Java-OOP-Collections/MyHashTable1/test/svyaz/javalearning/myhashtable/MyHashTableTest.java" />
+    <entry file="file://$PROJECT_DIR$/Range/src/com/github/svyaz/javalearning/range/Range.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Range/test/com/github/svyaz/javalearning/range/RangeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shapes/src/com/github/svyaz/javalearning/shapes/Circle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shapes/test/com/github/svyaz/javalearning/shapes/CircleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shapes/test/com/github/svyaz/javalearning/shapes/RectangleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shapes/test/com/github/svyaz/javalearning/shapes/ShapeAreaComparatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shapes/test/com/github/svyaz/javalearning/shapes/ShapePerimeterComparatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shapes/test/com/github/svyaz/javalearning/shapes/SquareTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shapes/test/com/github/svyaz/javalearning/shapes/TriangleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../03_Java-OOP-Collections/SinglyLinkedList/src/svyaz/javalearning/singlylinkedlist/ListItem.java" />
+    <entry file="file://$PROJECT_DIR$/../03_Java-OOP-Collections/SinglyLinkedList/test/svyaz/javalearning/singlylinkedlist/SinglyLinkedListTest.java" />
+    <entry file="file://$PROJECT_DIR$/Tree/test/com/github/svyaz/javalearning/tree/TreeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vector/src/com/github/svyaz/javalearning/vector/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vector/test/com/github/svyaz/javalearning/vector/VectorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArrayListHome/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graph/src/com/github/svyaz/cityGraph.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graph/src/com/github/svyaz/javalearning/graph/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;field#adjMatrix#0;class#Graph#0" />
+            <element signature="docComment;field#vertices#0;class#Graph#0" />
+            <element signature="docComment;method#Graph#0;class#Graph#0" />
+            <element signature="method#Graph#0;class#Graph#0" />
+            <element signature="docComment;method#size#0;class#Graph#0" />
+            <element signature="docComment;method#get#0;class#Graph#0" />
+            <element signature="method#get#0;class#Graph#0" />
+            <element signature="e#1227#1316#1" />
+            <element signature="docComment;method#forEachByWidth#0;class#Graph#0" />
+            <element signature="docComment;method#forEachByDepthNonRecursive#0;class#Graph#0" />
+            <element signature="method#forEachByDepthNonRecursive#0;class#Graph#0" />
+            <element signature="e#2762#3487#1" />
+            <element signature="e#2834#2875#1" />
+            <element signature="e#3023#3477#1" />
+            <element signature="e#3223#3463#1" />
+            <element signature="e#3340#3445#1" />
+            <element signature="docComment;method#forEachByDepthRecursive#0;class#Graph#0" />
+            <element signature="method#forEachByDepthRecursive#0;class#Graph#0" />
+            <element signature="e#3840#4013#1" />
+            <element signature="e#3912#3953#1" />
+            <element signature="docComment;method#performRecursive#0;class#Graph#0" />
+            <element signature="method#performRecursive#0;class#Graph#0" />
+            <element signature="e#4458#4610#1" />
+            <element signature="e#4531#4600#1" />
+            <element signature="docComment;method#equals#0;class#Graph#0" />
+            <element signature="method#equals#0;class#Graph#0" />
+            <element signature="e#4867#4903#1" />
+            <element signature="e#4967#5004#1" />
+            <element signature="e#5104#5141#1" />
+            <element signature="e#5192#5315#1" />
+            <element signature="e#5260#5305#1" />
+            <element signature="docComment;method#hashCode#0;class#Graph#0" />
+            <element signature="method#hashCode#0;class#Graph#0" />
+            <element signature="e#5556#5630#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Matrix/src/com/github/svyaz/javalearning/matrix/Matrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../03_Java-OOP-Collections/MyArrayList/src/com/github/svyaz/javalearning/myarraylist/MyArrayList.java" />
+    <entry file="file://$PROJECT_DIR$/../03_Java-OOP-Collections/MyHashTable1/src/svyaz/javalearning/myhashtable/MyHashTable.java" />
+    <entry file="file://$PROJECT_DIR$/Tree/src/com/github/svyaz/javalearning/tree/Tree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../03_Java-OOP-Collections/SinglyLinkedList/src/svyaz/javalearning/singlylinkedlist/SinglyLinkedList.java" />
+    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>9</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>03_Java-OOP</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>junit:junit:4.12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
