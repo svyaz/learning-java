@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4aedf7d-c565-400f-aea5-f99b41e397fe" name="Default" comment="ProducerConsumer - отлажена работа программы.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyArrayList/MyArrayList.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyArrayList/src/com/github/svyaz/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyArrayList/src/com/github/svyaz/javalearning/myarraylist/MyArrayList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyArrayList/test/com/github/svyaz/javalearning/myarraylist/MyArrayListTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyHashTable/MyHashTable.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyHashTable/src/com/github/svyaz/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyHashTable/src/com/github/svyaz/javalearning/myhashtable/MyHashTable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyHashTable/test/com/github/svyaz/javalearning/myhashtable/MyHashTableTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SinglyLinkedList/SinglyLinkedList.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SinglyLinkedList/src/com/github/svyaz/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SinglyLinkedList/src/com/github/svyaz/javalearning/singlylinkedlist/ListItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SinglyLinkedList/src/com/github/svyaz/javalearning/singlylinkedlist/SinglyLinkedList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SinglyLinkedList/test/com/github/svyaz/javalearning/singlylinkedlist/SinglyLinkedListTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/MyArrayList/META-INF/MyArrayList.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/MyHashTable/META-INF/MyHashTable.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <list id="b2f13ac0-efe3-4124-a0bf-f90e8de5dc6a" name="Revert &quot;Задача ArrayListHome.&quot;" comment="Revert &quot;Задача ArrayListHome.&quot;" />
     <list id="6004cf5f-004c-47b8-8424-11b9c6241f5f" name="Задача ArrayListHome." comment="Задача ArrayListHome." />
@@ -45,11 +29,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
+            <state relative-caret-position="432">
               <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor>
+                <caret column="36" selection-start-column="36" selection-end-column="36" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -113,7 +109,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Reflection/src/com/github/svyaz/javalearning/reflection/Cat.java" />
         <option value="$PROJECT_DIR$/Reflection/src/com/github/svyaz/javalearning/reflection/Dog.java" />
         <option value="$PROJECT_DIR$/Reflection/src/com/github/svyaz/Main.java" />
         <option value="$PROJECT_DIR$/InputOutput/src/com/github/svyaz/Main.java" />
@@ -164,6 +159,7 @@
         <option value="$PROJECT_DIR$/Vector/test/VectorTest.java" />
         <option value="$PROJECT_DIR$/Vector/test/com/github/svyaz/javalearning/vector/VectorTest.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -380,7 +376,7 @@
       <workItem from="1570381759400" duration="2171000" />
       <workItem from="1570459641558" duration="1979000" />
       <workItem from="1570466893451" duration="2945000" />
-      <workItem from="1570469960454" duration="1383000" />
+      <workItem from="1570469960454" duration="1623000" />
     </task>
     <task id="LOCAL-00177" summary="Tree - в TreeNode метод equals переделан через Objects.equals.">
       <created>1552054169560</created>
@@ -761,7 +757,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10678000" />
+    <option name="totallyTimeSpent" value="10918000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -791,7 +787,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32914925" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49791667" weight="0.27475592" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.74616456" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.29846582" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50143063" side_tool="true" weight="0.33891213" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32914925" />
       <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.3292517" />
@@ -1206,14 +1202,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ArrayListHome/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -1293,8 +1281,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
+        <state relative-caret-position="432">
           <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="36" selection-start-column="36" selection-end-column="36" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
